@@ -31,6 +31,8 @@
             padding: 1.5rem 0;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
         }
 
         header h1 {
@@ -48,6 +50,8 @@
         .nav {
             background-color: var(--secondary);
             padding: 1rem 0;
+            position: relative;
+            z-index: 15;
         }
 
         .nav-container {
@@ -91,8 +95,8 @@
             gap: 30px;
         }
 
-        /* Sidebar navigation */
-        nav {
+        /* Sidebar navigation - Fixed positioning issues */
+        .sidebar-nav {
             flex-basis: 200px;
             background-color: #fff;
             padding: 15px;
@@ -101,9 +105,10 @@
             position: sticky;
             top: 20px;
             height: fit-content;
+            z-index: 5;
         }
 
-        nav button {
+        .sidebar-nav button {
             display: block;
             padding: 10px 15px;
             margin-bottom: 10px;
@@ -117,11 +122,11 @@
             transition: background-color 0.2s, color 0.2s;
         }
 
-        nav button:hover {
+        .sidebar-nav button:hover {
             background-color: #e9ecef;
         }
 
-        nav button.active {
+        .sidebar-nav button.active {
             background-color: var(--accent);
             color: #fff;
             font-weight: bold;
@@ -244,7 +249,7 @@
                 gap: 15px;
             }
             
-            nav {
+            .sidebar-nav {
                 flex-basis: auto;
                 width: 100%;
                 position: static;
@@ -253,7 +258,7 @@
                 gap: 10px;
             }
             
-            nav button {
+            .sidebar-nav button {
                 width: auto;
                 flex-grow: 1;
             }
@@ -291,7 +296,7 @@
 
     <div class="main-container">
         <!-- Sidebar navigation for calculus topics -->
-        <nav>
+        <nav class="sidebar-nav">
             <button onclick="showSection('limits')" class="active">Limits</button>
             <button onclick="showSection('continuity')">Continuity</button>
             <button onclick="showSection('differentiation')">Differentiation</button>
@@ -555,7 +560,7 @@
             });
 
             // Remove active class from all navigation buttons
-            document.querySelectorAll('nav button').forEach(button => {
+            document.querySelectorAll('.sidebar-nav button').forEach(button => {
                 button.classList.remove('active');
             });
 
@@ -566,7 +571,7 @@
             }
 
             // Add active class to the clicked navigation button
-            const activeButton = document.querySelector(`nav button[onclick="showSection('${sectionId}')"]`);
+            const activeButton = document.querySelector(`.sidebar-nav button[onclick="showSection('${sectionId}')"]`);
             if (activeButton) {
                 activeButton.classList.add('active');
             }
