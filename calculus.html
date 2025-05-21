@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculus Practice Questions - Math GRE Prep</title>
-    <!-- MathJax CDN for LaTeX rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
     <style>
         :root {
             --primary: #4a6fa5;
@@ -481,15 +479,323 @@
             <!-- Continuity Section -->
             <div id="continuity-section" class="topic-section" style="display: none;">
                 <h2>Continuity Practice Questions</h2>
-                <p>Practice questions for Continuity will go here.</p>
-                <!-- Add your Continuity questions here -->
+
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> Is the function \(f(x) = \frac{x^2 - 4}{x - 2}\) continuous at \(x = 2\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont1')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont1" class="explanation">
+                        <p>The function is undefined at \(x = 2\) because the denominator is zero. Therefore, it is not continuous at \(x = 2\).</p>
+                        <p><strong>Answer: B) No</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>2.</strong> What value of \(k\) makes the function \(f(x) = \begin{cases} 2x + 1 & x \neq 1 \\ k & x = 1 \end{cases}\) continuous at \(x = 1\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 1</div>
+                        <div class="option" data-value="B">B) 2</div>
+                        <div class="option" data-value="C">C) 3</div>
+                        <div class="option" data-value="D">D) 4</div>
+                        <div class="option" data-value="E">E) Undefined</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont2')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont2" class="explanation">
+                        <p>For continuity at \(x = 1\), we need \(\lim_{x \to 1} f(x) = f(1)\). \(\lim_{x \to 1} (2x + 1) = 2(1) + 1 = 3\). \(f(1) = k\). Thus, we need \(k = 3\).</p>
+                        <p><strong>Answer: C) 3</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>3.</strong> Is the function \(f(x) = \sqrt{x - 4}\) continuous at \(x = 4\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont3')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont3" class="explanation">
+                        <p>The square root function is continuous on its domain. The domain of \(\sqrt{x - 4}\) is \(x - 4 \ge 0\), which means \(x \ge 4\). Since \(x=4\) is in the domain, the function is continuous at \(x = 4\).</p>
+                        <p><strong>Answer: A) Yes</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>4.</strong> Is the function \(f(x) = \frac{1}{x - 5}\) continuous at \(x = 5\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont4')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont4" class="explanation">
+                        <p>The function is undefined at \(x = 5\) because the denominator is zero. Therefore, it is not continuous at \(x = 5\).</p>
+                        <p><strong>Answer: B) No</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>5.</strong> Is the function \(f(x) = \cos(x)\) continuous for all real numbers?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont5')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont5" class="explanation">
+                        <p>The cosine function is a fundamental trigonometric function and is continuous for all real numbers.</p>
+                        <p><strong>Answer: A) Yes</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>6.</strong> Is the function \(f(x) = \frac{x}{|x|}\) continuous at \(x = 0\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont6')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont6" class="explanation">
+                        <p>The function is undefined at \(x = 0\) because the denominator is zero. Therefore, it is not continuous at \(x = 0\).</p>
+                        <p><strong>Answer: B) No</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>7.</strong> Is the function \(f(x) = e^{x}\) continuous for all real numbers?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont7')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont7" class="explanation">
+                        <p>The exponential function \(e^x\) is continuous for all real numbers.</p>
+                        <p><strong>Answer: A) Yes</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>8.</strong> Is the function \(f(x) = \frac{1}{x}\) continuous at \(x = 0\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont8')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont8" class="explanation">
+                        <p>The function is undefined at \(x = 0\) because the denominator is zero. Therefore, it is not continuous at \(x = 0\).</p>
+                        <p><strong>Answer: B) No</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>9.</strong> Is the function \(f(x) = x^2 + 2x\) continuous for all real numbers?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont9')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont9" class="explanation">
+                        <p>Polynomial functions, including \(x^2 + 2x\), are continuous for all real numbers.</p>
+                        <p><strong>Answer: A) Yes</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>10.</strong> Is the function \(f(x) = \tan(x)\) continuous at \(x = \pi/2\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont10')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont10" class="explanation">
+                        <p>The tangent function is undefined at \(x = \pi/2\) because \(\cos(\pi/2) = 0\). Therefore, it is not continuous at \(x = \pi/2\).</p>
+                        <p><strong>Answer: B) No</strong></p>
+                    </div>
+                </div>
             </div>
 
             <!-- Differentiation Section -->
             <div id="differentiation-section" class="topic-section" style="display: none;">
                 <h2>Differentiation Practice Questions</h2>
-                <p>Practice questions for Differentiation will go here.</p>
-                <!-- Add your Differentiation questions here -->
+
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> Find the derivative of \(f(x) = x^3 - 4x^2 + 5x - 7\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(3x^2 - 4x + 5\)</div>
+                        <div class="option" data-value="B">B) \(3x^2 - 8x + 5\)</div>
+                        <div class="option" data-value="C">C) \(x^2 - 8x + 5\)</div>
+                        <div class="option" data-value="D">D) \(3x^3 - 8x + 5\)</div>
+                        <div class="option" data-value="E">E) \(3x^2 - 8x - 7\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff1')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff1" class="explanation">
+                        <p>Using the power rule, \(\frac{d}{dx}(x^n) = nx^{n-1}\): \(f'(x) = 3x^{3-1} - 4(2x^{2-1}) + 5(1x^{1-1}) - 0 = 3x^2 - 8x + 5\).</p>
+                        <p><strong>Answer: B) \(3x^2 - 8x + 5\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>2.</strong> What is the derivative of \(g(x) = \sin(5x)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\cos(5x)\)</div>
+                        <div class="option" data-value="B">B) \(5\sin(5x)\)</div>
+                        <div class="option" data-value="C">C) \(5\cos(5x)\)</div>
+                        <div class="option" data-value="D">D) \(-\cos(5x)\)</div>
+                        <div class="option" data-value="E">E) \(\frac{1}{5}\cos(5x)\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff2')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff2" class="explanation">
+                        <p>Using the chain rule, \(\frac{d}{dx}(\sin(u)) = \cos(u) \cdot \frac{du}{dx}\). Here \(u = 5x\), so \(\frac{du}{dx} = 5\). \(g'(x) = \cos(5x) \cdot 5 = 5\cos(5x)\).</p>
+                        <p><strong>Answer: C) \(5\cos(5x)\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>3.</strong> Find the derivative of \(h(x) = e^{x^2}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(e^{x^2}\)</div>
+                        <div class="option" data-value="B">B) \(2xe^{x^2}\)</div>
+                        <div class="option" data-value="C">C) \(x e^{x^2}\)</div>
+                        <div class="option" data-value="D">D) \(e^{2x}\)</div>
+                        <div class="option" data-value="E">E) \(e^{x^2+1}\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff3')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff3" class="explanation">
+                        <p>Using the chain rule, \(\frac{d}{dx}(e^u) = e^u \cdot \frac{du}{dx}\). Here \(u = x^2\), so \(\frac{du}{dx} = 2x\). \(h'(x) = e^{x^2} \cdot 2x = 2xe^{x^2}\).</p>
+                        <p><strong>Answer: B) \(2xe^{x^2}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>4.</strong> Find the derivative of \(k(x) = \ln(x^2 + 1)\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{2x}{x^2 + 1}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{1}{x^2 + 1}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{1}{x}\)</div>
+                        <div class="option" data-value="D">D) \(2x \ln(x^2 + 1)\)</div>
+                        <div class="option" data-value="E">E) \(\frac{x^2 + 1}{x}\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff4')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff4" class="explanation">
+                        <p>Using the chain rule, \(\frac{d}{dx}(\ln(u)) = \frac{1}{u} \cdot \frac{du}{dx}\). Here \(u = x^2 + 1\), so \(\frac{du}{dx} = 2x\). \(k'(x) = \frac{1}{x^2 + 1} \cdot 2x = \frac{2x}{x^2 + 1}\).</p>
+                        <p><strong>Answer: A) \(\frac{2x}{x^2 + 1}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>5.</strong> Find the derivative of \(m(x) = \frac{x}{x + 1}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{1}{(x + 1)^2}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{-1}{(x + 1)^2}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{2x + 1}{(x + 1)^2}\)</div>
+                        <div class="option" data-value="D">D) \(\frac{1}{(x + 1)^2}\)</div>
+                        <div class="option" data-value="E">E) \(\frac{x}{(x + 1)^2}\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff5')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff5" class="explanation">
+                        <p>Using the quotient rule, \(\frac{d}{dx}(\frac{u}{v}) = \frac{u'v - uv'}{v^2}\). Here \(u = x\), \(v = x + 1\). \(u' = 1\), \(v' = 1\). \(m'(x) = \frac{1(x + 1) - x(1)}{(x + 1)^2} = \frac{x + 1 - x}{(x + 1)^2} = \frac{1}{(x + 1)^2}\).</p>
+                        <p><strong>Answer: D) \(\frac{1}{(x + 1)^2}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>6.</strong> What is the derivative of \(p(x) = \tan(x^2)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\sec^2(x^2)\)</div>
+                        <div class="option" data-value="B">B) \(2x\sec^2(x^2)\)</div>
+                        <div class="option" data-value="C">C) \(\sec(x^2)\tan(x^2)\)</div>
+                        <div class="option" data-value="D">D) \(2x\sec(x^2)\tan(x^2)\)</div>
+                        <div class="option" data-value="E">E) \(\frac{1}{\cos^2(x^2)}\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff6')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff6" class="explanation">
+                        <p>Using the chain rule, \(\frac{d}{dx}(\tan(u)) = \sec^2(u) \cdot \frac{du}{dx}\). Here \(u = x^2\), so \(\frac{du}{dx} = 2x\). \(p'(x) = \sec^2(x^2) \cdot 2x = 2x\sec^2(x^2)\).</p>
+                        <p><strong>Answer: B) \(2x\sec^2(x^2)\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>7.</strong> Find the derivative of \(q(x) = \sqrt{x^3 + 1}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{3x^2}{\sqrt{x^3 + 1}}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{1}{2\sqrt{x^3 + 1}}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{3x^2}{2\sqrt{x^3 + 1}}\)</div>
+                        <div class="option" data-value="D">D) \(\frac{2}{3\sqrt{x^3 + 1}}\)</div>
+                        <div class="option" data-value="E">E) \(3x^2\sqrt{x^3 + 1}\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff7')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff7" class="explanation">
+                        <p>Rewrite as \(q(x) = (x^3 + 1)^{1/2}\). Using the chain rule, \(\frac{d}{dx}(u^n) = nu^{n-1} \cdot \frac{du}{dx}\). Here \(u = x^3 + 1\), so \(\frac{du}{dx} = 3x^2\). \(q'(x) = \frac{1}{2}(x^3 + 1)^{-1/2} \cdot 3x^2 = \frac{3x^2}{2\sqrt{x^3 + 1}}\).</p>
+                        <p><strong>Answer: C) \(\frac{3x^2}{2\sqrt{x^3 + 1}}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>8.</strong> What is the derivative of \(r(x) = x \cos(x)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\sin(x)\)</div>
+                        <div class="option" data-value="B">B) \(\cos(x)\)</div>
+                        <div class="option" data-value="C">C) \(\cos(x) + x\sin(x)\)</div>
+                        <div class="option" data-value="D">D) \(\cos(x) - x\sin(x)\)</div>
+                        <div class="option" data-value="E">E) \(\sin(x) - \cos(x)\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff8')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff8" class="explanation">
+                        <p>Using the product rule, \(\frac{d}{dx}(uv) = u'v + uv'\). Here \(u = x\), \(v = \cos(x)\). \(u' = 1\), \(v' = -\sin(x)\). \(r'(x) = 1 \cdot \cos(x) + x \cdot (-\sin(x)) = \cos(x) - x\sin(x)\).</p>
+                        <p><strong>Answer: D) \(\cos(x) - x\sin(x)\)</strong></p>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>9.</strong> Find the derivative of \(s(x) = \frac{\ln(x)}{x}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{1 - \ln(x)}{x^2}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{1 + \ln(x)}{x^2}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{1}{x} - 1\)</div>
+                        <div class="option" data-value="D">D) \(\frac{1}{x}\)</div>
+                        <div class="option" data-value="E">E) \(\ln(x) - 1\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff9')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff9" class="explanation">
+                        <p>Using the quotient rule, \(\frac{d}{dx}(\frac{u}{v}) = \frac{u'v - uv'}{v^2}\). Here \(u = \ln(x)\), \(v = x\). \(u' = \frac{1}{x}\), \(v' = 1\). \(s'(x) = \frac{\frac{1}{x}(x) - \ln(x)(1)}{x^2} = \frac{1 - \ln(x)}{x^2}\).</p>
+                        <p><strong>Answer: A) \(\frac{1 - \ln(x)}{x^2}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>10.</strong> What is the derivative of \(t(x) = e^{-2x}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(e^{-2x}\)</div>
+                        <div class="option" data-value="B">B) \(2e^{-2x}\)</div>
+                        <div class="option" data-value="C">C) \(-2e^{-2x}\)</div>
+                        <div class="option" data-value="D">D) \(-\frac{1}{2}e^{-2x}\)</div>
+                        <div class="option" data-value="E">E) \(-e^{-2x}\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff10')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff10" class="explanation">
+                        <p>Using the chain rule, \(\frac{d}{dx}(e^u) = e^u \cdot \frac{du}{dx}\). Here \(u = -2x\), so \(\frac{du}{dx} = -2\). \(t'(x) = e^{-2x} \cdot (-2) = -2e^{-2x}\).</p>
+                        <p><strong>Answer: C) \(-2e^{-2x}\)</strong></p>
+                    </div>
+                </div>
             </div>
 
             <!-- Integration Section -->
