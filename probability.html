@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probability & Statistics - GRE Math Subject Test Questions</title>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .question-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .question-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .question-difficulty {
+            background-color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .question-body {
+            padding: 1.5rem;
+        }
+        
+        .question-content {
+            margin-bottom: 2rem;
+        }
+        
+        .options {
+            padding-left: 1.5rem;
+        }
+        
+        .option {
+            margin-bottom: 0.75rem;
+        }
+        
+        .solution {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .solution-toggle {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .filter-section {
+            background-color: #e9ecef;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .filter-select {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ced4da;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 0.5rem;
+        }
+        
+        .pagination-button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            background-color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-button:hover,
+        .pagination-button.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .math {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <!-- MathJax for rendering math equations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Probability & Statistics</h1>
+        <p class="subtitle">GRE Math Subject Test Questions</p>
+    </header>
+    
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section class="filter-section">
+            <h2>Filter Probability & Statistics Questions</h2>
+            <div class="filter-controls">
+                <select class="filter-select" id="difficulty-filter">
+                    <option value="all">All Difficulties</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                
+                <select class="filter-select" id="topic-filter">
+                    <option value="all">All Probability & Statistics Topics</option>
+                    <option value="probability">Probability</option>
+                    <option value="distributions">Probability Distributions</option>
+                    <option value="expectedvalue">Expected Value</option>
+                    <option value="inference">Statistical Inference</option>
+                    <option value="combinatorics">Combinatorics</option>
+                </select>
+                
+                <select class="filter-select" id="year-filter">
+                    <option value="all">All Years</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+        </section>
+        
+        <section class="questions-section">
+            <!-- Question 1 -->
+            <div class="question-card" data-difficulty="easy" data-topic="probability" data-year="2023">
+                <div class="question-header">
+                    <h3>Question #1</h3>
+                    <span class="question-difficulty">Easy</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>A fair six-sided die is rolled twice. What is the probability that the sum of the two rolls is 7?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> \( \frac{1}{12} \)</div>
+                            <div class="option"><strong>(B)</strong> \( \frac{1}{6} \)</div>
+                            <div class="option"><strong>(C)</strong> \( \frac{5}{36} \)</div>
+                            <div class="option"><strong>(D)</strong> \( \frac{1}{4} \)</div>
+                            <div class="option"><strong>(E)</strong> \( \frac{1}{3} \)</div>
+                        </div>
+                    </div>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden"></div>
+                </div>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="question-card" data-difficulty="medium" data-topic="distributions" data-year="2022">
+                <div class="question-header">
+                    <h3>Question #2</h3>
+                    <span class="question-difficulty">Medium</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>A random variable \( X \) follows a binomial distribution with parameters \( n = 5 \) and \( p = 0.4 \). What is the probability that \( X = 2 \)?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> \( 0.2304 \)</div>
+                            <div class="option"><strong>(B)</strong> \( 0.3456 \)</div>
+                            <div class="option"><strong>(C)</strong> \( 0.0768 \)</div>
+                            <div class="option"><strong>(D)</strong> \( 0.4096 \)</div>
+                            <div class="option"><strong>(E)</strong> \( 0.1536 \)</div>
+                        </div>
+                    </div>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden"></div>
+                </div>
+            </div>
+            
+            <!-- Question 3 -->
+            <div class="question-card" data-difficulty="medium" data-topic="expectedvalue" data-year="2023">
+                <div class="question-header">
+                    <h3>Question #3</h3>
+                    <span class="question-difficulty">Medium</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>Let \( X \) be a continuous random variable with probability density function \( f(x) = 2x \) for \( 0 \leq x \leq 1 \), and \( 0 \) otherwise. What is the expected value \( E(X) \)?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> \( \frac{1}{3} \)</div>
+                            <div class="option"><strong>(B)</strong> \( \frac{1}{2} \)</div>
+                            <div class="option"><strong>(C)</strong> \( \frac{2}{3} \)</div>
+                            <div class="option"><strong>(D)</strong> \( 1 \)</div>
+                            <div class="option"><strong>(E)</strong> \( \frac{3}{2} \)</div>
+                        </div>
+                    </div>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden"></div>
+                </div>
+            </div>
+            
+            <!-- Question 4 -->
+            <div class="question-card" data-difficulty="hard" data-topic="inference" data-year="2021">
+                <div class="question-header">
+                    <h3>Question #4</h3>
+                    <span class="question-difficulty">Hard</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>A sample of size \( n = 16 \) is drawn from a normal population with unknown mean \( \mu \) and variance \( \sigma^2 = 25 \). If the sample mean is \( \bar{x} = 50 \), what is the 95% confidence interval for \( \mu \)?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> \( (47.55, 52.45) \)</div>
+                            <div class="option"><strong>(B)</strong> \( (48.02, 51.98) \)</div>
+                            <div class="option"><strong>(C)</strong> \( (46.75, 53.25) \)</div>
+                            <div class="option"><strong>(D)</strong> \( (47.02, 52.98) \)</div>
+                            <div class="option"><strong>(E)</strong> \( (48.55, 51.45) \)</div>
+                        </div>
+                    </div>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden"></div>
+                </div>
+            </div>
+            
+            <!-- Question 5 -->
+            <div class="question-card" data-difficulty="hard" data-topic="combinatorics" data-year="2024">
+                <div class="question-header">
+                    <h3>Question #5</h3>
+                    <span class="question-difficulty">Hard</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>In how many ways can 5 distinct books be arranged on a shelf if 2 specific books must be adjacent?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> \( 120 \)</div>
+                            <div class="option"><strong>(B)</strong> \( 240 \)</div>
+                            <div class="option"><strong>(C)</strong> \( 360 \)</div>
+                            <div class="option"><strong>(D)</strong> \( 480 \)</div>
+                            <div class="option"><strong>(E)</strong> \( 720 \)</div>
+                        </div>
+                    </div>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden"></div>
+                </div>
+            </div>
+            
+            <!-- Question 6 -->
+            <div class="question-card" data-difficulty="medium" data-topic="probability" data-year="2022">
+                <div class="question-header">
+                    <h3>Question #6</h3>
+                    <span class="question-difficulty">Medium</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>Two cards are drawn without replacement from a standard deck of 52 cards. What is the probability that both cards are aces?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> \( \frac{1}{221} \)</div>
+                            <div class="option"><strong>(B)</strong> \( \frac{1}{169} \)</div>
+                            <div class="option"><strong>(C)</strong> \( \frac{2}{221} \)</div>
+                            <div class="option"><strong>(D)</strong> \( \frac{1}{26} \)</div>
+                            <div class="option"><strong>(E)</strong> \( \frac{4}{663} \)</div>
+                        </div>
+                    </div>
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden"></div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="pagination">
+            <button class="pagination-button active">1</button>
+            <button class="pagination-button">2</button>
+            <button class="pagination-button">3</button>
+            <button class="pagination-button">Next →</button>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        // Toggle solution visibility
+        function toggleSolution(button) {
+            const solution = button.nextElementSibling;
+            if (solution.classList.contains('hidden')) {
+                solution.classList.remove('hidden');
+                button.textContent = 'Hide Solution';
+            } else {
+                solution.classList.add('hidden');
+                button.textContent = 'Show Solution';
+            }
+        }
+        
+        // Filter functionality
+        const difficultyFilter = document.getElementById('difficulty-filter');
+        const topicFilter = document.getElementById('topic-filter');
+        const yearFilter = document.getElementById('year-filter');
+        const questions = document.querySelectorAll('.question-card');
+        
+        function applyFilters() {
+            const difficultyValue = difficultyFilter.value;
+            const topicValue = topicFilter.value;
+            const yearValue = yearFilter.value;
+            
+            questions.forEach(question => {
+                const matchesDifficulty = difficultyValue === 'all' || question.dataset.difficulty === difficultyValue;
+                const matchesTopic = topicValue === 'all' || question.dataset.topic === topicValue;
+                const matchesYear = yearValue === 'all' || question.dataset.year === yearValue;
+                
+                if (matchesDifficulty && matchesTopic && matchesYear) {
+                    question.style.display = 'block';
+                } else {
+                    question.style.display = 'none';
+                }
+            });
+        }
+        
+        difficultyFilter.addEventListener('change', applyFilters);
+        topicFilter.addEventListener('change', applyFilters);
+        yearFilter.addEventListener('change', applyFilters);
+    </script>
+</body>
+</html>
