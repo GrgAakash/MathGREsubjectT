@@ -179,13 +179,6 @@
     </style>
 </head>
 <body>
-    <header>
-        <a href="index.html" style="text-decoration: none; color: inherit;">
-            <h1>GRE Math Subject Test Questions</h1>
-        </a>
-        <p class="subtitle">Organized by category for easier studying</p>
-    </header>
-
     <nav>
         <button onclick="showSection('limits')" class="active">Limits</button>
         <button onclick="showSection('continuity')">Continuity</button>
@@ -195,7 +188,7 @@
     </nav>
 
     <div class="main-content">
-        <h2>Calculus Practice Questions</h2>
+        <h1>Calculus Practice Questions</h1>
 
         <!-- Limits Section -->
         <div id="limits-section" class="topic-section">
@@ -369,6 +362,35 @@
                 </div>
             </div>
         </div>
+
+        <!-- Continuity Section -->
+        <div id="continuity-section" class="topic-section" style="display: none;">
+            <h2>Continuity Practice Questions</h2>
+            <p>Practice questions for Continuity will go here.</p>
+            <!-- Add your Continuity questions here -->
+        </div>
+
+        <!-- Differentiation Section -->
+        <div id="differentiation-section" class="topic-section" style="display: none;">
+            <h2>Differentiation Practice Questions</h2>
+            <p>Practice questions for Differentiation will go here.</p>
+            <!-- Add your Differentiation questions here -->
+        </div>
+
+        <!-- Integration Section -->
+        <div id="integration-section" class="topic-section" style="display: none;">
+            <h2>Integration Practice Questions</h2>
+            <p>Practice questions for Integration will go here.</p>
+            <!-- Add your Integration questions here -->
+        </div>
+
+        <!-- Series of Functions Section -->
+        <div id="series-section" class="topic-section" style="display: none;">
+            <h2>Series of Functions Practice Questions</h2>
+            <p>Practice questions for Series of Functions will go here.</p>
+            <!-- Add your Series of Functions questions here -->
+        </div>
+
     </div>
 
     <script>
@@ -409,6 +431,37 @@
                 });
             });
         });
+
+        // Handle section switching
+        function showSection(sectionId) {
+            // Hide all topic sections
+            document.querySelectorAll('.topic-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Remove active class from all navigation buttons
+            document.querySelectorAll('nav button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show the selected section
+            const selectedSection = document.getElementById(sectionId + '-section');
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+
+            // Add active class to the clicked navigation button
+            const activeButton = document.querySelector(`nav button[onclick="showSection('${sectionId}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
+
+        // Initially show the Limits section on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('limits');
+        });
+
     </script>
 </body>
 </html>
