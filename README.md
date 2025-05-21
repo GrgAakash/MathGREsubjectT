@@ -1,1 +1,1 @@
-Just a Personal Website for MathGRE prep
+Website for MathGRE prep based on my taste of questions: https://grgaakash.github.io/MathGREsubjectT/
