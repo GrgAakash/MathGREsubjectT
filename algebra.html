@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abstract Algebra - GRE Math Subject Test Questions</title>
+    <title>Algebra Practice Questions - Math GRE Prep</title>
+    <!-- MathJax CDN for LaTeX rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
     <style>
         :root {
             --primary: #4a6fa5;
@@ -12,157 +14,220 @@
             --light: #f8f9fa;
             --dark: #212529;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
         }
-        
+
+        /* Header styles matching main site */
         header {
             background-color: var(--primary);
             color: white;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
         }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-        
-        h1 {
+
+        header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
-        
+
         .subtitle {
             opacity: 0.9;
             margin-top: 0.5rem;
+            font-size: 1rem;
         }
-        
+
+        /* Navigation styles matching main site */
         .nav {
             background-color: var(--secondary);
             padding: 1rem 0;
+            position: relative;
+            z-index: 15;
         }
-        
+
         .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-        
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-        
+
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
             color: white;
             text-decoration: none;
         }
-        
-        .question-card {
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Main content container */
+        .main-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Sidebar navigation */
+        .sidebar-nav {
+            flex-basis: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            z-index: 5;
+        }
+
+        .sidebar-nav button {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar-nav button:hover {
+            background-color: #e9ecef;
+        }
+
+        .sidebar-nav button.active {
+            background-color: var(--accent);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex-grow: 1;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+
+        .question {
             background: white;
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
         }
-        
-        .question-header {
-            background-color: var(--secondary);
-            color: white;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        .question p {
+            margin: 10px 0;
+            font-size: 1.1em;
         }
-        
-        .question-difficulty {
-            background-color: var(--accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
-        .question-body {
-            padding: 1.5rem;
-        }
-        
-        .question-content {
-            margin-bottom: 2rem;
-        }
-        
+
         .options {
-            padding-left: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
         }
-        
+
         .option {
-            margin-bottom: 0.75rem;
-        }
-        
-        .solution {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #dee2e6;
-        }
-        
-        .solution-toggle {
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 15px;
             cursor: pointer;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            transition: background 0.2s, border 0.2s;
+            font-size: 1em;
         }
-        
-        .hidden {
+
+        .option:hover {
+            background: #e9ecef;
+            border-color: #aaa;
+        }
+
+        .option.selected-correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .option.selected-wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
             display: none;
         }
-        
-        .filter-section {
-            background-color: #e9ecef;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
+
+        .feedback.correct {
+            color: #28a745;
+            display: block;
         }
-        
-        .filter-controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
+
+        .feedback.wrong {
+            color: #dc3545;
+            display: block;
         }
-        
-        .filter-select {
-            padding: 0.5rem;
-            border-radius: 4px;
-            border: 1px solid #ced4da;
+
+        .toggle-btn {
+            cursor: pointer;
+            color: var(--accent);
+            text-decoration: underline;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
         }
-        
+
+        .toggle-btn:hover {
+            color: #228B7E;
+        }
+
+        .explanation {
+            display: none;
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent);
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        /* Footer styles matching main site */
         footer {
             background-color: var(--primary);
             color: white;
@@ -170,64 +235,55 @@
             padding: 1.5rem 0;
             margin-top: 3rem;
         }
-        
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin: 2rem 0;
-            gap: 0.5rem;
-        }
-        
-        .pagination-button {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--secondary);
-            color: var(--secondary);
-            background-color: white;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .pagination-button:hover,
-        .pagination-button.active {
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .math {
-            font-family: 'Times New Roman', Times, serif;
-        }
-        
+
+        /* Responsive design */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
                 gap: 1rem;
             }
             
-            .filter-controls {
+            .main-container {
                 flex-direction: column;
+                padding: 10px;
+                gap: 15px;
+            }
+            
+            .sidebar-nav {
+                flex-basis: auto;
+                width: 100%;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .sidebar-nav button {
+                width: auto;
+                flex-grow: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .question {
+                padding: 15px;
+            }
+            .option {
+                padding: 8px 12px;
             }
         }
     </style>
-    <!-- MathJax for rendering math equations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [['$','$'], ['\\(','\\)']],
-                processEscapes: true
-            }
-        });
-    </script>
 </head>
 <body>
+    <!-- Header matching main site -->
     <header>
-        <h1>Abstract Algebra</h1>
-        <p class="subtitle">GRE Math Subject Test Questions</p>
+        <h1>Algebra Practice Questions</h1>
+        <p class="subtitle">Master abstract algebra concepts with interactive practice</p>
     </header>
     
+    <!-- Navigation matching main site -->
     <nav class="nav">
-        <div class="container nav-container">
+        <div class="nav-container">
             <a href="index.html" class="logo">Math GRE Prep</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -237,291 +293,252 @@
             </div>
         </div>
     </nav>
-    
-    <main class="container">
-        <section class="filter-section">
-            <h2>Filter Abstract Algebra Questions</h2>
-            <div class="filter-controls">
-                <select class="filter-select" id="difficulty-filter">
-                    <option value="all">All Difficulties</option>
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-                
-                <select class="filter-select" id="topic-filter">
-                    <option value="all">All Algebra Topics</option>
-                    <option value="groups">Groups</option>
-                    <option value="rings">Rings</option>
-                    <option value="fields">Fields</option>
-                    <option value="modules">Modules</option>
-                    <option value="galois">Galois Theory</option>
-                </select>
-                
-                <select class="filter-select" id="year-filter">
-                    <option value="all">All Years</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                </select>
-            </div>
-        </section>
-        
-        <section class="questions-section">
-            <!-- Question 1 -->
-            <div class="question-card" data-difficulty="easy" data-topic="groups" data-year="2023">
-                <div class="question-header">
-                    <h3>Question #1</h3>
-                    <span class="question-difficulty">Easy</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>Which of the following sets with the operation of addition is a group?</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> The set of positive integers</div>
-                            <div class="option"><strong>(B)</strong> The set of integers</div>
-                            <div class="option"><strong>(C)</strong> The set of positive rational numbers</div>
-                            <div class="option"><strong>(D)</strong> The set of non-negative integers</div>
-                            <div class="option"><strong>(E)</strong> The set of even positive integers</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>A set with an operation forms a group if it satisfies four properties: closure, associativity, identity, and inverses.</p>
-                        <p>Consider each option:</p>
-                        <p><strong>(A)</strong> Positive integers are closed under addition and associative, but there is no identity (0 is not a positive integer) and no inverses (e.g., 1 has no inverse). Not a group.</p>
-                        <p><strong>(B)</strong> The integers are closed under addition, associative, have an identity (0), and every integer \( n \) has an inverse (\(-n\)). This is a group.</p>
-                        <p><strong>(C)</strong> Positive rational numbers are closed and associative, but there is no identity (0 is not positive) and no inverses. Not a group.</p>
-                        <p><strong>(D)</strong> Non-negative integers include 0, so there is an identity, but there are no inverses for non-zero elements (e.g., 1 has no inverse). Not a group.</p>
-                        <p><strong>(E)</strong> Even positive integers are closed and associative, but there is no identity (0 is not a positive integer) and no inverses. Not a group.</p>
-                        <p><strong>Answer: (B) The set of integers</strong></p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Question 2 -->
-            <div class="question-card" data-difficulty="medium" data-topic="rings" data-year="2022">
-                <div class="question-header">
-                    <h3>Question #2</h3>
-                    <span class="question-difficulty">Medium</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>In the ring \(\mathbb{Z}[x]\) of polynomials with integer coefficients, which of the following is a unit?</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> \( x \)</div>
-                            <div class="option"><strong>(B)</strong> \( 2x + 1 \)</div>
-                            <div class="option"><strong>(C)</strong> \( 1 \)</div>
-                            <div class="option"><strong>(D)</strong> \( x^2 + 1 \)</div>
-                            <div class="option"><strong>(E)</strong> \( 2 \)</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>A unit in a ring is an element that has a multiplicative inverse in the ring. In \(\mathbb{Z}[x]\), the units are polynomials \( p(x) \) such that there exists a polynomial \( q(x) \in \mathbb{Z}[x] \) with \( p(x)q(x) = 1 \).</p>
-                        <p>Since the product of two non-constant polynomials has degree at least 1, the units must be constant polynomials. Thus, we need \( p(x)q(x) = 1 \), where \( p(x) \) and \( q(x) \) are constant integers, say \( a \) and \( b \), such that \( ab = 1 \). In \(\mathbb{Z}\), the only integers with multiplicative inverses are \( \pm 1 \).</p>
-                        <p>Checking the options:</p>
-                        <p><strong>(A)</strong> \( x \) is not a constant polynomial, so it is not a unit.</p>
-                        <p><strong>(B)</strong> \( 2x + 1 \) has degree 1, so it is not a unit.</p>
-                        <p><strong>(C)</strong> \( 1 \) is a constant polynomial, and \( 1 \cdot 1 = 1 \), so it is a unit.</p>
-                        <p><strong>(D)</strong> \( x^2 + 1 \) has degree 2, so it is not a unit.</p>
-                        <p><strong>(E)</strong> \( 2 \) is a constant polynomial, but \( 2 \cdot q(x) = 1 \) has no solution in \(\mathbb{Z}[x]\) since \( \frac{1}{2} \notin \mathbb{Z} \).</p>
-                        <p><strong>Answer: (C) \( 1 \)</strong></p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Question 3 -->
-            <div class="question-card" data-difficulty="medium" data-topic="groups" data-year="2023">
-                <div class="question-header">
-                    <h3>Question #3</h3>
-                    <span class="question-difficulty">Medium</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>Let \( G \) be a group of order 15. Which of the following must be true?</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> \( G \) is cyclic</div>
-                            <div class="option"><strong>(B)</strong> \( G \) is abelian but not cyclic</div>
-                            <div class="option"><strong>(C)</strong> \( G \) has a subgroup of order 6</div>
-                            <div class="option"><strong>(D)</strong> \( G \) is non-abelian</div>
-                            <div class="option"><strong>(E)</strong> \( G \) has no elements of order 5</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>By Cauchy's theorem, since 15 = 3 × 5, \( G \) has elements of orders 3 and 5. Consider the possible structures of a group of order 15. The number of Sylow 5-subgroups \( n_5 \) divides 15 and satisfies \( n_5 \equiv 1 \pmod{5} \). The divisors of 15 are 1, 3, 5, 15, and only 1 satisfies \( n_5 \equiv 1 \pmod{5} \). Thus, there is exactly one Sylow 5-subgroup, which is normal. Similarly, there is one Sylow 3-subgroup, which is normal.</p>
-                        <p>Since \( G \) has normal subgroups of orders 3 and 5, and their intersection is trivial (since 3 and 5 are coprime), \( G \) is isomorphic to the direct product of these subgroups, i.e., \( \mathbb{Z}/3\mathbb{Z} \times \mathbb{Z}/5\mathbb{Z} \), which is isomorphic to \( \mathbb{Z}/15\mathbb{Z} \) because 3 and 5 are coprime. Thus, \( G \) is cyclic.</p>
-                        <p>Checking the options:</p>
-                        <p><strong>(A)</strong> \( G \) is cyclic, which is true.</p>
-                        <p><strong>(B)</strong> If \( G \) is cyclic, it is abelian, but this option claims it is not cyclic, which is false.</p>
-                        <p><strong>(C)</strong> By Lagrange's theorem, the order of a subgroup must divide 15 (i.e., 1, 3, 5, 15). There is no subgroup of order 6.</p>
-                        <p><strong>(D)</strong> A cyclic group is abelian, so \( G \) is not non-abelian.</p>
-                        <p><strong>(E)</strong> Since \( G \) has an element of order 5 (by Cauchy's theorem), this is false.</p>
-                        <p><strong>Answer: (A) \( G \) is cyclic</strong></p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Question 4 -->
-            <div class="question-card" data-difficulty="hard" data-topic="fields" data-year="2021">
-                <div class="question-header">
-                    <h3>Question #4</h3>
-                    <span class="question-difficulty">Hard</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>Consider the field extension \(\mathbb{Q}(\sqrt{2}, \sqrt{3})\) over \(\mathbb{Q}\). What is the degree of this extension?</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> 2</div>
-                            <div class="option"><strong>(B)</strong> 3</div>
-                            <div class="option"><strong>(C)</strong> 4</div>
-                            <div class="option"><strong>(D)</strong> 6</div>
-                            <div class="option"><strong>(E)</strong> 8</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>The field extension \(\mathbb{Q}(\sqrt{2}, \sqrt{3})\) is the smallest field containing \(\mathbb{Q}\), \(\sqrt{2}\), and \(\sqrt{3}\). First, consider \(\mathbb{Q}(\sqrt{2})\) over \(\mathbb{Q}\). The minimal polynomial of \(\sqrt{2}\) over \(\mathbb{Q}\) is \( x^2 - 2 \), so \([\mathbb{Q}(\sqrt{2}) : \mathbb{Q}] = 2\).</p>
-                        <p>Next, adjoin \(\sqrt{3}\) to form \(\mathbb{Q}(\sqrt{2}, \sqrt{3})\). We need to find the degree \([\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}(\sqrt{2})]\). The minimal polynomial of \(\sqrt{3}\) over \(\mathbb{Q}\) is \( x^2 - 3 \). We check if \( x^2 - 3 \) is irreducible over \(\mathbb{Q}(\sqrt{2})\). Suppose \(\sqrt{3} \in \mathbb{Q}(\sqrt{2})\), so \(\sqrt{3} = a + b\sqrt{2}\) for \( a, b \in \mathbb{Q} \). Squaring both sides:</p>
-                        <p>\( 3 = a^2 + 2ab\sqrt{2} + 2b^2 \). Since \(\sqrt{2}\) is irrational, equate coefficients: \( a^2 + 2b^2 = 3 \) and \( 2ab = 0 \). If \( a = 0 \), then \( 2b^2 = 3 \), so \( b^2 = \frac{3}{2} \), but \( b \in \mathbb{Q} \), so \( b^2 \) cannot be \(\frac{3}{2}\). If \( b = 0 \), then \( a^2 = 3 \), so \( a = \sqrt{3} \), which is not rational. Thus, \(\sqrt{3} \notin \mathbb{Q}(\sqrt{2})\), and \( x^2 - 3 \) is irreducible over \(\mathbb{Q}(\sqrt{2})\), so \([\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}(\sqrt{2})] = 2\).</p>
-                        <p>The total degree is:</p>
-                        <p>\([\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}] = [\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}(\sqrt{2})] \cdot [\mathbb{Q}(\sqrt{2}) : \mathbb{Q}] = 2 \cdot 2 = 4\).</p>
-                        <p><strong>Answer: (C) 4</strong></p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Question 5 -->
-            <div class="question-card" data-difficulty="hard" data-topic="galois" data-year="2024">
-                <div class="question-header">
-                    <h3>Question #5</h3>
-                    <span class="question-difficulty">Hard</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>Let \( f(x) = x^3 - 3x + 1 \) over \(\mathbb{Q}\). What is the order of the Galois group of \( f(x) \)?</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> 1</div>
-                            <div class="option"><strong>(B)</strong> 2</div>
-                            <div class="option"><strong>(C)</strong> 3</div>
-                            <div class="option"><strong>(D)</strong> 6</div>
-                            <div class="option"><strong>(E)</strong> 9</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>The Galois group of a polynomial is the group of automorphisms of its splitting field over \(\mathbb{Q}\). First, determine if \( f(x) = x^3 - 3x + 1 \) is irreducible over \(\mathbb{Q}\). By the Rational Root Theorem, possible rational roots are \( \pm 1 \). Testing:</p>
-                        <p>\( f(1) = 1^3 - 3 \cdot 1 + 1 = 1 - 3 + 1 = -1 \neq 0 \)</p>
-                        <p>\( f(-1) = (-1)^3 - 3(-1) + 1 = -1 + 3 + 1 = 3 \neq 0 \)</p>
-                        <p>Since there are no rational roots and \( f(x) \) is cubic, it is irreducible over \(\mathbb{Q}\). Thus, the degree of the extension \(\mathbb{Q}(\alpha) : \mathbb{Q}\), where \(\alpha\) is a root, is 3.</p>
-                        <p>Next, find the splitting field. Compute the discriminant of \( f(x) \):</p>
-                        <p>For a cubic \( x^3 + ax^2 + bx + c \), the discriminant is:</p>
-                        <p>\( \Delta = 18abc - 4a^3c + a^2b^2 - 4b^3 - 27c^2 \)</p>
-                        <p>Here, \( a = 0 \), \( b = -3 \), \( c = 1 \):</p>
-                        <p>\( \Delta = 18 \cdot 0 \cdot (-3) \cdot 1 - 4 \cdot 0^3 \cdot 1 + 0^2 \cdot (-3)^2 - 4(-3)^3 - 27 \cdot 1^2 \)</p>
-                        <p>\( = 0 + 0 + 0 - 4(-27) - 27 = 108 - 27 = 81 \)</p>
-                        <p>Since \(\Delta = 81\) is a perfect square, the Galois group is a subgroup of \( A_3 \), the alternating group on 3 letters, which has order 3. The splitting field is obtained by adjoining the roots. Since \( f(x) \) is irreducible, the degree of the splitting field over \(\mathbb{Q}\) is at most 6 (since adjoining one root gives degree 3, and the quadratic factor may add degree 2). However, since \(\sqrt{\Delta} = 9 \in \mathbb{Q}\), the splitting field is \(\mathbb{Q}(\alpha)\), which has degree 3, and the Galois group is cyclic of order 3.</p>
-                        <p><strong>Answer: (C) 3</strong></p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Question 6 -->
-            <div class="question-card" data-difficulty="medium" data-topic="modules" data-year="2022">
-                <div class="question-header">
-                    <h3>Question #6</h3>
-                    <span class="question-difficulty">Medium</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>Let \( M \) be a \(\mathbb{Z}\)-module isomorphic to \(\mathbb{Z}/4\mathbb{Z} \oplus \mathbb{Z}/6\mathbb{Z}\). What is the number of elements in \( M \)?</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> 12</div>
-                            <div class="option"><strong>(B)</strong> 24</div>
-                            <div class="option"><strong>(C)</strong> 10</div>
-                            <div class="option"><strong>(D)</strong> 48</div>
-                            <div class="option"><strong>(E)</strong> 36</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>A \(\mathbb{Z}\)-module is an abelian group under addition. If \( M \cong \mathbb{Z}/4\mathbb{Z} \oplus \mathbb{Z}/6\mathbb{Z} \), we need to find the number of elements in \( M \).</p>
-                        <p>The order of a direct sum of finite groups is the product of their orders. The group \(\mathbb{Z}/4\mathbb{Z}\) has 4 elements, and \(\mathbb{Z}/6\mathbb{Z}\) has 6 elements.</p>
-                        <p>Thus, the number of elements in \( M \) is:</p>
-                        <p>\( |\mathbb{Z}/4\mathbb{Z}| \cdot |\mathbb{Z}/6\mathbb{Z}| = 4 \cdot 6 = 24 \)</p>
-                        <p><strong>Answer: (B) 24</strong></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <div class="pagination">
-            <button class="pagination-button active">1</button>
-            <button class="pagination-button">2</button>
-            <button class="pagination-button">3</button>
-            <button class="pagination-button">Next →</button>
-        </div>
-    </main>
-    
-    <footer>
-        <p>© 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
-    </footer>
 
-    <script>
-        // Toggle solution visibility
-        function toggleSolution(button) {
-            const solution = button.nextElementSibling;
-            if (solution.classList.contains('hidden')) {
-                solution.classList.remove('hidden');
-                button.textContent = 'Hide Solution';
-            } else {
-                solution.classList.add('hidden');
-                button.textContent = 'Show Solution';
-            }
-        }
-        
-        // Filter functionality
-        const difficultyFilter = document.getElementById('difficulty-filter');
-        const topicFilter = document.getElementById('topic-filter');
-        const yearFilter = document.getElementById('year-filter');
-        const questions = document.querySelectorAll('.question-card');
-        
-        function applyFilters() {
-            const difficultyValue = difficultyFilter.value;
-            const topicValue = topicFilter.value;
-            const yearValue = yearFilter.value;
-            
-            questions.forEach(question => {
-                const matchesDifficulty = difficultyValue === 'all' || question.dataset.difficulty === difficultyValue;
-                const matchesTopic = topicValue === 'all' || question.dataset.topic === topicValue;
-                const matchesYear = yearValue === 'all' || question.dataset.year === yearValue;
-                
-                if (matchesDifficulty && matchesTopic && matchesYear) {
-                    question.style.display = 'block';
-                } else {
-                    question.style.display = 'none';
-                }
-            });
-        }
-        
-        difficultyFilter.addEventListener('change', applyFilters);
-        topicFilter.addEventListener('change', applyFilters);
-        yearFilter.addEventListener('change', applyFilters);
-    </script>
-</body>
-</html>
+    <div class="main-container">
+        <!-- Sidebar navigation for algebra topics -->
+        <nav class="sidebar-nav">
+            <button onclick="showSection('group-theory')" class="active">Group Theory</button>
+            <button onclick="showSection('ring-theory')">Ring Theory</button>
+            <button onclick="showSection('field-theory')">Field Theory</button>
+        </nav>
+
+        <div class="main-content">
+            <!-- Group Theory Section -->
+            <div id="group-theory-section" class="topic-section">
+                <div class="question" data-correct="C">
+                    <p><strong>1.</strong> Which of the following is NOT a group under the given operation?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \((\mathbb{Z}, +)\) - integers under addition</div>
+                        <div class="option" data-value="B">B) \((\mathbb{Q}^*, \cdot)\) - nonzero rationals under multiplication</div>
+                        <div class="option" data-value="C">C) \((\mathbb{N}, +)\) - natural numbers under addition</div>
+                        <div class="option" data-value="D">D) \((S_3, \circ)\) - symmetric group on 3 elements</div>
+                        <div class="option" data-value="E">E) \((\mathbb{Z}_5^*, \cdot)\) - nonzero elements of \(\mathbb{Z}_5\) under multiplication</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp1')">Show/Hide Explanation</span></p>
+                    <div id="exp1" class="explanation">
+                        <p>For a set to be a group, it must have closure, associativity, identity, and inverses. \((\mathbb{N}, +)\) fails because natural numbers have no additive inverses (no negative numbers) and typically don't include 0 as an identity element.</p>
+                        <p><strong>Answer: C) \((\mathbb{N}, +)\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>2.</strong> What is the order of the element \((1 \ 2 \ 3)\) in the symmetric group \(S_3\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 1</div>
+                        <div class="option" data-value="B">B) 3</div>
+                        <div class="option" data-value="C">C) 6</div>
+                        <div class="option" data-value="D">D) 2</div>
+                        <div class="option" data-value="E">E) 4</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp2')">Show/Hide Explanation</span></p>
+                    <div id="exp2" class="explanation">
+                        <p>The element \((1 \ 2 \ 3)\) is a 3-cycle. The order of a cycle is its length. Computing: \((1 \ 2 \ 3)^1 = (1 \ 2 \ 3)\), \((1 \ 2 \ 3)^2 = (1 \ 3 \ 2)\), \((1 \ 2 \ 3)^3 = e\) (identity). So the order is 3.</p>
+                        <p><strong>Answer: B) 3</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>3.</strong> If \(G\) is a group of order 15, what can we say about \(G\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(G\) must be non-abelian</div>
+                        <div class="option" data-value="B">B) \(G\) has exactly 3 subgroups</div>
+                        <div class="option" data-value="C">C) \(G\) is isomorphic to \(S_3 \times \mathbb{Z}_5\)</div>
+                        <div class="option" data-value="D">D) \(G\) is cyclic and abelian</div>
+                        <div class="option" data-value="E">E) \(G\) has no elements of order 5</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp3')">Show/Hide Explanation</span></p>
+                    <div id="exp3" class="explanation">
+                        <p>Since \(15 = 3 \times 5\) where 3 and 5 are distinct primes, by the fundamental theorem of finite abelian groups, any group of order 15 must be isomorphic to \(\mathbb{Z}_{15} \cong \mathbb{Z}_3 \times \mathbb{Z}_5\). Therefore, \(G\) is cyclic and abelian.</p>
+                        <p><strong>Answer: D) \(G\) is cyclic and abelian</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>4.</strong> Which of the following is a normal subgroup of \(S_4\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(A_4\) (alternating group)</div>
+                        <div class="option" data-value="B">B) \(\langle (1 \ 2) \rangle\)</div>
+                        <div class="option" data-value="C">C) \(\langle (1 \ 2 \ 3) \rangle\)</div>
+                        <div class="option" data-value="D">D) \(\{e, (1 \ 2)(3 \ 4)\}\)</div>
+                        <div class="option" data-value="E">E) \(\langle (1 \ 2 \ 3 \ 4) \rangle\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp4')">Show/Hide Explanation</span></p>
+                    <div id="exp4" class="explanation">
+                        <p>The alternating group \(A_4\) consists of all even permutations in \(S_4\). It has index 2 in \(S_4\), and subgroups of index 2 are always normal. The other options are cyclic subgroups that are not normal in \(S_4\).</p>
+                        <p><strong>Answer: A) \(A_4\) (alternating group)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>5.</strong> If \(H\) and \(K\) are subgroups of a group \(G\) with \(|H| = 6\) and \(|K| = 10\), what is the maximum possible value of \(|H \cap K|\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 1</div>
+                        <div class="option" data-value="B">B) 6</div>
+                        <div class="option" data-value="C">C) 2</div>
+                        <div class="option" data-value="D">D) 10</div>
+                        <div class="option" data-value="E">E) 60</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp5')">Show/Hide Explanation</span></p>
+                    <div id="exp5" class="explanation">
+                        <p>By Lagrange's theorem, \(|H \cap K|\) must divide both \(|H| = 6\) and \(|K| = 10\). The divisors of 6 are {1, 2, 3, 6} and the divisors of 10 are {1, 2, 5, 10}. The common divisors are {1, 2}, so the maximum is 2.</p>
+                        <p><strong>Answer: C) 2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>6.</strong> What is the number of elements of order 2 in the dihedral group \(D_4\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 3</div>
+                        <div class="option" data-value="B">B) 5</div>
+                        <div class="option" data-value="C">C) 7</div>
+                        <div class="option" data-value="D">D) 4</div>
+                        <div class="option" data-value="E">E) 2</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp6')">Show/Hide Explanation</span></p>
+                    <div id="exp6" class="explanation">
+                        <p>\(D_4\) has 8 elements: 4 rotations and 4 reflections. The rotations are \(e, r, r^2, r^3\) where \(r^2\) has order 2. The 4 reflections all have order 2. So there are \(1 + 4 = 5\) elements of order 2.</p>
+                        <p><strong>Answer: B) 5</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>7.</strong> Which statement about homomorphisms is FALSE?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) The kernel of a homomorphism is always a normal subgroup</div>
+                        <div class="option" data-value="B">B) The image of a homomorphism is a subgroup</div>
+                        <div class="option" data-value="C">C) A homomorphism maps the identity to the identity</div>
+                        <div class="option" data-value="D">D) Every homomorphism is injective</div>
+                        <div class="option" data-value="E">E) Composition of homomorphisms is a homomorphism</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp7')">Show/Hide Explanation</span></p>
+                    <div id="exp7" class="explanation">
+                        <p>A homomorphism is injective (one-to-one) if and only if its kernel is trivial. Many homomorphisms are not injective, such as the natural projection from \(\mathbb{Z}\) to \(\mathbb{Z}_n\). All other statements are true properties of homomorphisms.</p>
+                        <p><strong>Answer: D) Every homomorphism is injective</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>8.</strong> How many subgroups does \(\mathbb{Z}_{12}\) have?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 6</div>
+                        <div class="option" data-value="B">B) 12</div>
+                        <div class="option" data-value="C">C) 4</div>
+                        <div class="option" data-value="D">D) 8</div>
+                        <div class="option" data-value="E">E) 5</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp8')">Show/Hide Explanation</span></p>
+                    <div id="exp8" class="explanation">
+                        <p>The subgroups of \(\mathbb{Z}_{12}\) correspond to the divisors of 12. The divisors are 1, 2, 3, 4, 6, 12, giving subgroups: \(\langle 0 \rangle\), \(\langle 6 \rangle\), \(\langle 4 \rangle\), \(\langle 3 \rangle\), \(\langle 2 \rangle\), \(\langle 1 \rangle = \mathbb{Z}_{12}\). That's 6 subgroups.</p>
+                        <p><strong>Answer: A) 6</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>9.</strong> If \(G/H \cong \mathbb{Z}_4\) and \(|H| = 5\), what is \(|G|\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 9</div>
+                        <div class="option" data-value="B">B) 15</div>
+                        <div class="option" data-value="C">C) 20</div>
+                        <div class="option" data-value="D">D) 25</div>
+                        <div class="option" data-value="E">E) 10</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp9')">Show/Hide Explanation</span></p>
+                    <div id="exp9" class="explanation">
+                        <p>By Lagrange's theorem for quotient groups, \(|G/H| = |G|/|H|\). Since \(G/H \cong \mathbb{Z}_4\), we have \(|G/H| = 4\). Therefore, \(4 = |G|/5\), which gives \(|G| = 20\).</p>
+                        <p><strong>Answer: C) 20</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>10.</strong> Which of the following groups is NOT isomorphic to \(\mathbb{Z}_6\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\mathbb{Z}_2 \times \mathbb{Z}_3\)</div>
+                        <div class="option" data-value="B">B) \(\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_3\)</div>
+                        <div class="option" data-value="C">C) \(S_3\) has no subgroup isomorphic to \(\mathbb{Z}_6\)</div>
+                        <div class="option" data-value="D">D) The cyclic group generated by \(e^{2\pi i/6}\)</div>
+                        <div class="option" data-value="E">E) \(\{0, 1, 2, 3, 4, 5\}\) under addition mod 6</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp10')">Show/Hide Explanation</span></p>
+                    <div id="exp10" class="explanation">
+                        <p>\(\mathbb{Z}_6\) has order 6. \(\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_3\) has order \(2 \times 2 \times 3 = 12 \neq 6\). Also, \(\mathbb{Z}_6\) is cyclic, but \(\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_3\) has maximum element order 6, making it non-isomorphic to \(\mathbb{Z}_6\).</p>
+                        <p><strong>Answer: B) \(\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_3\)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ring Theory Section -->
+            <div id="ring-theory-section" class="topic-section" style="display: none;">
+                <div class="question" data-correct="C">
+                    <p><strong>1.</strong> Which of the following is NOT a ring?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \((\mathbb{Z}, +, \cdot)\)</div>
+                        <div class="option" data-value="B">B) \((\mathbb{Q}[x], +, \cdot)\) - polynomials over rationals</div>
+                        <div class="option" data-value="C">C) \((\mathbb{N}, +, \cdot)\) - natural numbers</div>
+                        <div class="option" data-value="D">D) \((\mathbb{Z}_7, +, \cdot)\)</div>
+                        <div class="option" data-value="E">E) \((M_2(\mathbb{R}), +, \cdot)\) - 2×2 matrices over reals</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp11')">Show/Hide Explanation</span></p>
+                    <div id="exp11" class="explanation">
+                        <p>A ring requires an additive group structure. \((\mathbb{N}, +)\) is not a group because natural numbers lack additive inverses (negatives) and often don't include 0 as the additive identity.</p>
+                        <p><strong>Answer: C) \((\mathbb{N}, +, \cdot)\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>2.</strong> In the ring \(\mathbb{Z}_{12}\), what is the number of zero divisors?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 4</div>
+                        <div class="option" data-value="B">B) 8</div>
+                        <div class="option" data-value="C">C) 6</div>
+                        <div class="option" data-value="D">D) 10</div>
+                        <div class="option" data-value="E">E) 5</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp12')">Show/Hide Explanation</span></p>
+                    <div id="exp12" class="explanation">
+                        <p>Zero divisors are non-zero elements \(a\) such that \(ab = 0\) for some non-zero \(b\). In \(\mathbb{Z}_{12}\), these are elements not coprime to 12: \{2, 3, 4, 6, 8, 9, 10\}. That's 8 elements (excluding 0).</p>
+                        <p><strong>Answer: B) 8</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>3.</strong> Which of the following ideals is maximal in \(\mathbb{Z}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \((7)\)</div>
+                        <div class="option" data-value="B">B) \((6)\)</div>
+                        <div class="option" data-value="C">C) \((12)\)</div>
+                        <div class="option" data-value="D">D) \((0)\)</div>
+                        <div class="option" data-value="E">E) \((4)\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp13')">Show/Hide Explanation</span></p>
+                    <div id="exp13" class="explanation">
+                        <p>In a principal ideal domain like \(\mathbb{Z}\), an ideal \((a)\) is maximal if and only if \(a\) is prime. Among the choices, only 7 is prime. \(\mathbb{Z}/(7) \cong \mathbb{Z}_7\) is a field, confirming \((7)\) is maximal.</p>
+                        <p><strong>Answer: A) \((7)\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>4.</strong> What is the characteristic of the ring \(\mathbb{Z}_5 \times \mathbb{Z}_7\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 5</div>
+                        <div class="option" data-value="B">B) 7</div>
+                        <div class="option" data-value="C">C) 12</div>
+                        <div class="option" data-value="D">D) 35</div>
+                        <div class="option" data-value="E">E) 0</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp14')">Show/Hide Explanation</span></p>
+                    <div id="exp14" class="explanation">
+                        <p>The characteristic of a direct product is the LCM of the characteristics of the components. Since \(\text{char}(\mathbb{Z}_5) = 5\) and \(\text{char}(\mathbb{Z}_7) = 7\), and \(\gcd(5,7) = 1\), we have \(\text{char}(\mathbb{Z}_5 \times \mathbb{Z}_7) = \text{lcm}(5,7) =
