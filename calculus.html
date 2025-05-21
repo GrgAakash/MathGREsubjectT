@@ -1,539 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculus - GRE Math Subject Test Questions</title>
+    <title>GRE Math Limits Practice</title>
+    <!-- MathJax CDN for LaTeX rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
     <style>
-        :root {
-            --primary: #4a6fa5;
-            --secondary: #166088;
-            --accent: #2a9d8f;
-            --light: #f8f9fa;
-            --dark: #212529;
-        }
-        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-            margin: 0;
-            padding: 0;
-        }
-        
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
         }
-        
         h1 {
-            margin: 0;
-            font-size: 2.5rem;
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
         }
-        
-        .subtitle {
-            opacity: 0.9;
-            margin-top: 0.5rem;
-        }
-        
-        .nav {
-            background-color: var(--secondary);
-            padding: 1rem 0;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-        
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .question-card {
+        .question {
             background: white;
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
         }
-        
-        .question-header {
-            background-color: var(--secondary);
-            color: white;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .question p {
+            margin: 10px 0;
+            font-size: 1.1em;
         }
-        
-        .question-difficulty {
-            background-color: var(--accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
-        .question-body {
-            padding: 1.5rem;
-        }
-        
-        .question-content {
-            margin-bottom: 2rem;
-        }
-        
         .options {
-            padding-left: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
         }
-        
         .option {
-            margin-bottom: 0.75rem;
-        }
-        
-        .solution {
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #dee2e6;
-        }
-        
-        .solution-toggle {
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 15px;
             cursor: pointer;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            transition: background 0.2s, border 0.2s;
+            font-size: 1em;
         }
-        
-        .hidden {
+        .option:hover {
+            background: #e9ecef;
+            border-color: #aaa;
+        }
+        .option.selected-correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        .option.selected-wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
             display: none;
         }
-        
-        .filter-section {
-            background-color: #e9ecef;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
+        .feedback.correct {
+            color: #28a745;
+            display: block;
         }
-        
-        .filter-controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
+        .feedback.wrong {
+            color: #dc3545;
+            display: block;
         }
-        
-        .filter-select {
-            padding: 0.5rem;
-            border-radius: 4px;
-            border: 1px solid #ced4da;
-        }
-        
-        footer {
-            background-color: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 3rem;
-        }
-        
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin: 2rem 0;
-            gap: 0.5rem;
-        }
-        
-        .pagination-button {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--secondary);
-            color: var(--secondary);
-            background-color: white;
-            border-radius: 4px;
+        .toggle-btn {
             cursor: pointer;
-            transition: all 0.3s ease;
+            color: #007bff;
+            text-decoration: underline;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
         }
-        
-        .pagination-button:hover,
-        .pagination-button.active {
-            background-color: var(--secondary);
-            color: white;
+        .toggle-btn:hover {
+            color: #0056b3;
         }
-        
-        .math {
-            font-family: 'Times New Roman', Times, serif;
+        .explanation {
+            display: none;
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+            margin-top: 15px;
+            font-size: 0.95em;
         }
-        
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
             }
-            
-            .filter-controls {
-                flex-direction: column;
+            .question {
+                padding: 15px;
+            }
+            .option {
+                padding: 8px 12px;
             }
         }
     </style>
-    <!-- MathJax for rendering math equations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [['$','$'], ['\\(','\\)']],
-                processEscapes: true
-            }
-        });
-    </script>
 </head>
 <body>
-    <header>
-        <h1>Calculus</h1>
-        <p class="subtitle">GRE Math Subject Test Questions</p>
-    </header>
-    
-    <nav class="nav">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">Math GRE Prep</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="contribute.html">Contribute</a>
-                <a href="resources.html">Resources</a>
-            </div>
+    <h1>GRE Math Subject Test: Limits Practice Questions</h1>
+
+    <div class="question" data-correct="C">
+        <p><strong>1.</strong> What is the value of \(\lim_{x \to 3} \frac{x^2 - 9}{x - 3}\)?</p>
+        <div class="options">
+            <div class="option" data-value="A">A) 0</div>
+            <div class="option" data-value="B">B) 3</div>
+            <div class="option" data-value="C">C) 6</div>
+            <div class="option" data-value="D">D) 9</div>
+            <div class="option" data-value="E">E) Does not exist</div>
         </div>
-    </nav>
-    
-    <main class="container">
-        <section class="filter-section">
-            <h2>Filter Calculus Questions</h2>
-            <div class="filter-controls">
-                <select class="filter-select" id="difficulty-filter">
-                    <option value="all">All Difficulties</option>
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
-                
-                <select class="filter-select" id="topic-filter">
-                    <option value="all">All Calculus Topics</option>
-                    <option value="limits">Limits</option>
-                    <option value="derivatives">Derivatives</option>
-                    <option value="integrals">Integrals</option>
-                    <option value="series">Series and Sequences</option>
-                    <option value="differential">Differential Equations</option>
-                    <option value="multivariable">Multivariable Calculus</option>
-                </select>
-                
-                <select class="filter-select" id="year-filter">
-                    <option value="all">All Years</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                </select>
-            </div>
-        </section>
-        
-        <section class="questions-section">
-            <!-- Question 1 -->
-            <div class="question-card" data-difficulty="easy" data-topic="derivatives" data-year="2023">
-                <div class="question-header">
-                    <h3>Question #1</h3>
-                    <span class="question-difficulty">Easy</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>If $f(x) = x^3 \sin(x)$, then $f'(\pi)$ equals:</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> $0$</div>
-                            <div class="option"><strong>(B)</strong> $\pi^3$</div>
-                            <div class="option"><strong>(C)</strong> $-\pi^3$</div>
-                            <div class="option"><strong>(D)</strong> $3\pi^2$</div>
-                            <div class="option"><strong>(E)</strong> $-3\pi^2$</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>Using the product rule to find $f'(x)$:</p>
-                        <p>$f'(x) = \frac{d}{dx}[x^3 \sin(x)]$</p>
-                        <p>$f'(x) = 3x^2 \sin(x) + x^3 \cos(x)$</p>
-                        <p>Now we evaluate at $x = \pi$:</p>
-                        <p>$f'(\pi) = 3\pi^2 \sin(\pi) + \pi^3 \cos(\pi)$</p>
-                        <p>Since $\sin(\pi) = 0$ and $\cos(\pi) = -1$, we get:</p>
-                        <p>$f'(\pi) = 3\pi^2 \cdot 0 + \pi^3 \cdot (-1) = -\pi^3$</p>
-                        <p><strong>Answer: (C) $-\pi^3$</strong></p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Question 2 -->
-            <div class="question-card" data-difficulty="medium" data-topic="integrals" data-year="2022">
-                <div class="question-header">
-                    <h3>Question #2</h3>
-                    <span class="question-difficulty">Medium</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>Evaluate the definite integral:</p>
-                        <p>$\int_0^{\pi/4} \sec^2(x) \tan(x) \, dx$</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> $\frac{1}{2}$</div>
-                            <div class="option"><strong>(B)</strong> $1$</div>
-                            <div class="option"><strong>(C)</strong> $\frac{1}{\sqrt{2}}$</div>
-                            <div class="option"><strong>(D)</strong> $\frac{\pi}{4}$</div>
-                            <div class="option"><strong>(E)</strong> $\frac{1}{3}(\sec^2(\frac{\pi}{4}) - 1)$</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>Let's use substitution. Let $u = \tan(x)$, which gives us $du = \sec^2(x) \, dx$.</p>
-                        <p>$\int_0^{\pi/4} \sec^2(x) \tan(x) \, dx = \int_0^{\pi/4} \tan(x) \, du = \int_0^1 u \, du$</p>
-                        <p>We changed the bounds because when $x = 0$, $u = \tan(0) = 0$, and when $x = \pi/4$, $u = \tan(\pi/4) = 1$.</p>
-                        <p>$\int_0^1 u \, du = \left. \frac{u^2}{2} \right|_0^1 = \frac{1^2}{2} - \frac{0^2}{2} = \frac{1}{2}$</p>
-                        <p><strong>Answer: (A) $\frac{1}{2}$</strong></p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Question 3 -->
-            <div class="question-card" data-difficulty="medium" data-topic="series" data-year="2023">
-                <div class="question-header">
-                    <h3>Question #3</h3>
-                    <span class="question-difficulty">Medium</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>For the power series $\sum_{n=0}^{\infty} \frac{x^n}{n!}$, which of the following statements is true?</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> The series converges only for $x = 0$</div>
-                            <div class="option"><strong>(B)</strong> The series converges for $|x| < 1$</div>
-                            <div class="option"><strong>(C)</strong> The series converges for all real values of $x$</div>
-                            <div class="option"><strong>(D)</strong> The series converges for $x \geq 0$</div>
-                            <div class="option"><strong>(E)</strong> The series diverges for all values of $x$</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>The power series $\sum_{n=0}^{\infty} \frac{x^n}{n!}$ is the Taylor series expansion of $e^x$.</p>
-                        <p>To determine the radius of convergence, we can use the ratio test:</p>
-                        <p>$\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| = \lim_{n \to \infty} \left| \frac{\frac{x^{n+1}}{(n+1)!}}{\frac{x^n}{n!}} \right| = \lim_{n \to \infty} \left| \frac{x^{n+1} \cdot n!}{(n+1)! \cdot x^n} \right| = \lim_{n \to \infty} \left| \frac{x}{n+1} \right| = 0$</p>
-                        <p>Since this limit is 0 for any value of $x$, the series converges for all real values of $x$.</p>
-                        <p><strong>Answer: (C) The series converges for all real values of $x$</strong></p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Question 4 -->
-            <div class="question-card" data-difficulty="hard" data-topic="multivariable" data-year="2021">
-                <div class="question-header">
-                    <h3>Question #4</h3>
-                    <span class="question-difficulty">Hard</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>Let $f(x,y) = x^2y + xy^2$ and $C$ be the curve parametrized by $\mathbf{r}(t) = (t^2, t^3)$ for $0 \leq t \leq 1$. What is the value of the line integral $\int_C \nabla f \cdot d\mathbf{r}$?</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> $1$</div>
-                            <div class="option"><strong>(B)</strong> $2$</div>
-                            <div class="option"><strong>(C)</strong> $3$</div>
-                            <div class="option"><strong>(D)</strong> $f(1,1) - f(0,0)$</div>
-                            <div class="option"><strong>(E)</strong> $0$</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>The gradient $\nabla f$ is given by:</p>
-                        <p>$\nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y} \right) = (2xy + y^2, x^2 + 2xy)$</p>
-                        <p>For a line integral of the form $\int_C \nabla f \cdot d\mathbf{r}$, when $f$ is a scalar field, this is equivalent to evaluating $f$ at the endpoints of the curve. This is the fundamental theorem of calculus for line integrals.</p>
-                        <p>$\int_C \nabla f \cdot d\mathbf{r} = f(\mathbf{r}(1)) - f(\mathbf{r}(0))$</p>
-                        <p>$\mathbf{r}(0) = (0, 0)$ and $\mathbf{r}(1) = (1, 1)$</p>
-                        <p>$f(0,0) = 0^2 \cdot 0 + 0 \cdot 0^2 = 0$</p>
-                        <p>$f(1,1) = 1^2 \cdot 1 + 1 \cdot 1^2 = 1 + 1 = 2$</p>
-                        <p>$\int_C \nabla f \cdot d\mathbf{r} = f(1,1) - f(0,0) = 2 - 0 = 2$</p>
-                        <p><strong>Answer: (B) $2$</strong></p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Question 5 -->
-            <div class="question-card" data-difficulty="hard" data-topic="limits" data-year="2024">
-                <div class="question-header">
-                    <h3>Question #5</h3>
-                    <span class="question-difficulty">Hard</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>Evaluate the limit:</p>
-                        <p>$\lim_{n \to \infty} \left(1 + \frac{3}{n}\right)^{2n}$</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> $e^3$</div>
-                            <div class="option"><strong>(B)</strong> $e^6$</div>
-                            <div class="option"><strong>(C)</strong> $1$</div>
-                            <div class="option"><strong>(D)</strong> $\infty$</div>
-                            <div class="option"><strong>(E)</strong> $3$</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>We can use the well-known limit $\lim_{n \to \infty} \left(1 + \frac{a}{n}\right)^n = e^a$.</p>
-                        <p>In our case, we have:</p>
-                        <p>$\lim_{n \to \infty} \left(1 + \frac{3}{n}\right)^{2n}$</p>
-                        <p>Let's rewrite this as:</p>
-                        <p>$\lim_{n \to \infty} \left[\left(1 + \frac{3}{n}\right)^{n}\right]^2$</p>
-                        <p>$= \left[\lim_{n \to \infty} \left(1 + \frac{3}{n}\right)^{n}\right]^2$</p>
-                        <p>$= (e^3)^2 = e^6$</p>
-                        <p><strong>Answer: (B) $e^6$</strong></p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Question 6 -->
-            <div class="question-card" data-difficulty="medium" data-topic="differential" data-year="2022">
-                <div class="question-header">
-                    <h3>Question #6</h3>
-                    <span class="question-difficulty">Medium</span>
-                </div>
-                <div class="question-body">
-                    <div class="question-content">
-                        <p>Consider the differential equation $\frac{dy}{dt} + 2y = 4\sin(t)$ with initial condition $y(0) = 1$. What is the value of $y(\pi)$?</p>
-                        <div class="options">
-                            <div class="option"><strong>(A)</strong> $1$</div>
-                            <div class="option"><strong>(B)</strong> $e^{-2\pi}$</div>
-                            <div class="option"><strong>(C)</strong> $e^{-2\pi} + 1$</div>
-                            <div class="option"><strong>(D)</strong> $e^{-2\pi} + 2$</div>
-                            <div class="option"><strong>(E)</strong> $\frac{4}{5}e^{-2\pi} + \frac{4}{5}$</div>
-                        </div>
-                    </div>
-                    
-                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
-                    <div class="solution hidden">
-                        <h4>Solution:</h4>
-                        <p>This is a first-order linear differential equation. We'll use the integrating factor method.</p>
-                        <p>The integrating factor is $e^{\int 2 dt} = e^{2t}$.</p>
-                        <p>Multiplying both sides of the equation by $e^{2t}$:</p>
-                        <p>$e^{2t}\frac{dy}{dt} + 2e^{2t}y = 4e^{2t}\sin(t)$</p>
-                        <p>This equals: $\frac{d}{dt}(e^{2t}y) = 4e^{2t}\sin(t)$</p>
-                        <p>Integrating both sides:</p>
-                        <p>$e^{2t}y = \int 4e^{2t}\sin(t) dt + C$</p>
-                        <p>Using integration by parts to evaluate $\int e^{2t}\sin(t) dt$:</p>
-                        <p>Let $u = \sin(t)$ and $dv = e^{2t} dt$, then $du = \cos(t) dt$ and $v = \frac{1}{2}e^{2t}$.</p>
-                        <p>$\int e^{2t}\sin(t) dt = \frac{1}{2}e^{2t}\sin(t) - \int \frac{1}{2}e^{2t}\cos(t) dt$</p>
-                        <p>Applying integration by parts again on the second term:</p>
-                        <p>Let $u = \cos(t)$ and $dv = e^{2t} dt$, then $du = -\sin(t) dt$ and $v = \frac{1}{2}e^{2t}$.</p>
-                        <p>$\int \frac{1}{2}e^{2t}\cos(t) dt = \frac{1}{4}e^{2t}\cos(t) + \int \frac{1}{4}e^{2t}\sin(t) dt$</p>
-                        <p>Combining and solving for $\int e^{2t}\sin(t) dt$:</p>
-                        <p>$\int e^{2t}\sin(t) dt = \frac{1}{2}e^{2t}\sin(t) - \frac{1}{4}e^{2t}\cos(t) - \int \frac{1}{4}e^{2t}\sin(t) dt$</p>
-                        <p>$\frac{5}{4}\int e^{2t}\sin(t) dt = \frac{1}{2}e^{2t}\sin(t) - \frac{1}{4}e^{2t}\cos(t)$</p>
-                        <p>$\int e^{2t}\sin(t) dt = \frac{2}{5}e^{2t}\sin(t) - \frac{1}{5}e^{2t}\cos(t) + C$</p>
-                        <p>Therefore:</p>
-                        <p>$e^{2t}y = 4[\frac{2}{5}e^{2t}\sin(t) - \frac{1}{5}e^{2t}\cos(t)] + C$</p>
-                        <p>$e^{2t}y = \frac{8}{5}e^{2t}\sin(t) - \frac{4}{5}e^{2t}\cos(t) + C$</p>
-                        <p>$y = \frac{8}{5}\sin(t) - \frac{4}{5}\cos(t) + Ce^{-2t}$</p>
-                        <p>Using the initial condition $y(0) = 1$:</p>
-                        <p>$1 = \frac{8}{5} \cdot 0 - \frac{4}{5} \cdot 1 + C$</p>
-                        <p>$1 = -\frac{4}{5} + C$</p>
-                        <p>$C = 1 + \frac{4}{5} = \frac{9}{5}$</p>
-                        <p>Thus, the solution is:</p>
-                        <p>$y(t) = \frac{8}{5}\sin(t) - \frac{4}{5}\cos(t) + \frac{9}{5}e^{-2t}$</p>
-                        <p>Evaluating at $t = \pi$:</p>
-                        <p>$y(\pi) = \frac{8}{5}\sin(\pi) - \frac{4}{5}\cos(\pi) + \frac{9}{5}e^{-2\pi}$</p>
-                        <p>$y(\pi) = \frac{8}{5} \cdot 0 - \frac{4}{5} \cdot (-1) + \frac{9}{5}e^{-2\pi}$</p>
-                        <p>$y(\pi) = \frac{4}{5} + \frac{9}{5}e^{-2\pi}$</p>
-                        <p>This doesn't match any of the given options exactly. The closest is option (E), but the coefficient of $e^{-2\pi}$ should be $\frac{9}{5}$ not $\frac{4}{5}$. Since this is a sample problem, there may be an error in the options.</p>
-                        <p><strong>Answer: The correct expression is $\frac{4}{5} + \frac{9}{5}e^{-2\pi}$, which doesn't match exactly with any option. Option (E) is closest.</strong></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <div class="pagination">
-            <button class="pagination-button active">1</button>
-            <button class="pagination-button">2</button>
-            <button class="pagination-button">3</button>
-            <button class="pagination-button">Next →</button>
+        <div class="feedback"></div>
+        <p><span class="toggle-btn" onclick="toggleExplanation('exp1')">Show/Hide Explanation</span></p>
+        <div id="exp1" class="explanation">
+            <p>The expression is \(\frac{x^2 - 9}{x - 3} = \frac{(x - 3)(x + 3)}{x - 3}\). For \(x \neq 3\), this simplifies to \(x + 3\). Thus, \(\lim_{x \to 3} (x + 3) = 3 + 3 = 6\).</p>
+            <p><strong>Answer: C) 6</strong></p>
         </div>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
-    </footer>
+    </div>
+
+    <div class="question" data-correct="B">
+        <p><strong>2.</strong> Evaluate \(\lim_{x \to 0} \frac{e^x - 1 - x}{x^2}\).</p>
+        <div class="options">
+            <div class="option" data-value="A">A) 0</div>
+            <div class="option" data-value="B">B) 1/2</div>
+            <div class="option" data-value="C">C) 1</div>
+            <div class="option" data-value="D">D) 2</div>
+            <div class="option" data-value="E">E) Does not exist</div>
+        </div>
+        <div class="feedback"></div>
+        <p><span class="toggle-btn" onclick="toggleExplanation('exp2')">Show/Hide Explanation</span></p>
+        <div id="exp2" class="explanation">
+            <p>The limit is of the form \(\frac{0}{0}\). Apply L’Hôpital’s Rule: differentiate numerator (\(e^x - 1\)) and denominator (\(2x\)). New limit: \(\lim_{x \to 0} \frac{e^x}{2x}\), still \(\frac{0}{0}\). Apply again: \(\lim_{x \to 0} \frac{e^x}{2} = \frac{e^0}{2} = \frac{1}{2}\).</p>
+            <p><strong>Answer: B) 1/2</strong></p>
+        </div>
+    </div>
+
+    <div class="question" data-correct="D">
+        <p><strong>3.</strong> What is \(\lim_{x \to \infty} \frac{4x^3 + 2x}{x^3 - x + 1}\)?</p>
+        <div class="options">
+            <div class="option" data-value="A">A) 0</div>
+            <div class="option" data-value="B">B) 1</div>
+            <div class="option" data-value="C">C) 2</div>
+            <div class="option" data-value="D">D) 4</div>
+            <div class="option" data-value="E">E) Does not exist</div>
+        </div>
+        <div class="feedback"></div>
+        <p><span class="toggle-btn" onclick="toggleExplanation('exp3')">Show/Hide Explanation</span></p>
+        <div id="exp3" class="explanation">
+            <p>Divide numerator and denominator by \(x^3\): \(\lim_{x \to \infty} \frac{4 + \frac{2}{x^2}}{1 - \frac{1}{x^2} + \frac{1}{x^3}}\). As \(x \to \infty\), the terms with \(x\) in the denominator approach 0, so the limit is \(\frac{4}{1} = 4\).</p>
+            <p><strong>Answer: D) 4</strong></p>
+        </div>
+    </div>
+
+    <div class="question" data-correct="C">
+        <p><strong>4.</strong> Consider the function \(f(x) = \begin{cases} x^2 + 1 & x < 2 \\ 5 & x = 2 \\ 2x + 1 & x > 2 \end{cases}\). What is \(\lim_{x \to 2} f(x)\)?</p>
+        <div class="options">
+            <div class="option" data-value="A">A) 3</div>
+            <div class="option" data-value="B">B) 4</div>
+            <div class="option" data-value="C">C) 5</div>
+            <div class="option" data-value="D">D) 6</div>
+            <div class="option" data-value="E">E) Does not exist</div>
+        </div>
+        <div class="feedback"></div>
+        <p><span class="toggle-btn" onclick="toggleExplanation('exp4')">Show/Hide Explanation</span></p>
+        <div id="exp4" class="explanation">
+            <p>Compute one-sided limits: Left-hand limit: \(\lim_{x \to 2^-} (x^2 + 1) = 4 + 1 = 5\). Right-hand limit: \(\lim_{x \to 2^+} (2x + 1) = 2 \cdot 2 + 1 = 5\). Since both are equal, the limit is 5.</p>
+            <p><strong>Answer: C) 5</strong></p>
+        </div>
+    </div>
+
+    <div class="question" data-correct="C">
+        <p><strong>5.</strong> Evaluate \(\lim_{x \to 0} \frac{\sin(2x)}{x}\).</p>
+        <div class="options">
+            <div class="option" data-value="A">A) 0</div>
+            <div class="option" data-value="B">B) 1</div>
+            <div class="option" data-value="C">C) 2</div>
+            <div class="option" data-value="D">D) 4</div>
+            <div class="option" data-value="E">E) Does not exist</div>
+        </div>
+        <div class="feedback"></div>
+        <p><span class="toggle-btn" onclick="toggleExplanation('exp5')">Show/Hide Explanation</span></p>
+        <div id="exp5" class="explanation">
+            <p>Rewrite as \(\lim_{x \to 0} \frac{\sin(2x)}{x} = \lim_{x \to 0} \frac{2 \sin(2x)}{2x} = 2 \cdot \lim_{x \to 0} \frac{\sin(2x)}{2x}\). Since \(\lim_{u \to 0} \frac{\sin(u)}{u} = 1\), with \(u = 2x\), the limit is \(2 \cdot 1 = 2\).</p>
+            <p><strong>Answer: C) 2</strong></p>
+        </div>
+    </div>
+
+    <div class="question" data-correct="E">
+        <p><strong>6.</strong> What is \(\lim_{x \to 0} \frac{|x|}{x}\)?</p>
+        <div class="options">
+            <div class="option" data-value="A">A) -1</div>
+            <div class="option" data-value="B">B) 0</div>
+            <div class="option" data-value="C">C) 1</div>
+            <div class="option" data-value="D">D) 2</div>
+            <div class="option" data-value="E">E) Does not exist</div>
+        </div>
+        <div class="feedback"></div>
+        <p><span class="toggle-btn" onclick="toggleExplanation('exp6')">Show/Hide Explanation</span></p>
+        <div id="exp6" class="explanation">
+            <p>Evaluate one-sided limits: For \(x > 0\), \(\frac{|x|}{x} = \frac{x}{x} = 1\), so \(\lim_{x \to 0^+} = 1\). For \(x < 0\), \(\frac{|x|}{x} = \frac{-x}{x} = -1\), so \(\lim_{x \to 0^-} = -1\). Since the one-sided limits differ, the limit does not exist.</p>
+            <p><strong>Answer: E) Does not exist</strong></p>
+        </div>
+    </div>
+
+    <div class="question" data-correct="D">
+        <p><strong>7.</strong> Evaluate \(\lim_{x \to \infty} \frac{e^x}{x^3}\).</p>
+        <div class="options">
+            <div class="option" data-value="A">A) 0</div>
+            <div class="option" data-value="B">B) 1</div>
+            <div class="option" data-value="C">C) e</div>
+            <div class="option" data-value="D">D) \(\infty\)</div>
+            <div class="option" data-value="E">E) Does not exist</div>
+        </div>
+        <div class="feedback"></div>
+        <p><span class="toggle-btn" onclick="toggleExplanation('exp7')">Show/Hide Explanation</span></p>
+        <div id="exp7" class="explanation">
+            <p>Exponential functions grow faster than polynomials. Apply L’Hôpital’s Rule (form \(\frac{\infty}{\infty}\)): \(\lim_{x \to \infty} \frac{e^x}{3x^2}\), still \(\frac{\infty}{\infty}\). Apply again: \(\lim_{x \to \infty} \frac{e^x}{6x}\), then \(\lim_{x \to \infty} \frac{e^x}{6} = \infty\).</p>
+            <p><strong>Answer: D) \(\infty\)</strong></p>
+        </div>
+    </div>
+
+    <div class="question" data-correct="B">
+        <p><strong>8.</strong> Find \(\lim_{x \to 0} \frac{1 - \cos(x)}{x^2}\).</p>
+        <div class="options">
+            <div class="option" data-value="A">A) 0</div>
+            <div class="option" data-value="B">B) 1/2</div>
+            <div class="option" data-value="C">C) 1</div>
+            <div class="option" data-value="D">D) 2</div>
+            <div class="option" data-value="E">E) Does not exist</div>
+        </div>
+        <div class="feedback"></div>
+        <p><span class="toggle-btn" onclick="toggleExplanation('exp8')">Show/Hide Explanation</span></p>
+        <div id="exp8" class="explanation">
+            <p>Use the identity \(1 - \cos(x) = 2 \sin^2(x/2)\). Then, \(\lim_{x \to 0} \frac{2 \sin^2(x/2)}{x^2} = \lim_{x \to 0} \frac{2 \sin^2(x/2)}{(x/2)^2 \cdot 4} = \frac{2}{4} \cdot \lim_{u \to 0} \frac{\sin(u)}{u} \cdot \lim_{u \to 0} \frac{\sin(u)}{u} = \frac{1}{2} \cdot 1 \cdot 1 = \frac{1}{2}\), where \(u = x/2\).</p>
+            <p><strong>Answer: B) 1/2</strong></p>
+        </div>
+    </div>
+
+    <div class="question" data-correct="A">
+        <p><strong>9.</strong> Evaluate \(\lim_{x \to \infty} \frac{\ln(x)}{x^{1/2}}\).</p>
+        <div class="options">
+            <div class="option" data-value="A">A) 0</div>
+            <div class="option" data-value="B">B) 1</div>
+            <div class="option" data-value="C">C) 2</div>
+            <div class="option" data-value="D">D) \(\infty\)</div>
+            <div class="option" data-value="E">E) Does not exist</div>
+        </div>
+        <div class="feedback"></div>
+        <p><span class="toggle-btn" onclick="toggleExplanation('exp9')">Show/Hide Explanation</span></p>
+        <div id="exp9" class="explanation">
+            <p>Form is \(\frac{\infty}{\infty}\). Apply L’Hôpital’s Rule: \(\lim_{x \to \infty} \frac{\frac{1}{x}}{\frac{1}{2} x^{-1/2}} = \lim_{x \to \infty} \frac{2}{x^{1/2}} = 0\).</p>
+            <p><strong>Answer: A) 0</strong></p>
+        </div>
+    </div>
+
+    <div class="question" data-correct="A">
+        <p><strong>10.</strong> What is \(\lim_{x \to 4^-} \lfloor x \rfloor\)?</p>
+        <div class="options">
+            <div class="option" data-value="A">A) 3</div>
+            <div class="option" data-value="B">B) 4</div>
+            <div class="option" data-value="C">C) 5</div>
+            <div class="option" data-value="D">D) 6</div>
+            <div class="option" data-value="E">E) Does not exist</div>
+        </div>
+        <div class="feedback"></div>
+        <p><span class="toggle-btn" onclick="toggleExplanation('exp10')">Show/Hide Explanation</span></p>
+        <div id="exp10" class="explanation">
+            <p>The floor function \(\lfloor x \rfloor\) gives the greatest integer less than or equal to \(x\). For \(x\) approaching 4 from the left (\(x < 4\)), \(\lfloor x \rfloor = 3\), since \(3 \leq x < 4\). Thus, the limit is 3.</p>
+            <p><strong>Answer: A) 3</strong></p>
+        </div>
+    </div>
 
     <script>
-        // Toggle solution visibility
-        function toggleSolution(button) {
-            const solution = button.nextElementSibling;
-            if (solution.classList.contains('hidden')) {
-                solution.classList.remove('hidden');
-                button.textContent = 'Hide Solution';
-            } else {
-                solution.classList.add('hidden');
-                button.textContent = 'Show Solution';
-            }
+        // Toggle explanation visibility
+        function toggleExplanation(id) {
+            const element = document.getElementById(id);
+            element.style.display = element.style.display === 'none' || element.style.display === '' ? 'block' : 'none';
         }
-        
-        // Filter functionality
-        const difficultyFilter = document.getElementById('difficulty-filter');
-        const topicFilter = document.getElementById('topic-filter');
-        const yearFilter = document.getElementById('year-filter');
-        const questions = document.querySelectorAll('.question-card');
-        
-        function applyFilters() {
-            const difficultyValue = difficultyFilter.value;
-            const topicValue = topicFilter.value;
-            const yearValue = yearFilter.value;
-            
-            questions.forEach(question => {
-                const matchesDifficulty = difficultyValue === 'all' || question.dataset.difficulty === difficultyValue;
-                const matchesTopic = topicValue === 'all' || question.dataset.topic === topicValue;
-                const matchesYear = yearValue === 'all' || question.dataset.year === yearValue;
-                
-                if (matchesDifficulty && matchesTopic && matchesYear) {
-                    question.style.display = 'block';
-                } else {
-                    question.style.display =
+
+        // Handle option clicks
+        document.querySelectorAll('.question').forEach(question => {
+            const correctAnswer = question.getAttribute('data-correct');
+            const options = question.querySelectorAll('.option');
+            const feedback = question.querySelector('.feedback');
+
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Reset previous selections and feedback
+                    options.forEach(opt => {
+                        opt.classList.remove('selected-correct', 'selected-wrong');
+                    });
+                    feedback.classList.remove('correct', 'wrong');
+                    feedback.style.display = 'none';
+                    feedback.textContent = '';
+
+                    // Check if selected option is correct
+                    const selectedValue = option.getAttribute('data-value');
+                    if (selectedValue === correctAnswer) {
+                        option.classList.add('selected-correct');
+                        feedback.textContent = 'Correct';
+                        feedback.classList.add('correct');
+                    } else {
+                        option.classList.add('selected-wrong');
+                        feedback.textContent = 'Wrong';
+                        feedback.classList.add('wrong');
+                    }
+                    feedback.style.display = 'block';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
