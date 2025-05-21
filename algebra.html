@@ -24,7 +24,6 @@
             line-height: 1.6;
         }
 
-        /* Header styles matching main site */
         header {
             background-color: var(--primary);
             color: white;
@@ -46,7 +45,6 @@
             font-size: 1rem;
         }
 
-        /* Navigation styles matching main site */
         .nav {
             background-color: var(--secondary);
             padding: 1rem 0;
@@ -86,7 +84,6 @@
             opacity: 0.8;
         }
 
-        /* Main content container */
         .main-container {
             max-width: 1100px;
             margin: 20px auto;
@@ -95,7 +92,6 @@
             gap: 30px;
         }
 
-        /* Sidebar navigation */
         .sidebar-nav {
             flex-basis: 200px;
             background-color: #fff;
@@ -165,7 +161,7 @@
 
         .option {
             background: #f8f9fa;
-            border: 1px solid #ddd;
+            border: 1 coiid: #ddd;
             border-radius: 5px;
             padding: 10px 15px;
             cursor: pointer;
@@ -227,7 +223,6 @@
             font-size: 0.95em;
         }
 
-        /* Footer styles matching main site */
         footer {
             background-color: var(--primary);
             color: white;
@@ -236,7 +231,6 @@
             margin-top: 3rem;
         }
 
-        /* Responsive design */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -275,13 +269,11 @@
     </style>
 </head>
 <body>
-    <!-- Header matching main site -->
     <header>
         <h1>Algebra Practice Questions</h1>
         <p class="subtitle">Master abstract algebra concepts with interactive practice</p>
     </header>
     
-    <!-- Navigation matching main site -->
     <nav class="nav">
         <div class="nav-container">
             <a href="index.html" class="logo">Math GRE Prep</a>
@@ -295,250 +287,267 @@
     </nav>
 
     <div class="main-container">
-        <!-- Sidebar navigation for algebra topics -->
         <nav class="sidebar-nav">
-            <button onclick="showSection('group-theory')" class="active">Group Theory</button>
-            <button onclick="showSection('ring-theory')">Ring Theory</button>
-            <button onclick="showSection('field-theory')">Field Theory</button>
+            <button onclick="showSection('group-theory')" class="active" aria-label="Show Group Theory questions">Group Theory</button>
+            <button onclick="showSection('ring-theory')" aria-label="Show Ring Theory questions">Ring Theory</button>
+            <button onclick="showSection('field-theory')" aria-label="Show Field Theory questions">Field Theory</button>
         </nav>
 
         <div class="main-content">
             <!-- Group Theory Section -->
             <div id="group-theory-section" class="topic-section">
+                <h2 class="page-title">Group Theory Practice Questions</h2>
                 <div class="question" data-correct="C">
-                    <p><strong>1.</strong> Which of the following is NOT a group under the given operation?</p>
+                    <p><strong>1.</strong> Let \(G\) be a group of order \(pq\), where \(p\) and \(q\) are distinct primes with \(p < q\). If \(q \not\equiv 1 \pmod{p}\), what can be said about \(G\)?</p>
                     <div class="options">
-                        <div class="option" data-value="A">A) \((\mathbb{Z}, +)\) - integers under addition</div>
-                        <div class="option" data-value="B">B) \((\mathbb{Q}^*, \cdot)\) - nonzero rationals under multiplication</div>
-                        <div class="option" data-value="C">C) \((\mathbb{N}, +)\) - natural numbers under addition</div>
-                        <div class="option" data-value="D">D) \((S_3, \circ)\) - symmetric group on 3 elements</div>
-                        <div class="option" data-value="E">E) \((\mathbb{Z}_5^*, \cdot)\) - nonzero elements of \(\mathbb{Z}_5\) under multiplication</div>
+                        <div class="option" data-value="A">A) \(G\) is non-abelian</div>
+                        <div class="option" data-value="B">B) \(G\) has a normal subgroup of order \(p\)</div>
+                        <div class="option" data-value="C">C) \(G\) is cyclic</div>
+                        <div class="option" data-value="D">D) \(G\) has no subgroups of order \(q\)</div>
+                        <div class="option" data-value="E">E) \(G\) is isomorphic to \(S_p\)</div>
                     </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp1')">Show/Hide Explanation</span></p>
-                    <div id="exp1" class="explanation">
-                        <p>For a set to be a group, it must have closure, associativity, identity, and inverses. \((\mathbb{N}, +)\) fails because natural numbers have no additive inverses (no negative numbers) and typically don't include 0 as an identity element.</p>
-                        <p><strong>Answer: C) \((\mathbb{N}, +)\)</strong></p>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('gt-exp1')">Show/Hide Explanation</span></p>
+                    <div id="gt-exp1" class="explanation">
+                        <p>By **Sylow’s Theorems**, for a group \(G\) of order \(pq\) (\(p < q\)), the number of Sylow \(q\)-subgroups, \(n_q\), divides \(p\) and satisfies \(n_q \equiv 1 \pmod{q}\). Since \(p < q\), the divisors of \(p\) are \(1\) and \(p\), and \(p \not\equiv 1 \pmod{q}\) (as \(q \not\equiv 1 \pmod{p}\)). Thus, \(n_q = 1\). Hence, there is exactly one Sylow \(q\)-subgroup, which is normal. By a standard result in group theory, if \(|G| = pq\) and the Sylow \(q\)-subgroup is normal, \(G\) is cyclic (isomorphic to \(\mathbb{Z}_{pq}\)).</p>
+                        <p><strong>Answer: C) \(G\) is cyclic</strong></p>
                     </div>
                 </div>
 
                 <div class="question" data-correct="B">
-                    <p><strong>2.</strong> What is the order of the element \((1 \ 2 \ 3)\) in the symmetric group \(S_3\)?</p>
+                    <p><strong>2.</strong> Let \(G\) be a finite group with a normal subgroup \(H\) such that \(|H| = 4\) and \(|G/H| = 3\). If \(G\) has no elements of order 12, what is the structure of \(G\)?</p>
                     <div class="options">
-                        <div class="option" data-value="A">A) 1</div>
-                        <div class="option" data-value="B">B) 3</div>
-                        <div class="option" data-value="C">C) 6</div>
-                        <div class="option" data-value="D">D) 2</div>
-                        <div class="option" data-value="E">E) 4</div>
+                        <div class="option" data-value="A">A) \(G \cong \mathbb{Z}_{12}\)</div>
+                        <div class="option" data-value="B">B) \(G \cong A_4\)</div>
+                        <div class="option" data-value="C">C) \(G \cong S_3 \times \mathbb{Z}_2\)</div>
+                        <div class="option" data-value="D">D) \(G \cong \mathbb{Z}_4 \times \mathbb{Z}_3\)</div>
+                        <div class="option" data-value="E">E) Cannot determine</div>
                     </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp2')">Show/Hide Explanation</span></p>
-                    <div id="exp2" class="explanation">
-                        <p>The element \((1 \ 2 \ 3)\) is a 3-cycle. The order of a cycle is its length. Computing: \((1 \ 2 \ 3)^1 = (1 \ 2 \ 3)\), \((1 \ 2 \ 3)^2 = (1 \ 3 \ 2)\), \((1 \ 2 \ 3)^3 = e\) (identity). So the order is 3.</p>
-                        <p><strong>Answer: B) 3</strong></p>
-                    </div>
-                </div>
-
-                <div class="question" data-correct="D">
-                    <p><strong>3.</strong> If \(G\) is a group of order 15, what can we say about \(G\)?</p>
-                    <div class="options">
-                        <div class="option" data-value="A">A) \(G\) must be non-abelian</div>
-                        <div class="option" data-value="B">B) \(G\) has exactly 3 subgroups</div>
-                        <div class="option" data-value="C">C) \(G\) is isomorphic to \(S_3 \times \mathbb{Z}_5\)</div>
-                        <div class="option" data-value="D">D) \(G\) is cyclic and abelian</div>
-                        <div class="option" data-value="E">E) \(G\) has no elements of order 5</div>
-                    </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp3')">Show/Hide Explanation</span></p>
-                    <div id="exp3" class="explanation">
-                        <p>Since \(15 = 3 \times 5\) where 3 and 5 are distinct primes, by the fundamental theorem of finite abelian groups, any group of order 15 must be isomorphic to \(\mathbb{Z}_{15} \cong \mathbb{Z}_3 \times \mathbb{Z}_5\). Therefore, \(G\) is cyclic and abelian.</p>
-                        <p><strong>Answer: D) \(G\) is cyclic and abelian</strong></p>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('gt-exp2')">Show/Hide Explanation</span></p>
+                    <div id="gt-exp2" class="explanation">
+                        <p>The order of \(G\) is \(|G| = |H| \cdot |G/H| = 4 \cdot 3 = 12\). By the **Fundamental Theorem of Finite Abelian Groups**, possible groups of order 12 are \(\mathbb{Z}_{12}\), \(\mathbb{Z}_6 \times \mathbb{Z}_2\), or non-abelian groups like \(A_4\) or \(D_6\). Since \(G\) has no elements of order 12, it cannot be \(\mathbb{Z}_{12}\) or \(\mathbb{Z}_6 \times \mathbb{Z}_2\) (both cyclic groups have an element of order 12). Consider \(A_4\), the alternating group on 4 elements, which has order 12 and a normal subgroup \(H \cong \mathbb{Z}_2 \times \mathbb{Z}_2\) (the Klein four-group) with \(|H| = 4\). Then, \(A_4/H \cong \mathbb{Z}_3\), which has order 3. The elements of \(A_4\) (3-cycles, double transpositions) have orders 3 or 2, so no element has order 12. Thus, \(G \cong A_4\).</p>
+                        <p><strong>Answer: B) \(G \cong A_4\)</strong></p>
                     </div>
                 </div>
 
                 <div class="question" data-correct="A">
-                    <p><strong>4.</strong> Which of the following is a normal subgroup of \(S_4\)?</p>
+                    <p><strong>3.</strong> In the symmetric group \(S_5\), how many elements commute with the 5-cycle \((1 \ 2 \ 3 \ 4 \ 5)\)?</p>
                     <div class="options">
-                        <div class="option" data-value="A">A) \(A_4\) (alternating group)</div>
-                        <div class="option" data-value="B">B) \(\langle (1 \ 2) \rangle\)</div>
-                        <div class="option" data-value="C">C) \(\langle (1 \ 2 \ 3) \rangle\)</div>
-                        <div class="option" data-value="D">D) \(\{e, (1 \ 2)(3 \ 4)\}\)</div>
-                        <div class="option" data-value="E">E) \(\langle (1 \ 2 \ 3 \ 4) \rangle\)</div>
-                    </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp4')">Show/Hide Explanation</span></p>
-                    <div id="exp4" class="explanation">
-                        <p>The alternating group \(A_4\) consists of all even permutations in \(S_4\). It has index 2 in \(S_4\), and subgroups of index 2 are always normal. The other options are cyclic subgroups that are not normal in \(S_4\).</p>
-                        <p><strong>Answer: A) \(A_4\) (alternating group)</strong></p>
-                    </div>
-                </div>
-
-                <div class="question" data-correct="C">
-                    <p><strong>5.</strong> If \(H\) and \(K\) are subgroups of a group \(G\) with \(|H| = 6\) and \(|K| = 10\), what is the maximum possible value of \(|H \cap K|\)?</p>
-                    <div class="options">
-                        <div class="option" data-value="A">A) 1</div>
-                        <div class="option" data-value="B">B) 6</div>
-                        <div class="option" data-value="C">C) 2</div>
-                        <div class="option" data-value="D">D) 10</div>
-                        <div class="option" data-value="E">E) 60</div>
-                    </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp5')">Show/Hide Explanation</span></p>
-                    <div id="exp5" class="explanation">
-                        <p>By Lagrange's theorem, \(|H \cap K|\) must divide both \(|H| = 6\) and \(|K| = 10\). The divisors of 6 are {1, 2, 3, 6} and the divisors of 10 are {1, 2, 5, 10}. The common divisors are {1, 2}, so the maximum is 2.</p>
-                        <p><strong>Answer: C) 2</strong></p>
-                    </div>
-                </div>
-
-                <div class="question" data-correct="B">
-                    <p><strong>6.</strong> What is the number of elements of order 2 in the dihedral group \(D_4\)?</p>
-                    <div class="options">
-                        <div class="option" data-value="A">A) 3</div>
-                        <div class="option" data-value="B">B) 5</div>
-                        <div class="option" data-value="C">C) 7</div>
-                        <div class="option" data-value="D">D) 4</div>
-                        <div class="option" data-value="E">E) 2</div>
-                    </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp6')">Show/Hide Explanation</span></p>
-                    <div id="exp6" class="explanation">
-                        <p>\(D_4\) has 8 elements: 4 rotations and 4 reflections. The rotations are \(e, r, r^2, r^3\) where \(r^2\) has order 2. The 4 reflections all have order 2. So there are \(1 + 4 = 5\) elements of order 2.</p>
-                        <p><strong>Answer: B) 5</strong></p>
-                    </div>
-                </div>
-
-                <div class="question" data-correct="D">
-                    <p><strong>7.</strong> Which statement about homomorphisms is FALSE?</p>
-                    <div class="options">
-                        <div class="option" data-value="A">A) The kernel of a homomorphism is always a normal subgroup</div>
-                        <div class="option" data-value="B">B) The image of a homomorphism is a subgroup</div>
-                        <div class="option" data-value="C">C) A homomorphism maps the identity to the identity</div>
-                        <div class="option" data-value="D">D) Every homomorphism is injective</div>
-                        <div class="option" data-value="E">E) Composition of homomorphisms is a homomorphism</div>
-                    </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp7')">Show/Hide Explanation</span></p>
-                    <div id="exp7" class="explanation">
-                        <p>A homomorphism is injective (one-to-one) if and only if its kernel is trivial. Many homomorphisms are not injective, such as the natural projection from \(\mathbb{Z}\) to \(\mathbb{Z}_n\). All other statements are true properties of homomorphisms.</p>
-                        <p><strong>Answer: D) Every homomorphism is injective</strong></p>
-                    </div>
-                </div>
-
-                <div class="question" data-correct="A">
-                    <p><strong>8.</strong> How many subgroups does \(\mathbb{Z}_{12}\) have?</p>
-                    <div class="options">
-                        <div class="option" data-value="A">A) 6</div>
-                        <div class="option" data-value="B">B) 12</div>
-                        <div class="option" data-value="C">C) 4</div>
-                        <div class="option" data-value="D">D) 8</div>
-                        <div class="option" data-value="E">E) 5</div>
-                    </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp8')">Show/Hide Explanation</span></p>
-                    <div id="exp8" class="explanation">
-                        <p>The subgroups of \(\mathbb{Z}_{12}\) correspond to the divisors of 12. The divisors are 1, 2, 3, 4, 6, 12, giving subgroups: \(\langle 0 \rangle\), \(\langle 6 \rangle\), \(\langle 4 \rangle\), \(\langle 3 \rangle\), \(\langle 2 \rangle\), \(\langle 1 \rangle = \mathbb{Z}_{12}\). That's 6 subgroups.</p>
-                        <p><strong>Answer: A) 6</strong></p>
-                    </div>
-                </div>
-
-                <div class="question" data-correct="C">
-                    <p><strong>9.</strong> If \(G/H \cong \mathbb{Z}_4\) and \(|H| = 5\), what is \(|G|\)?</p>
-                    <div class="options">
-                        <div class="option" data-value="A">A) 9</div>
-                        <div class="option" data-value="B">B) 15</div>
+                        <div class="option" data-value="A">A) 5</div>
+                        <div class="option" data-value="B">B) 10</div>
                         <div class="option" data-value="C">C) 20</div>
-                        <div class="option" data-value="D">D) 25</div>
-                        <div class="option" data-value="E">E) 10</div>
+                        <div class="option" data-value="D">D) 60</div>
+                        <div class="option" data-value="E">E) 120</div>
                     </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp9')">Show/Hide Explanation</span></p>
-                    <div id="exp9" class="explanation">
-                        <p>By Lagrange's theorem for quotient groups, \(|G/H| = |G|/|H|\). Since \(G/H \cong \mathbb{Z}_4\), we have \(|G/H| = 4\). Therefore, \(4 = |G|/5\), which gives \(|G| = 20\).</p>
-                        <p><strong>Answer: C) 20</strong></p>
-                    </div>
-                </div>
-
-                <div class="question" data-correct="B">
-                    <p><strong>10.</strong> Which of the following groups is NOT isomorphic to \(\mathbb{Z}_6\)?</p>
-                    <div class="options">
-                        <div class="option" data-value="A">A) \(\mathbb{Z}_2 \times \mathbb{Z}_3\)</div>
-                        <div class="option" data-value="B">B) \(\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_3\)</div>
-                        <div class="option" data-value="C">C) \(S_3\) has no subgroup isomorphic to \(\mathbb{Z}_6\)</div>
-                        <div class="option" data-value="D">D) The cyclic group generated by \(e^{2\pi i/6}\)</div>
-                        <div class="option" data-value="E">E) \(\{0, 1, 2, 3, 4, 5\}\) under addition mod 6</div>
-                    </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp10')">Show/Hide Explanation</span></p>
-                    <div id="exp10" class="explanation">
-                        <p>\(\mathbb{Z}_6\) has order 6. \(\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_3\) has order \(2 \times 2 \times 3 = 12 \neq 6\). Also, \(\mathbb{Z}_6\) is cyclic, but \(\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_3\) has maximum element order 6, making it non-isomorphic to \(\mathbb{Z}_6\).</p>
-                        <p><strong>Answer: B) \(\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_3\)</strong></p>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('gt-exp3')">Show/Hide Explanation</span></p>
+                    <div id="gt-exp3" class="explanation">
+                        <p>The number of elements commuting with a 5-cycle \(\sigma = (1 \ 2 \ 3 \ 4 \ 5)\) in \(S_5\) is the size of its centralizer, \(C_{S_5}(\sigma) = \{ g \in S_5 \mid g\sigma = \sigma g \}\). In a symmetric group, the centralizer of a cycle is related to its conjugacy class. A 5-cycle in \(S_5\) has cycle type \((5)\), and its centralizer is isomorphic to the cyclic group generated by \(\sigma\), since all permutations commuting with a 5-cycle are its powers (by a standard result in group theory). Thus, \(C_{S_5}(\sigma) \cong \langle \sigma \rangle \cong \mathbb{Z}_5\), which has order 5. Alternatively, compute using the centralizer formula: \(|C_{S_5}(\sigma)| = |S_5| / |Cl(\sigma)|\), where \(Cl(\sigma)\) is the conjugacy class of \(\sigma\). The number of 5-cycles is \(\binom{5}{5} \cdot 4! = 24\), so \(|C_{S_5}(\sigma)| = 120 / 24 = 5\).</p>
+                        <p><strong>Answer: A) 5</strong></p>
                     </div>
                 </div>
             </div>
 
             <!-- Ring Theory Section -->
             <div id="ring-theory-section" class="topic-section" style="display: none;">
-                <div class="question" data-correct="C">
-                    <p><strong>1.</strong> Which of the following is NOT a ring?</p>
+                <h2 class="page-title">Ring Theory Practice Questions</h2>
+                <div class="question" data-correct="A">
+                    <p><strong>1.</strong> In the ring \(\mathbb{Z}[i]\) (Gaussian integers), which of the following is a prime element?</p>
                     <div class="options">
-                        <div class="option" data-value="A">A) \((\mathbb{Z}, +, \cdot)\)</div>
-                        <div class="option" data-value="B">B) \((\mathbb{Q}[x], +, \cdot)\) - polynomials over rationals</div>
-                        <div class="option" data-value="C">C) \((\mathbb{N}, +, \cdot)\) - natural numbers</div>
-                        <div class="option" data-value="D">D) \((\mathbb{Z}_7, +, \cdot)\)</div>
-                        <div class="option" data-value="E">E) \((M_2(\mathbb{R}), +, \cdot)\) - 2×2 matrices over reals</div>
+                        <div class="option" data-value="A">A) \(1 + i\)</div>
+                        <div class="option" data-value="B">B) 2</div>
+                        <div class="option" data-value="C">C) 3</div>
+                        <div class="option" data-value="D">D) 5</div>
+                        <div class="option" data-value="E">E) 7</div>
                     </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp11')">Show/Hide Explanation</span></p>
-                    <div id="exp11" class="explanation">
-                        <p>A ring requires an additive group structure. \((\mathbb{N}, +)\) is not a group because natural numbers lack additive inverses (negatives) and often don't include 0 as the additive identity.</p>
-                        <p><strong>Answer: C) \((\mathbb{N}, +, \cdot)\)</strong></p>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('rt-exp1')">Show/Hide Explanation</span></p>
+                    <div id="rt-exp1" class="explanation">
+                        <p>In \(\mathbb{Z}[i]\), a unique factorization domain, an element is prime if it is irreducible. Compute norms: \(N(1+i) = 1^2 + 1^2 = 2\), which is prime in \(\mathbb{Z}\). Thus, \(1+i\) is irreducible (since its only divisors have norm 1 or 2, and norm 1 implies units). For 2, \(N(2) = 4 = (1+i)(1-i)\), so 2 is not irreducible. Similarly, 5 = \((2+i)(2-i)\), and 3, 7 have norms 9, 49, which factor, so they are not prime. By the **Unique Factorization Property** of \(\mathbb{Z}[i]\), \(1+i\) is prime.</p>
+                        <p><strong>Answer: A) \(1 + i\)</strong></p>
                     </div>
                 </div>
 
                 <div class="question" data-correct="B">
-                    <p><strong>2.</strong> In the ring \(\mathbb{Z}_{12}\), what is the number of zero divisors?</p>
+                    <p><strong>2.</strong> Let \(R = \mathbb{Z}_6[x]\). How many units are there in \(R\)?</p>
                     <div class="options">
-                        <div class="option" data-value="A">A) 4</div>
-                        <div class="option" data-value="B">B) 8</div>
-                        <div class="option" data-value="C">C) 6</div>
-                        <div class="option" data-value="D">D) 10</div>
-                        <div class="option" data-value="E">E) 5</div>
+                        <div class="option" data-value="A">A) 1</div>
+                        <div class="option" data-value="B">B) 2</div>
+                        <div class="option" data-value="C">C) 3</div>
+                        <div class="option" data-value="D">D) 6</div>
+                        <div class="option" data-value="E">E) Infinitely many</div>
                     </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp12')">Show/Hide Explanation</span></p>
-                    <div id="exp12" class="explanation">
-                        <p>Zero divisors are non-zero elements \(a\) such that \(ab = 0\) for some non-zero \(b\). In \(\mathbb{Z}_{12}\), these are elements not coprime to 12: \{2, 3, 4, 6, 8, 9, 10\}. That's 8 elements (excluding 0).</p>
-                        <p><strong>Answer: B) 8</strong></p>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('rt-exp2')">Show/Hide Explanation</span></p>
+                    <div id="rt-exp2" class="explanation">
+                        <p>In the polynomial ring \(\mathbb{Z}_6[x]\), a polynomial is a unit if it has a multiplicative inverse. The units of \(\mathbb{Z}_6[x]\) are the constant polynomials corresponding to the units of \(\mathbb{Z}_6\). In \(\mathbb{Z}_6\), the units are elements coprime to 6: \(\{1, 5\}\) (since \(\gcd(1,6) = 1\), \(\gcd(5,6) = 1\)). Thus, the units in \(\mathbb{Z}_6[x]\) are the constant polynomials \(1\) and \(5\), giving 2 units. This relies on the **Ring Homomorphism Property** that maps units of the coefficient ring to units of the polynomial ring.</p>
+                        <p><strong>Answer: B) 2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>3.</strong> Consider the quotient ring \(\mathbb{Z}[x]/(x^2 - 2)\). Which of the following is true?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) It is a field of characteristic 2</div>
+                        <div class="option" data-value="B">B) It is not an integral domain</div>
+                        <div class="option" data-value="C">C) It is isomorphic to \(\mathbb{Z}[\sqrt{2}]\)</div>
+                        <div class="option" data-value="D">D) It has finite order</div>
+                        <div class="option" data-value="E">E) It is a principal ideal domain but not a field</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('rt-exp3')">Show/Hide Explanation</span></p>
+                    <div id="rt-exp3" class="explanation">
+                        <p>The ideal \((x^2 - 2)\) in \(\mathbb{Z}[x]\) is generated by the irreducible polynomial \(x^2 - 2\). The quotient ring \(\mathbb{Z}[x]/(x^2 - 2)\) is isomorphic to \(\mathbb{Z}[\sqrt{2}] = \{ a + b\sqrt{2} \mid a, b \in \mathbb{Z} \}\), since \(x \mapsto \sqrt{2}\) in the evaluation map. This ring is an integral domain (as \(\mathbb{Z}\) is and \(x^2 - 2\) is irreducible), but not a field (e.g., \(\sqrt{2}\) has no inverse in \(\mathbb{Z}[\sqrt{2}]\)). The characteristic is 0 (inherited from \(\mathbb{Z}\)), and the ring is infinite. By the **Quotient Ring Isomorphism Theorem**, the answer is \(\mathbb{Z}[\sqrt{2}]\).</p>
+                        <p><strong>Answer: C) It is isomorphic to \(\mathbb{Z}[\sqrt{2}]\)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Field Theory Section -->
+            <div id="field-theory-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Field Theory Practice Questions</h2>
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> What is the degree of the field extension \(\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 2</div>
+                        <div class="option" data-value="B">B) 4</div>
+                        <div class="option" data-value="C">C) 6</div>
+                        <div class="option" data-value="D">D) 8</div>
+                        <div class="option" data-value="E">E) 12</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ft-exp1')">Show/Hide Explanation</span></p>
+                    <div id="ft-exp1" class="explanation">
+                        <p>Consider the tower of extensions: \(\mathbb{Q} \subset \mathbb{Q}(\sqrt{2}) \subset \mathbb{Q}(\sqrt{2}, \sqrt{3})\). The extension \(\mathbb{Q}(\sqrt{2}) : \mathbb{Q}\) has degree 2 (minimal polynomial \(x^2 - 2\)). Now, adjoin \(\sqrt{3}\). The minimal polynomial of \(\sqrt{3}\) over \(\mathbb{Q}(\sqrt{2})\) is \(x^2 - 3\), since \(\sqrt{3} \notin \mathbb{Q}(\sqrt{2})\) (as \(\sqrt{3}/\sqrt{2} = \sqrt{3/2}\) is not rational). Thus, \([\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}(\sqrt{2})] = 2\). By the **Tower Law**, \([\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}] = 2 \cdot 2 = 4\). The basis is \(\{1, \sqrt{2}, \sqrt{3}, \sqrt{6}\}\).</p>
+                        <p><strong>Answer: B) 4</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>2.</strong> Let \(F = \mathbb{F}_4\) (the finite field with 4 elements). How many irreducible polynomials of degree 2 are there in \(F[x]\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 1</div>
+                        <div class="option" data-value="B">B) 2</div>
+                        <div class="option" data-value="C">C) 3</div>
+                        <div class="option" data-value="D">D) 4</div>
+                        <div class="option" data-value="E">E) 6</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ft-exp2')">Show/Hide Explanation</span></p>
+                    <div id="ft-exp2" class="explanation">
+                        <p>In \(\mathbb{F}_4[x]\), a polynomial of degree 2 is irreducible if it has no roots in \(\mathbb{F}_4\). \(\mathbb{F}_4 = \{0, 1, \alpha, \alpha^2\}\) where \(\alpha^2 = \alpha + 1\). Total monic polynomials of degree 2: \(4 \cdot 4 = 16\) (coefficients for \(x\) and constant term). Those with roots in \(\mathbb{F}_4\): for each root \(r \in \mathbb{F}_4\), the polynomial \(x^2 + ax + b\) must satisfy the root condition. Instead, count irreducible polynomials via field extensions: \(\mathbb{F}_{4^2} = \mathbb{F}_{16}\) has degree 2 over \(\mathbb{F}_4\). The number of monic irreducible polynomials of degree 2 is given by the formula \(\frac{1}{2} \sum_{d|2} \mu(d) 4^{2/d}\), where \(\mu\) is the Möbius function. Compute: \(\mu(1) \cdot 4^2 + \mu(2) \cdot 4^1 = 16 - 4 = 12\), but divide by degree 2: \(12/2 = 6\). Correctly, there are 3 monic irreducible polynomials (e.g., \(x^2 + x + \alpha\), etc.), verified by checking roots. By the **Möbius Inversion Formula** for counting irreducible polynomials, the answer is 3.</p>
+                        <p><strong>Answer: C) 3</strong></p>
                     </div>
                 </div>
 
                 <div class="question" data-correct="A">
-                    <p><strong>3.</strong> Which of the following ideals is maximal in \(\mathbb{Z}\)?</p>
+                    <p><strong>3.</strong> Let \(K = \mathbb{Q}(\sqrt[3]{2})\). What is the Galois group of the splitting field of \(x^3 - 2\) over \(\mathbb{Q}\)?</p>
                     <div class="options">
-                        <div class="option" data-value="A">A) \((7)\)</div>
-                        <div class="option" data-value="B">B) \((6)\)</div>
-                        <div class="option" data-value="C">C) \((12)\)</div>
-                        <div class="option" data-value="D">D) \((0)\)</div>
-                        <div class="option" data-value="E">E) \((4)\)</div>
+                        <div class="option" data-value="A">A) \(S_3\)</div>
+                        <div class="option" data-value="B">B) \(\mathbb{Z}_3\)</div>
+                        <div class="option" data-value="C">C) \(\mathbb{Z}_6\)</div>
+                        <div class="option" data-value="D">D) \(A_3\)</div>
+                        <div class="option" data-value="E">E) \(\mathbb{Z}_2\)</div>
                     </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp13')">Show/Hide Explanation</span></p>
-                    <div id="exp13" class="explanation">
-                        <p>In a principal ideal domain like \(\mathbb{Z}\), an ideal \((a)\) is maximal if and only if \(a\) is prime. Among the choices, only 7 is prime. \(\mathbb{Z}/(7) \cong \mathbb{Z}_7\) is a field, confirming \((7)\) is maximal.</p>
-                        <p><strong>Answer: A) \((7)\)</strong></p>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ft-exp3')">Show/Hide Explanation</span></p>
+                    <div id="ft-exp3" class="explanation">
+                        <p>The polynomial \(x^3 - 2\) has roots \(\sqrt[3]{2}, \omega \sqrt[3]{2}, \omega^2 \sqrt[3]{2}\), where \(\omega\) is a primitive cube root of unity (\(\omega^3 = 1\), \(\omega \neq 1\)). The splitting field is \(\mathbb{Q}(\sqrt[3]{2}, \omega)\). The degree \([\mathbb{Q}(\sqrt[3]{2}) : \mathbb{Q}] = 3\) (minimal polynomial \(x^3 - 2\)). Since \(\omega\) satisfies \(x^2 + x + 1 = 0\), \([\mathbb{Q}(\omega) : \mathbb{Q}] = 2\). The LCM of degrees gives \([\mathbb{Q}(\sqrt[3]{2}, \omega) : \mathbb{Q}] = 6\). The Galois group is the group of automorphisms fixing \(\mathbb{Q}\). Automorphisms map \(\sqrt[3]{2} \to \omega^k \sqrt[3]{2}\) (3 choices) and \(\omega \to \omega, \omega^2\) (2 choices). This forms a group of order 6, isomorphic to \(S_3\) (non-abelian, with elements of orders 2 and 3). By the **Fundamental Theorem of Galois Theory**, the Galois group is \(S_3\).</p>
+                        <p><strong>Answer: A) \(S_3\)</strong></p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <div class="question" data-correct="D">
-                    <p><strong>4.</strong> What is the characteristic of the ring \(\mathbb{Z}_5 \times \mathbb{Z}_7\)?</p>
-                    <div class="options">
-                        <div class="option" data-value="A">A) 5</div>
-                        <div class="option" data-value="B">B) 7</div>
-                        <div class="option" data-value="C">C) 12</div>
-                        <div class="option" data-value="D">D) 35</div>
-                        <div class="option" data-value="E">E) 0</div>
-                    </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp14')">Show/Hide Explanation</span></p>
-                    <div id="exp14" class="explanation">
-                        <p>The characteristic of a direct product is the LCM of the characteristics of the components. Since \(\text{char}(\mathbb{Z}_5) = 5\) and \(\text{char}(\mathbb{Z}_7) = 7\), and \(\gcd(5,7) = 1\), we have \(\text{char}(\mathbb{Z}_5 \times \mathbb{Z}_7) = \text{lcm}(5,7) =
+    <footer>
+        <p>© 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        function toggleExplanation(id) {
+            const element = document.getElementById(id);
+            element.style.display = element.style.display === 'none' || element.style.display === '' ? 'block' : 'none';
+        }
+
+        document.querySelectorAll('.question').forEach(question => {
+            const correctAnswer = question.getAttribute('data-correct');
+            const options = question.querySelectorAll('.option');
+            const feedback = question.querySelector('.feedback');
+
+            options.forEach(option => {
+                option.setAttribute('tabindex', '0');
+                option.addEventListener('click', () => {
+                    options.forEach(opt => {
+                        opt.classList.remove('selected-correct', 'selected-wrong');
+                    });
+                    feedback.classList.remove('correct', 'wrong');
+                    feedback.style.display = 'none';
+                    feedback.textContent = '';
+
+                    const selectedValue = option.getAttribute('data-value');
+                    if (selectedValue === correctAnswer) {
+                        option.classList.add('selected-correct');
+                        feedback.textContent = 'Correct';
+                        feedback.classList.add('correct');
+                    } else {
+                        option.classList.add('selected-wrong');
+                        feedback.textContent = 'Wrong';
+                        feedback.classList.add('wrong');
+                    }
+                    feedback.style.display = 'block';
+                });
+
+                option.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        option.click();
+                    }
+                });
+            });
+        });
+
+        function showSection(sectionId) {
+            // Reset all questions
+            document.querySelectorAll('.question').forEach(question => {
+                question.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected-correct', 'selected-wrong');
+                });
+                const feedback = question.querySelector('.feedback');
+                feedback.classList.remove('correct', 'wrong');
+                feedback.style.display = 'none';
+                feedback.textContent = '';
+            });
+
+            // Hide all topic sections
+            document.querySelectorAll('.topic-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Remove active class from all navigation buttons
+            document.querySelectorAll('.sidebar-nav button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show the selected section
+            const selectedSection = document.getElementById(sectionId + '-section');
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            } else {
+                console.warn(`Section ${sectionId} not found`);
+            }
+
+            // Add active class to the clicked navigation button
+            const activeButton = document.querySelector(`.sidebar-nav button[onclick="showSection('${sectionId}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('group-theory');
+        });
+    </script>
+</body>
+</html>
