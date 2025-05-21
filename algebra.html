@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract Algebra - GRE Math Subject Test Questions</title>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .question-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .question-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .question-difficulty {
+            background-color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .question-body {
+            padding: 1.5rem;
+        }
+        
+        .question-content {
+            margin-bottom: 2rem;
+        }
+        
+        .options {
+            padding-left: 1.5rem;
+        }
+        
+        .option {
+            margin-bottom: 0.75rem;
+        }
+        
+        .solution {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .solution-toggle {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .filter-section {
+            background-color: #e9ecef;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .filter-select {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ced4da;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 0.5rem;
+        }
+        
+        .pagination-button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            background-color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-button:hover,
+        .pagination-button.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .math {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <!-- MathJax for rendering math equations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Abstract Algebra</h1>
+        <p class="subtitle">GRE Math Subject Test Questions</p>
+    </header>
+    
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section class="filter-section">
+            <h2>Filter Abstract Algebra Questions</h2>
+            <div class="filter-controls">
+                <select class="filter-select" id="difficulty-filter">
+                    <option value="all">All Difficulties</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                
+                <select class="filter-select" id="topic-filter">
+                    <option value="all">All Algebra Topics</option>
+                    <option value="groups">Groups</option>
+                    <option value="rings">Rings</option>
+                    <option value="fields">Fields</option>
+                    <option value="modules">Modules</option>
+                    <option value="galois">Galois Theory</option>
+                </select>
+                
+                <select class="filter-select" id="year-filter">
+                    <option value="all">All Years</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+        </section>
+        
+        <section class="questions-section">
+            <!-- Question 1 -->
+            <div class="question-card" data-difficulty="easy" data-topic="groups" data-year="2023">
+                <div class="question-header">
+                    <h3>Question #1</h3>
+                    <span class="question-difficulty">Easy</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>Which of the following sets with the operation of addition is a group?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> The set of positive integers</div>
+                            <div class="option"><strong>(B)</strong> The set of integers</div>
+                            <div class="option"><strong>(C)</strong> The set of positive rational numbers</div>
+                            <div class="option"><strong>(D)</strong> The set of non-negative integers</div>
+                            <div class="option"><strong>(E)</strong> The set of even positive integers</div>
+                        </div>
+                    </div>
+                    
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden">
+                        <h4>Solution:</h4>
+                        <p>A set with an operation forms a group if it satisfies four properties: closure, associativity, identity, and inverses.</p>
+                        <p>Consider each option:</p>
+                        <p><strong>(A)</strong> Positive integers are closed under addition and associative, but there is no identity (0 is not a positive integer) and no inverses (e.g., 1 has no inverse). Not a group.</p>
+                        <p><strong>(B)</strong> The integers are closed under addition, associative, have an identity (0), and every integer \( n \) has an inverse (\(-n\)). This is a group.</p>
+                        <p><strong>(C)</strong> Positive rational numbers are closed and associative, but there is no identity (0 is not positive) and no inverses. Not a group.</p>
+                        <p><strong>(D)</strong> Non-negative integers include 0, so there is an identity, but there are no inverses for non-zero elements (e.g., 1 has no inverse). Not a group.</p>
+                        <p><strong>(E)</strong> Even positive integers are closed and associative, but there is no identity (0 is not a positive integer) and no inverses. Not a group.</p>
+                        <p><strong>Answer: (B) The set of integers</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="question-card" data-difficulty="medium" data-topic="rings" data-year="2022">
+                <div class="question-header">
+                    <h3>Question #2</h3>
+                    <span class="question-difficulty">Medium</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>In the ring \(\mathbb{Z}[x]\) of polynomials with integer coefficients, which of the following is a unit?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> \( x \)</div>
+                            <div class="option"><strong>(B)</strong> \( 2x + 1 \)</div>
+                            <div class="option"><strong>(C)</strong> \( 1 \)</div>
+                            <div class="option"><strong>(D)</strong> \( x^2 + 1 \)</div>
+                            <div class="option"><strong>(E)</strong> \( 2 \)</div>
+                        </div>
+                    </div>
+                    
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden">
+                        <h4>Solution:</h4>
+                        <p>A unit in a ring is an element that has a multiplicative inverse in the ring. In \(\mathbb{Z}[x]\), the units are polynomials \( p(x) \) such that there exists a polynomial \( q(x) \in \mathbb{Z}[x] \) with \( p(x)q(x) = 1 \).</p>
+                        <p>Since the product of two non-constant polynomials has degree at least 1, the units must be constant polynomials. Thus, we need \( p(x)q(x) = 1 \), where \( p(x) \) and \( q(x) \) are constant integers, say \( a \) and \( b \), such that \( ab = 1 \). In \(\mathbb{Z}\), the only integers with multiplicative inverses are \( \pm 1 \).</p>
+                        <p>Checking the options:</p>
+                        <p><strong>(A)</strong> \( x \) is not a constant polynomial, so it is not a unit.</p>
+                        <p><strong>(B)</strong> \( 2x + 1 \) has degree 1, so it is not a unit.</p>
+                        <p><strong>(C)</strong> \( 1 \) is a constant polynomial, and \( 1 \cdot 1 = 1 \), so it is a unit.</p>
+                        <p><strong>(D)</strong> \( x^2 + 1 \) has degree 2, so it is not a unit.</p>
+                        <p><strong>(E)</strong> \( 2 \) is a constant polynomial, but \( 2 \cdot q(x) = 1 \) has no solution in \(\mathbb{Z}[x]\) since \( \frac{1}{2} \notin \mathbb{Z} \).</p>
+                        <p><strong>Answer: (C) \( 1 \)</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 3 -->
+            <div class="question-card" data-difficulty="medium" data-topic="groups" data-year="2023">
+                <div class="question-header">
+                    <h3>Question #3</h3>
+                    <span class="question-difficulty">Medium</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>Let \( G \) be a group of order 15. Which of the following must be true?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> \( G \) is cyclic</div>
+                            <div class="option"><strong>(B)</strong> \( G \) is abelian but not cyclic</div>
+                            <div class="option"><strong>(C)</strong> \( G \) has a subgroup of order 6</div>
+                            <div class="option"><strong>(D)</strong> \( G \) is non-abelian</div>
+                            <div class="option"><strong>(E)</strong> \( G \) has no elements of order 5</div>
+                        </div>
+                    </div>
+                    
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden">
+                        <h4>Solution:</h4>
+                        <p>By Cauchy's theorem, since 15 = 3 × 5, \( G \) has elements of orders 3 and 5. Consider the possible structures of a group of order 15. The number of Sylow 5-subgroups \( n_5 \) divides 15 and satisfies \( n_5 \equiv 1 \pmod{5} \). The divisors of 15 are 1, 3, 5, 15, and only 1 satisfies \( n_5 \equiv 1 \pmod{5} \). Thus, there is exactly one Sylow 5-subgroup, which is normal. Similarly, there is one Sylow 3-subgroup, which is normal.</p>
+                        <p>Since \( G \) has normal subgroups of orders 3 and 5, and their intersection is trivial (since 3 and 5 are coprime), \( G \) is isomorphic to the direct product of these subgroups, i.e., \( \mathbb{Z}/3\mathbb{Z} \times \mathbb{Z}/5\mathbb{Z} \), which is isomorphic to \( \mathbb{Z}/15\mathbb{Z} \) because 3 and 5 are coprime. Thus, \( G \) is cyclic.</p>
+                        <p>Checking the options:</p>
+                        <p><strong>(A)</strong> \( G \) is cyclic, which is true.</p>
+                        <p><strong>(B)</strong> If \( G \) is cyclic, it is abelian, but this option claims it is not cyclic, which is false.</p>
+                        <p><strong>(C)</strong> By Lagrange's theorem, the order of a subgroup must divide 15 (i.e., 1, 3, 5, 15). There is no subgroup of order 6.</p>
+                        <p><strong>(D)</strong> A cyclic group is abelian, so \( G \) is not non-abelian.</p>
+                        <p><strong>(E)</strong> Since \( G \) has an element of order 5 (by Cauchy's theorem), this is false.</p>
+                        <p><strong>Answer: (A) \( G \) is cyclic</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 4 -->
+            <div class="question-card" data-difficulty="hard" data-topic="fields" data-year="2021">
+                <div class="question-header">
+                    <h3>Question #4</h3>
+                    <span class="question-difficulty">Hard</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>Consider the field extension \(\mathbb{Q}(\sqrt{2}, \sqrt{3})\) over \(\mathbb{Q}\). What is the degree of this extension?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> 2</div>
+                            <div class="option"><strong>(B)</strong> 3</div>
+                            <div class="option"><strong>(C)</strong> 4</div>
+                            <div class="option"><strong>(D)</strong> 6</div>
+                            <div class="option"><strong>(E)</strong> 8</div>
+                        </div>
+                    </div>
+                    
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden">
+                        <h4>Solution:</h4>
+                        <p>The field extension \(\mathbb{Q}(\sqrt{2}, \sqrt{3})\) is the smallest field containing \(\mathbb{Q}\), \(\sqrt{2}\), and \(\sqrt{3}\). First, consider \(\mathbb{Q}(\sqrt{2})\) over \(\mathbb{Q}\). The minimal polynomial of \(\sqrt{2}\) over \(\mathbb{Q}\) is \( x^2 - 2 \), so \([\mathbb{Q}(\sqrt{2}) : \mathbb{Q}] = 2\).</p>
+                        <p>Next, adjoin \(\sqrt{3}\) to form \(\mathbb{Q}(\sqrt{2}, \sqrt{3})\). We need to find the degree \([\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}(\sqrt{2})]\). The minimal polynomial of \(\sqrt{3}\) over \(\mathbb{Q}\) is \( x^2 - 3 \). We check if \( x^2 - 3 \) is irreducible over \(\mathbb{Q}(\sqrt{2})\). Suppose \(\sqrt{3} \in \mathbb{Q}(\sqrt{2})\), so \(\sqrt{3} = a + b\sqrt{2}\) for \( a, b \in \mathbb{Q} \). Squaring both sides:</p>
+                        <p>\( 3 = a^2 + 2ab\sqrt{2} + 2b^2 \). Since \(\sqrt{2}\) is irrational, equate coefficients: \( a^2 + 2b^2 = 3 \) and \( 2ab = 0 \). If \( a = 0 \), then \( 2b^2 = 3 \), so \( b^2 = \frac{3}{2} \), but \( b \in \mathbb{Q} \), so \( b^2 \) cannot be \(\frac{3}{2}\). If \( b = 0 \), then \( a^2 = 3 \), so \( a = \sqrt{3} \), which is not rational. Thus, \(\sqrt{3} \notin \mathbb{Q}(\sqrt{2})\), and \( x^2 - 3 \) is irreducible over \(\mathbb{Q}(\sqrt{2})\), so \([\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}(\sqrt{2})] = 2\).</p>
+                        <p>The total degree is:</p>
+                        <p>\([\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}] = [\mathbb{Q}(\sqrt{2}, \sqrt{3}) : \mathbb{Q}(\sqrt{2})] \cdot [\mathbb{Q}(\sqrt{2}) : \mathbb{Q}] = 2 \cdot 2 = 4\).</p>
+                        <p><strong>Answer: (C) 4</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 5 -->
+            <div class="question-card" data-difficulty="hard" data-topic="galois" data-year="2024">
+                <div class="question-header">
+                    <h3>Question #5</h3>
+                    <span class="question-difficulty">Hard</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>Let \( f(x) = x^3 - 3x + 1 \) over \(\mathbb{Q}\). What is the order of the Galois group of \( f(x) \)?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> 1</div>
+                            <div class="option"><strong>(B)</strong> 2</div>
+                            <div class="option"><strong>(C)</strong> 3</div>
+                            <div class="option"><strong>(D)</strong> 6</div>
+                            <div class="option"><strong>(E)</strong> 9</div>
+                        </div>
+                    </div>
+                    
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden">
+                        <h4>Solution:</h4>
+                        <p>The Galois group of a polynomial is the group of automorphisms of its splitting field over \(\mathbb{Q}\). First, determine if \( f(x) = x^3 - 3x + 1 \) is irreducible over \(\mathbb{Q}\). By the Rational Root Theorem, possible rational roots are \( \pm 1 \). Testing:</p>
+                        <p>\( f(1) = 1^3 - 3 \cdot 1 + 1 = 1 - 3 + 1 = -1 \neq 0 \)</p>
+                        <p>\( f(-1) = (-1)^3 - 3(-1) + 1 = -1 + 3 + 1 = 3 \neq 0 \)</p>
+                        <p>Since there are no rational roots and \( f(x) \) is cubic, it is irreducible over \(\mathbb{Q}\). Thus, the degree of the extension \(\mathbb{Q}(\alpha) : \mathbb{Q}\), where \(\alpha\) is a root, is 3.</p>
+                        <p>Next, find the splitting field. Compute the discriminant of \( f(x) \):</p>
+                        <p>For a cubic \( x^3 + ax^2 + bx + c \), the discriminant is:</p>
+                        <p>\( \Delta = 18abc - 4a^3c + a^2b^2 - 4b^3 - 27c^2 \)</p>
+                        <p>Here, \( a = 0 \), \( b = -3 \), \( c = 1 \):</p>
+                        <p>\( \Delta = 18 \cdot 0 \cdot (-3) \cdot 1 - 4 \cdot 0^3 \cdot 1 + 0^2 \cdot (-3)^2 - 4(-3)^3 - 27 \cdot 1^2 \)</p>
+                        <p>\( = 0 + 0 + 0 - 4(-27) - 27 = 108 - 27 = 81 \)</p>
+                        <p>Since \(\Delta = 81\) is a perfect square, the Galois group is a subgroup of \( A_3 \), the alternating group on 3 letters, which has order 3. The splitting field is obtained by adjoining the roots. Since \( f(x) \) is irreducible, the degree of the splitting field over \(\mathbb{Q}\) is at most 6 (since adjoining one root gives degree 3, and the quadratic factor may add degree 2). However, since \(\sqrt{\Delta} = 9 \in \mathbb{Q}\), the splitting field is \(\mathbb{Q}(\alpha)\), which has degree 3, and the Galois group is cyclic of order 3.</p>
+                        <p><strong>Answer: (C) 3</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Question 6 -->
+            <div class="question-card" data-difficulty="medium" data-topic="modules" data-year="2022">
+                <div class="question-header">
+                    <h3>Question #6</h3>
+                    <span class="question-difficulty">Medium</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>Let \( M \) be a \(\mathbb{Z}\)-module isomorphic to \(\mathbb{Z}/4\mathbb{Z} \oplus \mathbb{Z}/6\mathbb{Z}\). What is the number of elements in \( M \)?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> 12</div>
+                            <div class="option"><strong>(B)</strong> 24</div>
+                            <div class="option"><strong>(C)</strong> 10</div>
+                            <div class="option"><strong>(D)</strong> 48</div>
+                            <div class="option"><strong>(E)</strong> 36</div>
+                        </div>
+                    </div>
+                    
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden">
+                        <h4>Solution:</h4>
+                        <p>A \(\mathbb{Z}\)-module is an abelian group under addition. If \( M \cong \mathbb{Z}/4\mathbb{Z} \oplus \mathbb{Z}/6\mathbb{Z} \), we need to find the number of elements in \( M \).</p>
+                        <p>The order of a direct sum of finite groups is the product of their orders. The group \(\mathbb{Z}/4\mathbb{Z}\) has 4 elements, and \(\mathbb{Z}/6\mathbb{Z}\) has 6 elements.</p>
+                        <p>Thus, the number of elements in \( M \) is:</p>
+                        <p>\( |\mathbb{Z}/4\mathbb{Z}| \cdot |\mathbb{Z}/6\mathbb{Z}| = 4 \cdot 6 = 24 \)</p>
+                        <p><strong>Answer: (B) 24</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="pagination">
+            <button class="pagination-button active">1</button>
+            <button class="pagination-button">2</button>
+            <button class="pagination-button">3</button>
+            <button class="pagination-button">Next →</button>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        // Toggle solution visibility
+        function toggleSolution(button) {
+            const solution = button.nextElementSibling;
+            if (solution.classList.contains('hidden')) {
+                solution.classList.remove('hidden');
+                button.textContent = 'Hide Solution';
+            } else {
+                solution.classList.add('hidden');
+                button.textContent = 'Show Solution';
+            }
+        }
+        
+        // Filter functionality
+        const difficultyFilter = document.getElementById('difficulty-filter');
+        const topicFilter = document.getElementById('topic-filter');
+        const yearFilter = document.getElementById('year-filter');
+        const questions = document.querySelectorAll('.question-card');
+        
+        function applyFilters() {
+            const difficultyValue = difficultyFilter.value;
+            const topicValue = topicFilter.value;
+            const yearValue = yearFilter.value;
+            
+            questions.forEach(question => {
+                const matchesDifficulty = difficultyValue === 'all' || question.dataset.difficulty === difficultyValue;
+                const matchesTopic = topicValue === 'all' || question.dataset.topic === topicValue;
+                const matchesYear = yearValue === 'all' || question.dataset.year === yearValue;
+                
+                if (matchesDifficulty && matchesTopic && matchesYear) {
+                    question.style.display = 'block';
+                } else {
+                    question.style.display = 'none';
+                }
+            });
+        }
+        
+        difficultyFilter.addEventListener('change', applyFilters);
+        topicFilter.addEventListener('change', applyFilters);
+        yearFilter.addEventListener('change', applyFilters);
+    </script>
+</body>
+</html>
