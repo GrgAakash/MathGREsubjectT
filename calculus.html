@@ -3,30 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculus Practice Questions</title>
+    <title>Calculus Practice Questions - Math GRE Prep</title>
     <!-- MathJax CDN for LaTeX rendering -->
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
     <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            max-width: 1100px; /* Increased max-width */
-            margin: 20px auto;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
             background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
-            display: flex; /* Use flexbox for layout */
-            gap: 30px; /* Space between navigation and content */
         }
 
+        /* Header styles matching main site */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        /* Navigation styles matching main site */
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Main content container */
+        .main-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Sidebar navigation */
         nav {
-            flex-basis: 200px; /* Fixed width for navigation */
+            flex-basis: 200px;
             background-color: #fff;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            position: sticky; /* Make navigation sticky */
+            position: sticky;
             top: 20px;
+            height: fit-content;
         }
 
         nav button {
@@ -48,16 +122,16 @@
         }
 
         nav button.active {
-            background-color: #007bff;
+            background-color: var(--accent);
             color: #fff;
             font-weight: bold;
         }
 
         .main-content {
-            flex-grow: 1; /* Take up remaining space */
+            flex-grow: 1;
         }
 
-        h1 {
+        .page-title {
             text-align: center;
             color: #2c3e50;
             font-size: 2.2em;
@@ -127,7 +201,7 @@
 
         .toggle-btn {
             cursor: pointer;
-            color: #007bff;
+            color: var(--accent);
             text-decoration: underline;
             font-size: 0.9em;
             display: inline-block;
@@ -135,7 +209,7 @@
         }
 
         .toggle-btn:hover {
-            color: #0056b3;
+            color: #228B7E;
         }
 
         .explanation {
@@ -143,28 +217,45 @@
             background: #f1f3f5;
             padding: 15px;
             border-radius: 5px;
-            border-left: 4px solid #007bff;
+            border-left: 4px solid var(--accent);
             margin-top: 15px;
             font-size: 0.95em;
         }
 
+        /* Footer styles matching main site */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
-            body {
-                flex-direction: column; /* Stack elements on small screens */
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .main-container {
+                flex-direction: column;
                 padding: 10px;
                 gap: 15px;
             }
+            
             nav {
                 flex-basis: auto;
                 width: 100%;
-                position: static; /* Remove sticky on small screens */
+                position: static;
                 display: flex;
-                flex-wrap: wrap; /* Allow buttons to wrap */
+                flex-wrap: wrap;
                 gap: 10px;
             }
+            
             nav button {
                 width: auto;
-                flex-grow: 1; /* Allow buttons to fill space */
+                flex-grow: 1;
             }
         }
 
@@ -179,219 +270,243 @@
     </style>
 </head>
 <body>
-    <nav>
-        <button onclick="showSection('limits')" class="active">Limits</button>
-        <button onclick="showSection('continuity')">Continuity</button>
-        <button onclick="showSection('differentiation')">Differentiation</button>
-        <button onclick="showSection('integration')">Integration</button>
-        <button onclick="showSection('series')">Series of Functions</button>
+    <!-- Header matching main site -->
+    <header>
+        <h1>Calculus Practice Questions</h1>
+        <p class="subtitle">Master calculus concepts with interactive practice</p>
+    </header>
+    
+    <!-- Navigation matching main site -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="main-content">
-        <h1>Calculus Practice Questions</h1>
+    <div class="main-container">
+        <!-- Sidebar navigation for calculus topics -->
+        <nav>
+            <button onclick="showSection('limits')" class="active">Limits</button>
+            <button onclick="showSection('continuity')">Continuity</button>
+            <button onclick="showSection('differentiation')">Differentiation</button>
+            <button onclick="showSection('integration')">Integration</button>
+            <button onclick="showSection('series')">Series of Functions</button>
+        </nav>
 
-        <!-- Limits Section -->
-        <div id="limits-section" class="topic-section">
-            <div class="question" data-correct="C">
-                <p><strong>1.</strong> What is the value of \(\lim_{x \to 3} \frac{x^2 - 9}{x - 3}\)?</p>
-                <div class="options">
-                    <div class="option" data-value="A">A) 0</div>
-                    <div class="option" data-value="B">B) 3</div>
-                    <div class="option" data-value="C">C) 6</div>
-                    <div class="option" data-value="D">D) 9</div>
-                    <div class="option" data-value="E">E) Does not exist</div>
+        <div class="main-content">
+            <!-- Limits Section -->
+            <div id="limits-section" class="topic-section">
+                <div class="question" data-correct="C">
+                    <p><strong>1.</strong> What is the value of \(\lim_{x \to 3} \frac{x^2 - 9}{x - 3}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 3</div>
+                        <div class="option" data-value="C">C) 6</div>
+                        <div class="option" data-value="D">D) 9</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp1')">Show/Hide Explanation</span></p>
+                    <div id="exp1" class="explanation">
+                        <p>The expression is \(\frac{x^2 - 9}{x - 3} = \frac{(x - 3)(x + 3)}{x - 3}\). For \(x \neq 3\), this simplifies to \(x + 3\). Thus, \(\lim_{x \to 3} (x + 3) = 3 + 3 = 6\).</p>
+                        <p><strong>Answer: C) 6</strong></p>
+                    </div>
                 </div>
-                <div class="feedback"></div>
-                <p><span class="toggle-btn" onclick="toggleExplanation('exp1')">Show/Hide Explanation</span></p>
-                <div id="exp1" class="explanation">
-                    <p>The expression is \(\frac{x^2 - 9}{x - 3} = \frac{(x - 3)(x + 3)}{x - 3}\). For \(x \neq 3\), this simplifies to \(x + 3\). Thus, \(\lim_{x \to 3} (x + 3) = 3 + 3 = 6\).</p>
-                    <p><strong>Answer: C) 6</strong></p>
+
+                <div class="question" data-correct="B">
+                    <p><strong>2.</strong> Evaluate \(\lim_{x \to 0} \frac{e^x - 1 - x}{x^2}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1/2</div>
+                        <div class="option" data-value="C">C) 1</div>
+                        <div class="option" data-value="D">D) 2</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp2')">Show/Hide Explanation</span></p>
+                    <div id="exp2" class="explanation">
+                        <p>The limit is of the form \(\frac{0}{0}\). Apply L'Hôpital's Rule: differentiate numerator (\(e^x - 1\)) and denominator (\(2x\)). New limit: \(\lim_{x \to 0} \frac{e^x}{2x}\), still \(\frac{0}{0}\). Apply again: \(\lim_{x \to 0} \frac{e^x}{2} = \frac{e^0}{2} = \frac{1}{2}\).</p>
+                        <p><strong>Answer: B) 1/2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>3.</strong> What is \(\lim_{x \to \infty} \frac{4x^3 + 2x}{x^3 - x + 1}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) 2</div>
+                        <div class="option" data-value="D">D) 4</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp3')">Show/Hide Explanation</span></p>
+                    <div id="exp3" class="explanation">
+                        <p>Divide numerator and denominator by \(x^3\): \(\lim_{x \to \infty} \frac{4 + \frac{2}{x^2}}{1 - \frac{1}{x^2} + \frac{1}{x^3}}\). As \(x \to \infty\), the terms with \(x\) in the denominator approach 0, so the limit is \(\frac{4}{1} = 4\).</p>
+                        <p><strong>Answer: D) 4</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>4.</strong> Consider the function \(f(x) = \begin{cases} x^2 + 1 & x < 2 \\ 5 & x = 2 \\ 2x + 1 & x > 2 \end{cases}\). What is \(\lim_{x \to 2} f(x)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 3</div>
+                        <div class="option" data-value="B">B) 4</div>
+                        <div class="option" data-value="C">C) 5</div>
+                        <div class="option" data-value="D">D) 6</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp4')">Show/Hide Explanation</span></p>
+                    <div id="exp4" class="explanation">
+                        <p>Compute one-sided limits: Left-hand limit: \(\lim_{x \to 2^-} (x^2 + 1) = 4 + 1 = 5\). Right-hand limit: \(\lim_{x \to 2^+} (2x + 1) = 2 \cdot 2 + 1 = 5\). Since both are equal, the limit is 5.</p>
+                        <p><strong>Answer: C) 5</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>5.</strong> Evaluate \(\lim_{x \to 0} \frac{\sin(2x)}{x}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) 2</div>
+                        <div class="option" data-value="D">D) 4</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp5')">Show/Hide Explanation</span></p>
+                    <div id="exp5" class="explanation">
+                        <p>Rewrite as \(\lim_{x \to 0} \frac{\sin(2x)}{x} = \lim_{x \to 0} \frac{2 \sin(2x)}{2x} = 2 \cdot \lim_{x \to 0} \frac{\sin(2x)}{2x}\). Since \(\lim_{u \to 0} \frac{\sin(u)}{u} = 1\), with \(u = 2x\), the limit is \(2 \cdot 1 = 2\).</p>
+                        <p><strong>Answer: C) 2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="E">
+                    <p><strong>6.</strong> What is \(\lim_{x \to 0} \frac{|x|}{x}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) -1</div>
+                        <div class="option" data-value="B">B) 0</div>
+                        <div class="option" data-value="C">C) 1</div>
+                        <div class="option" data-value="D">D) 2</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp6')">Show/Hide Explanation</span></p>
+                    <div id="exp6" class="explanation">
+                        <p>Evaluate one-sided limits: For \(x > 0\), \(\frac{|x|}{x} = \frac{x}{x} = 1\), so \(\lim_{x \to 0^+} = 1\). For \(x < 0\), \(\frac{|x|}{x} = \frac{-x}{x} = -1\), so \(\lim_{x \to 0^-} = -1\). Since the one-sided limits differ, the limit does not exist.</p>
+                        <p><strong>Answer: E) Does not exist</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>7.</strong> Evaluate \(\lim_{x \to \infty} \frac{e^x}{x^3}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) e</div>
+                        <div class="option" data-value="D">D) \(\infty\)</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp7')">Show/Hide Explanation</span></p>
+                    <div id="exp7" class="explanation">
+                        <p>Exponential functions grow faster than polynomials. Apply L'Hôpital's Rule (form \(\frac{\infty}{\infty}\)): \(\lim_{x \to \infty} \frac{e^x}{3x^2}\), still \(\frac{\infty}{\infty}\). Apply again: \(\lim_{x \to \infty} \frac{e^x}{6x}\), then \(\lim_{x \to \infty} \frac{e^x}{6} = \infty\).</p>
+                        <p><strong>Answer: D) \(\infty\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>8.</strong> Find \(\lim_{x \to 0} \frac{1 - \cos(x)}{x^2}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1/2</div>
+                        <div class="option" data-value="C">C) 1</div>
+                        <div class="option" data-value="D">D) 2</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp8')">Show/Hide Explanation</span></p>
+                    <div id="exp8" class="explanation">
+                        <p>Use the identity \(1 - \cos(x) = 2 \sin^2(x/2)\). Then, \(\lim_{x \to 0} \frac{2 \sin^2(x/2)}{x^2} = \lim_{x \to 0} \frac{2 \sin^2(x/2)}{(x/2)^2 \cdot 4} = \frac{2}{4} \cdot \lim_{u \to 0} \frac{\sin(u)}{u} \cdot \lim_{u \to 0} \frac{\sin(u)}{u} = \frac{1}{2} \cdot 1 \cdot 1 = \frac{1}{2}\), where \(u = x/2\).</p>
+                        <p><strong>Answer: B) 1/2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>9.</strong> Evaluate \(\lim_{x \to \infty} \frac{\ln(x)}{x^{1/2}}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) 2</div>
+                        <div class="option" data-value="D">D) \(\infty\)</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp9')">Show/Hide Explanation</span></p>
+                    <div id="exp9" class="explanation">
+                        <p>Form is \(\frac{\infty}{\infty}\). Apply L'Hôpital's Rule: \(\lim_{x \to \infty} \frac{\frac{1}{x}}{\frac{1}{2} x^{-1/2}} = \lim_{x \to \infty} \frac{2}{x^{1/2}} = 0\).</p>
+                        <p><strong>Answer: A) 0</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>10.</strong> What is \(\lim_{x \to 4^-} \lfloor x \rfloor\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 3</div>
+                        <div class="option" data-value="B">B) 4</div>
+                        <div class="option" data-value="C">C) 5</div>
+                        <div class="option" data-value="D">D) 6</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp10')">Show/Hide Explanation</span></p>
+                    <div id="exp10" class="explanation">
+                        <p>The floor function \(\lfloor x \rfloor\) gives the greatest integer less than or equal to \(x\). For \(x\) approaching 4 from the left (\(x < 4\)), \(\lfloor x \rfloor = 3\), since \(3 \leq x < 4\). Thus, the limit is 3.</p>
+                        <p><strong>Answer: A) 3</strong></p>
+                    </div>
                 </div>
             </div>
 
-            <div class="question" data-correct="B">
-                <p><strong>2.</strong> Evaluate \(\lim_{x \to 0} \frac{e^x - 1 - x}{x^2}\).</p>
-                <div class="options">
-                    <div class="option" data-value="A">A) 0</div>
-                    <div class="option" data-value="B">B) 1/2</div>
-                    <div class="option" data-value="C">C) 1</div>
-                    <div class="option" data-value="D">D) 2</div>
-                    <div class="option" data-value="E">E) Does not exist</div>
-                </div>
-                <div class="feedback"></div>
-                <p><span class="toggle-btn" onclick="toggleExplanation('exp2')">Show/Hide Explanation</span></p>
-                <div id="exp2" class="explanation">
-                    <p>The limit is of the form \(\frac{0}{0}\). Apply L’Hôpital’s Rule: differentiate numerator (\(e^x - 1\)) and denominator (\(2x\)). New limit: \(\lim_{x \to 0} \frac{e^x}{2x}\), still \(\frac{0}{0}\). Apply again: \(\lim_{x \to 0} \frac{e^x}{2} = \frac{e^0}{2} = \frac{1}{2}\).</p>
-                    <p><strong>Answer: B) 1/2</strong></p>
-                </div>
+            <!-- Continuity Section -->
+            <div id="continuity-section" class="topic-section" style="display: none;">
+                <h2>Continuity Practice Questions</h2>
+                <p>Practice questions for Continuity will go here.</p>
+                <!-- Add your Continuity questions here -->
             </div>
 
-            <div class="question" data-correct="D">
-                <p><strong>3.</strong> What is \(\lim_{x \to \infty} \frac{4x^3 + 2x}{x^3 - x + 1}\)?</p>
-                <div class="options">
-                    <div class="option" data-value="A">A) 0</div>
-                    <div class="option" data-value="B">B) 1</div>
-                    <div class="option" data-value="C">C) 2</div>
-                    <div class="option" data-value="D">D) 4</div>
-                    <div class="option" data-value="E">E) Does not exist</div>
-                </div>
-                <div class="feedback"></div>
-                <p><span class="toggle-btn" onclick="toggleExplanation('exp3')">Show/Hide Explanation</span></p>
-                <div id="exp3" class="explanation">
-                    <p>Divide numerator and denominator by \(x^3\): \(\lim_{x \to \infty} \frac{4 + \frac{2}{x^2}}{1 - \frac{1}{x^2} + \frac{1}{x^3}}\). As \(x \to \infty\), the terms with \(x\) in the denominator approach 0, so the limit is \(\frac{4}{1} = 4\).</p>
-                    <p><strong>Answer: D) 4</strong></p>
-                </div>
+            <!-- Differentiation Section -->
+            <div id="differentiation-section" class="topic-section" style="display: none;">
+                <h2>Differentiation Practice Questions</h2>
+                <p>Practice questions for Differentiation will go here.</p>
+                <!-- Add your Differentiation questions here -->
             </div>
 
-            <div class="question" data-correct="C">
-                <p><strong>4.</strong> Consider the function \(f(x) = \begin{cases} x^2 + 1 & x < 2 \\ 5 & x = 2 \\ 2x + 1 & x > 2 \end{cases}\). What is \(\lim_{x \to 2} f(x)\)?</p>
-                <div class="options">
-                    <div class="option" data-value="A">A) 3</div>
-                    <div class="option" data-value="B">B) 4</div>
-                    <div class="option" data-value="C">C) 5</div>
-                    <div class="option" data-value="D">D) 6</div>
-                    <div class="option" data-value="E">E) Does not exist</div>
-                </div>
-                <div class="feedback"></div>
-                <p><span class="toggle-btn" onclick="toggleExplanation('exp4')">Show/Hide Explanation</span></p>
-                <div id="exp4" class="explanation">
-                    <p>Compute one-sided limits: Left-hand limit: \(\lim_{x \to 2^-} (x^2 + 1) = 4 + 1 = 5\). Right-hand limit: \(\lim_{x \to 2^+} (2x + 1) = 2 \cdot 2 + 1 = 5\). Since both are equal, the limit is 5.</p>
-                    <p><strong>Answer: C) 5</strong></p>
-                </div>
+            <!-- Integration Section -->
+            <div id="integration-section" class="topic-section" style="display: none;">
+                <h2>Integration Practice Questions</h2>
+                <p>Practice questions for Integration will go here.</p>
+                <!-- Add your Integration questions here -->
             </div>
 
-            <div class="question" data-correct="C">
-                <p><strong>5.</strong> Evaluate \(\lim_{x \to 0} \frac{\sin(2x)}{x}\).</p>
-                <div class="options">
-                    <div class="option" data-value="A">A) 0</div>
-                    <div class="option" data-value="B">B) 1</div>
-                    <div class="option" data-value="C">C) 2</div>
-                    <div class="option" data-value="D">D) 4</div>
-                    <div class="option" data-value="E">E) Does not exist</div>
-                </div>
-                <div class="feedback"></div>
-                <p><span class="toggle-btn" onclick="toggleExplanation('exp5')">Show/Hide Explanation</span></p>
-                <div id="exp5" class="explanation">
-                    <p>Rewrite as \(\lim_{x \to 0} \frac{\sin(2x)}{x} = \lim_{x \to 0} \frac{2 \sin(2x)}{2x} = 2 \cdot \lim_{x \to 0} \frac{\sin(2x)}{2x}\). Since \(\lim_{u \to 0} \frac{\sin(u)}{u} = 1\), with \(u = 2x\), the limit is \(2 \cdot 1 = 2\).</p>
-                    <p><strong>Answer: C) 2</strong></p>
-                </div>
-            </div>
-
-            <div class="question" data-correct="E">
-                <p><strong>6.</strong> What is \(\lim_{x \to 0} \frac{|x|}{x}\)?</p>
-                <div class="options">
-                    <div class="option" data-value="A">A) -1</div>
-                    <div class="option" data-value="B">B) 0</div>
-                    <div class="option" data-value="C">C) 1</div>
-                    <div class="option" data-value="D">D) 2</div>
-                    <div class="option" data-value="E">E) Does not exist</div>
-                </div>
-                <div class="feedback"></div>
-                <p><span class="toggle-btn" onclick="toggleExplanation('exp6')">Show/Hide Explanation</span></p>
-                <div id="exp6" class="explanation">
-                    <p>Evaluate one-sided limits: For \(x > 0\), \(\frac{|x|}{x} = \frac{x}{x} = 1\), so \(\lim_{x \to 0^+} = 1\). For \(x < 0\), \(\frac{|x|}{x} = \frac{-x}{x} = -1\), so \(\lim_{x \to 0^-} = -1\). Since the one-sided limits differ, the limit does not exist.</p>
-                    <p><strong>Answer: E) Does not exist</strong></p>
-                </div>
-            </div>
-
-            <div class="question" data-correct="D">
-                <p><strong>7.</strong> Evaluate \(\lim_{x \to \infty} \frac{e^x}{x^3}\).</p>
-                <div class="options">
-                    <div class="option" data-value="A">A) 0</div>
-                    <div class="option" data-value="B">B) 1</div>
-                    <div class="option" data-value="C">C) e</div>
-                    <div class="option" data-value="D">D) \(\infty\)</div>
-                    <div class="option" data-value="E">E) Does not exist</div>
-                </div>
-                <div class="feedback"></div>
-                <p><span class="toggle-btn" onclick="toggleExplanation('exp7')">Show/Hide Explanation</span></p>
-                <div id="exp7" class="explanation">
-                    <p>Exponential functions grow faster than polynomials. Apply L’Hôpital’s Rule (form \(\frac{\infty}{\infty}\)): \(\lim_{x \to \infty} \frac{e^x}{3x^2}\), still \(\frac{\infty}{\infty}\). Apply again: \(\lim_{x \to \infty} \frac{e^x}{6x}\), then \(\lim_{x \to \infty} \frac{e^x}{6} = \infty\).</p>
-                    <p><strong>Answer: D) \(\infty\)</strong></p>
-                </div>
-            </div>
-
-            <div class="question" data-correct="B">
-                <p><strong>8.</strong> Find \(\lim_{x \to 0} \frac{1 - \cos(x)}{x^2}\).</p>
-                <div class="options">
-                    <div class="option" data-value="A">A) 0</div>
-                    <div class="option" data-value="B">B) 1/2</div>
-                    <div class="option" data-value="C">C) 1</div>
-                    <div class="option" data-value="D">D) 2</div>
-                    <div class="option" data-value="E">E) Does not exist</div>
-                </div>
-                <div class="feedback"></div>
-                <p><span class="toggle-btn" onclick="toggleExplanation('exp8')">Show/Hide Explanation</span></p>
-                <div id="exp8" class="explanation">
-                    <p>Use the identity \(1 - \cos(x) = 2 \sin^2(x/2)\). Then, \(\lim_{x \to 0} \frac{2 \sin^2(x/2)}{x^2} = \lim_{x \to 0} \frac{2 \sin^2(x/2)}{(x/2)^2 \cdot 4} = \frac{2}{4} \cdot \lim_{u \to 0} \frac{\sin(u)}{u} \cdot \lim_{u \to 0} \frac{\sin(u)}{u} = \frac{1}{2} \cdot 1 \cdot 1 = \frac{1}{2}\), where \(u = x/2\).</p>
-                    <p><strong>Answer: B) 1/2</strong></p>
-                </div>
-            </div>
-
-            <div class="question" data-correct="A">
-                <p><strong>9.</strong> Evaluate \(\lim_{x \to \infty} \frac{\ln(x)}{x^{1/2}}\).</p>
-                <div class="options">
-                    <div class="option" data-value="A">A) 0</div>
-                    <div class="option" data-value="B">B) 1</div>
-                    <div class="option" data-value="C">C) 2</div>
-                    <div class="option" data-value="D">D) \(\infty\)</div>
-                    <div class="option" data-value="E">E) Does not exist</div>
-                </div>
-                <div class="feedback"></div>
-                <p><span class="toggle-btn" onclick="toggleExplanation('exp9')">Show/Hide Explanation</span></p>
-                <div id="exp9" class="explanation">
-                    <p>Form is \(\frac{\infty}{\infty}\). Apply L’Hôpital’s Rule: \(\lim_{x \to \infty} \frac{\frac{1}{x}}{\frac{1}{2} x^{-1/2}} = \lim_{x \to \infty} \frac{2}{x^{1/2}} = 0\).</p>
-                    <p><strong>Answer: A) 0</strong></p>
-                </div>
-            </div>
-
-            <div class="question" data-correct="A">
-                <p><strong>10.</strong> What is \(\lim_{x \to 4^-} \lfloor x \rfloor\)?</p>
-                <div class="options">
-                    <div class="option" data-value="A">A) 3</div>
-                    <div class="option" data-value="B">B) 4</div>
-                    <div class="option" data-value="C">C) 5</div>
-                    <div class="option" data-value="D">D) 6</div>
-                    <div class="option" data-value="E">E) Does not exist</div>
-                </div>
-                <div class="feedback"></div>
-                <p><span class="toggle-btn" onclick="toggleExplanation('exp10')">Show/Hide Explanation</span></p>
-                <div id="exp10" class="explanation">
-                    <p>The floor function \(\lfloor x \rfloor\) gives the greatest integer less than or equal to \(x\). For \(x\) approaching 4 from the left (\(x < 4\)), \(\lfloor x \rfloor = 3\), since \(3 \leq x < 4\). Thus, the limit is 3.</p>
-                    <p><strong>Answer: A) 3</strong></p>
-                </div>
+            <!-- Series of Functions Section -->
+            <div id="series-section" class="topic-section" style="display: none;">
+                <h2>Series of Functions Practice Questions</h2>
+                <p>Practice questions for Series of Functions will go here.</p>
+                <!-- Add your Series of Functions questions here -->
             </div>
         </div>
-
-        <!-- Continuity Section -->
-        <div id="continuity-section" class="topic-section" style="display: none;">
-            <h2>Continuity Practice Questions</h2>
-            <p>Practice questions for Continuity will go here.</p>
-            <!-- Add your Continuity questions here -->
-        </div>
-
-        <!-- Differentiation Section -->
-        <div id="differentiation-section" class="topic-section" style="display: none;">
-            <h2>Differentiation Practice Questions</h2>
-            <p>Practice questions for Differentiation will go here.</p>
-            <!-- Add your Differentiation questions here -->
-        </div>
-
-        <!-- Integration Section -->
-        <div id="integration-section" class="topic-section" style="display: none;">
-            <h2>Integration Practice Questions</h2>
-            <p>Practice questions for Integration will go here.</p>
-            <!-- Add your Integration questions here -->
-        </div>
-
-        <!-- Series of Functions Section -->
-        <div id="series-section" class="topic-section" style="display: none;">
-            <h2>Series of Functions Practice Questions</h2>
-            <p>Practice questions for Series of Functions will go here.</p>
-            <!-- Add your Series of Functions questions here -->
-        </div>
-
     </div>
+
+    <!-- Footer matching main site -->
+    <footer>
+        <p>&copy; 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
 
     <script>
         // Toggle explanation visibility
@@ -461,7 +576,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             showSection('limits');
         });
-
     </script>
 </body>
 </html>
