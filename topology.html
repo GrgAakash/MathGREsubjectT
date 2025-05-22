@@ -288,17 +288,15 @@
 
     <div class="main-container">
         <nav class="sidebar-nav">
-            <button onclick="showSection('topspaces')" class="active">Topological Spaces</button>
-            <button onclick="showSection('openclose')">Open & Closed Sets</button>
-            <button onclick="showSection('compactness')">Compactness</button>
-            <button onclick="showSection('connectedness')">Connectedness</button>
-            <button onclick="showSection('continuity')">Continuity</button>
+            <button onclick="showSection('topology')" class="active">General Topology</button>
+            <button onclick="showSection('algebraic')">Algebraic Topology</button>
         </nav>
 
         <div class="main-content">
-            <!-- Topological Spaces Section -->
-            <div id="topspaces-section" class="topic-section">
-                <h2 class="page-title">Topological Spaces Practice Questions</h2>
+            <!-- General Topology Section -->
+            <div id="topology-section" class="topic-section">
+                <h2 class="page-title">General Topology Practice Questions</h2>
+                
                 <div class="question" data-correct="B">
                     <p><strong>1.</strong> Let \( X = \{a, b, c\} \) with topology \( \tau = \{\emptyset, \{a\}, \{a, b\}, X\} \). Is the set \( \{b, c\} \) open in \( X \)?</p>
                     <div class="options">
@@ -332,13 +330,9 @@
                         <p><strong>Answer: B) \( \{b, c\} \)</strong></p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Open and Closed Sets Section -->
-            <div id="openclose-section" class="topic-section" style="display: none;">
-                <h2 class="page-title">Open & Closed Sets Practice Questions</h2>
                 <div class="question" data-correct="C">
-                    <p><strong>1.</strong> In \( \mathbb{R} \) with the standard topology, which of the following is both open and closed?</p>
+                    <p><strong>3.</strong> In \( \mathbb{R} \) with the standard topology, which of the following is both open and closed?</p>
                     <div class="options">
                         <div class="option" data-value="A">A) \( (0, 1) \)</div>
                         <div class="option" data-value="B">B) \( [0, 1] \)</div>
@@ -347,15 +341,15 @@
                         <div class="option" data-value="E">E) \( (-\infty, 0] \)</div>
                     </div>
                     <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('open-exp1')">Show/Hide Explanation</span></p>
-                    <div id="open-exp1" class="explanation">
+                    <p><span class="toggle-btn" onclick="toggleExplanation('top-exp3')">Show/Hide Explanation</span></p>
+                    <div id="top-exp3" class="explanation">
                         <p>In any topological space, the entire space \( X \) and the empty set \( \emptyset \) are both open and closed. In \( \mathbb{R} \) with the standard topology, \( (0, 1) \) is open but not closed, \( [0, 1] \) is closed but not open, \( \{0\} \) is closed but not open, and \( (-\infty, 0] \) is closed but not open. Only \( \mathbb{R} \) is both open and closed by definition.</p>
                         <p><strong>Answer: C) \( \mathbb{R} \)</strong></p>
                     </div>
                 </div>
 
                 <div class="question" data-correct="D">
-                    <p><strong>2.</strong> In the discrete topology on a set \( X \), which sets are open?</p>
+                    <p><strong>4.</strong> In the discrete topology on a set \( X \), which sets are open?</p>
                     <div class="options">
                         <div class="option" data-value="A">A) Only \( \emptyset \)</div>
                         <div class="option" data-value="B">B) Only \( X \)</div>
@@ -364,19 +358,15 @@
                         <div class="option" data-value="E">E) Only finite subsets</div>
                     </div>
                     <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('open-exp2')">Show/Hide Explanation</span></p>
-                    <div id="open-exp2" class="explanation">
+                    <p><span class="toggle-btn" onclick="toggleExplanation('top-exp4')">Show/Hide Explanation</span></p>
+                    <div id="top-exp4" class="explanation">
                         <p>In the discrete topology, every subset of \( X \) is open, as the topology includes all possible subsets. This is a defining property of the discrete topology, making every set both open and closed.</p>
                         <p><strong>Answer: D) All subsets of \( X \)</strong></p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Compactness Section -->
-            <div id="compactness-section" class="topic-section" style="display: none;">
-                <h2 class="page-title">Compactness Practice Questions</h2>
                 <div class="question" data-correct="D">
-                    <p><strong>1.</strong> Is the set \( [0, \infty) \) compact in \( \mathbb{R} \) with the standard topology?</p>
+                    <p><strong>5.</strong> Is the set \( [0, \infty) \) compact in \( \mathbb{R} \) with the standard topology?</p>
                     <div class="options">
                         <div class="option" data-value="A">A) Yes</div>
                         <div class="option" data-value="B">B) No</div>
@@ -385,15 +375,15 @@
                         <div class="option" data-value="E">E) Neither compact nor connected</div>
                     </div>
                     <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('comp-exp1')">Show/Hide Explanation</span></p>
-                    <div id="comp-exp1" class="explanation">
+                    <p><span class="toggle-btn" onclick="toggleExplanation('top-exp5')">Show/Hide Explanation</span></p>
+                    <div id="top-exp5" class="explanation">
                         <p>In \( \mathbb{R} \), a set is compact if it is closed and bounded (Heine-Borel Theorem). The set \( [0, \infty) \) is closed but unbounded. Thus, it is not compact. Since it is an interval, it is connected.</p>
                         <p><strong>Answer: D) Connected but not compact</strong></p>
                     </div>
                 </div>
 
                 <div class="question" data-correct="A">
-                    <p><strong>2.</strong> Let \( X = \{1/n : n \in \mathbb{N}\} \cup \{0\} \) in \( \mathbb{R} \) with the standard topology. Is \( X \) compact?</p>
+                    <p><strong>6.</strong> Let \( X = \{1/n : n \in \mathbb{N}\} \cup \{0\} \) in \( \mathbb{R} \) with the standard topology. Is \( X \) compact?</p>
                     <div class="options">
                         <div class="option" data-value="A">A) Yes</div>
                         <div class="option" data-value="B">B) No</div>
@@ -402,19 +392,15 @@
                         <div class="option" data-value="E">E) Neither compact nor closed</div>
                     </div>
                     <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('comp-exp2')">Show/Hide Explanation</span></p>
-                    <div id="comp-exp2" class="explanation">
+                    <p><span class="toggle-btn" onclick="toggleExplanation('top-exp6')">Show/Hide Explanation</span></p>
+                    <div id="top-exp6" class="explanation">
                         <p>By the Heine-Borel Theorem, \( X \) is compact if closed and bounded. \( X = \{1, 1/2, 1/3, \ldots, 0\} \) is bounded (in \([0, 1]\)) and closed (includes its limit point 0). Thus, \( X \) is compact.</p>
                         <p><strong>Answer: A) Yes</strong></p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Connectedness Section -->
-            <div id="connectedness-section" class="topic-section" style="display: none;">
-                <h2 class="page-title">Connectedness Practice Questions</h2>
                 <div class="question" data-correct="B">
-                    <p><strong>1.</strong> Is the set \( (0, 1) \cup (1, 2) \) connected in \( \mathbb{R} \) with the standard topology?</p>
+                    <p><strong>7.</strong> Is the set \( (0, 1) \cup (1, 2) \) connected in \( \mathbb{R} \) with the standard topology?</p>
                     <div class="options">
                         <div class="option" data-value="A">A) Yes</div>
                         <div class="option" data-value="B">B) No</div>
@@ -423,15 +409,15 @@
                         <div class="option" data-value="E">E) Neither connected nor compact</div>
                     </div>
                     <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('conn-exp1')">Show/Hide Explanation</span></p>
-                    <div id="conn-exp1" class="explanation">
+                    <p><span class="toggle-btn" onclick="toggleExplanation('top-exp7')">Show/Hide Explanation</span></p>
+                    <div id="top-exp7" class="explanation">
                         <p>A set is connected if it cannot be written as the union of two non-empty, disjoint open sets. The set \( (0, 1) \cup (1, 2) \) is the union of \( (0, 1) \) and \( (1, 2) \), both open and disjoint, so it is not connected.</p>
                         <p><strong>Answer: B) No</strong></p>
                     </div>
                 </div>
 
                 <div class="question" data-correct="B">
-                    <p><strong>2.</strong> Is \( \mathbb{Q} \) (the rationals) connected in \( \mathbb{R} \) with the standard topology?</p>
+                    <p><strong>8.</strong> Is \( \mathbb{Q} \) (the rationals) connected in \( \mathbb{R} \) with the standard topology?</p>
                     <div class="options">
                         <div class="option" data-value="A">A) Yes</div>
                         <div class="option" data-value="B">B) No</div>
@@ -440,50 +426,223 @@
                         <div class="option" data-value="E">E) Path-connected</div>
                     </div>
                     <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('conn-exp2')">Show/Hide Explanation</span></p>
-                    <div id="conn-exp2" class="explanation">
+                    <p><span class="toggle-btn" onclick="toggleExplanation('top-exp8')">Show/Hide Explanation</span></p>
+                    <div id="top-exp8" class="explanation">
                         <p>Take open sets \( (-\infty, \sqrt{2}) \cap \mathbb{Q} \) and \( (\sqrt{2}, \infty) \cap \mathbb{Q} \). These are non-empty, disjoint, and cover \( \mathbb{Q} \), since \( \sqrt{2} \) is irrational. Thus, \( \mathbb{Q} \) is not connected.</p>
                         <p><strong>Answer: B) No</strong></p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Continuity Section -->
-            <div id="continuity-section" class="topic-section" style="display: none;">
-                <h2 class="page-title">Continuity Practice Questions</h2>
                 <div class="question" data-correct="B">
-                    <p><strong>1.</strong> Let \( f: \mathbb{R} \to \mathbb{R} \) be continuous, where \( \mathbb{R} \) has the standard topology. If \( f(x) = 0 \) for all \( x \in \mathbb{Q} \), what is \( f(x) \) for all \( x \in \mathbb{R} \)?</p>
+                    <p><strong>9.</strong> Let \( f: \mathbb{R} \to \mathbb{R} \) be continuous, where \( \mathbb{R} \) has the standard topology. If \( f(x) = 0 \) for all \( x \in \mathbb{Q} \), what is \( f(x) \) for all \( x \in \mathbb{R} \)?</p>
                     <div class="options">
                         <div class="option" data-value="A">A) \( f(x) = x \)</div>
                         <div class="option" data-value="B">B) \( f(x) = 0 \)</div>
-                        <div class="option" data-value="C">C) \( f(x) = 1 \)</div>
-                        <div class="option" data-value="D">D) \( f(x) = |x| \)</div>
-                        <div class="option" data-value="E">E) Cannot determine</div>
+                        <div class="option" data-value="C">C) \( f(x) = |x| \)</div>
+                        <div class="option" data-value="D">D) \( f(x) = \sin(\pi x) \)</div>
+                        <div class="option" data-value="E">E) \( f(x) = 1 \)</div>
                     </div>
                     <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('cont-exp1')">Show/Hide Explanation</span></p>
-                    <div id="cont-exp1" class="explanation">
-                        <p>Since \( \mathbb{Q} \) is dense in \( \mathbb{R} \), for any \( x \in \mathbb{R} \), there exists \( \{q_n\} \subset \mathbb{Q} \) with \( q_n \to x \). By continuity, \( f(x) = \lim_{n \to \infty} f(q_n) = \lim_{n \to \infty} 0 = 0 \). Thus, \( f(x) = 0 \).</p>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('top-exp9')">Show/Hide Explanation</span></p>
+                    <div id="top-exp9" class="explanation">
+                        <p>Since \( f \) is continuous and \( \mathbb{Q} \) is dense in \( \mathbb{R} \), for any \( x \in \mathbb{R} \), there exists a sequence of \( q_n \in \mathbb{Q} \) such that \( q_n \to x \). Because \( f \) is continuous, \( \lim_{n \to \infty} f(q_n) = f(x) \). Since \( q_n \in \mathbb{Q} \), \( f(q_n) = 0 \) for all \( n \). Therefore, \( f(x) = \lim_{n \to \infty} 0 = 0 \).</p>
                         <p><strong>Answer: B) \( f(x) = 0 \)</strong></p>
                     </div>
                 </div>
 
                 <div class="question" data-correct="A">
-                    <p><strong>2.</strong> Let \( X \) have the trivial topology \( \tau = \{\emptyset, X\} \), and \( Y \) have any topology. Is every function \( f: X \to Y \) continuous?</p>
+                    <p><strong>10.</strong> Let \( X \) be a topological space and \( A \subseteq X \) be a subset. If \( X \) is Hausdorff, is \( A \) Hausdorff?</p>
                     <div class="options">
                         <div class="option" data-value="A">A) Yes</div>
                         <div class="option" data-value="B">B) No</div>
-                        <div class="option" data-value="C">C) Only if \( Y \) is discrete</div>
-                        <div class="option" data-value="D">D) Only if \( Y \) is trivial</div>
-                        <div class="option" data-value="E">E) Only if \( f \) is constant</div>
+                        <div class="option" data-value="C">C) Only if A is closed</div>
+                        <div class="option" data-value="D">D) Only if A is open</div>
+                        <div class="option" data-value="E">E) Cannot determine</div>
                     </div>
                     <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('cont-exp2')">Show/Hide Explanation</span></p>
-                    <div id="cont-exp2" class="explanation">
-                        <p>A function \( f: X \to Y \) is continuous if the preimage of every open set in \( Y \) is open in \( X \). In the trivial topology, open sets are \( \emptyset \) and \( X \). For any open \( V \subset Y \), \( f^{-1}(V) = \emptyset \) or \( X \), both open. Thus, every function is continuous.</p>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('top-exp10')">Show/Hide Explanation</span></p>
+                    <div id="top-exp10" class="explanation">
+                        <p>A topological space \( X \) is Hausdorff if for any two distinct points \( x, y \in X \), there exist disjoint open neighborhoods \( U \) of \( x \) and \( V \) of \( y \). If \( X \) is Hausdorff, then for any two distinct points \( a, b \in A \), there exist disjoint open neighborhoods \( U \) of \( a \) and \( V \) of \( b \) in \( X \). Since \( A \subseteq X \), \( U \cap A \) and \( V \cap A \) are open subsets of \( A \) (in the relative topology) containing \( a \) and \( b \) respectively, and they are disjoint. Thus, \( A \) is Hausdorff.</p>
                         <p><strong>Answer: A) Yes</strong></p>
                     </div>
                 </div>
+
+            </div>
+
+            <!-- Algebraic Topology Section -->
+            <div id="algebraic-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Algebraic Topology Practice Questions</h2>
+
+                <div class="question" data-correct="C">
+                    <p><strong>1.</strong> What is the fundamental group \( \pi_1(S^1) \) of the circle \( S^1 \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( \{e\} \) (trivial group)</div>
+                        <div class="option" data-value="B">B) \( \mathbb{Z}_2 \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{Z} \)</div>
+                        <div class="option" data-value="D">D) \( \mathbb{Z} \oplus \mathbb{Z} \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{Q} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('alg-exp1')">Show/Hide Explanation</span></p>
+                    <div id="alg-exp1" class="explanation">
+                        <p>The fundamental group of the circle \( S^1 \) is isomorphic to the group of integers, \( \mathbb{Z} \). This can be shown using the winding number of a loop on the circle.</p>
+                        <p><strong>Answer: C) \( \mathbb{Z} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>2.</strong> What is the first homology group \( H_1(S^2) \) of the sphere \( S^2 \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( 0 \)</div>
+                        <div class="option" data-value="B">B) \( \mathbb{Z} \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{Z}_2 \)</div>
+                        <div class="option" data-value="D">D) \( \mathbb{Z} \oplus \mathbb{Z} \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{Q} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('alg-exp2')">Show/Hide Explanation</span></p>
+                    <div id="alg-exp2" class="explanation">
+                        <p>The integer homology groups of a sphere \( S^n \) are given by \( H_k(S^n) = \mathbb{Z} \) if \( k = 0 \) or \( k = n \), and \( H_k(S^n) = 0 \) otherwise. For \( S^2 \), \( H_1(S^2) = 0 \).</p>
+                        <p><strong>Answer: A) \( 0 \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>3.</strong> What is the fundamental group \( \pi_1(T^2) \) of the torus \( T^2 \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( \{e\} \)</div>
+                        <div class="option" data-value="B">B) \( \mathbb{Z} \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{Z}_2 \)</div>
+                        <div class="option" data-value="D">D) \( \mathbb{Z} \oplus \mathbb{Z} \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{Q} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('alg-exp3')">Show/Hide Explanation</span></p>
+                    <div id="alg-exp3" class="explanation">
+                        <p>The torus \( T^2 \) can be viewed as the product of two circles, \( S^1 \times S^1 \). The fundamental group of a product of two spaces is the direct product of their fundamental groups: \( \pi_1(S^1 \times S^1) = \pi_1(S^1) \oplus \pi_1(S^1) \). Since \( \pi_1(S^1) = \mathbb{Z} \), \( \pi_1(T^2) = \mathbb{Z} \oplus \mathbb{Z} \).</p>
+                        <p><strong>Answer: D) \( \mathbb{Z} \oplus \mathbb{Z} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>4.</strong> What is the first homology group \( H_1(T^2) \) of the torus \( T^2 \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( 0 \)</div>
+                        <div class="option" data-value="B">B) \( \mathbb{Z} \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{Z}_2 \)</div>
+                        <div class="option" data-value="D">D) \( \mathbb{Z} \oplus \mathbb{Z} \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{Q} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('alg-exp4')">Show/Hide Explanation</span></p>
+                    <div id="alg-exp4" class="explanation">
+                        <p>The homology groups of a product of spaces are the direct sum of the homology groups: \( H_k(S^1 \times S^1) = H_k(S^1) \oplus H_k(S^1) \). For \( k=1 \), \( H_1(T^2) = H_1(S^1) \oplus H_1(S^1) \). Since \( H_1(S^1) = \mathbb{Z} \), \( H_1(T^2) = \mathbb{Z} \oplus \mathbb{Z} \).</p>
+                        <p><strong>Answer: D) \( \mathbb{Z} \oplus \mathbb{Z} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>5.</strong> What is the Euler characteristic \( \chi(T^2) \) of the torus \( T^2 \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) 2</div>
+                        <div class="option" data-value="D">D) -1</div>
+                        <div class="option" data-value="E">E) -2</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('alg-exp5')">Show/Hide Explanation</span></p>
+                    <div id="alg-exp5" class="explanation">
+                        <p>The Euler characteristic is defined as \( \chi(X) = \sum_{k=0}^\infty (-1)^k \dim H_k(X) \). For the torus \( T^2 \), \( H_0(T^2) = \mathbb{Z} \), \( H_1(T^2) = \mathbb{Z} \oplus \mathbb{Z} \), \( H_2(T^2) = \mathbb{Z} \), and \( H_k(T^2) = 0 \) for \( k \ge 3 \). Thus, \( \chi(T^2) = \dim H_0(T^2) - \dim H_1(T^2) + \dim H_2(T^2) = 1 - 2 + 1 = 0 \).</p>
+                        <p><strong>Answer: A) 0</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>6.</strong> What is the Euler characteristic \( \chi(S^2) \) of the sphere \( S^2 \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) 2</div>
+                        <div class="option" data-value="D">D) -1</div>
+                        <div class="option" data-value="E">E) -2</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('alg-exp6')">Show/Hide Explanation</span></p>
+                    <div id="alg-exp6" class="explanation">
+                        <p>For \( S^2 \), \( H_0(S^2) = \mathbb{Z} \), \( H_1(S^2) = 0 \), \( H_2(S^2) = \mathbb{Z} \), and \( H_k(S^2) = 0 \) for \( k \ge 3 \). Thus, \( \chi(S^2) = \dim H_0(S^2) - \dim H_1(S^2) + \dim H_2(S^2) = 1 - 0 + 1 = 2 \).</p>
+                        <p><strong>Answer: C) 2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>7.</strong> What is the fundamental group \( \pi_1(\mathbb{R}^2) \) of the Euclidean plane \( \mathbb{R}^2 \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( \{e\} \)</div>
+                        <div class="option" data-value="B">B) \( \mathbb{Z} \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{Z}_2 \)</div>
+                        <div class="option" data-value="D">D) \( \mathbb{Z} \oplus \mathbb{Z} \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{Q} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('alg-exp7')">Show/Hide Explanation</span></p>
+                    <div id="alg-exp7" class="explanation">
+                        <p>The Euclidean plane \( \mathbb{R}^2 \) is simply connected, meaning that any loop can be continuously shrunk to a point. Therefore, its fundamental group is the trivial group \( \{e\} \).</p>
+                        <p><strong>Answer: A) \( \{e\} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>8.</strong> What is the first homology group \( H_1(\mathbb{R}^2) \) of the Euclidean plane \( \mathbb{R}^2 \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( 0 \)</div>
+                        <div class="option" data-value="B">B) \( \mathbb{Z} \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{Z}_2 \)</div>
+                        <div class="option" data-value="D">D) \( \mathbb{Z} \oplus \mathbb{Z} \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{Q} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('alg-exp8')">Show/Hide Explanation</span></p>
+                    <div id="alg-exp8" class="explanation">
+                        <p>Since \( \mathbb{R}^2 \) is simply connected, all its homology groups are zero. Therefore, \( H_1(\mathbb{R}^2) = 0 \).</p>
+                        <p><strong>Answer: A) \( 0 \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>9.</strong> What is the fundamental group \( \pi_1(RP^2) \) of the projective plane \( RP^2 \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( \{e\} \)</div>
+                        <div class="option" data-value="B">B) \( \mathbb{Z} \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{Z}_2 \)</div>
+                        <div class="option" data-value="D">D) \( \mathbb{Z} \oplus \mathbb{Z} \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{Q} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('alg-exp9')">Show/Hide Explanation</span></p>
+                    <div id="alg-exp9" class="explanation">
+                        <p>The fundamental group of the real projective plane \( RP^2 \) is isomorphic to the cyclic group of order 2, \( \mathbb{Z}_2 \). This can be shown by considering loops around the "point at infinity".</p>
+                        <p><strong>Answer: C) \( \mathbb{Z}_2 \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>10.</strong> What is the first homology group \( H_1(RP^2) \) of the projective plane \( RP^2 \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( 0 \)</div>
+                        <div class="option" data-value="B">B) \( \mathbb{Z} \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{Z}_2 \)</div>
+                        <div class="option" data-value="D">D) \( \mathbb{Z} \oplus \mathbb{Z} \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{Q} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('alg-exp10')">Show/Hide Explanation</span></p>
+                    <div id="alg-exp10" class="explanation">
+                        <p>The homology groups of the real projective plane \( RP^2 \) are given by \( H_k(RP^2) = \mathbb{Z} \) if \( k = 0 \), \( H_k(RP^2) = \mathbb{Z}_2 \) if \( k \) is even and \( k > 0 \), and \( H_k(RP^2) = 0 \) if \( k \) is odd. For \( RP^2 \), \( H_1(RP^2) = \mathbb{Z}_2 \).</p>
+                        <p><strong>Answer: C) \( \mathbb{Z}_2 \)</strong></p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -550,7 +709,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            showSection('topspaces');
+            showSection('topology');
         });
     </script>
 </body>
