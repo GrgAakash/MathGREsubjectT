@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+can you use that style of writing html for 
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRE Math Subject Test Questions</title>
     <style>
         :root {
@@ -23,11 +24,6 @@
             padding: 0;
         }
         
-        .body-multipage {
-            margin: 0;
-            padding: 0;
-        }
-        
         header {
             background-color: var(--primary);
             color: white;
@@ -43,7 +39,7 @@
             padding: 2rem 0;
         }
         
-        h1.title {
+        h1 {
             margin: 0;
             font-size: 2.5rem;
         }
@@ -53,14 +49,14 @@
             margin-top: 0.5rem;
         }
         
-        .grid-container {
+        .categories {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
         
-        .page {
+        .category-card {
             background: white;
             border-radius: 8px;
             overflow: hidden;
@@ -68,7 +64,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .page:hover {
+        .category-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.12);
         }
@@ -80,11 +76,11 @@
             text-align: center;
         }
         
-        .outline-text-2 {
+        .category-body {
             padding: 1.5rem;
         }
         
-        .outline-text-2 p {
+        .category-body p {
             margin-bottom: 1.5rem;
         }
         
@@ -111,7 +107,7 @@
             margin-top: 3rem;
         }
         
-        .status {
+        .search-section {
             background-color: #e9ecef;
             padding: 2rem 0;
             text-align: center;
@@ -130,7 +126,7 @@
             font-size: 1rem;
         }
         
-        .toolbar {
+        .nav {
             background-color: var(--secondary);
             padding: 1rem 0;
         }
@@ -165,7 +161,7 @@
         }
         
         @media (max-width: 768px) {
-            .grid-container {
+            .categories {
                 grid-template-columns: 1fr;
             }
             
@@ -176,122 +172,108 @@
         }
     </style>
 </head>
-<body class="body-multipage">
-    <div id="org-div-home-and-up">
-        <header>
-            <h1 class="title">GRE Math Subject Test Questions</h1>
-            <p class="subtitle">Organized by category for easier studying</p>
-        </header>
-    </div>
-
-    <div id="preamble" class="status">
+<body>
+    <header>
+        <h1>GRE Math Subject Test Questions</h1>
+        <p class="subtitle">Organized by category for easier studying</p>
+    </header>
+    
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="search-section">
         <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search for specific topics or questions..." />
+            <input type="text" class="search-bar" placeholder="Search for specific topics or questions...">
         </div>
-    </div>
-
-    <div id="grid-container">
-        <div id="grid">
-            <div class="toolbar">
-                <div class="container nav-container">
-                    <a href="index.html" class="logo">Math GRE Prep</a>
-                    <div class="nav-links">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About</a>
-                        <a href="contribute.html">Contribute</a>
-                        <a href="resources.html">Resources</a>
-                    </div>
+    </section>
+    
+    <main class="container">
+        <h2>Question Categories</h2>
+        <div class="categories">
+            <div class="category-card">
+                <div class="category-header">
+                    <h3>Calculus</h3>
+                </div>
+                <div class="category-body">
+                    <p>Questions related to single and multivariable calculus, including limits, derivatives, integrals, and applications.</p>
+                    <a href="calculus.html" class="btn">View Questions</a>
                 </div>
             </div>
-
-            <div id="content" class="content">
-                <div id="table-of-contents" role="doc-toc">
-                    <h2>Question Categories</h2>
+            
+            <div class="category-card">
+                <div class="category-header">
+                    <h3>Algebra</h3>
                 </div>
-                
-                <div id="outline-container-Categories" class="outline-2">
-                    <h2 id="Categories">Question Categories</h2>
-                    <div class="outline-text-2" id="text-Categories">
-                        <div class="grid-container">
-                            <div class="page" id="outline-container-Calculus" data-level="3">
-                                <div class="category-header">
-                                    <h3 id="Calculus">Calculus</h3>
-                                </div>
-                                <div class="outline-text-3" id="text-Calculus">
-                                    <p>Questions related to single and multivariable calculus, including limits, derivatives, integrals, and applications.</p>
-                                    <a href="calculus.html" class="btn">View Questions</a>
-                                </div>
-                            </div>
-
-                            <div class="page" id="outline-container-Algebra" data-level="3">
-                                <div class="category-header">
-                                    <h3 id="Algebra">Algebra</h3>
-                                </div>
-                                <div class="outline-text-3" id="text-Algebra">
-                                    <p>Linear algebra, abstract algebra, groups, rings, fields, vector spaces, and matrix operations.</p>
-                                    <a href="algebra.html" class="btn">View Questions</a>
-                                </div>
-                            </div>
-
-                            <div class="page" id="outline-container-Real%20Analysis" data-level="3">
-                                <div class="category-header">
-                                    <h3 id="Real%20Analysis">Real Analysis</h3>
-                                </div>
-                                <div class="outline-text-3" id="text-Real-Analysis">
-                                    <p>Sequences, series, continuity, differentiability, integration, and properties of real numbers.</p>
-                                    <a href="analysis.html" class="btn">View Questions</a>
-                                </div>
-                            </div>
-
-                            <div class="page" id="outline-container-Probability%20and%20Statistics" data-level="3">
-                                <div class="category-header">
-                                    <h3 id="Probability%20and%20Statistics">Probability &amp; Statistics</h3>
-                                </div>
-                                <div class="outline-text-3" id="text-Probability-and-Statistics">
-                                    <p>Probability theory, random variables, distributions, statistical inference, and data analysis.</p>
-                                    <a href="probability.html" class="btn">View Questions</a>
-                                </div>
-                            </div>
-
-                            <div class="page" id="outline-container-Discrete%20Mathematics" data-level="3">
-                                <div class="category-header">
-                                    <h3 id="Discrete%20Mathematics">Discrete Mathematics</h3>
-                                </div>
-                                <div class="outline-text-3" id="text-Discrete-Mathematics">
-                                    <p>Combinatorics, graph theory, set theory, logic, and computational mathematics.</p>
-                                    <a href="discrete.html" class="btn">View Questions</a>
-                                </div>
-                            </div>
-
-                            <div class="page" id="outline-container-Differential%20Equations" data-level="3">
-                                <div class="category-header">
-                                    <h3 id="Differential%20Equations">Differential Equations</h3>
-                                </div>
-                                <div class="outline-text-3" id="text-Differential-Equations">
-                                    <p>Ordinary and partial differential equations, systems of equations, and applications.</p>
-                                    <a href="diff-eq.html" class="btn">View Questions</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="category-body">
+                    <p>Linear algebra, abstract algebra, groups, rings, fields, vector spaces, and matrix operations.</p>
+                    <a href="algebra.html" class="btn">View Questions</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-header">
+                    <h3>Real Analysis</h3>
+                </div>
+                <div class="category-body">
+                    <p>Sequences, series, continuity, differentiability, integration, and properties of real numbers.</p>
+                    <a href="analysis.html" class="btn">View Questions</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-header">
+                    <h3>Probability & Statistics</h3>
+                </div>
+                <div class="category-body">
+                    <p>Probability theory, random variables, distributions, statistical inference, and data analysis.</p>
+                    <a href="probability.html" class="btn">View Questions</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-header">
+                    <h3>Discrete Mathematics</h3>
+                </div>
+                <div class="category-body">
+                    <p>Combinatorics, graph theory, set theory, logic, and computational mathematics.</p>
+                    <a href="discrete.html" class="btn">View Questions</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-header">
+                    <h3>Differential Equations</h3>
+                </div>
+                <div class="category-body">
+                    <p>Ordinary and partial differential equations, systems of equations, and applications.</p>
+                    <a href="diff-eq.html" class="btn">View Questions</a>
                 </div>
             </div>
         </div>
-    </div>
-
+    </main>
+    
     <footer>
-        <p>© 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+        <p>&copy; 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
     </footer>
 
     <script>
         // Add search functionality
         document.querySelector('.search-bar').addEventListener('input', function(e) {
-            var searchValue = e.target.value.toLowerCase();
-            var cards = document.querySelectorAll('.page');
+            const searchValue = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.category-card');
             
-            cards.forEach(function(card) {
-                var title = card.querySelector('h3').textContent.toLowerCase();
-                var description = card.querySelector('p').textContent.toLowerCase();
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
                 
                 if (title.includes(searchValue) || description.includes(searchValue)) {
                     card.style.display = 'block';
