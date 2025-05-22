@@ -1,0 +1,72 @@
+- category: Calculus
+  questions:
+    - id: calc1
+      question: "Find the limit of \\(\\frac{\\sin(x)}{x}\\) as \\(x\\to 0\\)."
+      answer: "1"
+      explanation: "Using L'Hôpital's rule, since \\(\\frac{\\sin(x)}{x}\\) is 0/0 at x=0, differentiate numerator and denominator to get \\(\\frac{\\cos(x)}{1}\\), which evaluates to \\(\\cos(0)/1 = 1\\)."
+      tags: ["limits", "calculus"]
+    - id: calc2
+      question: "Compute the integral of \\(x^2\\) from 0 to 1."
+      answer: "1/3"
+      explanation: "The integral of \\(x^2\\) is \\(\\frac{x^3}{3}\\). Evaluating from 0 to 1 gives \\(\\frac{1^3}{3} - \\frac{0^3}{3} = \\frac{1}{3}\\)."
+      tags: ["integrals", "calculus"]
+    - id: calc3
+      question: "What is the value of \\(\\lim_{x \\to 3} \\frac{x^2 - 9}{x - 3}\\)?"
+      answer: "6"
+      explanation: "The expression is \\(\\frac{x^2 - 9}{x - 3} = \\frac{(x - 3)(x + 3)}{x - 3}\\). For \\(x \\neq 3\\), this simplifies to \\(x + 3\\). Thus, \\(\\lim_{x \\to 3} (x + 3) = 3 + 3 = 6\\)."
+      tags: ["limits", "calculus"]
+    - id: calc4
+      question: "Is the function \\(f(x) = \\frac{x^2 - 4}{x - 2}\\) continuous at \\(x = 2\\)?"
+      answer: "No"
+      explanation: "The function is undefined at \\(x = 2\\) because the denominator is zero. Therefore, it is not continuous at \\(x = 2\\)."
+      tags: ["continuity", "calculus"]
+- category: Algebra
+  questions:
+    - id: alg1
+      question: "Solve the system: \\(2x + y = 5\\), \\(x - y = 1\\)."
+      answer: "x=2, y=1"
+      explanation: "Add the equations to eliminate y: \\(3x = 6\\), so \\(x = 2\\). Substitute into \\(x - y = 1\\) to get \\(y = 1\\)."
+      tags: ["linear algebra", "systems"]
+    - id: alg2
+      question: "Let \\(G\\) be a group of order \\(pq\\), where \\(p\\) and \\(q\\) are distinct primes with \\(p < q\\). If \\(q \\not\\equiv 1 \\pmod{p}\\), what can be said about \\(G\\)?"
+      answer: "G is cyclic"
+      explanation: "By Sylow’s Theorems, for a group \\(G\\) of order \\(pq\\) (\\(p < q\\)), the number of Sylow \\(q\\)-subgroups, \\(n_q\\), divides \\(p\\) and satisfies \\(n_q \\equiv 1 \\pmod{q}\\). Since \\(p < q\\), \\(n_q = 1\\). Thus, there is one Sylow \\(q\\)-subgroup, which is normal, making \\(G\\) cyclic (isomorphic to \\(\\mathbb{Z}_{pq}\\))."
+      tags: ["group theory", "algebra"]
+- category: analysis
+  questions:
+    - id: ra1
+      question: "Prove that the sequence \\(a_n = \\frac{1}{n}\\) converges."
+      answer: "Converges to 0"
+      explanation: "For any \\(\\epsilon > 0\\), choose \\(N > \\frac{1}{\\epsilon}\\). Then for \\(n > N\\), \\(|a_n - 0| = \\frac{1}{n} < \\frac{1}{N} < \\epsilon\\)."
+      tags: ["sequences", "real analysis"]
+    - id: ra2
+      question: "Determine whether the sequence \\(a_n = \\frac{n}{n+1}\\) converges, and if so, find its limit."
+      answer: "1"
+      explanation: "Rewrite \\(a_n = \\frac{n}{n+1} = \\frac{1}{1 + \\frac{1}{n}}\\). As \\(n \\to \\infty\\), \\(\\frac{1}{n} \\to 0\\), so \\(a_n \\to \\frac{1}{1+0} = 1\\)."
+      tags: ["sequences", "real analysis"]
+- category: Probability
+  questions:
+    - id: prob1
+      question: "A fair die is rolled twice. What is the probability of getting a sum of 7?"
+      answer: "1/6"
+      explanation: "There are 36 possible outcomes. Favorable outcomes are (1,6), (2,5), (3,4), (4,3), (5,2), (6,1), so probability is \\(6/36 = 1/6\\)."
+      tags: ["probability"]
+    - id: prob2
+      question: "A bag contains 3 red, 4 blue, and 5 green marbles. If two marbles are drawn without replacement, what is the probability that both are red?"
+      answer: "\\(\\frac{1}{22}\\)"
+      explanation: "Total marbles: \\(3 + 4 + 5 = 12\\). Probability of first red marble: \\(\\frac{3}{12} = \\frac{1}{4}\\). After drawing one red, 11 marbles remain, with 2 red. Probability of second red: \\(\\frac{2}{11}\\). Total probability: \\(\\frac{1}{4} \\cdot \\frac{2}{11} = \\frac{2}{44} = \\frac{1}{22}\\)."
+      tags: ["probability"]
+- category: Discrete Mathematics
+  questions:
+    - id: disc1
+      question: "How many ways can 3 distinct books be arranged on a shelf?"
+      answer: "6"
+      explanation: "The number of permutations of 3 books is \\(3! = 6\\)."
+      tags: ["combinatorics", "discrete"]
+- category: Differential Equations
+  questions:
+    - id: de1
+      question: "Solve the differential equation \\(\\frac{dy}{dx} = y\\)."
+      answer: "\\(y = Ce^x\\)"
+      explanation: "This is a separable equation. Integrate \\(\\frac{dy}{y} = dx\\) to get \\(\\ln|y| = x + C\\), so \\(y = Ce^x\\)."
+      tags: ["differential equations"]

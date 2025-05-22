@@ -1,0 +1,6 @@
+title: GRE Math Subject Test Questions
+description: Organized GRE Math Subject Test practice questions
+baseurl: "/GrgAakash"
+url: "https://grgaakash.github.io"
+plugins:
+  - jekyll-feed

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="description" content="Free GRE Math Subject Test practice questions organized by category">
+    <meta name="keywords" content="GRE, Math Subject Test, practice questions, calculus, algebra">
+    <meta property="og:title" content="GRE Math Subject Test Questions">
+    <meta property="og:description" content="Organized GRE Math Subject Test practice questions">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/">
+    <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+    {{ content }}
+    <script src="{{ '/js/script.js' | relative_url }}"></script>
+</body>
+</html>
