@@ -1,4 +1,620 @@
----
-layout: category
-category: Probability
----
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probability Practice Questions - Math GRE Prep</title>
+    <!-- MathJax CDN for LaTeX rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: relative;
+            z-index: 15;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar-nav {
+            flex-basis: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            z-index: 5;
+        }
+
+        .sidebar-nav button {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar-nav button:hover {
+            background-color: #e9ecef;
+        }
+
+        .sidebar-nav button.active {
+            background-color: var(--accent);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex-grow: 1;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            font-size: 1em;
+        }
+
+        .option:hover {
+            background: #e9ecef;
+            border-color: #aaa;
+        }
+
+        .option.selected-correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .option.selected-wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct {
+            color: #28a745;
+            display: block;
+        }
+
+        .feedback.wrong {
+            color: #dc3545;
+            display: block;
+        }
+
+        .toggle-btn {
+            cursor: pointer;
+            color: var(--accent);
+            text-decoration: underline;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .toggle-btn:hover {
+            color: #228B7E;
+        }
+
+        .explanation {
+            display: none;
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent);
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .main-container {
+                flex-direction: column;
+                padding: 10px;
+                gap: 15px;
+            }
+            
+            .sidebar-nav {
+                flex-basis: auto;
+                width: 100%;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .sidebar-nav button {
+                width: auto;
+                flex-grow: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .question {
+                padding: 15px;
+            }
+            .option {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Probability Practice Questions</h1>
+        <p class="subtitle">Master probability and stochastic processes for the GRE Math Subject Test</p>
+    </header>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <nav class="sidebar-nav">
+            <button onclick="showSection('probability')" class="active" aria-label="Show Probability questions">Probability</button>
+            <button onclick="showSection('stochastic')" aria-label="Show Stochastic Processes questions">Stochastic Processes</button>
+        </nav>
+
+        <div class="main-content">
+            <!-- Probability Section -->
+            <div id="probability-section" class="topic-section">
+                <h2 class="page-title">Probability Practice Questions</h2>
+                <div class="question" data-correct="C">
+                    <p><strong>1.</strong> A bag contains 3 red, 4 blue, and 5 green marbles. If two marbles are drawn without replacement, what is the probability that both are red?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{1}{12}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{1}{11}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{1}{22}\)</div>
+                        <div class="option" data-value="D">D) \(\frac{3}{44}\)</div>
+                        <div class="option" data-value="E">E) \(\frac{1}{6}\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_prob1')">Show/Hide Explanation</span></p>
+                    <div id="exp_prob1" class="explanation">
+                        <p>Total marbles: \(3 + 4 + 5 = 12\). Probability of first red marble: \(\frac{3}{12} = \frac{1}{4}\). After drawing one red, 11 marbles remain, with 2 red. Probability of second red: \(\frac{2}{11}\). Total probability: \(\frac{1}{4} \cdot \frac{2}{11} = \frac{2}{44} = \frac{1}{22}\).</p>
+                        <p><strong>Answer: C) \(\frac{1}{22}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>2.</strong> A fair die is rolled twice. What is the probability that the sum of the rolls is at least 10?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{1}{12}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{1}{6}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{1}{4}\)</div>
+                        <div class="option" data-value="D">D) \(\frac{1}{3}\)</div>
+                        <div class="option" data-value="E">E) \(\frac{5}{36}\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_prob2')">Show/Hide Explanation</span></p>
+                    <div id="exp_prob2" class="explanation">
+                        <p>Total outcomes: \(6 \times 6 = 36\). Sums \(\geq 10\): (4,6), (5,5), (5,6), (6,4), (6,5), (6,6). That’s 6 outcomes. Probability: \(\frac{6}{36} = \frac{1}{6}\).</p>
+                        <p><strong>Answer: B) \(\frac{1}{6}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>3.</strong> A card is drawn from a standard 52-card deck. Given that it is a face card (Jack, Queen, or King), what is the probability it is a heart?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{1}{13}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{1}{4}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{3}{13}\)</div>
+                        <div class="option" data-value="D">D) \(\frac{1}{3}\)</div>
+                        <div class="option" data-value="E">E) \(\frac{4}{13}\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_prob3')">Show/Hide Explanation</span></p>
+                    <div id="exp_prob3" class="explanation">
+                        <p>Face cards per suit: 3 (Jack, Queen, King). Total face cards: \(3 \times 4 = 12\). Heart face cards: 3. Conditional probability: \(\frac{\text{Heart face cards}}{\text{Total face cards}} = \frac{3}{12} = \frac{1}{3}\).</p>
+                        <p><strong>Answer: D) \(\frac{1}{3}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>4.</strong> Two events \(A\) and \(B\) have \(P(A) = 0.4\), \(P(B) = 0.5\), and \(P(A \cap B) = 0.3\). What is \(P(A \cup B)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0.6</div>
+                        <div class="option" data-value="B">B) 0.7</div>
+                        <div class="option" data-value="C">C) 0.8</div>
+                        <div class="option" data-value="D">D) 0.9</div>
+                        <div class="option" data-value="E">E) 1.0</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_prob4')">Show/Hide Explanation</span></p>
+                    <div id="exp_prob4" class="explanation">
+                        <p>Use the inclusion-exclusion formula: \(P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.4 + 0.5 - 0.3 = 0.6\).</p>
+                        <p><strong>Answer: A) 0.6</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>5.</strong> A fair coin is flipped 3 times. What is the probability of getting exactly 2 heads?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{1}{8}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{1}{4}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{3}{8}\)</div>
+                        <div class="option" data-value="D">D) \(\frac{1}{2}\)</div>
+                        <div class="option" data-value="E">E) \(\frac{3}{4}\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_prob5')">Show/Hide Explanation</span></p>
+                    <div id="exp_prob5" class="explanation">
+                        <p>This is a binomial probability problem. Number of trials \(n = 3\), probability of heads \(p = \frac{1}{2}\), successes \(k = 2\). Probability: \(\binom{3}{2} \cdot \left(\frac{1}{2}\right)^2 \cdot \left(\frac{1}{2}\right)^1 = 3 \cdot \frac{1}{4} \cdot \frac{1}{2} = \frac{3}{8}\).</p>
+                        <p><strong>Answer: C) \(\frac{3}{8}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>6.</strong> A box contains 5 defective and 15 non-defective items. If 3 items are selected without replacement, what is the probability that at least one is defective?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{1}{4}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{37}{114}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{1}{2}\)</div>
+                        <div class="option" data-value="D">D) \(\frac{2}{3}\)</div>
+                        <div class="option" data-value="E">E) \(\frac{3}{4}\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_prob6')">Show/Hide Explanation</span></p>
+                    <div id="exp_prob6" class="explanation">
+                        <p>Total items: \(5 + 15 = 20\). Compute the complement: probability of all non-defective. \(\binom{15}{3} = \frac{15 \cdot 14 \cdot 13}{3 \cdot 2 \cdot 1} = 455\), total ways: \(\binom{20}{3} = \frac{20 \cdot 19 \cdot 18}{3 \cdot 2 \cdot 1} = 1140\). Probability all non-defective: \(\frac{455}{1140} = \frac{91}{228}\). Probability at least one defective: \(1 - \frac{91}{228} = \frac{137}{228} = \frac{37}{114}\).</p>
+                        <p><strong>Answer: B) \(\frac{37}{114}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>7.</strong> Let \(X\) be a geometric random variable with success probability \(p = \frac{1}{3}\). What is the probability that the first success occurs on the third trial?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{1}{27}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{2}{27}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{4}{27}\)</div>
+                        <div class="option" data-value="D">D) \(\frac{8}{27}\)</div>
+                        <div class="option" data-value="E">E) \(\frac{1}{9}\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_prob7')">Show/Hide Explanation</span></p>
+                    <div id="exp_prob7" class="explanation">
+                        <p>For a geometric random variable, \(P(X = k) = (1-p)^{k-1} \cdot p\). Here, \(p = \frac{1}{3}\), \(k = 3\). So, \(P(X = 3) = \left(\frac{2}{3}\right)^{3-1} \cdot \frac{1}{3} = \left(\frac{2}{3}\right)^2 \cdot \frac{1}{3} = \frac{4}{9} \cdot \frac{1}{3} = \frac{4}{27}\).</p>
+                        <p><strong>Answer: C) \(\frac{4}{27}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>8.</strong> A test has a 90% chance of detecting a disease when it is present (sensitivity) and an 80% chance of correctly identifying when it is not present (specificity). If 5% of a population has the disease, what is the probability that a person who tests positive actually has the disease?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{5}{26}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{9}{26}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{1}{2}\)</div>
+                        <div class="option" data-value="D">D) \(\frac{9}{10}\)</div>
+                        <div class="option" data-value="E">E) \(\frac{19}{20}\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_prob8')">Show/Hide Explanation</span></p>
+                    <div id="exp_prob8" class="explanation">
+                        <p>Use Bayes’ theorem: \(P(\text{Disease} | \text{Positive}) = \frac{P(\text{Positive} | \text{Disease}) \cdot P(\text{Disease})}{P(\text{Positive})}\). Sensitivity: \(P(\text{Positive} | \text{Disease}) = 0.9\). Specificity: \(P(\text{Negative} | \text{No Disease}) = 0.8\), so \(P(\text{Positive} | \text{No Disease}) = 0.2\). Disease prevalence: \(P(\text{Disease}) = 0.05\), \(P(\text{No Disease}) = 0.95\). Total probability of testing positive: \(P(\text{Positive}) = (0.9 \cdot 0.05) + (0.2 \cdot 0.95) = 0.045 + 0.19 = 0.235\). Thus, \(P(\text{Disease} | \text{Positive}) = \frac{0.9 \cdot 0.05}{0.235} = \frac{0.045}{0.235} = \frac{45}{235} = \frac{9}{47} \approx \frac{5}{26}\).</p>
+                        <p><strong>Answer: A) \(\frac{5}{26}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>9.</strong> In how many ways can 5 distinct books be arranged on a shelf if 2 specific books must be adjacent?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 24</div>
+                        <div class="option" data-value="B">B) 48</div>
+                        <div class="option" data-value="C">C) 120</div>
+                        <div class="option" data-value="D">D) 240</div>
+                        <div class="option" data-value="E">E) 720</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_prob9')">Show/Hide Explanation</span></p>
+                    <div id="exp_prob9" class="explanation">
+                        <p>Treat the 2 specific books as a single "block." There are 4 units to arrange: the block and the 3 other books, so \(4! = 24\) arrangements. Within the block, the 2 books can be arranged in \(2! = 2\) ways. Total: \(24 \cdot 2 = 48\).</p>
+                        <p><strong>Answer: B) 48</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>10.</strong> Let \(X\) be a binomial random variable with \(n = 10\) and \(p = 0.4\). What is the expected value of \(X\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 2</div>
+                        <div class="option" data-value="B">B) 3</div>
+                        <div class="option" data-value="C">C) 4</div>
+                        <div class="option" data-value="D">D) 5</div>
+                        <div class="option" data-value="E">E) 6</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_prob10')">Show/Hide Explanation</span></p>
+                    <div id="exp_prob10" class="explanation">
+                        <p>For a binomial random variable, the expected value is \(E(X) = n \cdot p\). Here, \(n = 10\), \(p = 0.4\). So, \(E(X) = 10 \cdot 0.4 = 4\).</p>
+                        <p><strong>Answer: C) 4</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stochastic Processes Section -->
+            <div id="stochastic-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Stochastic Processes Practice Questions</h2>
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> A Markov chain has two states, A and B, with transition probabilities: \(P(A \to A) = 0.6\), \(P(A \to B) = 0.4\), \(P(B \to A) = 0.3\), \(P(B \to B) = 0.7\). If the chain starts in state A, what is the probability of being in state B after two steps?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0.34</div>
+                        <div class="option" data-value="B">B) 0.46</div>
+                        <div class="option" data-value="C">C) 0.50</div>
+                        <div class="option" data-value="D">D) 0.54</div>
+                        <div class="option" data-value="E">E) 0.60</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_stoch1')">Show/Hide Explanation</span></p>
+                    <div id="exp_stoch1" class="explanation">
+                        <p>The transition matrix is \(\begin{bmatrix} 0.6 & 0.4 \\ 0.3 & 0.7 \end{bmatrix}\). Compute the probability of being in state B after two steps starting from A: \(P(\text{A} \to \text{B} \text{ in 2 steps}) = P(\text{A} \to \text{A}) \cdot P(\text{A} \to \text{B}) + P(\text{A} \to \text{B}) \cdot P(\text{B} \to \text{B}) = 0.6 \cdot 0.4 + 0.4 \cdot 0.7 = 0.24 + 0.22 = 0.46\).</p>
+                        <p><strong>Answer: B) 0.46</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>2.</strong> A Poisson process has a rate of \(\lambda = 2\) events per hour. What is the probability that exactly 3 events occur in a 2-hour period?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{8}{3e^4}\)</div>
+                        <div class="option" data-value="B">B) \(\frac{16}{3e^4}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{32}{3e^4}\)</div>
+                        <div class="option" data-value="D">D) \(\frac{64}{3e^4}\)</div>
+                        <div class="option" data-value="E">E) \(\frac{128}{3e^4}\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_stoch2')">Show/Hide Explanation</span></p>
+                    <div id="exp_stoch2" class="explanation">
+                        <p>For a Poisson process, the number of events in time \(t\) follows a Poisson distribution with parameter \(\lambda t\). Here, \(\lambda = 2\), \(t = 2\), so \(\lambda t = 4\). Probability of \(k = 3\) events: \(P(X = 3) = \frac{(\lambda t)^k e^{-\lambda t}}{k!} = \frac{4^3 e^{-4}}{3!} = \frac{64 e^{-4}}{6} = \frac{32 e^{-4}}{3} = \frac{32}{3e^4}\).</p>
+                        <p><strong>Answer: C) \(\frac{32}{3e^4}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>3.</strong> A simple random walk on the integers starts at 0. At each step, it moves +1 with probability \(\frac{1}{2}\) or -1 with probability \(\frac{1}{2}\). What is the expected position after 5 steps?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) 2</div>
+                        <div class="option" data-value="D">D) 3</div>
+                        <div class="option" data-value="E">E) 5</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_stoch3')">Show/Hide Explanation</span></p>
+                    <div id="exp_stoch3" class="explanation">
+                        <p>Each step is a random variable \(X_i\) with \(P(X_i = +1) = \frac{1}{2}\), \(P(X_i = -1) = \frac{1}{2}\). Expected value of one step: \(E(X_i) = (+1) \cdot \frac{1}{2} + (-1) \cdot \frac{1}{2} = 0\). The position after 5 steps is \(S_5 = X_1 + X_2 + \cdots + X_5\). By linearity of expectation, \(E(S_5) = E(X_1) + \cdots + E(X_5) = 0 + 0 + 0 + 0 + 0 = 0\).</p>
+                        <p><strong>Answer: A) 0</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        function toggleExplanation(id) {
+            const element = document.getElementById(id);
+            element.style.display = element.style.display === 'none' || element.style.display === '' ? 'block' : 'none';
+        }
+
+        document.querySelectorAll('.question').forEach(question => {
+            const correctAnswer = question.getAttribute('data-correct');
+            const options = question.querySelectorAll('.option');
+            const feedback = question.querySelector('.feedback');
+
+            options.forEach(option => {
+                option.setAttribute('tabindex', '0');
+                option.addEventListener('click', () => {
+                    options.forEach(opt => {
+                        opt.classList.remove('selected-correct', 'selected-wrong');
+                    });
+                    feedback.classList.remove('correct', 'wrong');
+                    feedback.style.display = 'none';
+                    feedback.textContent = '';
+
+                    const selectedValue = option.getAttribute('data-value');
+                    if (selectedValue === correctAnswer) {
+                        option.classList.add('selected-correct');
+                        feedback.textContent = 'Correct';
+                        feedback.classList.add('correct');
+                    } else {
+                        option.classList.add('selected-wrong');
+                        feedback.textContent = 'Wrong';
+                        feedback.classList.add('wrong');
+                    }
+                    feedback.style.display = 'block';
+                });
+
+                option.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        option.click();
+                    }
+                });
+            });
+        });
+
+        function showSection(sectionId) {
+            // Reset all questions
+            document.querySelectorAll('.question').forEach(question => {
+                question.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected-correct', 'selected-wrong');
+                });
+                const feedback = question.querySelector('.feedback');
+                feedback.classList.remove('correct', 'wrong');
+                feedback.style.display = 'none';
+                feedback.textContent = '';
+            });
+
+            // Hide all topic sections
+            document.querySelectorAll('.topic-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Remove active class from all navigation buttons
+            document.querySelectorAll('.sidebar-nav button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show the selected section
+            const selectedSection = document.getElementById(sectionId + '-section');
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            } else {
+                console.warn(`Section ${sectionId} not found`);
+            }
+
+            // Add active class to the clicked navigation button
+            const activeButton = document.querySelector(`.sidebar-nav button[onclick="showSection('${sectionId}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('probability');
+            // Initialize MathJax
+            if (window.MathJax) {
+                MathJax.typesetPromise().catch(err => console.error('MathJax typesetting failed:', err));
+            }
+        });
+    </script>
+</body>
+</html>

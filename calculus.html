@@ -1,4 +1,901 @@
----
-layout: category
-category: Calculus
----
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus Practice Questions - Math GRE Prep</title>
+    <!-- MathJax CDN for LaTeX rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: relative;
+            z-index: 15;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar-nav {
+            flex-basis: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            z-index: 5;
+        }
+
+        .sidebar-nav button {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar-nav button:hover {
+            background-color: #e9ecef;
+        }
+
+        .sidebar-nav button.active {
+            background-color: var(--accent);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex-grow: 1;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            font-size: 1em;
+        }
+
+        .option:hover {
+            background: #e9ecef;
+            border-color: #aaa;
+        }
+
+        .option.selected-correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .option.selected-wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct {
+            color: #28a745;
+            display: block;
+        }
+
+        .feedback.wrong {
+            color: #dc3545;
+            display: block;
+        }
+
+        .toggle-btn {
+            cursor: pointer;
+            color: var(--accent);
+            text-decoration: underline;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .toggle-btn:hover {
+            color: #228B7E;
+        }
+
+        .explanation {
+            display: none;
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent);
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .main-container {
+                flex-direction: column;
+                padding: 10px;
+                gap: 15px;
+            }
+            
+            .sidebar-nav {
+                flex-basis: auto;
+                width: 100%;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .sidebar-nav button {
+                width: auto;
+                flex-grow: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .question {
+                padding: 15px;
+            }
+            .option {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calculus Practice Questions</h1>
+        <p class="subtitle">Master calculus concepts for the GRE Math Subject Test</p>
+    </header>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <nav class="sidebar-nav">
+            <button onclick="showSection('limits')" class="active" aria-label="Show Limits questions">Limits</button>
+            <button onclick="showSection('continuity')" aria-label="Show Continuity questions">Continuity</button>
+            <button onclick="showSection('differentiation')" aria-label="Show Differentiation questions">Differentiation</button>
+            <button onclick="showSection('integration')" aria-label="Show Integration questions">Integration</button>
+            <button onclick="showSection('series')" aria-label="Show Series of Functions questions">Series of Functions</button>
+        </nav>
+
+        <div class="main-content">
+            <!-- Limits Section -->
+            <div id="limits-section" class="topic-section">
+                <h2 class="page-title">Limits Practice Questions</h2>
+                <div class="question" data-correct="C">
+                    <p><strong>1.</strong> What is the value of \(\lim_{x \to 3} \frac{x^2 - 9}{x - 3}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 3</div>
+                        <div class="option" data-value="C">C) 6</div>
+                        <div class="option" data-value="D">D) 9</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp1')">Show/Hide Explanation</span></p>
+                    <div id="exp1" class="explanation">
+                        <p>The expression is \(\frac{x^2 - 9}{x - 3} = \frac{(x - 3)(x + 3)}{x - 3}\). For \(x \neq 3\), this simplifies to \(x + 3\). Thus, \(\lim_{x \to 3} (x + 3) = 3 + 3 = 6\).</p>
+                        <p><strong>Answer: C) 6</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>2.</strong> Evaluate \(\lim_{x \to 0} \frac{e^x - 1 - x}{x^2}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) \frac{1}{2}</div>
+                        <div class="option" data-value="C">C) 1</div>
+                        <div class="option" data-value="D">D) 2</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp2')">Show/Hide Explanation</span></p>
+                    <div id="exp2" class="explanation">
+                        <p>The limit is of the form \(\frac{0}{0}\). Apply L'Hôpital's Rule: differentiate numerator (\(e^x - 1\)) and denominator (\(2x\)). New limit: \(\lim_{x \to 0} \frac{e^x}{2x}\), still \(\frac{0}{0}\). Apply again: \(\lim_{x \to 0} \frac{e^x}{2} = \frac{e^0}{2} = \frac{1}{2}\).</p>
+                        <p><strong>Answer: B) \frac{1}{2}</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>3.</strong> What is \(\lim_{x \to \infty} \frac{4x^3 + 2x}{x^3 - x + 1}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) 2</div>
+                        <div class="option" data-value="D">D) 4</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp3')">Show/Hide Explanation</span></p>
+                    <div id="exp3" class="explanation">
+                        <p>Divide numerator and denominator by \(x^3\): \(\lim_{x \to \infty} \frac{4 + \frac{2}{x^2}}{1 - \frac{1}{x^2} + \frac{1}{x^3}}\). As \(x \to \infty\), the terms with \(x\) in the denominator approach 0, so the limit is \(\frac{4}{1} = 4\).</p>
+                        <p><strong>Answer: D) 4</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>4.</strong> Consider the function \(f(x) = \begin{cases} x^2 + 1 & x < 2 \\ 5 & x = 2 \\ 2x + 1 & x > 2 \end{cases}\). What is \(\lim_{x \to 2} f(x)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 3</div>
+                        <div class="option" data-value="B">B) 4</div>
+                        <div class="option" data-value="C">C) 5</div>
+                        <div class="option" data-value="D">D) 6</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp4')">Show/Hide Explanation</span></p>
+                    <div id="exp4" class="explanation">
+                        <p>Compute one-sided limits: Left-hand limit: \(\lim_{x \to 2^-} (x^2 + 1) = 4 + 1 = 5\). Right-hand limit: \(\lim_{x \to 2^+} (2x + 1) = 2 \cdot 2 + 1 = 5\). Since both are equal, the limit is 5.</p>
+                        <p><strong>Answer: C) 5</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>5.</strong> Evaluate \(\lim_{x \to 0} \frac{\sin(2x)}{x}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) 2</div>
+                        <div class="option" data-value="D">D) 4</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp5')">Show/Hide Explanation</span></p>
+                    <div id="exp5" class="explanation">
+                        <p>Rewrite as \(\lim_{x \to 0} \frac{\sin(2x)}{x} = \lim_{x \to 0} \frac{2 \sin(2x)}{2x} = 2 \cdot \lim_{x \to 0} \frac{\sin(2x)}{2x}\). Since \(\lim_{u \to 0} \frac{\sin(u)}{u} = 1\), with \(u = 2x\), the limit is \(2 \cdot 1 = 2\).</p>
+                        <p><strong>Answer: C) 2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="E">
+                    <p><strong>6.</strong> What is \(\lim_{x \to 0} \frac{|x|}{x}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) -1</div>
+                        <div class="option" data-value="B">B) 0</div>
+                        <div class="option" data-value="C">C) 1</div>
+                        <div class="option" data-value="D">D) 2</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp6')">Show/Hide Explanation</span></p>
+                    <div id="exp6" class="explanation">
+                        <p>Evaluate one-sided limits: For \(x > 0\), \(\frac{|x|}{x} = \frac{x}{x} = 1\), so \(\lim_{x \to 0^+} = 1\). For \(x < 0\), \(\frac{|x|}{x} = \frac{-x}{x} = -1\), so \(\lim_{x \to 0^-} = -1\). Since the one-sided limits differ, the limit does not exist.</p>
+                        <p><strong>Answer: E) Does not exist</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>7.</strong> Evaluate \(\lim_{x \to \infty} \frac{e^x}{x^3}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) e</div>
+                        <div class="option" data-value="D">D) \infty</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp7')">Show/Hide Explanation</span></p>
+                    <div id="exp7" class="explanation">
+                        <p>Exponential functions grow faster than polynomials. Apply L'Hôpital's Rule (form \(\frac{\infty}{\infty}\)): \(\lim_{x \to \infty} \frac{e^x}{3x^2}\), still \(\frac{\infty}{\infty}\). Apply again: \(\lim_{x \to \infty} \frac{e^x}{6x}\), then \(\lim_{x \to \infty} \frac{e^x}{6} = \infty\).</p>
+                        <p><strong>Answer: D) \infty</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>8.</strong> Find \(\lim_{x \to 0} \frac{1 - \cos(x)}{x^2}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) \frac{1}{2}</div>
+                        <div class="option" data-value="C">C) 1</div>
+                        <div class="option" data-value="D">D) 2</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp8')">Show/Hide Explanation</span></p>
+                    <div id="exp8" class="explanation">
+                        <p>Use the identity \(1 - \cos(x) = 2 \sin^2\left(\frac{x}{2}\right)\). Then, \(\lim_{x \to 0} \frac{2 \sin^2\left(\frac{x}{2}\right)}{x^2} = \lim_{x \to 0} \frac{2 \sin^2\left(\frac{x}{2}\right)}{\left(\frac{x}{2}\right)^2 \cdot 4} = \frac{2}{4} \cdot \lim_{u \to 0} \frac{\sin(u)}{u} \cdot \lim_{u \to 0} \frac{\sin(u)}{u} = \frac{1}{2} \cdot 1 \cdot 1 = \frac{1}{2}\), where \(u = \frac{x}{2}\).</p>
+                        <p><strong>Answer: B) \frac{1}{2}</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>9.</strong> Evaluate \(\lim_{x \to \infty} \frac{\ln(x)}{x^{1/2}}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) 2</div>
+                        <div class="option" data-value="D">D) \infty</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp9')">Show/Hide Explanation</span></p>
+                    <div id="exp9" class="explanation">
+                        <p>Form is \(\frac{\infty}{\infty}\). Apply L'Hôpital's Rule: \(\lim_{x \to \infty} \frac{\frac{1}{x}}{\frac{1}{2} x^{-1/2}} = \lim_{x \to \infty} \frac{2}{x^{1/2}} = 0\).</p>
+                        <p><strong>Answer: A) 0</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>10.</strong> What is \(\lim_{x \to 4^-} \lfloor x \rfloor\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 3</div>
+                        <div class="option" data-value="B">B) 4</div>
+                        <div class="option" data-value="C">C) 5</div>
+                        <div class="option" data-value="D">D) 6</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp10')">Show/Hide Explanation</span></p>
+                    <div id="exp10" class="explanation">
+                        <p>The floor function \(\lfloor x \rfloor\) gives the greatest integer less than or equal to \(x\). For \(x\) approaching 4 from the left (\(x < 4\)), \(\lfloor x \rfloor = 3\), since \(3 \leq x < 4\). Thus, the limit is 3.</p>
+                        <p><strong>Answer: A) 3</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continuity Section -->
+            <div id="continuity-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Continuity Practice Questions</h2>
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> Is the function \(f(x) = \frac{x^2 - 4}{x - 2}\) continuous at \(x = 2\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont1')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont1" class="explanation">
+                        <p>The function is undefined at \(x = 2\) because the denominator is zero. Therefore, it is not continuous at \(x = 2\).</p>
+                        <p><strong>Answer: B) No</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>2.</strong> What value of \(k\) makes the function \(f(x) = \begin{cases} 2x + 1 & x \neq 1 \\ k & x = 1 \end{cases}\) continuous at \(x = 1\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 1</div>
+                        <div class="option" data-value="B">B) 2</div>
+                        <div class="option" data-value="C">C) 3</div>
+                        <div class="option" data-value="D">D) 4</div>
+                        <div class="option" data-value="E">E) Undefined</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont2')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont2" class="explanation">
+                        <p>For continuity at \(x = 1\), we need \(\lim_{x \to 1} f(x) = f(1)\). \(\lim_{x \to 1} (2x + 1) = 2(1) + 1 = 3\). \(f(1) = k\). Thus, we need \(k = 3\).</p>
+                        <p><strong>Answer: C) 3</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>3.</strong> Is the function \(f(x) = \sqrt{x - 4}\) continuous at \(x = 4\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont3')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont3" class="explanation">
+                        <p>The square root function is continuous on its domain. The domain of \(\sqrt{x - 4}\) is \(x \geq 4\). Since \(x=4\) is in the domain, the function is continuous at \(x = 4\).</p>
+                        <p><strong>Answer: A) Yes</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>4.</strong> Is the function \(f(x) = \frac{1}{x - 5}\) continuous at \(x = 5\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont4')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont4" class="explanation">
+                        <p>The function is undefined at \(x = 5\) because the denominator is zero. Therefore, it is not continuous at \(x = 5\).</p>
+                        <p><strong>Answer: B) No</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>5.</strong> Is the function \(f(x) = \cos(x)\) continuous for all real numbers?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont5')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont5" class="explanation">
+                        <p>The cosine function is a fundamental trigonometric function and is continuous for all real numbers.</p>
+                        <p><strong>Answer: A) Yes</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>6.</strong> Is the function \(f(x) = \frac{x}{|x|}\) continuous at \(x = 0\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont6')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont6" class="explanation">
+                        <p>The function is undefined at \(x = 0\) because the denominator is zero. Therefore, it is not continuous at \(x = 0\).</p>
+                        <p><strong>Answer: B) No</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>7.</strong> Is the function \(f(x) = e^{x}\) continuous for all real numbers?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont7')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont7" class="explanation">
+                        <p>The exponential function \(e^x\) is continuous for all real numbers.</p>
+                        <p><strong>Answer: A) Yes</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>8.</strong> Is the function \(f(x) = \frac{1}{x}\) continuous at \(x = 0\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont8')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont8" class="explanation">
+                        <p>The function is undefined at \(x = 0\) because the denominator is zero. Therefore, it is not continuous at \(x = 0\).</p>
+                        <p><strong>Answer: B) No</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>9.</strong> Is the function \(f(x) = x^2 + 2x\) continuous for all real numbers?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont9')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont9" class="explanation">
+                        <p>Polynomial functions, including \(x^2 + 2x\), are continuous for all real numbers.</p>
+                        <p><strong>Answer: A) Yes</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>10.</strong> Is the function \(f(x) = \tan(x)\) continuous at \(x = \frac{\pi}{2}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_cont10')">Show/Hide Explanation</span></p>
+                    <div id="exp_cont10" class="explanation">
+                        <p>The tangent function is undefined at \(x = \frac{\pi}{2}\) because \(\cos\left(\frac{\pi}{2}\right) = 0\). Therefore, it is not continuous at \(x = \frac{\pi}{2}\).</p>
+                        <p><strong>Answer: B) No</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Differentiation Section -->
+            <div id="differentiation-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Differentiation Practice Questions</h2>
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> Find the derivative of \(f(x) = x^3 - 4x^2 + 5x - 7\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 3x^2 - 4x + 5</div>
+                        <div class="option" data-value="B">B) 3x^2 - 8x + 5</div>
+                        <div class="option" data-value="C">C) x^2 - 8x + 5</div>
+                        <div class="option" data-value="D">D) 3x^3 - 8x + 5</div>
+                        <div class="option" data-value="E">E) 3x^2 - 8x - 7</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff1')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff1" class="explanation">
+                        <p>Using the power rule, \(\frac{d}{dx}(x^n) = n x^{n-1}\): \(f'(x) = 3x^{3-1} - 4(2x^{2-1}) + 5(1x^{1-1}) - 0 = 3x^2 - 8x + 5\).</p>
+                        <p><strong>Answer: B) \(3x^2 - 8x + 5\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>2.</strong> What is the derivative of \(g(x) = \sin(5x)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \cos(5x)</div>
+                        <div class="option" data-value="B">B) 5\sin(5x)</div>
+                        <div class="option" data-value="C">C) 5\cos(5x)</div>
+                        <div class="option" data-value="D">D) -\cos(5x)</div>
+                        <div class="option" data-value="E">E) \frac{1}{5}\cos(5x)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff2')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff2" class="explanation">
+                        <p>Using the chain rule, \(\frac{d}{dx}(\sin(u)) = \cos(u) \cdot \frac{du}{dx}\). Here \(u = 5x\), so \(\frac{du}{dx} = 5\). \(g'(x) = \cos(5x) \cdot 5 = 5\cos(5x)\).</p>
+                        <p><strong>Answer: C) \(5\cos(5x)\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>3.</strong> Find the derivative of \(h(x) = e^{x^2}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) e^{x^2}</div>
+                        <div class="option" data-value="B">B) 2x e^{x^2}</div>
+                        <div class="option" data-value="C">C) x e^{x^2}</div>
+                        <div class="option" data-value="D">D) e^{2x}</div>
+                        <div class="option" data-value="E">E) e^{x^2+1}</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff3')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff3" class="explanation">
+                        <p>Using the chain rule, \(\frac{d}{dx}(e^u) = e^u \cdot \frac{du}{dx}\). Here \(u = x^2\), so \(\frac{du}{dx} = 2x\). \(h'(x) = e^{x^2} \cdot 2x = 2x e^{x^2}\).</p>
+                        <p><strong>Answer: B) \(2x e^{x^2}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>4.</strong> Find the derivative of \(k(x) = \ln(x^2 + 1)\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \frac{2x}{x^2 + 1}</div>
+                        <div class="option" data-value="B">B) \frac{1}{x^2 + 1}</div>
+                        <div class="option" data-value="C">C) \frac{1}{x}</div>
+                        <div class="option" data-value="D">D) 2x \ln(x^2 + 1)</div>
+                        <div class="option" data-value="E">E) \frac{x^2 + 1}{x}</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff4')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff4" class="explanation">
+                        <p>Using the chain rule, \(\frac{d}{dx}(\ln(u)) = \frac{1}{u} \cdot \frac{du}{dx}\). Here \(u = x^2 + 1\), so \(\frac{du}{dx} = 2x\). \(k'(x) = \frac{1}{x^2 + 1} \cdot 2x = \frac{2x}{x^2 + 1}\).</p>
+                        <p><strong>Answer: A) \(\frac{2x}{x^2 + 1}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>5.</strong> Find the derivative of \(m(x) = \frac{x}{x + 1}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \frac{1}{(x + 1)^2}</div>
+                        <div class="option" data-value="B">B) \frac{-1}{(x + 1)^2}</div>
+                        <div class="option" data-value="C">C) \frac{2x + 1}{(x + 1)^2}</div>
+                        <div class="option" data-value="D">D) \frac{1}{(x + 1)^2}</div>
+                        <div class="option" data-value="E">E) \frac{x}{(x + 1)^2}</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff5')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff5" class="explanation">
+                        <p>Using the quotient rule, \(\frac{d}{dx}\left(\frac{u}{v}\right) = \frac{u' v - u v'}{v^2}\). Here \(u = x\), \(v = x + 1\). \(u' = 1\), \(v' = 1\). \(m'(x) = \frac{1 \cdot (x + 1) - x \cdot 1}{(x + 1)^2} = \frac{x + 1 - x}{(x + 1)^2} = \frac{1}{(x + 1)^2}\).</p>
+                        <p><strong>Answer: D) \(\frac{1}{(x + 1)^2}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>6.</strong> What is the derivative of \(p(x) = \tan(x^2)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \sec^2(x^2)</div>
+                        <div class="option" data-value="B">B) 2x \sec^2(x^2)</div>
+                        <div class="option" data-value="C">C) \sec(x^2) \tan(x^2)</div>
+                        <div class="option" data-value="D">D) 2x \sec(x^2) \tan(x^2)</div>
+                        <div class="option" data-value="E">E) \frac{1}{\cos^2(x^2)}</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff6')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff6" class="explanation">
+                        <p>Using the chain rule, \(\frac{d}{dx}(\tan(u)) = \sec^2(u) \cdot \frac{du}{dx}\). Here \(u = x^2\), so \(\frac{du}{dx} = 2x\). \(p'(x) = \sec^2(x^2) \cdot 2x = 2x \sec^2(x^2)\).</p>
+                        <p><strong>Answer: B) \(2x \sec^2(x^2)\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>7.</strong> Find the derivative of \(q(x) = \sqrt{x^3 + 1}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \frac{3x^2}{\sqrt{x^3 + 1}}</div>
+                        <div class="option" data-value="B">B) \frac{1}{2\sqrt{x^3 + 1}}</div>
+                        <div class="option" data-value="C">C) \frac{3x^2}{2\sqrt{x^3 + 1}}</div>
+                        <div class="option" data-value="D">D) \frac{2}{3\sqrt{x^3 + 1}}</div>
+                        <div class="option" data-value="E">E) 3x^2 \sqrt{x^3 + 1}</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff7')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff7" class="explanation">
+                        <p>Rewrite as \(q(x) = (x^3 + 1)^{1/2}\). Using the chain rule, \(\frac{d}{dx}(u^n) = n u^{n-1} \cdot \frac{du}{dx}\). Here \(u = x^3 + 1\), so \(\frac{du}{dx} = 3x^2\). \(q'(x) = \frac{1}{2} (x^3 + 1)^{-1/2} \cdot 3x^2 = \frac{3x^2}{2 \sqrt{x^3 + 1}}\).</p>
+                        <p><strong>Answer: C) \(\frac{3x^2}{2 \sqrt{x^3 + 1}}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>8.</strong> What is the derivative of \(r(x) = x \cos(x)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \sin(x)</div>
+                        <div class="option" data-value="B">B) \cos(x)</div>
+                        <div class="option" data-value="C">C) \cos(x) + x \sin(x)</div>
+                        <div class="option" data-value="D">D) \cos(x) - x \sin(x)</div>
+                        <div class="option" data-value="E">E) \sin(x) - \cos(x)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff8')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff8" class="explanation">
+                        <p>Using the product rule, \(\frac{d}{dx}(u v) = u' v + u v'\). Here \(u = x\), \(v = \cos(x)\). \(u' = 1\), \(v' = -\sin(x)\). \(r'(x) = 1 \cdot \cos(x) + x \cdot (-\sin(x)) = \cos(x) - x \sin(x)\).</p>
+                        <p><strong>Answer: D) \(\cos(x) - x \sin(x)\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>9.</strong> Find the derivative of \(s(x) = \frac{\ln(x)}{x}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \frac{1 - \ln(x)}{x^2}</div>
+                        <div class="option" data-value="B">B) \frac{1 + \ln(x)}{x^2}</div>
+                        <div class="option" data-value="C">C) \frac{1}{x} - 1</div>
+                        <div class="option" data-value="D">D) \frac{1}{x}</div>
+                        <div class="option" data-value="E">E) \ln(x) - 1</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff9')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff9" class="explanation">
+                        <p>Using the quotient rule, \(\frac{d}{dx}\left(\frac{u}{v}\right) = \frac{u' v - u v'}{v^2}\). Here \(u = \ln(x)\), \(v = x\). \(u' = \frac{1}{x}\), \(v' = 1\). \(s'(x) = \frac{\frac{1}{x} \cdot x - \ln(x) \cdot 1}{x^2} = \frac{1 - \ln(x)}{x^2}\).</p>
+                        <p><strong>Answer: A) \(\frac{1 - \ln(x)}{x^2}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>10.</strong> What is the derivative of \(t(x) = e^{-2x}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) e^{-2x}</div>
+                        <div class="option" data-value="B">B) 2 e^{-2x}</div>
+                        <div class="option" data-value="C">C) -2 e^{-2x}</div>
+                        <div class="option" data-value="D">D) -\frac{1}{2} e^{-2x}</div>
+                        <div class="option" data-value="E">E) -e^{-2x}</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp_diff10')">Show/Hide Explanation</span></p>
+                    <div id="exp_diff10" class="explanation">
+                        <p>Using the chain rule, \(\frac{d}{dx}(e^u) = e^u \cdot \frac{du}{dx}\). Here \(u = -2x\), so \(\frac{du}{dx} = -2\). \(t'(x) = e^{-2x} \cdot (-2) = -2 e^{-2x}\).</p>
+                        <p><strong>Answer: C) \(-2 e^{-2x}\)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integration Section -->
+            <div id="integration-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Integration Practice Questions</h2>
+                <p>Practice questions for Integration will go here.</p>
+            </div>
+
+            <!-- Series of Functions Section -->
+            <div id="series-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Series of Functions Practice Questions</h2>
+                <p>Practice questions for Series of Functions will go here.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        function toggleExplanation(id) {
+            const element = document.getElementById(id);
+            element.style.display = element.style.display === 'none' || element.style.display === '' ? 'block' : 'none';
+        }
+
+        document.querySelectorAll('.question').forEach(question => {
+            const correctAnswer = question.getAttribute('data-correct');
+            const options = question.querySelectorAll('.option');
+            const feedback = question.querySelector('.feedback');
+
+            options.forEach(option => {
+                option.setAttribute('tabindex', '0');
+                option.addEventListener('click', () => {
+                    options.forEach(opt => {
+                        opt.classList.remove('selected-correct', 'selected-wrong');
+                    });
+                    feedback.classList.remove('correct', 'wrong');
+                    feedback.style.display = 'none';
+                    feedback.textContent = '';
+
+                    const selectedValue = option.getAttribute('data-value');
+                    if (selectedValue === correctAnswer) {
+                        option.classList.add('selected-correct');
+                        feedback.textContent = 'Correct';
+                        feedback.classList.add('correct');
+                    } else {
+                        option.classList.add('selected-wrong');
+                        feedback.textContent = 'Wrong';
+                        feedback.classList.add('wrong');
+                    }
+                    feedback.style.display = 'block';
+                });
+
+                option.addEventListener('keyboard', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        option.click();
+                    }
+                });
+            });
+        });
+
+        function showSection(sectionId) {
+            // Reset all questions
+            document.querySelectorAll('.question').forEach(question => {
+                question.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected-correct', 'selected-wrong');
+                });
+                const feedback = question.querySelector('.feedback');
+                feedback.classList.remove('correct', 'wrong');
+                feedback.style.display = 'none';
+                feedback.textContent = '';
+            });
+
+            // Hide all topic sections
+            document.querySelectorAll('.topic-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Remove active class from all navigation buttons
+            document.querySelectorAll('.sidebar-nav button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show the selected section
+            const selectedSection = document.getElementById(sectionId + '-section');
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            } else {
+                console.warn(`Section ${sectionId} not found`);
+            }
+
+            // Add active class to the clicked navigation button
+            const activeButton = document.querySelector(`.sidebar-nav button[onclick="showSection('${sectionId}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('limits');
+            // Initialize MathJax
+            if (window.MathJax) {
+                MathJax.typesetPromise().catch(err => console.error('MathJax typesetting failed:', err));
+            }
+        });
+    </script>
+</body>
+</html>
