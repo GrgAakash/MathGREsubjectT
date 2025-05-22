@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topology Practice Questions</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; }
+        header { text-align: center; }
+        h1 { font-size: 2em; color: #333; }
+        nav { margin: 20px 0; }
+        nav a { margin: 0 15px; text-decoration: none; color: #007BFF; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        h2 { font-size: 1.5em; color: #333; }
+        h3 { font-size: 1.2em; color: #555; margin-top: 20px; }
+        .question { margin: 20px 0; }
+        .question p { margin: 10px 0; }
+        .options { margin-left: 20px; }
+        .options p { cursor: pointer; margin: 5px 0; }
+        .options p:hover { color: #007BFF; }
+        .show-hide { cursor: pointer; color: #007BFF; font-style: italic; }
+        .explanation { display: none; background: #f8f9fa; padding: 15px; border-left: 4px solid #007BFF; margin: 10px 0; }
+        footer { text-align: center; margin-top: 40px; color: #666; }
+        @media (max-width: 600px) { 
+            body { margin: 20px; }
+            h1 { font-size: 1.5em; }
+            nav a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Math GRE Prep</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="contribute.html">Contribute</a>
+            <a href="#">Resources</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Topology Practice Questions</h2>
+        <p>Master topology concepts with interactive practice</p>
+
+        <section>
+            <h3>Topological Spaces</h3>
+            <div class="question">
+                <p>1. Let \( X = \{a, b, c\} \) with topology \( \tau = \{\emptyset, \{a\}, \{a, b\}, X\} \). Is the set \( \{b, c\} \) open in \( X \)?</p>
+                <div class="options">
+                    <p>A) Yes</p>
+                    <p>B) No</p>
+                    <p>C) Open and closed</p>
+                    <p>D) Neither open nor closed</p>
+                    <p>E) Cannot determine</p>
+                </div>
+                <p><span class="show-hide">Show/Hide Explanation</span></p>
+                <div class="explanation">
+                    <p>A set is open if it belongs to the topology \( \tau \). The topology is \( \tau = \{\emptyset, \{a\}, \{a, b\}, X\} \). Since \( \{b, c\} \notin \tau \), it is not open. By the definition of a topology, only sets in \( \tau \) are open.</p>
+                    <p><strong>Answer: B) No</strong></p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. In the same space \( X = \{a, b, c\} \), \( \tau = \{\emptyset, \{a\}, \{a, b\}, X\} \), what is the closure of \( \{b\} \)?</p>
+                <div class="options">
+                    <p>A) \( \{b\} \)</p>
+                    <p>B) \( \{b, c\} \)</p>
+                    <p>C) \( \{a, b\} \)</p>
+                    <p>D) \( X \)</p>
+                    <p>E) \( \emptyset \)</p>
+                </div>
+                <p><span class="show-hide">Show/Hide Explanation</span></p>
+                <div class="explanation">
+                    <p>The closure of \( \{b\} \) is the smallest closed set containing \( \{b\} \). Closed sets are complements of open sets: complements of \( \emptyset, \{a\}, \{a, b\}, X \) are \( X, \{b, c\}, \{c\}, \emptyset \). The smallest closed set containing \( \{b\} \) is \( \{b, c\} \), since \( b \in \{b, c\} \) and it is closed.</p>
+                    <p><strong>Answer: B) \( \{b, c\} \)</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>Open and Closed Sets</h3>
+            <div class="question">
+                <p>3. In \( \mathbb{R} \) with the standard topology, which of the following is both open and closed?</p>
+                <div class="options">
+                    <p>A) \( (0, 1) \)</p>
+                    <p>B) \( [0, 1] \)</p>
+                    <p>C) \( \mathbb{R} \)</p>
+                    <p>D) \( \{0\} \)</p>
+                    <p>E) \( (-\infty, 0] \)</p>
+                </div>
+                <p><span class="show-hide">Show/Hide Explanation</span></p>
+                <div class="explanation">
+                    <p>In any topological space, the entire space \( X \) and the empty set \( \emptyset \) are both open and closed. In \( \mathbb{R} \) with the standard topology, \( (0, 1) \) is open but not closed, \( [0, 1] \) is closed but not open, \( \{0\} \) is closed but not open, and \( (-\infty, 0] \) is closed but not open. Only \( \mathbb{R} \) is both open and closed by definition.</p>
+                    <p><strong>Answer: C) \( \mathbb{R} \)</strong></p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>4. In the discrete topology on a set \( X \), which sets are open?</p>
+                <div class="options">
+                    <p>A) Only \( \emptyset \)</p>
+                    <p>B) Only \( X \)</p>
+                    <p>C) Only singletons</p>
+                    <p>D) All subsets of \( X \)</p>
+                    <p>E) Only finite subsets</p>
+                </div>
+                <p><span class="show-hide">Show/Hide Explanation</span></p>
+                <div class="explanation">
+                    <p>In the discrete topology, every subset of \( X \) is open, as the topology includes all possible subsets. This is a defining property of the discrete topology, making every set both open and closed.</p>
+                    <p><strong>Answer: D) All subsets of \( X \)</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>Compactness</h3>
+            <div class="question">
+                <p>5. Is the set \( [0, \infty) \) compact in \( \mathbb{R} \) with the standard topology?</p>
+                <div class="options">
+                    <p>A) Yes</p>
+                    <p>B) No</p>
+                    <p>C) Compact but not connected</p>
+                    <p>D) Connected but not compact</p>
+                    <p>E) Neither compact nor connected</p>
+                </div>
+                <p><span class="show-hide">Show/Hide Explanation</span></p>
+                <div class="explanation">
+                    <p>In \( \mathbb{R} \), a set is compact if it is closed and bounded (Heine-Borel Theorem). The set \( [0, \infty) \) is closed but unbounded. Thus, it is not compact. Since it is an interval, it is connected.</p>
+                    <p><strong>Answer: D) Connected but not compact</strong></p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>6. Let \( X = \{1/n : n \in \mathbb{N}\} \cup \{0\} \) in \( \mathbb{R} \) with the standard topology. Is \( X \) compact?</p>
+                <div class="options">
+                    <p>A) Yes</p>
+                    <p>B) No</p>
+                    <p>C) Compact but not closed</p>
+                    <p>D) Closed but not compact</p>
+                    <p>E) Neither compact nor closed</p>
+                </div>
+                <p><span class="show-hide">Show/Hide Explanation</span></p>
+                <div class="explanation">
+                    <p>By the Heine-Borel Theorem, \( X \) is compact if closed and bounded. \( X = \{1, 1/2, 1/3, \ldots, 0\} \) is bounded (in \([0, 1]\)) and closed (includes its limit point 0). Thus, \( X \) is compact.</p>
+                    <p><strong>Answer: A) Yes</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>Connectedness</h3>
+            <div class="question">
+                <p>7. Is the set \( (0, 1) \cup (1, 2) \) connected in \( \mathbb{R} \) with the standard topology?</p>
+                <div class="options">
+                    <p>A) Yes</p>
+                    <p>B) No</p>
+                    <p>C) Connected but not path-connected</p>
+                    <p>D) Path-connected but not connected</p>
+                    <p>E) Neither connected nor compact</p>
+                </div>
+                <p><span class="show-hide">Show/Hide Explanation</span></p>
+                <div class="explanation">
+                    <p>A set is connected if it cannot be written as the union of two non-empty, disjoint open sets. The set \( (0, 1) \cup (1, 2) \) is the union of \( (0, 1) \) and \( (1, 2) \), both open and disjoint, so it is not connected.</p>
+                    <p><strong>Answer: B) No</strong></p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>8. Is \( \mathbb{Q} \) (the rationals) connected in \( \mathbb{R} \) with the standard topology?</p>
+                <div class="options">
+                    <p>A) Yes</p>
+                    <p>B) No</p>
+                    <p>C) Connected but not compact</p>
+                    <p>D) Compact but not connected</p>
+                    <p>E) Path-connected</p>
+                </div>
+                <p><span class="show-hide">Show/Hide Explanation</span></p>
+                <div class="explanation">
+                    <p>Take open sets \( (-\infty, \sqrt{2}) \cap \mathbb{Q} \) and \( (\sqrt{2}, \infty) \cap \mathbb{Q} \). These are non-empty, disjoint, and cover \( \mathbb{Q} \), since \( \sqrt{2} \) is irrational. Thus, \( \mathbb{Q} \) is not connected.</p>
+                    <p><strong>Answer: B) No</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>Continuity</h3>
+            <div class="question">
+                <p>9. Let \( f: \mathbb{R} \to \mathbb{R} \) be continuous, where \( \mathbb{R} \) has the standard topology. If \( f(x) = 0 \) for all \( x \in \mathbb{Q} \), what is \( f(x) \) for all \( x \in \mathbb{R} \)?</p>
+                <div class="options">
+                    <p>A) \( f(x) = x \)</p>
+                    <p>B) \( f(x) = 0 \)</p>
+                    <p>C) \( f(x) = 1 \)</p>
+                    <p>D) \( f(x) = |x| \)</p>
+                    <p>E) Cannot determine</p>
+                </div>
+                <p><span class="show-hide">Show/Hide Explanation</span></p>
+                <div class="explanation">
+                    <p>Since \( \mathbb{Q} \) is dense in \( \mathbb{R} \), for any \( x \in \mathbb{R} \), there exists \( \{q_n\} \subset \mathbb{Q} \) with \( q_n \to x \). By continuity, \( f(x) = \lim_{n \to \infty} f(q_n) = \lim_{n \to \infty} 0 = 0 \). Thus, \( f(x) = 0 \).</p>
+                    <p><strong>Answer: B) \( f(x) = 0 \)</strong></p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>10. Let \( X \) have the trivial topology \( \tau = \{\emptyset, X\} \), and \( Y \) have any topology. Is every function \( f: X \to Y \) continuous?</p>
+                <div class="options">
+                    <p>A) Yes</p>
+                    <p>B) No</p>
+                    <p>C) Only if \( Y \) is discrete</p>
+                    <p>D) Only if \( Y \) is trivial</p>
+                    <p>E) Only if \( f \) is constant</p>
+                </div>
+                <p><span class="show-hide">Show/Hide Explanation</span></p>
+                <div class="explanation">
+                    <p>A function \( f: X \to Y \) is continuous if the preimage of every open set in \( Y \) is open in \( X \). In the trivial topology, open sets are \( \emptyset \) and \( X \). For any open \( V \subset Y \), \( f^{-1}(V) = \emptyset \) or \( X \), both open. Thus, every function is continuous.</p>
+                    <p><strong>Answer: A) Yes</strong></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        // Show/hide explanation toggle
+        document.querySelectorAll('.show-hide').forEach(link => {
+            link.addEventListener('click', () => {
+                const explanation = link.nextElementSibling;
+                explanation.style.display = explanation.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Option selection feedback
+        document.querySelectorAll('.options p').forEach(option => {
+            option.addEventListener('click', () => {
+                const question = option.closest('.question');
+                const correctAnswer = question.querySelector('.explanation p:last-child').textContent.match(/Answer: ([A-E]).*\)/)[1];
+                const selectedAnswer = option.textContent.charAt(0);
+                alert(selectedAnswer === correctAnswer ? 'Correct!' : `Incorrect. The correct answer is ${correctAnswer}.`);
+            });
+        });
+    </script>
+</body>
+</html>
