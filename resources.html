@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Math GRE Prep</title>
+    <title>Resources - Math GRE Prep</title>
     <style>
         :root {
             --primary: #4a6fa5;
@@ -119,6 +119,20 @@
             margin-bottom: 0.5rem;
         }
 
+        .resource-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .resource-card h4 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
         footer {
             background-color: var(--primary);
             color: white;
@@ -146,7 +160,7 @@
 </head>
 <body>
     <header>
-        <h1>About</h1>
+        <h1>Resources</h1>
     </header>
     
     <nav class="nav">
@@ -154,34 +168,86 @@
             <a href="index.html" class="logo">Math GRE Prep</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="about.html" class="active">About</a>
+                <a href="about.html">About</a>
                 <a href="contribute.html">Contribute</a>
-                <a href="resources.html">Resources</a>
+                <a href="resources.html" class="active">Resources</a>
             </div>
         </div>
     </nav>
 
     <div class="container">
         <div class="content">
-            <h2>About This Site</h2>
-            <p>This is a collection of practice questions for the GRE Mathematics Subject Test, organized by topic with explanations whenever possible.</p>
+            <h2>Study Resources</h2>
+            <p>Additional resources to help with GRE Math Subject Test preparation.</p>
 
-            <h3>GRE Math Subject Test Coverage</h3>
-            <p>The test covers these main areas:</p>
+            <h3>Official Resources</h3>
+            <div class="resource-card">
+                <h4>ETS Practice Test</h4>
+                <p>The official GRE Math Subject Test practice test from ETS. Contains real test questions and is the best indicator of actual test difficulty.</p>
+            </div>
+
+            <h3>Textbooks by Subject</h3>
+            
+            <div class="resource-card">
+                <h4>Abstract Algebra</h4>
+                <ul>
+                    <li>Dummit & Foote - Abstract Algebra</li>
+                    <li>Herstein - Topics in Algebra</li>
+                    <li>Gallian - Contemporary Abstract Algebra</li>
+                </ul>
+            </div>
+
+            <div class="resource-card">
+                <h4>Real Analysis</h4>
+                <ul>
+                    <li>Rudin - Principles of Mathematical Analysis</li>
+                    <li>Bartle & Sherbert - Introduction to Real Analysis</li>
+                    <li>Abbott - Understanding Analysis</li>
+                </ul>
+            </div>
+
+            <div class="resource-card">
+                <h4>Calculus</h4>
+                <ul>
+                    <li>Stewart - Calculus: Early Transcendentals</li>
+                    <li>Spivak - Calculus</li>
+                    <li>Apostol - Calculus</li>
+                </ul>
+            </div>
+
+            <div class="resource-card">
+                <h4>Linear Algebra</h4>
+                <ul>
+                    <li>Strang - Linear Algebra and Its Applications</li>
+                    <li>Hoffman & Kunze - Linear Algebra</li>
+                    <li>Axler - Linear Algebra Done Right</li>
+                </ul>
+            </div>
+
+            <h3>Online Resources</h3>
+            <div class="resource-card">
+                <h4>Khan Academy</h4>
+                <p>Free online courses covering calculus and linear algebra basics.</p>
+            </div>
+
+            <div class="resource-card">
+                <h4>MIT OpenCourseWare</h4>
+                <p>Free course materials from MIT mathematics courses, including lecture notes and problem sets.</p>
+            </div>
+
+            <div class="resource-card">
+                <h4>Paul's Online Math Notes</h4>
+                <p>Comprehensive calculus and differential equations notes with examples.</p>
+            </div>
+
+            <h3>Test-Taking Tips</h3>
             <ul>
-                <li><strong>Calculus</strong> - About 50% of the test</li>
-                <li><strong>Abstract Algebra</strong> - About 25% of the test</li>
-                <li><strong>Real Analysis</strong> - About 25% of the test</li>
-                <li><strong>Other topics</strong> - Linear algebra, topology, complex analysis</li>
+                <li>Practice time management - you have about 2.5 minutes per question</li>
+                <li>Use elimination strategies for multiple choice questions</li>
+                <li>Don't spend too much time on any single question</li>
+                <li>Review basic computational skills regularly</li>
+                <li>Focus on understanding concepts, not just memorizing formulas</li>
             </ul>
-
-            <h3>How to Use</h3>
-            <p>Each section contains practice questions with multiple choice answers. Click on an answer to see if it's correct, and use the "Show/Hide Explanation" link to see the detailed solution.</p>
-
-            <p>The questions are organized by topic, so you can focus on specific areas where you need more practice.</p>
-
-            <h3>Test Format</h3>
-            <p>The actual GRE Math Subject Test has about 66 multiple-choice questions to complete in 2 hours and 50 minutes.</p>
         </div>
     </div>
 
