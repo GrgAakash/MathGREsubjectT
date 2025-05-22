@@ -1,0 +1,30 @@
+---
+layout: default
+title: Practice Quiz
+---
+<div class="container">
+    <h2>Practice Quiz</h2>
+    <div id="quiz">
+        <p id="question"></p>
+        <button id="next-btn" class="btn">Next Question</button>
+    </div>
+    <a href="{{ '/' | relative_url }}" class="btn">Back to Home</a>
+</div>
+<script>
+    fetch('{{ "/_data/questions.yml" | relative_url }}')
+        .then(response => response.text())
+        .then(data => {
+            const questions = jsyaml.load(data).flatMap(cat => cat.questions);
+            let current = 0;
+            const questionEl = document.getElementById('question');
+            const nextBtn = document.getElementById('next-btn');
+            function showQuestion() {
+                questionEl.innerHTML = `<strong>Question:</strong> ${questions[current].question}`;
+            }
+            showQuestion();
+            nextBtn.addEventListener('click', () => {
+                current = (current + 1) % questions.length;
+                showQuestion();
+            });
+        });
+</script>
