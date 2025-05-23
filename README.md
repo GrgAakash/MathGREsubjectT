@@ -3,4 +3,4 @@
  <p> Initially, the questions are randomly selected with no particular connection to GRE Math Subject test.</p>
  <p> In the dates below, the questions are added according to my idea of GRE Math Subject test.</p>
  <p> May 22 - Limit questions added.</p>
- <p> May 23 - Test mode under construction starting at Topology section</p>
+ <p> May 23 - Test mode under construction starting at Topology section.</p>
