@@ -411,8 +411,6 @@
                         <p><strong>Answer: B) No</strong></p>
                     </div>
                 </div>
-                    
-            
             </section>
 
             <section id="algebraic-topology-section" class="topic-section">
@@ -679,8 +677,9 @@ document.querySelectorAll('.question').forEach(question => {
 
         
 
-    function showResults() {
-    const totalQuestions = document.querySelectorAll('.question').length;
+function showResults() {
+    const allQuestions = document.querySelectorAll('.question');
+    const totalQuestions = allQuestions.length;
     const totalTime = globalStartTime ? Math.floor((new Date() - globalStartTime) / 1000) : 0;
     const minutes = Math.floor(totalTime / 60);
     const seconds = totalTime % 60;
@@ -699,13 +698,16 @@ document.querySelectorAll('.question').forEach(question => {
     let weakPoints = '<strong>Areas for Improvement:</strong><p>';
     let hasWeakPoints = false;
 
-    // Check all questions, not just answered ones
-    for (let i = 1; i <= totalQuestions; i++) {
-        const questionId = `q${i}`;
+    // Check only the actual questions that exist on the page
+    allQuestions.forEach((questionElement, index) => {
+        const questionId = questionElement.id;
+        const questionNum = parseInt(questionId.replace('q', ''));
+        const displayNum = index + 1; // Sequential numbering for display
+        
         const count = incorrectCounts[questionId] || 0;
         const time = questionTimes[questionId] || 0;
-        const isAnswered = answeredQuestions.has(i);
-        const isCorrect = correctFirstAttempts.has(i);
+        const isAnswered = answeredQuestions.has(questionNum);
+        const isCorrect = correctFirstAttempts.has(questionNum);
         
         let status = '';
         if (!isAnswered) {
@@ -716,18 +718,18 @@ document.querySelectorAll('.question').forEach(question => {
             status = 'Incorrect';
         }
         
-        incorrectSummary += `<li>Question ${i}: ${status}, ${count} wrong attempt(s), ${time}s spent</li>`;
+        incorrectSummary += `<li>Question ${displayNum}: ${status}, ${count} wrong attempt(s), ${time}s spent</li>`;
         
         // Mark as weak point if: not attempted, multiple wrong attempts, or took too long
         if (!isAnswered || count >= 2 || time > 120) {
             hasWeakPoints = true;
-            weakPoints += `Question ${i}: `;
+            weakPoints += `Question ${displayNum}: `;
             if (!isAnswered) weakPoints += 'Not attempted, ';
             if (count >= 2) weakPoints += `${count} incorrect attempts, `;
             if (time > 120) weakPoints += `${time}s (over 2 minutes), `;
             weakPoints += 'needs review.<br>';
         }
-    }
+    });
     
     incorrectSummary += '</ul>';
     if (!hasWeakPoints) {
