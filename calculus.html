@@ -485,176 +485,175 @@
                 </div>
 
 
-                <div class="question" id="q4">
+                <div class="question" id="q4" data-correct="A">
                     <div class="question-meta">
                         <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Medium</span>
                     </div>
-                    <p><strong>4.</strong> Let \( \varphi(x) = \int_0^x \varphi(t)\,dt + \sin x \). Then \( \lim_{x \to \pi/2} \left(2\varphi(x) - e^x \right) \) is</p>
-                    <p class="source"><em>Source: (2), Page 39</em></p>
+                    <p><strong>4.</strong> Let \( \varphi(x) = \int_0^x \varphi(t)\,dt + \sin x \). Evaluate \( \lim_{x\to\pi/2} \left( 2\varphi(x) - e^x \right) \)</p>
+                    <p class="source"><em>Source: (3), 2025, Q29</em></p>
                     <div class="options">
                         <div class="option" data-value="A">1</div>
-                        <div class="option" data-value="B">0</div>
-                        <div class="option" data-value="C">\( \cos 1 \)</div>
-                        <div class="option" data-value="D">\( \sin 1 \)</div>
-                        <div class="option" data-value="E">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="B">2</div>
+                        <div class="option" data-value="C">3</div>
+                        <div class="option" data-value="D">4</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q4')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q4">
-                        <p>Differentiating both sides of \( \varphi(x) = \int_0^x \varphi(t)\,dt + \sin x \) gives \( \varphi'(x) = \varphi(x) + \cos x \).</p>
-                        <p>Solving the differential equation yields \( \varphi(x) = \frac{\sin x - \cos x}{2} + \frac{e^x}{2} \).</p>
-                        <p>Then \( 2\varphi(x) - e^x = \sin x - \cos x \), and as \( x \to \pi/2 \), \( \sin x \to 1 \), \( \cos x \to 0 \).</p>
+                        <p>Differentiate both sides: \( \varphi' = \varphi + \cos x \). Solve ODE to get \( \varphi(x) = \frac{\sin x - \cos x}{2} + \frac{e^x}{2} \). Then \( 2\varphi(x) - e^x = \sin x - \cos x \), so at \( x = \frac{\pi}{2} \), we get \( 1 - 0 = 1 \).</p>
                         <p><strong>Answer: (A) 1</strong></p>
                     </div>
                 </div>
 
 
-
-                <div class="question" id="q5">
+                <div class="question" id="q5" data-correct="C">
                     <div class="question-meta">
                         <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
                     </div>
-                    <p><strong>5.</strong> Let \( y = x^{x^{x^{\cdots}}} \). Then \( \frac{dy}{dx} \) equals</p>
-                    <p class="source"><em>Source: (2), Page 39</em></p>
+                    <p><strong>5.</strong> Evaluate \( \lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n \)</p>
+                    <p class="source"><em>Source: N/A</em></p>
                     <div class="options">
-                        <div class="option" data-value="A">\( y \ln x \)</div>
-                        <div class="option" data-value="B">\( y \ln y \)</div>
-                        <div class="option" data-value="C">\( y \ln y \ln x \)</div>
-                        <div class="option" data-value="D">\( \frac{y \ln y}{x} \)</div>
-                        <div class="option" data-value="E">\( \frac{y}{x} \)</div>
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">e</div>
+                        <div class="option" data-value="D">\( \infty \)</div>
+                        <div class="option" data-value="E">Does not exist</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q5')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q5">
-                        <p>Let \( y = x^y \). Taking natural logs: \( \ln y = y \ln x \). Differentiating: \( \frac{1}{y} \frac{dy}{dx} = \frac{dy}{dx} \ln x + \frac{y}{x} \).</p>
-                        <p>Solving gives \( \frac{dy}{dx} = \frac{y \ln y}{x} \).</p>
-                        <p><strong>Answer: (D) \( \frac{y \ln y}{x} \)</strong></p>
+                        <p>This is the classic definition of the number \( e \): \( \lim_{n \to \infty} \left(1 + \frac{1}{n} \right)^n = e \).</p>
+                        <p><strong>Answer: (C) e</strong></p>
                     </div>
                 </div>
 
 
-                <div class="question" id="q6">
-                    <div class="question-meta">
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
-                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
-                        <span>Medium</span>
-                    </div>
-                    <p><strong>6.</strong> The function \( f(x) = \frac{x - 1}{\sqrt{x - 1}} \) is defined for</p>
-                    <p class="source"><em>Source: (2), Page 39</em></p>
-                    <div class="options">
-                        <div class="option" data-value="A">\( x > 1 \)</div>
-                        <div class="option" data-value="B">\( x \geq 1 \)</div>
-                        <div class="option" data-value="C">\( x < 1 \)</div>
-                        <div class="option" data-value="D">\( x \leq 1 \)</div>
-                        <div class="option" data-value="E">All real \( x \)</div>
-                    </div>
-                    <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q6')">Show/Hide Explanation</span></p>
-                    <div class="explanation" id="exp-q6">
-                        <p>The denominator \( \sqrt{x - 1} \) is defined only for \( x - 1 > 0 \Rightarrow x > 1 \).</p>
-                        <p><strong>Answer: (A) \( x > 1 \)</strong></p>
-                    </div>
-                </div>
 
 
-                <div class="question" id="q7">
+                <div class="question" id="q6" data-correct="A">
                     <div class="question-meta">
                         <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
                     </div>
-                    <p><strong>7.</strong> Let \( f(x) = \frac{x}{1 + e^x} \). Then \( \lim_{x \to \infty} f(x) = \)</p>
-                    <p class="source"><em>Source: (2), Page 39</em></p>
+                    <p><strong>6.</strong> Let \( x_n = \cos(n^n)e^{-n} \). Evaluate \( \lim_{n \to \infty} x_n \)</p>
+                    <p class="source"><em>Source: (2), Page 37</em></p>
                     <div class="options">
                         <div class="option" data-value="A">0</div>
-                        <div class="option" data-value="B">1</div>
-                        <div class="option" data-value="C">\( \infty \)</div>
-                        <div class="option" data-value="D">\( -\infty \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{e} \)</div>
+                        <div class="option" data-value="C">\( \cos(1) \)</div>
+                        <div class="option" data-value="D">\( -\frac{1}{e} \)</div>
                         <div class="option" data-value="E">Does not exist</div>
                     </div>
                     <div class="feedback"></div>
-                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q7')">Show/Hide Explanation</span></p>
-                    <div class="explanation" id="exp-q7">
-                        <p>As \( x \to \infty \), \( e^x \to \infty \) much faster than \( x \), so \( f(x) \to 0 \).</p>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q6')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q6">
+                        <p>\( |\cos(n^n)| \leq 1 \), so \( |x_n| \leq e^{-n} \rightarrow 0 \). By the Squeeze Theorem, \( \lim x_n = 0 \).</p>
                         <p><strong>Answer: (A) 0</strong></p>
                     </div>
                 </div>
 
 
-                <div class="question" id="q8">
+                <div class="question" id="q7" data-correct="E">
                     <div class="question-meta">
                         <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
-                        <span>Medium</span>
+                        <span>Easy</span>
                     </div>
-                    <p><strong>8.</strong> Evaluate \( \lim_{x \to 0} \frac{\tan x - \sin x}{x^3} \)</p>
-                    <p class="source"><em>Source: (2), Page 39</em></p>
+                    <p><strong>7.</strong> Evaluate \( \lim_{x \to 0} \frac{\sin 2x}{(1 + x)\log(1 + x)} \)</p>
+                    <p class="source"><em>Source: (1), Practice 3, Q12</em></p>
                     <div class="options">
-                        <div class="option" data-value="A">\( \frac{1}{3} \)</div>
-                        <div class="option" data-value="B">\( \frac{2}{3} \)</div>
-                        <div class="option" data-value="C">\( \frac{3}{2} \)</div>
-                        <div class="option" data-value="D">\( \frac{5}{6} \)</div>
-                        <div class="option" data-value="E">1</div>
+                        <div class="option" data-value="A">-2</div>
+                        <div class="option" data-value="B">-\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="C">0</div>
+                        <div class="option" data-value="D">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="E">2</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q7')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q7">
+                        <p>Near zero: \( \sin 2x \approx 2x \), \( \log(1 + x) \approx x \), \( 1 + x \approx 1 \). So limit becomes \( \frac{2x}{x} = 2 \).</p>
+                        <p><strong>Answer: (E) 2</strong></p>
+                    </div>
+                </div>
+
+
+                <div class="question" id="q8" data-correct="E">
+                    <div class="question-meta">
+                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Easy</span>
+                    </div>
+                    <p><strong>8.</strong> Evaluate \( \lim_{n \to \infty} \sum_{k=1}^{n} \left( \frac{1}{k} - \frac{1}{2k} \right) \)</p>
+                    <p class="source"><em>Source: (1), Practice 3, Q29</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">2</div>
+                        <div class="option" data-value="D">4</div>
+                        <div class="option" data-value="E">\( +\infty \)</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q8')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q8">
-                        <p>Use Taylor expansions: \( \tan x = x + \frac{x^3}{3} + \dots \), \( \sin x = x - \frac{x^3}{6} + \dots \).</p>
-                        <p>So, numerator \( \approx \frac{x^3}{3} + \frac{x^3}{6} = \frac{x^3}{2} \), and the limit is \( \frac{1}{2} \).</p>
-                        <p><strong>Answer: (E) 1</strong></p>
+                        <p>The expression simplifies to \( \sum_{k=1}^{n} \left(\frac{1}{k} - \frac{1}{2k} \right) = \sum_{k=1}^{n} \frac{1}{2k} = \frac{1}{2} \sum_{k=1}^{n} \frac{1}{k} = \frac{1}{2} H_n \rightarrow \infty \).</p>
+                        <p><strong>Answer: (E) \( +\infty \)</strong></p>
                     </div>
                 </div>
 
 
-                <div class="question" id="q9">
+                <div class="question" id="q9" data-correct="C">
                     <div class="question-meta">
                         <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Medium</span>
                     </div>
-                    <p><strong>9.</strong> Evaluate \( \lim_{x \to 0^+} x^x \)</p>
-                    <p class="source"><em>Source: (2), Page 39</em></p>
+                    <p><strong>9.</strong> Which is NOT a consequence of \( f \sim g \), meaning \( \lim_{x \to \infty} \frac{f(x)}{g(x)} = 1 \)?</p>
+                    <p class="source"><em>Source: (1), Practice 2, Q29</em></p>
                     <div class="options">
-                        <div class="option" data-value="A">0</div>
-                        <div class="option" data-value="B">1</div>
-                        <div class="option" data-value="C">\( e \)</div>
-                        <div class="option" data-value="D">\( \infty \)</div>
-                        <div class="option" data-value="E">Does not exist</div>
+                        <div class="option" data-value="A">\( f^2 \sim g^2 \)</div>
+                        <div class="option" data-value="B">\( \sqrt{f} \sim \sqrt{g} \)</div>
+                        <div class="option" data-value="C">\( e^f \sim e^g \)</div>
+                        <div class="option" data-value="D">\( f + g \sim 2g \)</div>
+                        <div class="option" data-value="E">\( g \sim f \)</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q9')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q9">
-                        <p>Let \( y = x^x = e^{x \ln x} \). As \( x \to 0^+ \), \( x \ln x \to 0 \), so \( x^x \to e^0 = 1 \).</p>
-                        <p><strong>Answer: (B) 1</strong></p>
+                        <p>If \( f \sim g \), then \( \frac{f}{g} \to 1 \), so \( f = g(1 + \varepsilon(x)) \) with \( \varepsilon(x) \to 0 \). This implies \( f^2 \sim g^2 \), \( \sqrt{f} \sim \sqrt{g} \), \( f + g \sim 2g \), and symmetry \( g \sim f \).</p>
+                        <p>However, \( \frac{e^f}{e^g} = e^{f - g} \to 1 \) requires \( f - g \to 0 \), which is not implied by \( \frac{f}{g} \to 1 \) in general. So (C) is NOT a consequence.</p>
+                        <p><strong>Answer: (C) \( e^f \sim e^g \)</strong></p>
                     </div>
                 </div>
 
 
-                <div class="question" id="q10">
+  
+
+
+                <div class="question" id="q10" data-correct="A">
                     <div class="question-meta">
                         <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
-                        <span>Hard</span>
+                        <span>Easy</span>
                     </div>
-                    <p><strong>10.</strong> Evaluate \( \lim_{x \to 0} \frac{e^{\tan x} - \tan x - 1}{x^2} \)</p>
-                    <p class="source"><em>Source: (2), Page 39</em></p>
+                    <p><strong>10.</strong> Evaluate \( \lim_{n \to \infty} \frac{\log(n^a + 1)}{n} \) for fixed \( a > 0 \)</p>
+                    <p class="source"><em>Source: N/A</em></p>
                     <div class="options">
-                        <div class="option" data-value="A">\( \frac{1}{2} \)</div>
-                        <div class="option" data-value="B">1</div>
-                        <div class="option" data-value="C">\( \frac{3}{2} \)</div>
-                        <div class="option" data-value="D">2</div>
-                        <div class="option" data-value="E">\( \frac{5}{2} \)</div>
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">a</div>
+                        <div class="option" data-value="C">\( \infty \)</div>
+                        <div class="option" data-value="D">\( \log a \)</div>
+                        <div class="option" data-value="E">Does not exist</div>
                     </div>
-                    <div class="feedback"></div>
+                    <div class="feedback" aria-live="polite"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q10')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q10">
-                        <p>Use Taylor expansions: \( \tan x = x + \frac{x^3}{3} + \dots \), so \( e^{\tan x} = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \dots \).</p>
-                        <p>Subtracting \( \tan x + 1 \), the numerator becomes \( \frac{x^2}{2} + \dots \). So the limit is \( \frac{1}{2} \).</p>
-                        <p><strong>Answer: (A) \( \frac{1}{2} \)</strong></p>
+                        <p>\( \log(n^a + 1) \sim a \log n \) for large \( n \), so the limit becomes \( \frac{a \log n}{n} \to 0 \) as \( n \to \infty \).</p>
+                        <p><strong>Answer: (A) 0</strong></p>
                     </div>
                 </div>
 
