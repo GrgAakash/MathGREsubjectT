@@ -184,11 +184,13 @@
 
         .question-meta {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            gap: 15px;
             font-size: 0.9em;
             color: var(--accent);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: 500;
+            flex-wrap: wrap;
         }
 
         .question p {
@@ -244,7 +246,6 @@
             display: block;
         }
 
-
         .toggle-btn {
             cursor: pointer;
             color: var(--accent);
@@ -268,7 +269,6 @@
             font-size: 0.95em;
         }
 
-
         #results {
             display: none;
             margin: 20px 0;
@@ -284,6 +284,56 @@
             text-align: center;
             padding: 1.5rem 0;
             margin-top: 3rem;
+        }
+
+        .timer-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .timer-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .timer-btn.timer-running {
+            background: linear-gradient(135deg, #dc3545, #fd7e14);
+            animation: pulse 2s infinite;
+        }
+
+        .timer-btn.timer-paused {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+        }
+
+        .timer-btn.timer-completed {
+            background: linear-gradient(135deg, #6f42c1, #e83e8c);
+            cursor: default;
+        }
+
+        .timer-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .q-time[style*="color: rgb(220, 53, 69)"] {
+            background: rgba(220, 53, 69, 0.1);
+            padding: 2px 6px;
+            border-radius: 12px;
         }
 
         @media (max-width: 768px) {
@@ -352,7 +402,7 @@
             <p>Time Elapsed</p>
         </div>
         <div>
-            <p id="questions-answered">0/20</p>
+            <p id="questions-answered">0/2</p>
             <p>Questions Answered</p>
         </div>
         <div>
@@ -375,7 +425,6 @@
         <nav class="sidebar-nav">
             <button onclick="showSection('general-topology')" class="active">General Topology</button>
             <button onclick="showSection('algebraic-topology')">Algebraic Topology</button>
-
         </nav>
 
         <div class="main-content">
@@ -392,6 +441,9 @@
 
                 <div class="question" id="q1">
                     <div class="question-meta">
+                        <button class="timer-btn" onclick="toggleQuestionTimer('q1')" data-state="stopped">
+                            ⏱️ Start Timer
+                        </button>
                         <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
@@ -418,6 +470,9 @@
 
                 <div class="question" id="q11">
                     <div class="question-meta">
+                        <button class="timer-btn" onclick="toggleQuestionTimer('q11')" data-state="stopped">
+                            ⏱️ Start Timer
+                        </button>
                         <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Medium</span>
@@ -450,30 +505,42 @@
         let globalTimerInterval = null;
         let questionTimers = {};
         let questionTimerIntervals = {};
+        let questionTimerStates = {};
         let answeredQuestions = new Set();
         let correctFirstAttempts = new Set();
         let incorrectCounts = {};
         let questionTimes = {};
         let isPaused = false;
         let isStarted = false;
+        let questionAnswered = {}; // Track which questions have been answered correctly
 
         // Initialize question timers and error counts
-        for (let i = 1; i <= 20; i++) {
-            if (!incorrectCounts[`q${i}`]) incorrectCounts[`q${i}`] = 0;
-            if (!questionTimes[`q${i}`]) questionTimes[`q${i}`] = 0;
-            const timeElement = document.querySelector(`#q${i} .q-time`);
-            const errorElement = document.querySelector(`#q${i} .q-errors`);
-            if (timeElement) {
-                timeElement.setAttribute('data-time', questionTimes[`q${i}`]);
-                timeElement.textContent = `${questionTimes[`q${i}`]}s`;
-            }
-            if (errorElement) {
-                errorElement.setAttribute('data-errors', incorrectCounts[`q${i}`]);
-                errorElement.textContent = incorrectCounts[`q${i}`];
-            }
+        function initializeQuestionData() {
+            const questionElements = document.querySelectorAll('.question');
+            questionElements.forEach(questionElement => {
+                const questionId = questionElement.id;
+                const questionNum = parseInt(questionId.replace('q', ''));
+                
+                // Initialize all tracking objects
+                if (!incorrectCounts[questionId]) incorrectCounts[questionId] = 0;
+                if (!questionTimes[questionId]) questionTimes[questionId] = 0;
+                if (!questionTimers[questionNum]) questionTimers[questionNum] = 0;
+                questionTimerStates[questionId] = 'stopped';
+                questionAnswered[questionId] = false;
+                
+                // Update display elements
+                const timeElement = questionElement.querySelector('.q-time');
+                const errorElement = questionElement.querySelector('.q-errors');
+                if (timeElement) {
+                    timeElement.setAttribute('data-time', questionTimes[questionId]);
+                    timeElement.textContent = `${questionTimes[questionId]}s`;
+                }
+                if (errorElement) {
+                    errorElement.setAttribute('data-errors', incorrectCounts[questionId]);
+                    errorElement.textContent = incorrectCounts[questionId];
+                }
+            });
         }
-
-        
 
         function updateGlobalTimer() {
             const now = new Date();
@@ -484,12 +551,60 @@
         }
 
         function updateQuestionTimer(questionNum) {
-            questionTimers[questionNum]++;
-            questionTimes[`q${questionNum}`] = questionTimers[questionNum];
-            const timeElement = document.querySelector(`#q${questionNum} .q-time`);
-            if (timeElement) {
-                timeElement.setAttribute('data-time', questionTimers[questionNum]);
-                timeElement.textContent = `${questionTimers[questionNum]}s`;
+            const questionId = `q${questionNum}`;
+            if (questionTimerStates[questionId] === 'running') {
+                questionTimers[questionNum]++;
+                questionTimes[questionId] = questionTimers[questionNum];
+                
+                const timeElement = document.querySelector(`#${questionId} .q-time`);
+                if (timeElement) {
+                    timeElement.setAttribute('data-time', questionTimers[questionNum]);
+                    
+                    const minutes = Math.floor(questionTimers[questionNum] / 60);
+                    const seconds = questionTimers[questionNum] % 60;
+                    const timeDisplay = minutes > 0 ? 
+                        `${minutes}m ${seconds}s` : 
+                        `${seconds}s`;
+                    timeElement.textContent = timeDisplay;
+                    
+                    if (questionTimers[questionNum] > 120) {
+                        timeElement.style.color = '#dc3545';
+                        timeElement.style.fontWeight = 'bold';
+                    }
+                }
+            }
+        }
+
+        function toggleQuestionTimer(questionId) {
+            const questionNum = parseInt(questionId.replace('q', ''));
+            const button = document.querySelector(`#${questionId} .timer-btn`);
+            const currentState = questionTimerStates[questionId];
+            
+            if (currentState === 'stopped') {
+                questionTimerStates[questionId] = 'running';
+                button.textContent = '⏹️ Stop Timer';
+                button.classList.add('timer-running');
+                button.setAttribute('data-state', 'running');
+                
+                if (!questionTimers[questionNum]) {
+                    questionTimers[questionNum] = questionTimes[questionId] || 0;
+                }
+                
+                questionTimerIntervals[questionNum] = setInterval(() => {
+                    updateQuestionTimer(questionNum);
+                }, 1000);
+                
+            } else if (currentState === 'running') {
+                questionTimerStates[questionId] = 'stopped';
+                button.textContent = '▶️ Resume Timer';
+                button.classList.remove('timer-running');
+                button.classList.add('timer-paused');
+                button.setAttribute('data-state', 'paused');
+                
+                if (questionTimerIntervals[questionNum]) {
+                    clearInterval(questionTimerIntervals[questionNum]);
+                    delete questionTimerIntervals[questionNum];
+                }
             }
         }
 
@@ -502,8 +617,6 @@
                 document.getElementById('results-btn').disabled = false;
                 document.getElementById('pause-btn').disabled = false;
                 document.getElementById('reset-btn').disabled = false;
-                document.querySelectorAll('.submit').forEach(btn => btn.disabled = false);
-
             }
         }
 
@@ -515,7 +628,6 @@
                     clearInterval(questionTimerIntervals[q]);
                 }
                 document.getElementById('pause-btn').textContent = 'Resume';
-                document.querySelectorAll('.submit').forEach(btn => btn.disabled = true);
             } else if (isStarted && isPaused) {
                 isPaused = false;
                 globalTimerInterval = setInterval(updateGlobalTimer, 1000);
@@ -523,111 +635,119 @@
                     questionTimerIntervals[q] = setInterval(() => updateQuestionTimer(q), 1000);
                 }
                 document.getElementById('pause-btn').textContent = 'Pause';
-                document.querySelectorAll('.submit').forEach(btn => btn.disabled = false);
             }
         }
 
+        // Fixed option click handler with proper mistake counting
         document.querySelectorAll('.question').forEach(question => {
-    const options = question.querySelectorAll('.option');
-    const feedback = question.querySelector('.feedback');
-    
-    // Define correct answers for each question
-    const correctAnswers = {
-        'q1': 'B',
-        'q11': 'C'
-
-        
-                        // Add more questions and their correct answers here as needed
-                // Example: 'q2': 'A', 'q3': 'D', etc.
-    };
-    options.forEach(option => {
-        option.addEventListener('click', () => {
+            const options = question.querySelectorAll('.option');
+            const feedback = question.querySelector('.feedback');
             const questionId = question.id;
-            const correctAnswer = correctAnswers[questionId];
             
-            if (!correctAnswer) return; // Skip if no correct answer defined
+            const correctAnswers = {
+                'q1': 'B',
+                'q11': 'C'
+            };
             
-            const selected = option.getAttribute('data-value');
-            
-            // Clear previous selections
-            options.forEach(opt => {
-                opt.classList.remove('selected-correct', 'selected-wrong', 'selected');
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    const correctAnswer = correctAnswers[questionId];
+                    if (!correctAnswer || questionAnswered[questionId]) return;
+                    
+                    const selected = option.getAttribute('data-value');
+                    const questionNum = parseInt(questionId.replace('q', ''));
+                    
+                    // Clear previous selections
+                    options.forEach(opt => {
+                        opt.classList.remove('selected-correct', 'selected-wrong', 'selected');
+                    });
+
+                    if (selected === correctAnswer) {
+                        option.classList.add('selected-correct');
+                        feedback.textContent = 'Correct! ✓';
+                        feedback.className = 'feedback correct';
+                        feedback.style.display = 'block';
+                        
+                        // Mark question as answered correctly
+                        questionAnswered[questionId] = true;
+                        
+                        // Auto-stop timer when answered correctly
+                        if (questionTimerStates[questionId] === 'running') {
+                            const button = document.querySelector(`#${questionId} .timer-btn`);
+                            questionTimerStates[questionId] = 'completed';
+                            button.textContent = '✅ Completed';
+                            button.classList.remove('timer-running');
+                            button.classList.add('timer-completed');
+                            button.disabled = true;
+                            button.setAttribute('data-state', 'completed');
+                            
+                            if (questionTimerIntervals[questionNum]) {
+                                clearInterval(questionTimerIntervals[questionNum]);
+                                delete questionTimerIntervals[questionNum];
+                            }
+                        }
+                        
+                        // Update tracking
+                        if (!answeredQuestions.has(questionNum)) {
+                            answeredQuestions.add(questionNum);
+                            const totalQuestions = document.querySelectorAll('.question').length;
+                            document.getElementById('questions-answered').textContent = `${answeredQuestions.size}/${totalQuestions}`;
+                        }
+                        if (incorrectCounts[questionId] === 0) {
+                            correctFirstAttempts.add(questionNum);
+                            document.getElementById('correct-answers').textContent = correctFirstAttempts.size;
+                        }
+                        
+                        const accuracy = answeredQuestions.size > 0 ? Math.round((correctFirstAttempts.size / answeredQuestions.size) * 100) : 0;
+                        document.getElementById('accuracy-rate').textContent = `${accuracy}%`;
+                        
+                    } else {
+                        option.classList.add('selected-wrong');
+                        feedback.textContent = 'Incorrect ✗ Try again!';
+                        feedback.className = 'feedback wrong';
+                        feedback.style.display = 'block';
+                        
+                        // Only increment mistake counter once per wrong attempt
+                        incorrectCounts[questionId] = (incorrectCounts[questionId] || 0) + 1;
+                        const errorElement = document.querySelector(`#${questionId} .q-errors`);
+                        if (errorElement) {
+                            errorElement.setAttribute('data-errors', incorrectCounts[questionId]);
+                            errorElement.textContent = incorrectCounts[questionId];
+                        }
+                        
+                        // Clear selection after a brief delay to allow multiple attempts
+                        setTimeout(() => {
+                            option.classList.remove('selected-wrong');
+                            feedback.style.display = 'none';
+                        }, 1500);
+                    }
+                    
+                    question.setAttribute('data-selected', selected);
+                });
             });
-
-            // Mark the selected option and provide immediate feedback
-            if (selected === correctAnswer) {
-                option.classList.add('selected-correct');
-                feedback.textContent = 'Correct!';
-                feedback.className = 'feedback correct';
-                feedback.style.display = 'block';
-                
-                // Update question tracking
-                const questionNum = parseInt(questionId.replace('q', ''));
-                if (!answeredQuestions.has(questionNum)) {
-                    answeredQuestions.add(questionNum);
-                    const totalQuestions = document.querySelectorAll('.question').length;
-document.getElementById('questions-answered').textContent = `${answeredQuestions.size}/${totalQuestions}`;
-                }
-                if (!incorrectCounts[questionId] || incorrectCounts[questionId] === 0) {
-                    correctFirstAttempts.add(questionNum);
-                    document.getElementById('correct-answers').textContent = correctFirstAttempts.size;
-                }
-                
-                // Update accuracy
-                const accuracy = answeredQuestions.size > 0 ? Math.round((correctFirstAttempts.size / answeredQuestions.size) * 100) : 0;
-                document.getElementById('accuracy-rate').textContent = `${accuracy}%`;
-                
-                // Check if all questions are answered to enable results button
-
-
-
-                // Start question timer if not already started
-                if (!questionTimers[questionNum] && !questionTimerIntervals[questionNum]) {
-                    questionTimers[questionNum] = questionTimes[questionId] || 0;
-                    questionTimerIntervals[questionNum] = setInterval(() => updateQuestionTimer(questionNum), 1000);
-                }
-                
-                // Stop timer for this question
-                clearInterval(questionTimerIntervals[questionNum]);
-                delete questionTimerIntervals[questionNum];
-                
-            } else {
-                option.classList.add('selected-wrong');
-                feedback.textContent = 'Incorrect. Try again!';
-                feedback.className = 'feedback wrong';
-                feedback.style.display = 'block';
-                
-                // Update error count
-                const questionNum = parseInt(questionId.replace('q', ''));
-                incorrectCounts[questionId] = (incorrectCounts[questionId] || 0) + 1;
-                const errorElement = document.querySelector(`#${questionId} .q-errors`);
-                if (errorElement) {
-                    errorElement.setAttribute('data-errors', incorrectCounts[questionId]);
-                    errorElement.textContent = incorrectCounts[questionId];
-                }
-            }
-            
-            question.setAttribute('data-selected', selected);
         });
-    });
-});
-
 
         function resetTimers() {
+            // Clear all intervals
             if (globalTimerInterval) clearInterval(globalTimerInterval);
             for (let q in questionTimerIntervals) {
                 clearInterval(questionTimerIntervals[q]);
             }
+            
+            // Reset all state variables
             globalStartTime = null;
             questionTimers = {};
             questionTimerIntervals = {};
+            questionTimerStates = {};
             answeredQuestions.clear();
             correctFirstAttempts.clear();
             incorrectCounts = {};
             questionTimes = {};
+            questionAnswered = {};
             isStarted = false;
             isPaused = false;
             
+            // Reset UI elements
             document.getElementById('time-elapsed').textContent = '00:00';
             const totalQuestions = document.querySelectorAll('.question').length;
             document.getElementById('questions-answered').textContent = `0/${totalQuestions}`;
@@ -640,44 +760,56 @@ document.getElementById('questions-answered').textContent = `${answeredQuestions
             document.getElementById('results-btn').disabled = true;
             document.getElementById('results').style.display = 'none';
             
-            for (let i = 1; i <= 20; i++) {
-                document.querySelectorAll(`.question .option`).forEach(option => {
-                    option.classList.remove('selected-correct', 'selected-wrong', 'selected');
-                });
+            // Reset all questions
+            document.querySelectorAll('.question').forEach(questionElement => {
+                const questionId = questionElement.id;
+                const questionNum = parseInt(questionId.replace('q', ''));
                 
-                const timeElement = document.querySelector(`#q${i} .q-time`);
-                const errorElement = document.querySelector(`#q${i} .q-errors`);
+                // Reset timer button
+                const button = questionElement.querySelector('.timer-btn');
+                if (button) {
+                    button.textContent = '⏱️ Start Timer';
+                    button.classList.remove('timer-running', 'timer-paused', 'timer-completed');
+                    button.disabled = false;
+                    button.setAttribute('data-state', 'stopped');
+                }
+                
+                // Reset time and error displays
+                const timeElement = questionElement.querySelector('.q-time');
+                const errorElement = questionElement.querySelector('.q-errors');
                 if (timeElement) {
                     timeElement.setAttribute('data-time', '0');
                     timeElement.textContent = '0s';
+                    timeElement.style.color = '';
+                    timeElement.style.fontWeight = '';
                 }
                 if (errorElement) {
                     errorElement.setAttribute('data-errors', '0');
                     errorElement.textContent = '0';
                 }
-                const errorMsg = document.querySelector(`#error-q${i}`);
-                if (errorMsg) errorMsg.style.display = 'none';
-            }
-            document.querySelectorAll('.feedback').forEach(feedback => {
-    feedback.style.display = 'none';
-    feedback.classList.remove('correct', 'wrong');
-    feedback.textContent = '';
-});
-
-// Clear selected states from all options
-document.querySelectorAll('.option').forEach(option => {
-    option.classList.remove('selected-correct', 'selected-wrong', 'selected');
-});
-
-// Clear data-selected attributes from questions
-document.querySelectorAll('.question').forEach(question => {
-    question.removeAttribute('data-selected');
-});
+                
+                // Clear option selections
+                questionElement.querySelectorAll('.option').forEach(option => {
+                    option.classList.remove('selected-correct', 'selected-wrong', 'selected');
+                });
+                
+                // Hide feedback
+                const feedback = questionElement.querySelector('.feedback');
+                if (feedback) {
+                    feedback.style.display = 'none';
+                    feedback.classList.remove('correct', 'wrong');
+                    feedback.textContent = '';
+                }
+                
+                // Remove data-selected attribute
+                questionElement.removeAttribute('data-selected');
+            });
+            
+            // Reinitialize data
+            initializeQuestionData();
         }
 
-        
-
-function showResults() {
+        function showResults() {
     const allQuestions = document.querySelectorAll('.question');
     const totalQuestions = allQuestions.length;
     const totalTime = globalStartTime ? Math.floor((new Date() - globalStartTime) / 1000) : 0;
