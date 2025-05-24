@@ -559,13 +559,7 @@
                 const timeElement = document.querySelector(`#${questionId} .q-time`);
                 if (timeElement) {
                     timeElement.setAttribute('data-time', questionTimers[questionNum]);
-                    
-                    const minutes = Math.floor(questionTimers[questionNum] / 60);
-                    const seconds = questionTimers[questionNum] % 60;
-                    const timeDisplay = minutes > 0 ? 
-                        `${minutes}m ${seconds}s` : 
-                        `${seconds}s`;
-                    timeElement.textContent = timeDisplay;
+                    timeElement.textContent = `${questionTimers[questionNum]}s`;
                     
                     if (questionTimers[questionNum] > 120) {
                         timeElement.style.color = '#dc3545';
@@ -580,20 +574,20 @@
             const button = document.querySelector(`#${questionId} .timer-btn`);
             const currentState = questionTimerStates[questionId];
             
-            if (currentState === 'stopped') {
-                questionTimerStates[questionId] = 'running';
-                button.textContent = '⏹️ Stop Timer';
-                button.classList.add('timer-running');
-                button.setAttribute('data-state', 'running');
-                
-                if (!questionTimers[questionNum]) {
-                    questionTimers[questionNum] = questionTimes[questionId] || 0;
-                }
-                
-                questionTimerIntervals[questionNum] = setInterval(() => {
-                    updateQuestionTimer(questionNum);
-                }, 1000);
-                
+if (currentState === 'stopped') {
+    questionTimerStates[questionId] = 'running';
+    button.textContent = '⏹️ Stop Timer';
+    button.classList.add('timer-running');
+    button.setAttribute('data-state', 'running');
+    
+    // Initialize timer if not already set
+    if (questionTimers[questionNum] === undefined) {
+        questionTimers[questionNum] = 0;
+    }
+    
+    questionTimerIntervals[questionNum] = setInterval(() => {
+        updateQuestionTimer(questionNum);
+    }, 1000);  
             } else if (currentState === 'running') {
                 questionTimerStates[questionId] = 'stopped';
                 button.textContent = '▶️ Resume Timer';
@@ -607,11 +601,11 @@
                 }
             }
         }
-
         function startTimers() {
             if (!isStarted) {
                 isStarted = true;
                 globalStartTime = new Date();
+                updateGlobalTimer(); // Add this line to immediately update display
                 globalTimerInterval = setInterval(updateGlobalTimer, 1000);
                 document.getElementById('start-btn').disabled = true;
                 document.getElementById('results-btn').disabled = false;
@@ -917,6 +911,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             showSection('general-topology');
+            initializeQuestionData(); // Initialize data on page load
         });
     </script>
 </body>
