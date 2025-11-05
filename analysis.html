@@ -267,6 +267,50 @@
             }
         }
     </style>
+    <style>
+        /* Uniform question meta row (match Calculus) */
+        .question-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 500;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    </style>
+    <style>
+        /* Dashboard styling */
+        .dashboard { display:flex; justify-content:center; gap:20px; margin:20px auto; max-width:1100px; background:#ffffff; padding:20px; border:2px solid #0d0d0d; box-shadow:2px 2px 0px #0d0d0d; }
+        .dashboard div { text-align:center; flex:1; }
+        .dashboard p { margin:5px 0; color:#0d0d0d; font-weight:bold; }
+        .dashboard button { padding:10px 20px; margin:5px; background:#0d0d0d; color:#ffffff; border:2px solid #0d0d0d; border-radius:0; cursor:pointer; font-size:14px; font-weight:bold; }
+        .dashboard button:hover { background:#ffffff; color:#0d0d0d; }
+        .dashboard button:disabled { background:#cccccc; color:#ffffff; cursor:not-allowed; }
+    </style>
+    <style>
+        /* Codes_QTCat theme overlay - non-invasive visual refresh */
+        body { font-family: 'Courier New', monospace; background-color: #f0f0f0; color: #0d0d0d; font-weight: bold; }
+        header { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+        header h1 { text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #cccccc; font-weight: bold; }
+        .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
+        .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
+        .nav-links a:hover { opacity: 1; text-decoration: underline; }
+        .main-container { background: transparent; }
+        .sidebar-nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .sidebar-nav button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; background: #f8f9fa; }
+        .sidebar-nav button.active { background-color: #0d0d0d; color: #ffffff; }
+        .question { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .option { background: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .option:hover { background: #f0f0f0; border-color: #0d0d0d; }
+        .feedback { font-weight: bold; color: #0d0d0d; }
+        .feedback.correct { color: #28a745; }
+        .feedback.wrong { color: #c62828; }
+        .toggle-btn { color: #D97706; }
+        .toggle-btn:hover { color: #a65e05; }
+        footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+    </style>
 </head>
 <body>
     <header>
@@ -286,6 +330,31 @@
         </div>
     </nav>
 
+    <div class="dashboard">
+        <div>
+            <p id="time-elapsed">00:00</p>
+            <p>Time Elapsed</p>
+        </div>
+        <div>
+            <p id="questions-answered">0/0</p>
+            <p>Questions Answered</p>
+        </div>
+        <div>
+            <p id="correct-answers">0</p>
+            <p>Correct Answers</p>
+        </div>
+        <div>
+            <p id="accuracy-rate">0%</p>
+            <p>Accuracy Rate</p>
+        </div>
+        <div>
+            <button id="start-btn">Start</button>
+            <button id="pause-btn" disabled>Pause</button>
+            <button id="reset-btn" disabled>Reset</button>
+            <button id="results-btn" disabled>View Results</button>
+        </div>
+    </div>
+
     <div class="main-container">
         <nav class="sidebar-nav">
             <button onclick="showSection('sequences')" class="active">Sequences</button>
@@ -298,6 +367,13 @@
         </nav>
 
         <div class="main-content">
+            <div id="results" style="display:none;">
+                <h2>Results</h2>
+                <p id="time-taken"></p>
+                <p id="time-comparison"></p>
+                <p id="incorrect-counts"></p>
+                <p id="weak-points"></p>
+            </div>
             <!-- Sequences Section -->
             <div id="sequences-section" class="topic-section">
                 <h2 class="page-title">Sequences Practice Questions</h2>
@@ -690,6 +766,29 @@
     </footer>
 
     <script>
+        // Inject uniform ❌ wrong-attempt counter into each question
+        document.addEventListener('DOMContentLoaded', () => {
+            const questions = document.querySelectorAll('.question');
+            let autoId = 1;
+            window.__analysisIncorrect = window.__analysisIncorrect || {};
+            questions.forEach(q => {
+                if (!q.id) { q.id = `q${autoId++}`; } else { autoId++; }
+                window.__analysisIncorrect[q.id] = 0;
+                const qaEl = document.getElementById('questions-answered');
+                if (qaEl) qaEl.textContent = `0/${questions.length}`;
+                let meta = q.querySelector('.question-meta');
+                if (!meta) {
+                    meta = document.createElement('div');
+                    meta.className = 'question-meta';
+                    q.insertBefore(meta, q.firstChild);
+                }
+                if (!meta.querySelector('.q-errors')) {
+                    const wrap = document.createElement('span');
+                    wrap.innerHTML = '❌ <span class="q-errors" data-errors="0">0</span>';
+                    meta.appendChild(wrap);
+                }
+            });
+        });
         function toggleExplanation(id) {
             const element = document.getElementById(id);
             element.style.display = element.style.display === 'none' || element.style.display === '' ? 'block' : 'none';
@@ -718,8 +817,37 @@
                         option.classList.add('selected-wrong');
                         feedback.textContent = 'Wrong';
                         feedback.classList.add('wrong');
+                        const qid = question.id;
+                        window.__analysisIncorrect = window.__analysisIncorrect || {};
+                        window.__analysisIncorrect[qid] = (window.__analysisIncorrect[qid] || 0) + 1;
+                        const errEl = question.querySelector('.q-errors');
+                        if (errEl) {
+                            errEl.setAttribute('data-errors', String(window.__analysisIncorrect[qid]));
+                            errEl.textContent = String(window.__analysisIncorrect[qid]);
+                        }
                     }
                     feedback.style.display = 'block';
+
+                    // Update dashboard counters
+                    window.__analysisAnswered = window.__analysisAnswered || new Set();
+                    window.__analysisFirstCorrect = window.__analysisFirstCorrect || new Set();
+                    const qid2 = question.id;
+                    if (selectedValue === correctAnswer) {
+                        window.__analysisAnswered.add(qid2);
+                        if ((window.__analysisIncorrect && (window.__analysisIncorrect[qid2] || 0)) === 0) {
+                            window.__analysisFirstCorrect.add(qid2);
+                        }
+                    }
+                    const total = document.querySelectorAll('.question').length;
+                    const ans = window.__analysisAnswered ? window.__analysisAnswered.size : 0;
+                    const cor = window.__analysisFirstCorrect ? window.__analysisFirstCorrect.size : 0;
+                    const acc = ans > 0 ? Math.round((cor / ans) * 100) : 0;
+                    const qaEl = document.getElementById('questions-answered');
+                    if (qaEl) qaEl.textContent = `${ans}/${total}`;
+                    const caEl = document.getElementById('correct-answers');
+                    if (caEl) caEl.textContent = String(cor);
+                    const arEl = document.getElementById('accuracy-rate');
+                    if (arEl) arEl.textContent = `${acc}%`;
                 });
             });
         });
@@ -749,6 +877,118 @@
         document.addEventListener('DOMContentLoaded', () => {
             showSection('sequences');
         });
+
+        // Dashboard timer
+        let globalStartTime = null;
+        let globalTimerInterval = null;
+        let isPaused = false;
+        let isStarted = false;
+
+        function updateGlobalTimer() {
+            const now = new Date();
+            const elapsed = Math.floor((now - globalStartTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            const el = document.getElementById('time-elapsed');
+            if (el) el.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function startTimers() {
+            if (!isStarted) {
+                isStarted = true;
+                globalStartTime = new Date();
+                globalTimerInterval = setInterval(updateGlobalTimer, 1000);
+                document.getElementById('start-btn').disabled = true;
+                document.getElementById('results-btn').disabled = false;
+                document.getElementById('pause-btn').disabled = false;
+                document.getElementById('reset-btn').disabled = false;
+            }
+        }
+
+        function pauseTimers() {
+            if (isStarted && !isPaused) {
+                isPaused = true;
+                clearInterval(globalTimerInterval);
+                document.getElementById('pause-btn').textContent = 'Resume';
+            } else if (isStarted && isPaused) {
+                isPaused = false;
+                globalTimerInterval = setInterval(updateGlobalTimer, 1000);
+                document.getElementById('pause-btn').textContent = 'Pause';
+            }
+        }
+
+        function resetTimers() {
+            if (globalTimerInterval) clearInterval(globalTimerInterval);
+            globalStartTime = null;
+            globalTimerInterval = null;
+            isStarted = false;
+            isPaused = false;
+            const te = document.getElementById('time-elapsed');
+            if (te) te.textContent = '00:00';
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('pause-btn').disabled = true;
+            document.getElementById('pause-btn').textContent = 'Pause';
+            document.getElementById('reset-btn').disabled = true;
+            document.getElementById('results-btn').disabled = true;
+
+            window.__analysisAnswered = new Set();
+            window.__analysisFirstCorrect = new Set();
+            const qaEl = document.getElementById('questions-answered');
+            if (qaEl) qaEl.textContent = `0/${document.querySelectorAll('.question').length}`;
+            const caEl = document.getElementById('correct-answers');
+            if (caEl) caEl.textContent = '0';
+            const arEl = document.getElementById('accuracy-rate');
+            if (arEl) arEl.textContent = '0%';
+            const res = document.getElementById('results');
+            if (res) res.style.display = 'none';
+        }
+
+        function showResultsDash() {
+            const totalQuestions = document.querySelectorAll('.question').length;
+            const totalTime = globalStartTime ? Math.floor((new Date() - globalStartTime) / 1000) : 0;
+            const minutes = Math.floor(totalTime / 60);
+            const seconds = totalTime % 60;
+            const avgTimePerQuestion = 120;
+            const expectedTotalTime = totalQuestions * avgTimePerQuestion;
+            const correctCount = window.__analysisFirstCorrect ? window.__analysisFirstCorrect.size : 0;
+            const answeredCount = window.__analysisAnswered ? window.__analysisAnswered.size : 0;
+            const accuracy = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+            const timeComparison = totalTime <= expectedTotalTime 
+                ? `Great job! You completed in ${minutes}:${seconds.toString().padStart(2, '0')} minutes, which is ${Math.floor((expectedTotalTime - totalTime) / 60)} minutes faster than the expected ${Math.floor(expectedTotalTime / 60)} minutes.`
+                : `You took ${minutes}:${seconds.toString().padStart(2, '0')} minutes, which is ${Math.floor((totalTime - expectedTotalTime) / 60)} minutes longer than the expected ${Math.floor(expectedTotalTime / 60)} minutes. Consider practicing to improve your speed.`;
+
+            let incorrectSummary = '<strong>Question Summary:</strong><ul>';
+            document.querySelectorAll('.question').forEach((q, idx) => {
+                const qid = q.id;
+                const count = (window.__analysisIncorrect && window.__analysisIncorrect[qid]) || 0;
+                const isAnswered = window.__analysisAnswered && window.__analysisAnswered.has(qid);
+                const isCorrectFirst = window.__analysisFirstCorrect && window.__analysisFirstCorrect.has(qid);
+                let status = '';
+                if (!isAnswered) status = 'Not attempted (counted as incorrect)';
+                else if (isCorrectFirst) status = 'Correct';
+                else status = 'Incorrect';
+                incorrectSummary += `<li>Question ${idx + 1}: ${status}, ${count} wrong attempt(s)</li>`;
+            });
+            incorrectSummary += '</ul>';
+
+            const tt = document.getElementById('time-taken');
+            if (tt) tt.innerHTML = `<strong>Time Taken:</strong> ${minutes}:${seconds.toString().padStart(2, '0')} minutes`;
+            const tc = document.getElementById('time-comparison');
+            if (tc) tc.innerHTML = timeComparison;
+            const ic = document.getElementById('incorrect-counts');
+            if (ic) ic.innerHTML = incorrectSummary;
+            const wp = document.getElementById('weak-points');
+            if (wp) wp.innerHTML = '';
+            const performanceSummary = `<strong>Overall Performance:</strong><p>Answered: ${answeredCount}/${totalQuestions} questions | Correct: ${correctCount}/${totalQuestions} (${accuracy}%) | Total Score: ${correctCount}/${totalQuestions}</p>`;
+            if (tt) tt.innerHTML = performanceSummary + tt.innerHTML;
+            const res = document.getElementById('results');
+            if (res) { res.style.display = 'block'; res.scrollIntoView({ behavior: 'smooth' }); }
+        }
+
+        document.getElementById('start-btn').addEventListener('click', startTimers);
+        document.getElementById('pause-btn').addEventListener('click', pauseTimers);
+        document.getElementById('reset-btn').addEventListener('click', resetTimers);
+        document.getElementById('results-btn').addEventListener('click', showResultsDash);
     </script>
 </body>
 </html>

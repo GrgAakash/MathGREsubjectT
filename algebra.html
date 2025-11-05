@@ -497,6 +497,123 @@
     }
 
 </style>
+<style>
+    /* Codes_QTCat theme overlay - non-invasive visual refresh */
+    body {
+        font-family: 'Courier New', monospace;
+        background-color: #f0f0f0;
+        color: #0d0d0d;
+        font-weight: bold;
+    }
+    header {
+        background: #ffffff;
+        color: #0d0d0d;
+        border: 2px solid #0d0d0d;
+        box-shadow: 2px 2px 0px #0d0d0d;
+    }
+    header h1 {
+        text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #cccccc;
+        font-weight: bold;
+    }
+    .nav {
+        background: #ffffff;
+        border: 2px solid #0d0d0d;
+        box-shadow: 2px 2px 0px #0d0d0d;
+        padding: 0.75rem 0;
+    }
+    .nav-container .logo,
+    .nav-links a {
+        color: #0d0d0d;
+        font-weight: bold;
+    }
+    .nav-links a:hover {
+        opacity: 1;
+        text-decoration: underline;
+    }
+    .main-container { background: transparent; }
+    .sidebar-nav {
+        background: #ffffff;
+        border: 2px solid #0d0d0d;
+        box-shadow: 2px 2px 0px #0d0d0d;
+        border-radius: 0;
+    }
+    .sidebar-nav button {
+        border: 2px solid #0d0d0d;
+        border-radius: 0;
+        font-weight: bold;
+        background: #f8f9fa;
+    }
+    .sidebar-nav button.active { background-color: #0d0d0d; color: #ffffff; }
+    .page-title { text-shadow: 1px 1px 0px #ffffff; color: #0d0d0d; }
+    .question {
+        background: #ffffff;
+        border: 2px solid #0d0d0d;
+        box-shadow: 2px 2px 0px #0d0d0d;
+        border-radius: 0;
+    }
+    .option {
+        background: #ffffff;
+        border: 2px solid #0d0d0d;
+        border-radius: 0;
+        font-weight: bold;
+    }
+    .option:hover { background: #f0f0f0; border-color: #0d0d0d; }
+    .feedback { font-weight: bold; color: #0d0d0d; }
+    .feedback.correct { color: #28a745; }
+    .feedback.wrong { color: #c62828; }
+    .toggle-btn { color: #D97706; }
+    .toggle-btn:hover { color: #a65e05; }
+    footer {
+        background: #ffffff;
+        color: #0d0d0d;
+        border: 2px solid #0d0d0d;
+        box-shadow: 2px 2px 0px #0d0d0d;
+    }
+</style>
+<style>
+    /* Dashboard styling to match Calculus */
+    .dashboard {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px auto;
+        max-width: 1100px;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 0;
+        border: 2px solid #0d0d0d;
+        box-shadow: 2px 2px 0px #0d0d0d;
+    }
+    .dashboard div { text-align: center; flex: 1; }
+    .dashboard p { margin: 5px 0; color: #0d0d0d; font-weight: bold; }
+    .dashboard button {
+        padding: 10px 20px;
+        margin: 5px;
+        background: #0d0d0d;
+        color: white;
+        border: 2px solid #0d0d0d;
+        border-radius: 0;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+    .dashboard button:hover { background: #ffffff; color: #0d0d0d; }
+    .dashboard button:disabled { background: #cccccc; color: #ffffff; cursor: not-allowed; }
+</style>
+<style>
+    /* Uniform question meta row (match Calculus) */
+    .question-meta {
+        display: flex;
+        gap: 20px;
+        font-size: 0.9em;
+        color: var(--accent);
+        margin-bottom: 10px;
+        font-weight: 500;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+</style>
 <header>
 
     <h1>Algebra Practice Questions</h1>
@@ -529,6 +646,31 @@
 
 </nav>
 
+<div class="dashboard">
+    <div>
+        <p id="time-elapsed">00:00</p>
+        <p>Time Elapsed</p>
+    </div>
+    <div>
+        <p id="questions-answered">0/0</p>
+        <p>Questions Answered</p>
+    </div>
+    <div>
+        <p id="correct-answers">0</p>
+        <p>Correct Answers</p>
+    </div>
+    <div>
+        <p id="accuracy-rate">0%</p>
+        <p>Accuracy Rate</p>
+    </div>
+    <div>
+        <button id="start-btn">Start</button>
+        <button id="pause-btn" disabled>Pause</button>
+        <button id="reset-btn" disabled>Reset</button>
+        <button id="results-btn" disabled>View Results</button>
+    </div>
+    </div>
+
 
 <div class="main-container">
 
@@ -546,6 +688,13 @@
 
 
     <div class="main-content">
+        <div id="results" style="display:none;">
+            <h2>Results</h2>
+            <p id="time-taken"></p>
+            <p id="time-comparison"></p>
+            <p id="incorrect-counts"></p>
+            <p id="weak-points"></p>
+        </div>
 
         <!-- Group Theory Section -->
 
@@ -1079,6 +1228,136 @@
 
 
 <script>
+    // Global dashboard timer (match Calculus)
+    let globalStartTime = null;
+    let globalTimerInterval = null;
+    let isPaused = false;
+    let isStarted = false;
+
+    function updateGlobalTimer() {
+        const now = new Date();
+        const elapsed = Math.floor((now - globalStartTime) / 1000);
+        const minutes = Math.floor(elapsed / 60);
+        const seconds = elapsed % 60;
+        const el = document.getElementById('time-elapsed');
+        if (el) el.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function startTimers() {
+        if (!isStarted) {
+            isStarted = true;
+            globalStartTime = new Date();
+            globalTimerInterval = setInterval(updateGlobalTimer, 1000);
+            document.getElementById('start-btn').disabled = true;
+            document.getElementById('results-btn').disabled = false;
+            document.getElementById('pause-btn').disabled = false;
+            document.getElementById('reset-btn').disabled = false;
+        }
+    }
+
+    function pauseTimers() {
+        if (isStarted && !isPaused) {
+            isPaused = true;
+            clearInterval(globalTimerInterval);
+            document.getElementById('pause-btn').textContent = 'Resume';
+        } else if (isStarted && isPaused) {
+            isPaused = false;
+            globalTimerInterval = setInterval(updateGlobalTimer, 1000);
+            document.getElementById('pause-btn').textContent = 'Pause';
+        }
+    }
+
+    function resetTimers() {
+        if (globalTimerInterval) clearInterval(globalTimerInterval);
+        globalStartTime = null;
+        globalTimerInterval = null;
+        isStarted = false;
+        isPaused = false;
+        const te = document.getElementById('time-elapsed');
+        if (te) te.textContent = '00:00';
+        document.getElementById('start-btn').disabled = false;
+        document.getElementById('pause-btn').disabled = true;
+        document.getElementById('pause-btn').textContent = 'Pause';
+        document.getElementById('reset-btn').disabled = true;
+        document.getElementById('results-btn').disabled = true;
+
+        // Reset counts and UI
+        window.__answered = new Set();
+        window.__firstCorrect = new Set();
+        document.getElementById('questions-answered').textContent = `0/${document.querySelectorAll('.question').length}`;
+        document.getElementById('correct-answers').textContent = '0';
+        document.getElementById('accuracy-rate').textContent = '0%';
+        document.getElementById('results').style.display = 'none';
+    }
+
+    function showResults() {
+        const totalQuestions = document.querySelectorAll('.question').length;
+        const totalTime = globalStartTime ? Math.floor((new Date() - globalStartTime) / 1000) : 0;
+        const minutes = Math.floor(totalTime / 60);
+        const seconds = totalTime % 60;
+        const avgTimePerQuestion = 120;
+        const expectedTotalTime = totalQuestions * avgTimePerQuestion;
+        const correctCount = window.__firstCorrect ? window.__firstCorrect.size : 0;
+        const answeredCount = window.__answered ? window.__answered.size : 0;
+        const accuracy = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+        const timeComparison = totalTime <= expectedTotalTime 
+            ? `Great job! You completed in ${minutes}:${seconds.toString().padStart(2, '0')} minutes, which is ${Math.floor((expectedTotalTime - totalTime) / 60)} minutes faster than the expected ${Math.floor(expectedTotalTime / 60)} minutes.`
+            : `You took ${minutes}:${seconds.toString().padStart(2, '0')} minutes, which is ${Math.floor((totalTime - expectedTotalTime) / 60)} minutes longer than the expected ${Math.floor(expectedTotalTime / 60)} minutes.`;
+
+        let incorrectSummary = '<strong>Question Summary:</strong><ul>';
+        document.querySelectorAll('.question').forEach((q, idx) => {
+            const qid = q.id;
+            const count = (window.__incorrectCounts && window.__incorrectCounts[qid]) || 0;
+            const isAnswered = window.__answered && window.__answered.has(qid);
+            const isCorrectFirst = window.__firstCorrect && window.__firstCorrect.has(qid);
+            let status = '';
+            if (!isAnswered) status = 'Not attempted (counted as incorrect)';
+            else if (isCorrectFirst) status = 'Correct';
+            else status = 'Incorrect';
+            incorrectSummary += `<li>Question ${idx + 1}: ${status}, ${count} wrong attempt(s)</li>`;
+        });
+        incorrectSummary += '</ul>';
+        const weakPoints = '<strong>Areas for Improvement:</strong><p>' +
+            (document.querySelectorAll('.question').length ? '' : '') +
+            '</p>';
+
+        document.getElementById('time-taken').innerHTML = `<strong>Time Taken:</strong> ${minutes}:${seconds.toString().padStart(2, '0')} minutes`;
+        document.getElementById('time-comparison').innerHTML = timeComparison;
+        document.getElementById('incorrect-counts').innerHTML = incorrectSummary;
+        document.getElementById('weak-points').innerHTML = weakPoints;
+        const performanceSummary = `<strong>Overall Performance:</strong><p>Answered: ${answeredCount}/${totalQuestions} | Correct: ${correctCount}/${totalQuestions} (${accuracy}%) | Total Score: ${correctCount}/${totalQuestions}</p>`;
+        document.getElementById('time-taken').innerHTML = performanceSummary + document.getElementById('time-taken').innerHTML;
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Wire dashboard buttons
+    document.getElementById('start-btn').addEventListener('click', startTimers);
+    document.getElementById('pause-btn').addEventListener('click', pauseTimers);
+    document.getElementById('reset-btn').addEventListener('click', resetTimers);
+    document.getElementById('results-btn').addEventListener('click', showResults);
+
+    // Inject uniform ❌ wrong-attempt counter into each question
+    document.addEventListener('DOMContentLoaded', () => {
+        const questions = document.querySelectorAll('.question');
+        let autoId = 1;
+        window.__incorrectCounts = window.__incorrectCounts || {};
+        questions.forEach(q => {
+            if (!q.id) { q.id = `q${autoId++}`; } else { autoId++; }
+            window.__incorrectCounts[q.id] = 0;
+            let meta = q.querySelector('.question-meta');
+            if (!meta) {
+                meta = document.createElement('div');
+                meta.className = 'question-meta';
+                q.insertBefore(meta, q.firstChild);
+            }
+            if (!meta.querySelector('.q-errors')) {
+                const wrap = document.createElement('span');
+                wrap.innerHTML = '❌ <span class="q-errors" data-errors="0">0</span>';
+                meta.appendChild(wrap);
+            }
+        });
+    });
 
     function toggleExplanation(id) {
 
@@ -1126,6 +1405,21 @@
                     feedback.textContent = 'Correct';
 
                     feedback.classList.add('correct');
+                    // Update dashboard counters
+                    const qid = question.id;
+                    window.__incorrectCounts = window.__incorrectCounts || {};
+                    window.__answered = window.__answered || new Set();
+                    window.__firstCorrect = window.__firstCorrect || new Set();
+                    const beforeSize = window.__answered.size;
+                    window.__answered.add(qid);
+                    if ((window.__incorrectCounts[qid] || 0) === 0) {
+                        window.__firstCorrect.add(qid);
+                    }
+                    const total = document.querySelectorAll('.question').length;
+                    document.getElementById('questions-answered').textContent = `${window.__answered.size}/${total}`;
+                    document.getElementById('correct-answers').textContent = String(window.__firstCorrect.size);
+                    const acc = window.__answered.size > 0 ? Math.round((window.__firstCorrect.size / window.__answered.size) * 100) : 0;
+                    document.getElementById('accuracy-rate').textContent = `${acc}%`;
 
                 } else {
 
@@ -1134,6 +1428,16 @@
                     feedback.textContent = 'Wrong';
 
                     feedback.classList.add('wrong');
+
+                    // Increment wrong attempt counter and update display
+                    const qid = question.id;
+                    window.__incorrectCounts = window.__incorrectCounts || {};
+                    window.__incorrectCounts[qid] = (window.__incorrectCounts[qid] || 0) + 1;
+                    const errEl = question.querySelector('.q-errors');
+                    if (errEl) {
+                        errEl.setAttribute('data-errors', String(window.__incorrectCounts[qid]));
+                        errEl.textContent = String(window.__incorrectCounts[qid]);
+                    }
 
                 }
 
@@ -1178,6 +1482,15 @@
             feedback.style.display = 'none';
 
             feedback.textContent = '';
+            // Reset wrong-attempt counter display
+            const errEl = question.querySelector('.q-errors');
+            if (errEl) {
+                errEl.setAttribute('data-errors', '0');
+                errEl.textContent = '0';
+            }
+            if (window.__incorrectCounts && question.id) {
+                window.__incorrectCounts[question.id] = 0;
+            }
 
         });
 

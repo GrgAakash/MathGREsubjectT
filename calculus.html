@@ -327,6 +327,40 @@
             }
         }
     </style>
+    <style>
+        /* Codes_QTCat theme overlay - non-invasive visual refresh */
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #f0f0f0;
+            color: #0d0d0d;
+            font-weight: bold;
+        }
+        header {
+            background: #ffffff;
+            color: #0d0d0d;
+            border: 2px solid #0d0d0d;
+            box-shadow: 2px 2px 0px #0d0d0d;
+        }
+        header h1 { text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #cccccc; font-weight: bold; }
+        .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
+        .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
+        .nav-links a:hover { opacity: 1; text-decoration: underline; }
+        .dashboard { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .dashboard button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .main-container { background: transparent; }
+        .sidebar-nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .sidebar-nav button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; background: #f8f9fa; }
+        .sidebar-nav button.active { background-color: #0d0d0d; color: #ffffff; }
+        .question { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .option { background: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .option:hover { background: #f0f0f0; border-color: #0d0d0d; }
+        .feedback { font-weight: bold; color: #0d0d0d; }
+        .feedback.correct { color: #28a745; }
+        .feedback.wrong { color: #c62828; }
+        .toggle-btn { color: #D97706; }
+        .toggle-btn:hover { color: #a65e05; }
+        footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+    </style>
 </head>
 <body>
     <header>
@@ -394,7 +428,6 @@
 
                 <div class="question" id="q1">
                     <div class="question-meta">
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
                     </div>
@@ -420,7 +453,6 @@
 
                 <div class="question" id="q2">
                     <div class="question-meta">
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
                     </div>
@@ -463,7 +495,6 @@
 
                  <div class="question" id="q3">
                     <div class="question-meta">
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
                     </div>
@@ -487,7 +518,6 @@
 
                 <div class="question" id="q4" data-correct="A">
                     <div class="question-meta">
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Medium</span>
                     </div>
@@ -510,7 +540,6 @@
 
                 <div class="question" id="q5" data-correct="C">
                     <div class="question-meta">
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
                     </div>
@@ -536,7 +565,6 @@
 
                 <div class="question" id="q6" data-correct="A">
                     <div class="question-meta">
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
                     </div>
@@ -560,7 +588,6 @@
 
                 <div class="question" id="q7" data-correct="E">
                     <div class="question-meta">
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
                     </div>
@@ -584,7 +611,6 @@
 
                 <div class="question" id="q8" data-correct="E">
                     <div class="question-meta">
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
                     </div>
@@ -608,7 +634,6 @@
 
                 <div class="question" id="q9" data-correct="C">
                     <div class="question-meta">
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Medium</span>
                     </div>
@@ -636,7 +661,6 @@
 
                 <div class="question" id="q10" data-correct="A">
                     <div class="question-meta">
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
                     </div>
@@ -712,25 +736,18 @@
     <script>
         let globalStartTime = null;
         let globalTimerInterval = null;
-        let questionTimers = {};
-        let questionTimerIntervals = {};
+        // per-question timers removed
         let answeredQuestions = new Set();
         let correctFirstAttempts = new Set();
         let incorrectCounts = {};
-        let questionTimes = {};
+        // per-question times removed
         let isPaused = false;
         let isStarted = false;
 
-        // Initialize question timers and error counts
+        // Initialize error counts
         for (let i = 1; i <= 20; i++) {
             if (!incorrectCounts[`q${i}`]) incorrectCounts[`q${i}`] = 0;
-            if (!questionTimes[`q${i}`]) questionTimes[`q${i}`] = 0;
-            const timeElement = document.querySelector(`#q${i} .q-time`);
             const errorElement = document.querySelector(`#q${i} .q-errors`);
-            if (timeElement) {
-                timeElement.setAttribute('data-time', questionTimes[`q${i}`]);
-                timeElement.textContent = `${questionTimes[`q${i}`]}s`;
-            }
             if (errorElement) {
                 errorElement.setAttribute('data-errors', incorrectCounts[`q${i}`]);
                 errorElement.textContent = incorrectCounts[`q${i}`];
@@ -747,15 +764,7 @@
             document.getElementById('time-elapsed').textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
-        function updateQuestionTimer(questionNum) {
-            questionTimers[questionNum]++;
-            questionTimes[`q${questionNum}`] = questionTimers[questionNum];
-            const timeElement = document.querySelector(`#q${questionNum} .q-time`);
-            if (timeElement) {
-                timeElement.setAttribute('data-time', questionTimers[questionNum]);
-                timeElement.textContent = `${questionTimers[questionNum]}s`;
-            }
-        }
+        // per-question timer updates removed
 
         function startTimers() {
             if (!isStarted) {
@@ -775,17 +784,13 @@
             if (isStarted && !isPaused) {
                 isPaused = true;
                 clearInterval(globalTimerInterval);
-                for (let q in questionTimerIntervals) {
-                    clearInterval(questionTimerIntervals[q]);
-                }
+                // per-question timers removed
                 document.getElementById('pause-btn').textContent = 'Resume';
                 document.querySelectorAll('.submit').forEach(btn => btn.disabled = true);
             } else if (isStarted && isPaused) {
                 isPaused = false;
                 globalTimerInterval = setInterval(updateGlobalTimer, 1000);
-                for (let q in questionTimerIntervals) {
-                    questionTimerIntervals[q] = setInterval(() => updateQuestionTimer(q), 1000);
-                }
+                // per-question timers removed
                 document.getElementById('pause-btn').textContent = 'Pause';
                 document.querySelectorAll('.submit').forEach(btn => btn.disabled = false);
             }
@@ -853,15 +858,7 @@ document.getElementById('questions-answered').textContent = `${answeredQuestions
 
 
 
-                // Start question timer if not already started
-                if (!questionTimers[questionNum] && !questionTimerIntervals[questionNum]) {
-                    questionTimers[questionNum] = questionTimes[questionId] || 0;
-                    questionTimerIntervals[questionNum] = setInterval(() => updateQuestionTimer(questionNum), 1000);
-                }
-                
-                // Stop timer for this question
-                clearInterval(questionTimerIntervals[questionNum]);
-                delete questionTimerIntervals[questionNum];
+                // per-question timers removed
                 
             } else {
                 option.classList.add('selected-wrong');
@@ -887,16 +884,13 @@ document.getElementById('questions-answered').textContent = `${answeredQuestions
 
         function resetTimers() {
             if (globalTimerInterval) clearInterval(globalTimerInterval);
-            for (let q in questionTimerIntervals) {
-                clearInterval(questionTimerIntervals[q]);
-            }
+            // per-question timers removed
             globalStartTime = null;
-            questionTimers = {};
-            questionTimerIntervals = {};
+            // per-question timers removed
             answeredQuestions.clear();
             correctFirstAttempts.clear();
             incorrectCounts = {};
-            questionTimes = {};
+            // per-question timers removed
             isStarted = false;
             isPaused = false;
             
@@ -917,12 +911,7 @@ document.getElementById('questions-answered').textContent = `${answeredQuestions
                     option.classList.remove('selected-correct', 'selected-wrong', 'selected');
                 });
                 
-                const timeElement = document.querySelector(`#q${i} .q-time`);
                 const errorElement = document.querySelector(`#q${i} .q-errors`);
-                if (timeElement) {
-                    timeElement.setAttribute('data-time', '0');
-                    timeElement.textContent = '0s';
-                }
                 if (errorElement) {
                     errorElement.setAttribute('data-errors', '0');
                     errorElement.textContent = '0';
@@ -977,7 +966,7 @@ document.querySelectorAll('.question').forEach(question => {
         const displayNum = index + 1; // Sequential numbering for display
         
         const count = incorrectCounts[questionId] || 0;
-        const time = questionTimes[questionId] || 0;
+        const time = 0;
         const isAnswered = answeredQuestions.has(questionNum);
         const isCorrect = correctFirstAttempts.has(questionNum);
         
@@ -990,15 +979,14 @@ document.querySelectorAll('.question').forEach(question => {
             status = 'Incorrect';
         }
         
-        incorrectSummary += `<li>Question ${displayNum}: ${status}, ${count} wrong attempt(s), ${time}s spent</li>`;
+        incorrectSummary += `<li>Question ${displayNum}: ${status}, ${count} wrong attempt(s)</li>`;
         
         // Mark as weak point if: not attempted, multiple wrong attempts, or took too long
-        if (!isAnswered || count >= 2 || time > 120) {
+        if (!isAnswered || count >= 2) {
             hasWeakPoints = true;
             weakPoints += `Question ${displayNum}: `;
             if (!isAnswered) weakPoints += 'Not attempted, ';
             if (count >= 2) weakPoints += `${count} incorrect attempts, `;
-            if (time > 120) weakPoints += `${time}s (over 2 minutes), `;
             weakPoints += 'needs review.<br>';
         }
     });

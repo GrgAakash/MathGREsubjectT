@@ -286,55 +286,7 @@
             margin-top: 3rem;
         }
 
-        .timer-btn {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.85em;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            margin-right: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .timer-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-
-        .timer-btn.timer-running {
-            background: linear-gradient(135deg, #dc3545, #fd7e14);
-            animation: pulse 2s infinite;
-        }
-
-        .timer-btn.timer-paused {
-            background: linear-gradient(135deg, #ffc107, #fd7e14);
-        }
-
-        .timer-btn.timer-completed {
-            background: linear-gradient(135deg, #6f42c1, #e83e8c);
-            cursor: default;
-        }
-
-        .timer-btn:disabled {
-            cursor: not-allowed;
-            opacity: 0.8;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .q-time[style*="color: rgb(220, 53, 69)"] {
-            background: rgba(220, 53, 69, 0.1);
-            padding: 2px 6px;
-            border-radius: 12px;
-        }
+        /* removed per-question timer styles */
 
         @media (max-width: 768px) {
             .nav-container {
@@ -376,6 +328,31 @@
                 padding: 8px 12px;
             }
         }
+    </style>
+    <style>
+        /* Codes_QTCat theme overlay - non-invasive visual refresh */
+        body { font-family: 'Courier New', monospace; background-color: #f0f0f0; color: #0d0d0d; font-weight: bold; }
+        header { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+        header h1 { text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #cccccc; font-weight: bold; }
+        .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
+        .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
+        .nav-links a:hover { opacity: 1; text-decoration: underline; }
+        .dashboard { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .dashboard button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .main-container { background: transparent; }
+        .sidebar-nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .sidebar-nav button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; background: #f8f9fa; }
+        .sidebar-nav button.active { background-color: #0d0d0d; color: #ffffff; }
+        .timer-btn { border: 2px solid #0d0d0d; border-radius: 20px; font-weight: bold; }
+        .question { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .option { background: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .option:hover { background: #f0f0f0; border-color: #0d0d0d; }
+        .feedback { font-weight: bold; color: #0d0d0d; }
+        .feedback.correct { color: #28a745; }
+        .feedback.wrong { color: #c62828; }
+        .toggle-btn { color: #D97706; }
+        .toggle-btn:hover { color: #a65e05; }
+        footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
     </style>
 </head>
 <body>
@@ -441,10 +418,6 @@
 
                 <div class="question" id="q1">
                     <div class="question-meta">
-                        <button class="timer-btn" onclick="toggleQuestionTimer('q1')" data-state="stopped">
-                            ⏱️ Start Timer
-                        </button>
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Easy</span>
                     </div>
@@ -470,10 +443,6 @@
 
                 <div class="question" id="q11">
                     <div class="question-meta">
-                        <button class="timer-btn" onclick="toggleQuestionTimer('q11')" data-state="stopped">
-                            ⏱️ Start Timer
-                        </button>
-                        <span>⏱️ <span class="q-time" data-time="0">0s</span></span>
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Medium</span>
                     </div>
@@ -503,9 +472,7 @@
     <script>
         let globalStartTime = null;
         let globalTimerInterval = null;
-        let questionTimers = {};
-        let questionTimerIntervals = {};
-        let questionTimerStates = {};
+        // per-question timers removed
         let answeredQuestions = new Set();
         let correctFirstAttempts = new Set();
         let incorrectCounts = {};
@@ -515,32 +482,7 @@
         let questionAnswered = {}; // Track which questions have been answered correctly
 
         // Initialize question timers and error counts
-        function initializeQuestionData() {
-            const questionElements = document.querySelectorAll('.question');
-            questionElements.forEach(questionElement => {
-                const questionId = questionElement.id;
-                const questionNum = parseInt(questionId.replace('q', ''));
-                
-                // Initialize all tracking objects
-                if (!incorrectCounts[questionId]) incorrectCounts[questionId] = 0;
-                if (!questionTimes[questionId]) questionTimes[questionId] = 0;
-                if (!questionTimers[questionNum]) questionTimers[questionNum] = 0;
-                questionTimerStates[questionId] = 'stopped';
-                questionAnswered[questionId] = false;
-                
-                // Update display elements
-                const timeElement = questionElement.querySelector('.q-time');
-                const errorElement = questionElement.querySelector('.q-errors');
-                if (timeElement) {
-                    timeElement.setAttribute('data-time', questionTimes[questionId]);
-                    timeElement.textContent = `${questionTimes[questionId]}s`;
-                }
-                if (errorElement) {
-                    errorElement.setAttribute('data-errors', incorrectCounts[questionId]);
-                    errorElement.textContent = incorrectCounts[questionId];
-                }
-            });
-        }
+        // removed initializeQuestionData
 
         function updateGlobalTimer() {
             const now = new Date();
@@ -550,57 +492,9 @@
             document.getElementById('time-elapsed').textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
-        function updateQuestionTimer(questionNum) {
-            const questionId = `q${questionNum}`;
-            if (questionTimerStates[questionId] === 'running') {
-                questionTimers[questionNum]++;
-                questionTimes[questionId] = questionTimers[questionNum];
-                
-                const timeElement = document.querySelector(`#${questionId} .q-time`);
-                if (timeElement) {
-                    timeElement.setAttribute('data-time', questionTimers[questionNum]);
-                    timeElement.textContent = `${questionTimers[questionNum]}s`;
-                    
-                    if (questionTimers[questionNum] > 120) {
-                        timeElement.style.color = '#dc3545';
-                        timeElement.style.fontWeight = 'bold';
-                    }
-                }
-            }
-        }
+        // removed per-question timer updates
 
-        function toggleQuestionTimer(questionId) {
-            const questionNum = parseInt(questionId.replace('q', ''));
-            const button = document.querySelector(`#${questionId} .timer-btn`);
-            const currentState = questionTimerStates[questionId];
-            
-if (currentState === 'stopped') {
-    questionTimerStates[questionId] = 'running';
-    button.textContent = '⏹️ Stop Timer';
-    button.classList.add('timer-running');
-    button.setAttribute('data-state', 'running');
-    
-    // Initialize timer if not already set
-    if (questionTimers[questionNum] === undefined) {
-        questionTimers[questionNum] = 0;
-    }
-    
-    questionTimerIntervals[questionNum] = setInterval(() => {
-        updateQuestionTimer(questionNum);
-    }, 1000);  
-            } else if (currentState === 'running') {
-                questionTimerStates[questionId] = 'stopped';
-                button.textContent = '▶️ Resume Timer';
-                button.classList.remove('timer-running');
-                button.classList.add('timer-paused');
-                button.setAttribute('data-state', 'paused');
-                
-                if (questionTimerIntervals[questionNum]) {
-                    clearInterval(questionTimerIntervals[questionNum]);
-                    delete questionTimerIntervals[questionNum];
-                }
-            }
-        }
+        // removed toggleQuestionTimer
         function startTimers() {
             if (!isStarted) {
                 isStarted = true;
@@ -618,16 +512,12 @@ if (currentState === 'stopped') {
             if (isStarted && !isPaused) {
                 isPaused = true;
                 clearInterval(globalTimerInterval);
-                for (let q in questionTimerIntervals) {
-                    clearInterval(questionTimerIntervals[q]);
-                }
+                // per-question timers removed
                 document.getElementById('pause-btn').textContent = 'Resume';
             } else if (isStarted && isPaused) {
                 isPaused = false;
                 globalTimerInterval = setInterval(updateGlobalTimer, 1000);
-                for (let q in questionTimerIntervals) {
-                    questionTimerIntervals[q] = setInterval(() => updateQuestionTimer(q), 1000);
-                }
+                // per-question timers removed
                 document.getElementById('pause-btn').textContent = 'Pause';
             }
         }
@@ -665,21 +555,7 @@ if (currentState === 'stopped') {
                         // Mark question as answered correctly
                         questionAnswered[questionId] = true;
                         
-                        // Auto-stop timer when answered correctly
-                        if (questionTimerStates[questionId] === 'running') {
-                            const button = document.querySelector(`#${questionId} .timer-btn`);
-                            questionTimerStates[questionId] = 'completed';
-                            button.textContent = '✅ Completed';
-                            button.classList.remove('timer-running');
-                            button.classList.add('timer-completed');
-                            button.disabled = true;
-                            button.setAttribute('data-state', 'completed');
-                            
-                            if (questionTimerIntervals[questionNum]) {
-                                clearInterval(questionTimerIntervals[questionNum]);
-                                delete questionTimerIntervals[questionNum];
-                            }
-                        }
+                        // per-question timer removed
                         
                         // Update tracking
                         if (!answeredQuestions.has(questionNum)) {
@@ -724,19 +600,15 @@ if (currentState === 'stopped') {
         function resetTimers() {
             // Clear all intervals
             if (globalTimerInterval) clearInterval(globalTimerInterval);
-            for (let q in questionTimerIntervals) {
-                clearInterval(questionTimerIntervals[q]);
-            }
+            // per-question timers removed
             
             // Reset all state variables
             globalStartTime = null;
-            questionTimers = {};
-            questionTimerIntervals = {};
-            questionTimerStates = {};
+            // per-question timers removed
             answeredQuestions.clear();
             correctFirstAttempts.clear();
             incorrectCounts = {};
-            questionTimes = {};
+            // per-question timers removed
             questionAnswered = {};
             isStarted = false;
             isPaused = false;
@@ -759,24 +631,8 @@ if (currentState === 'stopped') {
                 const questionId = questionElement.id;
                 const questionNum = parseInt(questionId.replace('q', ''));
                 
-                // Reset timer button
-                const button = questionElement.querySelector('.timer-btn');
-                if (button) {
-                    button.textContent = '⏱️ Start Timer';
-                    button.classList.remove('timer-running', 'timer-paused', 'timer-completed');
-                    button.disabled = false;
-                    button.setAttribute('data-state', 'stopped');
-                }
-                
-                // Reset time and error displays
-                const timeElement = questionElement.querySelector('.q-time');
+                // Reset error displays
                 const errorElement = questionElement.querySelector('.q-errors');
-                if (timeElement) {
-                    timeElement.setAttribute('data-time', '0');
-                    timeElement.textContent = '0s';
-                    timeElement.style.color = '';
-                    timeElement.style.fontWeight = '';
-                }
                 if (errorElement) {
                     errorElement.setAttribute('data-errors', '0');
                     errorElement.textContent = '0';
@@ -799,8 +655,7 @@ if (currentState === 'stopped') {
                 questionElement.removeAttribute('data-selected');
             });
             
-            // Reinitialize data
-            initializeQuestionData();
+            // per-question timer init removed
         }
 
         function showResults() {
@@ -831,7 +686,7 @@ if (currentState === 'stopped') {
         const displayNum = index + 1; // Sequential numbering for display
         
         const count = incorrectCounts[questionId] || 0;
-        const time = questionTimes[questionId] || 0;
+        const time = 0;
         const isAnswered = answeredQuestions.has(questionNum);
         const isCorrect = correctFirstAttempts.has(questionNum);
         
@@ -844,15 +699,14 @@ if (currentState === 'stopped') {
             status = 'Incorrect';
         }
         
-        incorrectSummary += `<li>Question ${displayNum}: ${status}, ${count} wrong attempt(s), ${time}s spent</li>`;
+        incorrectSummary += `<li>Question ${displayNum}: ${status}, ${count} wrong attempt(s)</li>`;
         
         // Mark as weak point if: not attempted, multiple wrong attempts, or took too long
-        if (!isAnswered || count >= 2 || time > 120) {
+        if (!isAnswered || count >= 2) {
             hasWeakPoints = true;
             weakPoints += `Question ${displayNum}: `;
             if (!isAnswered) weakPoints += 'Not attempted, ';
             if (count >= 2) weakPoints += `${count} incorrect attempts, `;
-            if (time > 120) weakPoints += `${time}s (over 2 minutes), `;
             weakPoints += 'needs review.<br>';
         }
     });
