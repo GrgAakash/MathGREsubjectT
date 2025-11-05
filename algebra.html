@@ -672,7 +672,7 @@
         <button id="start-btn">Start</button>
         <button id="pause-btn" disabled>Pause</button>
         <button id="reset-btn" disabled>Reset</button>
-        <button id="results-btn" disabled>View Results</button>
+        <button id="results-btn" disabled>End</button>
     </div>
     </div>
 
@@ -1403,6 +1403,15 @@
 
                 const selectedValue = option.getAttribute('data-value');
 
+                // mark answered on any click
+                window.__answered = window.__answered || new Set();
+                const qid = question.id;
+                if (!window.__answered.has(qid)) {
+                    window.__answered.add(qid);
+                    const total = document.querySelectorAll('.question').length;
+                    document.getElementById('questions-answered').textContent = `${window.__answered.size}/${total}`;
+                }
+
                 if (selectedValue === correctAnswer) {
 
                     option.classList.add('selected-correct');
@@ -1435,18 +1444,28 @@
                     feedback.classList.add('wrong');
 
                     // Increment wrong attempt counter and update display
-                    const qid = question.id;
+                    const qidWrong = question.id;
                     window.__incorrectCounts = window.__incorrectCounts || {};
-                    window.__incorrectCounts[qid] = (window.__incorrectCounts[qid] || 0) + 1;
+                    window.__incorrectCounts[qidWrong] = (window.__incorrectCounts[qidWrong] || 0) + 1;
                     const errEl = question.querySelector('.q-errors');
                     if (errEl) {
-                        errEl.setAttribute('data-errors', String(window.__incorrectCounts[qid]));
-                        errEl.textContent = String(window.__incorrectCounts[qid]);
+                        errEl.setAttribute('data-errors', String(window.__incorrectCounts[qidWrong]));
+                        errEl.textContent = String(window.__incorrectCounts[qidWrong]);
                     }
 
                 }
 
                 feedback.style.display = 'block';
+
+                // Update accuracy and correct count after any click
+                const totalAfter = document.querySelectorAll('.question').length;
+                const caEl = document.getElementById('correct-answers');
+                if (caEl) caEl.textContent = String(window.__firstCorrect ? window.__firstCorrect.size : 0);
+                const arEl = document.getElementById('accuracy-rate');
+                const ansSz = window.__answered ? window.__answered.size : 0;
+                const corSz = window.__firstCorrect ? window.__firstCorrect.size : 0;
+                const accVal = ansSz > 0 ? Math.round((corSz / ansSz) * 100) : 0;
+                if (arEl) arEl.textContent = `${accVal}%`;
 
             });
 

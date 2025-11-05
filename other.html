@@ -351,7 +351,7 @@
             <button id="start-btn">Start</button>
             <button id="pause-btn" disabled>Pause</button>
             <button id="reset-btn" disabled>Reset</button>
-            <button id="results-btn" disabled>View Results</button>
+            <button id="results-btn" disabled>End</button>
         </div>
     </div>
 
@@ -549,28 +549,26 @@
                 
                 // Mark selected option
                 const selectedValue = this.getAttribute('data-value');
+                // mark answered on any click
+                window.__otherAnswered = window.__otherAnswered || new Set();
+                const qidAnswered = question.id;
+                if (!window.__otherAnswered.has(qidAnswered)) {
+                    window.__otherAnswered.add(qidAnswered);
+                    const totalQ = document.querySelectorAll('.question').length;
+                    const qa = document.getElementById('questions-answered');
+                    if (qa) qa.textContent = `${window.__otherAnswered.size}/${totalQ}`;
+                }
                 if (selectedValue === correctAnswer) {
                     this.classList.add('selected-correct');
                     feedback.textContent = 'Correct!';
                     feedback.classList.remove('wrong');
                     feedback.classList.add('correct');
-                    // Update dashboard counters
-                    window.__otherAnswered = window.__otherAnswered || new Set();
+                    // Update correct-on-first metric
                     window.__otherFirstCorrect = window.__otherFirstCorrect || new Set();
                     const qid = question.id;
-                    const prev = window.__otherAnswered.size;
-                    window.__otherAnswered.add(qid);
                     if ((window.__otherIncorrect && (window.__otherIncorrect[qid] || 0)) === 0) {
                         window.__otherFirstCorrect.add(qid);
                     }
-                    const total = document.querySelectorAll('.question').length;
-                    const qa = document.getElementById('questions-answered');
-                    if (qa) qa.textContent = `${window.__otherAnswered.size}/${total}`;
-                    const ca = document.getElementById('correct-answers');
-                    if (ca) ca.textContent = String(window.__otherFirstCorrect.size);
-                    const accEl = document.getElementById('accuracy-rate');
-                    const acc = window.__otherAnswered.size > 0 ? Math.round((window.__otherFirstCorrect.size / window.__otherAnswered.size) * 100) : 0;
-                    if (accEl) accEl.textContent = `${acc}%`;
                 } else {
                     this.classList.add('selected-wrong');
                     feedback.textContent = 'Incorrect. Try again!';
@@ -586,6 +584,15 @@
                         errEl.textContent = String(window.__otherIncorrect[qid]);
                     }
                 }
+                // Update accuracy and correct count after any click
+                const total = document.querySelectorAll('.question').length;
+                const ca = document.getElementById('correct-answers');
+                if (ca) ca.textContent = String(window.__otherFirstCorrect ? window.__otherFirstCorrect.size : 0);
+                const accEl = document.getElementById('accuracy-rate');
+                const ansSize = window.__otherAnswered ? window.__otherAnswered.size : 0;
+                const corSize = window.__otherFirstCorrect ? window.__otherFirstCorrect.size : 0;
+                const acc = ansSize > 0 ? Math.round((corSize / ansSize) * 100) : 0;
+                if (accEl) accEl.textContent = `${acc}%`;
             });
         });
 

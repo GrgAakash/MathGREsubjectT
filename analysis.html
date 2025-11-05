@@ -356,7 +356,7 @@
             <button id="start-btn">Start</button>
             <button id="pause-btn" disabled>Pause</button>
             <button id="reset-btn" disabled>Reset</button>
-            <button id="results-btn" disabled>View Results</button>
+            <button id="results-btn" disabled>End</button>
         </div>
     </div>
 
@@ -837,8 +837,10 @@
                     window.__analysisAnswered = window.__analysisAnswered || new Set();
                     window.__analysisFirstCorrect = window.__analysisFirstCorrect || new Set();
                     const qid2 = question.id;
-                    if (selectedValue === correctAnswer) {
+                    if (!window.__analysisAnswered.has(qid2)) {
                         window.__analysisAnswered.add(qid2);
+                    }
+                    if (selectedValue === correctAnswer) {
                         if ((window.__analysisIncorrect && (window.__analysisIncorrect[qid2] || 0)) === 0) {
                             window.__analysisFirstCorrect.add(qid2);
                         }

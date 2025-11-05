@@ -356,7 +356,7 @@
             <button id="start-btn">Start</button>
             <button id="pause-btn" disabled>Pause</button>
             <button id="reset-btn" disabled>Reset</button>
-            <button id="results-btn" disabled>View Results</button>
+            <button id="results-btn" disabled>End</button>
         </div>
     </div>
 
@@ -654,6 +654,15 @@
                     feedback.textContent = '';
 
                     const selectedValue = option.getAttribute('data-value');
+                    // mark as answered on first interaction
+                    window.__probAnswered = window.__probAnswered || new Set();
+                    const qid2 = question.id;
+                    if (!window.__probAnswered.has(qid2)) {
+                        window.__probAnswered.add(qid2);
+                        const total = document.querySelectorAll('.question').length;
+                        const qaEl = document.getElementById('questions-answered');
+                        if (qaEl) qaEl.textContent = `${window.__probAnswered.size}/${total}`;
+                    }
                     if (selectedValue === correctAnswer) {
                         option.classList.add('selected-correct');
                         feedback.textContent = 'Correct';
@@ -673,6 +682,22 @@
                         }
                     }
                     feedback.style.display = 'block';
+
+                    // update correct on first metric
+                    window.__probFirstCorrect = window.__probFirstCorrect || new Set();
+                    if (selectedValue === correctAnswer) {
+                        if ((window.__probIncorrect && (window.__probIncorrect[qid2] || 0)) === 0) {
+                            window.__probFirstCorrect.add(qid2);
+                        }
+                    }
+                    const total2 = document.querySelectorAll('.question').length;
+                    const caEl = document.getElementById('correct-answers');
+                    const accEl = document.getElementById('accuracy-rate');
+                    const answeredSize = window.__probAnswered ? window.__probAnswered.size : 0;
+                    const correctSize = window.__probFirstCorrect ? window.__probFirstCorrect.size : 0;
+                    const acc = answeredSize > 0 ? Math.round((correctSize / answeredSize) * 100) : 0;
+                    if (caEl) caEl.textContent = String(correctSize);
+                    if (accEl) accEl.textContent = `${acc}%`;
                 });
 
                 option.addEventListener('keydown', (e) => {

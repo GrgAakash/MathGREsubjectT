@@ -346,7 +346,8 @@
         .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
         .nav-links a:hover { opacity: 1; text-decoration: underline; }
         .dashboard { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
-        .dashboard button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .dashboard button { background: #0d0d0d; color: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .dashboard button:hover { background: #ffffff; color: #0d0d0d; }
         .main-container { background: transparent; }
         .sidebar-nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
         .sidebar-nav button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; background: #f8f9fa; }
@@ -406,7 +407,7 @@
             <button id="start-btn">Start</button>
             <button id="pause-btn" disabled>Pause</button>
             <button id="reset-btn">Reset</button>
-            <button id="results-btn" disabled>View Results</button>
+            <button id="results-btn" disabled>End</button>
         </div>
     </div>
 
@@ -830,6 +831,13 @@
             if (!correctAnswer) return; // Skip if no correct answer defined
             
             const selected = option.getAttribute('data-value');
+            // Mark as answered on first interaction
+            const questionNum = parseInt(questionId.replace('q', ''));
+            if (!answeredQuestions.has(questionNum)) {
+                answeredQuestions.add(questionNum);
+                const totalQuestions = document.querySelectorAll('.question').length;
+                document.getElementById('questions-answered').textContent = `${answeredQuestions.size}/${totalQuestions}`;
+            }
             
             // Clear previous selections
             options.forEach(opt => {
@@ -843,13 +851,7 @@
                 feedback.className = 'feedback correct';
                 feedback.style.display = 'block';
                 
-                // Update question tracking
-                const questionNum = parseInt(questionId.replace('q', ''));
-                if (!answeredQuestions.has(questionNum)) {
-                    answeredQuestions.add(questionNum);
-                    const totalQuestions = document.querySelectorAll('.question').length;
-document.getElementById('questions-answered').textContent = `${answeredQuestions.size}/${totalQuestions}`;
-                }
+                // Update correct-on-first tracking
                 if (!incorrectCounts[questionId] || incorrectCounts[questionId] === 0) {
                     correctFirstAttempts.add(questionNum);
                     document.getElementById('correct-answers').textContent = correctFirstAttempts.size;
@@ -882,6 +884,12 @@ document.getElementById('questions-answered').textContent = `${answeredQuestions
             }
             
             question.setAttribute('data-selected', selected);
+            // Update accuracy and correct count after any click
+            const correctCountNow = correctFirstAttempts.size;
+            const answeredNow = answeredQuestions.size;
+            const accNow = answeredNow > 0 ? Math.round((correctCountNow / answeredNow) * 100) : 0;
+            document.getElementById('correct-answers').textContent = String(correctCountNow);
+            document.getElementById('accuracy-rate').textContent = `${accNow}%`;
         });
     });
 });
