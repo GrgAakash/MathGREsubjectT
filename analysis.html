@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Analysis Practice Questions - Math GRE Prep</title>
+    <!-- MathJax CDN for LaTeX rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: relative;
+            z-index: 15;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar-nav {
+            flex-basis: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            z-index: 5;
+        }
+
+        .sidebar-nav button {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar-nav button:hover {
+            background-color: #e9ecef;
+        }
+
+        .sidebar-nav button.active {
+            background-color: var(--accent);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex-grow: 1;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            font-size: 1em;
+        }
+
+        .option:hover {
+            background: #e9ecef;
+            border-color: #aaa;
+        }
+
+        .option.selected-correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .option.selected-wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct {
+            color: #28a745;
+            display: block;
+        }
+
+        .feedback.wrong {
+            color: #dc3545;
+            display: block;
+        }
+
+        .toggle-btn {
+            cursor: pointer;
+            color: var(--accent);
+            text-decoration: underline;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .toggle-btn:hover {
+            color: #228B7E;
+        }
+
+        .explanation {
+            display: none;
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent);
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .main-container {
+                flex-direction: column;
+                padding: 10px;
+                gap: 15px;
+            }
+            
+            .sidebar-nav {
+                flex-basis: auto;
+                width: 100%;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .sidebar-nav button {
+                width: auto;
+                flex-grow: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .question {
+                padding: 15px;
+            }
+            .option {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+    <style>
+        /* Uniform question meta row (match Calculus) */
+        .question-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 500;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    </style>
+    <style>
+        /* Dashboard styling */
+        .dashboard { display:flex; justify-content:center; gap:20px; margin:20px auto; max-width:1100px; background:#ffffff; padding:20px; border:2px solid #0d0d0d; box-shadow:2px 2px 0px #0d0d0d; }
+        .dashboard div { text-align:center; flex:1; }
+        .dashboard p { margin:5px 0; color:#0d0d0d; font-weight:bold; }
+        .dashboard button { padding:10px 20px; margin:5px; background:#0d0d0d; color:#ffffff; border:2px solid #0d0d0d; border-radius:0; cursor:pointer; font-size:14px; font-weight:bold; }
+        .dashboard button:hover { background:#ffffff; color:#0d0d0d; }
+        .dashboard button:disabled { background:#cccccc; color:#ffffff; cursor:not-allowed; }
+    </style>
+    <style>
+        /* Remove explanations */
+        .toggle-btn { display: none !important; }
+        .explanation { display: none !important; }
+    </style>
+    <style>
+        /* Codes_QTCat theme overlay - non-invasive visual refresh */
+        body { font-family: 'Courier New', monospace; background-color: #f0f0f0; color: #0d0d0d; font-weight: bold; }
+        header { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+        header h1 { text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #cccccc; font-weight: bold; }
+        .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
+        .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
+        .nav-links a:hover { opacity: 1; text-decoration: underline; }
+        .main-container { background: transparent; }
+        .sidebar-nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .sidebar-nav button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; background: #f8f9fa; }
+        .sidebar-nav button.active { background-color: #0d0d0d; color: #ffffff; }
+        .question { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .option { background: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .option:hover { background: #f0f0f0; border-color: #0d0d0d; }
+        .feedback { font-weight: bold; color: #0d0d0d; }
+        .feedback.correct { color: #28a745; }
+        .feedback.wrong { color: #c62828; }
+        .toggle-btn { color: #D97706; }
+        .toggle-btn:hover { color: #a65e05; }
+        footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Real Analysis Practice Questions</h1>
+        <p class="subtitle">Master real analysis concepts with interactive practice</p>
+    </header>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <div>
+            <p id="time-elapsed">00:00</p>
+            <p>Time Elapsed</p>
+        </div>
+        <div>
+            <p id="questions-answered">0/0</p>
+            <p>Questions Answered</p>
+        </div>
+        <div>
+            <p id="correct-answers">0</p>
+            <p>Correct Answers</p>
+        </div>
+        <div>
+            <p id="accuracy-rate">0%</p>
+            <p>Accuracy Rate</p>
+        </div>
+        <div>
+            <button id="start-btn">Start</button>
+            <button id="pause-btn" disabled>Pause</button>
+            <button id="reset-btn" disabled>Reset</button>
+            <button id="results-btn" disabled>End</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <nav class="sidebar-nav">
+            <button onclick="showSection('sequences')" class="active">Sequences</button>
+            <button onclick="showSection('series')">Numerical Series</button>
+            <button onclick="showSection('limits')">Limits</button>
+            <button onclick="showSection('continuity')">Continuity</button>
+            <button onclick="showSection('differentiation')">Differentiation</button>
+            <button onclick="showSection('integration')">Integration</button>
+            <button onclick="showSection('functionseries')">Series of Functions</button>
+        </nav>
+
+        <div class="main-content">
+            <div id="results" style="display:none;">
+                <h2>Results</h2>
+                <p id="time-taken"></p>
+                <p id="time-comparison"></p>
+                <p id="incorrect-counts"></p>
+                <p id="weak-points"></p>
+            </div>
+            <!-- Sequences Section -->
+            <div id="sequences-section" class="topic-section">
+                <h2 class="page-title">Sequences Practice Questions</h2>
+                <div class="question" data-correct="C">
+                    <p><strong>1.</strong> Let \(a_n = \frac{n + (-1)^n}{n}\). Determine whether the sequence \(\{a_n\}\) converges, and if so, find its limit.</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Converges to 0</div>
+                        <div class="option" data-value="B">B) Converges to 1/2</div>
+                        <div class="option" data-value="C">C) Converges to 1</div>
+                        <div class="option" data-value="D">D) Converges to 2</div>
+                        <div class="option" data-value="E">E) Diverges</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('seq-exp1')">Show/Hide Explanation</span></p>
+                    <div id="seq-exp1" class="explanation">
+                        <p>Rewrite \(a_n = \frac{n + (-1)^n}{n} = 1 + \frac{(-1)^n}{n}\). As \(n \to \infty\), \(\frac{(-1)^n}{n} \to 0\) since the numerator oscillates between \(-1\) and \(1\), and the denominator grows without bound. Thus, \(a_n \to 1\). By the **Limit Theorem for Sequences**, if the terms approach a finite value, the sequence converges.</p>
+                        <p><strong>Answer: C) Converges to 1</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>2.</strong> Consider the sequence defined by \(a_1 = 1\), \(a_{n+1} = \sqrt{2 + a_n}\) for \(n \geq 1\). Does the sequence converge, and if so, to what value?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Converges to 1</div>
+                        <div class="option" data-value="B">B) Converges to 2</div>
+                        <div class="option" data-value="C">C) Converges to \(\sqrt{2}\)</div>
+                        <div class="option" data-value="D">D) Converges to 3</div>
+                        <div class="option" data-value="E">E) Diverges</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('seq-exp2')">Show/Hide Explanation</span></p>
+                    <div id="seq-exp2" class="explanation">
+                        <p>First, show the sequence is bounded: \(a_1 = 1 < 2\), and if \(a_n < 2\), then \(a_{n+1} = \sqrt{2 + a_n} < \sqrt{2 + 2} = 2\). Thus, \(a_n < 2\). Next, show it is increasing: \(a_{n+1}^2 = 2 + a_n > a_n^2\) since \(a_n < 2\). By the **Monotone Convergence Theorem**, a bounded, increasing sequence converges. Assume the limit is \(L\): then \(L = \sqrt{2 + L}\). Solving \(L^2 = 2 + L\), we get \(L^2 - L - 2 = 0\), so \(L = 2\) or \(L = -1\). Since \(a_n > 0\), the limit is 2.</p>
+                        <p><strong>Answer: B) Converges to 2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="E">
+                    <p><strong>3.</strong> Let \(a_n = n \sin\left(\frac{1}{n}\right)\). Determine whether the sequence \(\{a_n\}\) converges, and if so, find its limit.</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Converges to 0</div>
+                        <div class="option" data-value="B">B) Converges to 1</div>
+                        <div class="option" data-value="C">C) Converges to \(\pi\)</div>
+                        <div class="option" data-value="D">D) Converges to \(\sin(1)\)</div>
+                        <div class="option" data-value="E">E) Diverges</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('seq-exp3')">Show/Hide Explanation</span></p>
+                    <div id="seq-exp3" class="explanation">
+                        <p> DIY </p>
+            
+                    </div>
+                </div>
+            </div>
+
+            <!-- Numerical Series Section -->
+            <div id="series-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Numerical Series Practice Questions</h2>
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> Determine the convergence of the series \(\sum_{n=1}^\infty \frac{(-1)^n}{\sqrt{n} + (-1)^n}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Converges absolutely</div>
+                        <div class="option" data-value="B">B) Converges conditionally</div>
+                        <div class="option" data-value="C">C) Diverges</div>
+                        <div class="option" data-value="D">D) Converges to 0</div>
+                        <div class="option" data-value="E">E) Converges to 1</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ser-exp1')">Show/Hide Explanation</span></p>
+                    <div id="ser-exp1" class="explanation">
+                        <p>The series is alternating. Apply the **Alternating Series Test**: Let \(a_n = \frac{1}{\sqrt{n} + (-1)^n}\). As \(n \to \infty\), \(a_n \approx \frac{1}{\sqrt{n}}\), which is decreasing and approaches 0. Thus, the series converges. For absolute convergence, consider \(\sum \frac{1}{\sqrt{n} + (-1)^n} \geq \sum \frac{1}{\sqrt{n} + 1}\). Since \(\sum \frac{1}{\sqrt{n}}\) diverges (p-series, \(p = 1/2\)), the series does not converge absolutely. By the **Absolute Convergence Test**, it converges conditionally.</p>
+                        <p><strong>Answer: B) Converges conditionally</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>2.</strong> Consider the series \(\sum_{n=1}^\infty \frac{\sin(n)}{n^2}\). Does it converge?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Diverges</div>
+                        <div class="option" data-value="B">B) Converges conditionally</div>
+                        <div class="option" data-value="C">C) Converges absolutely</div>
+                        <div class="option" data-value="D">D) Converges to 0</div>
+                        <div class="option" data-value="E">E) Converges to \(\sin(1)\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ser-exp2')">Show/Hide Explanation</span></p>
+                    <div id="ser-exp2" class="explanation">
+                        <p>Test for absolute convergence: \(\sum \left| \frac{\sin(n)}{n^2} \right| \leq \sum \frac{1}{n^2}\), since \(|\sin(n)| \leq 1\). The series \(\sum \frac{1}{n^2}\) converges (p-series, \(p = 2\)). By the **Comparison Test**, \(\sum \frac{|\sin(n)|}{n^2}\) converges, so the series converges absolutely. By the **Absolute Convergence Theorem**, absolute convergence implies convergence.</p>
+                        <p><strong>Answer: C) Converges absolutely</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>3.</strong> Let \(\sum a_n\) be a series such that \(a_n > 0\) and \(\lim_{n \to \infty} \sqrt[n]{a_n} = 2\). What can be said about its convergence?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Diverges</div>
+                        <div class="option" data-value="B">B) Converges absolutely</div>
+                        <div class="option" data-value="C">C) Converges conditionally</div>
+                        <div class="option" data-value="D">D) Converges to 1</div>
+                        <div class="option" data-value="E">E) Cannot determine</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ser-exp3')">Show/Hide Explanation</span></p>
+                    <div id="ser-exp3" class="explanation">
+                        <p>By the **Root Test**, if \(\lim_{n \to \infty} \sqrt[n]{a_n} = 2 > 1\), the series \(\sum a_n\) diverges. This is a tricky question because one might assume convergence due to positive terms, but the root test definitively determines divergence.</p>
+                        <p><strong>Answer: A) Diverges</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Limits Section -->
+            <div id="limits-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Limits Practice Questions</h2>
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> Evaluate \(\lim_{x \to 0^+} x \ln(x)\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\infty\)</div>
+                        <div class="option" data-value="B">B) 0</div>
+                        <div class="option" data-value="C">C) -1</div>
+                        <div class="option" data-value="D">D) 1</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('lim-exp1')">Show/Hide Explanation</span></p>
+                    <div id="lim-exp1" class="explanation">
+                        <p>The limit is of the form \(0 \cdot (-\infty)\). Rewrite \(x \ln(x) = \frac{\ln(x)}{\frac{1}{x}}\), which is \(\frac{-\infty}{\infty}\). Apply **L'Hôpital's Rule**: differentiate numerator (\(\frac{1}{x}\)) and denominator (\(-\frac{1}{x^2}\)). The limit becomes \(\lim_{x \to 0^+} \frac{\frac{1}{x}}{-\frac{1}{x^2}} = \lim_{x \to 0^+} (-x) = 0\). Thus, the limit is 0.</p>
+                        <p><strong>Answer: B) 0</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>2.</strong> Let \(f(x) = \lfloor x \rfloor \sin(\pi x)\). Evaluate \(\lim_{x \to 2^-} f(x)\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) -1</div>
+                        <div class="option" data-value="D">D) 2</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('lim-exp2')">Show/Hide Explanation</span></p>
+                    <div id="lim-exp2" class="explanation">
+                        <p>For \(x \to 2^-\), \(1 < x < 2\), so \(\lfloor x \rfloor = 1\). Thus, \(f(x) = \sin(\pi x)\). Evaluate \(\lim_{x \to 2^-} \sin(\pi x)\). As \(x \to 2^-\), \(\pi x \to 2\pi^-\), and \(\sin(\pi x) \to \sin(2\pi) = 0\). However, the question is tricky: the function oscillates, but the left-hand limit exists. Re-evaluate: as \(x \to 2^-\), \(\lfloor x \rfloor = 1\), but we need the behavior of \(\sin(\pi x)\). This suggests a possible error; let’s check the right limit for comparison. For \(x \to 2^+\), \(\lfloor x \rfloor = 2\), so the limit differs, but the question specifies \(2^-\). Thus, the answer is 0 (corrected option).</p>
+                        <p><strong>Answer: A) 0</strong> (Note: Corrected option label)</p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>3.</strong> Evaluate \(\lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(e\)</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) 0</div>
+                        <div class="option" data-value="D">D) \(\infty\)</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('lim-exp3')">Show/Hide Explanation</span></p>
+                    <div id="lim-exp3" class="explanation">
+                        <p>This is a classic limit. Rewrite \(\left(1 + \frac{1}{x}\right)^x\). As \(x \to \infty\), use the fact that \(\lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n = e\), a standard result from real analysis. Alternatively, take the natural log: \(\ln\left(\left(1 + \frac{1}{x}\right)^x\right) = x \ln\left(1 + \frac{1}{x}\right) \approx x \cdot \frac{1}{x} = 1\), but more precisely, \(\ln\left(1 + \frac{1}{x}\right) \approx \frac{1}{x}\), so the limit is \(\lim_{x \to \infty} x \cdot \frac{1}{x} = 1\), and thus the original limit is \(e^1 = e\). By the **Continuity of the Exponential Function**, the limit is \(e\).</p>
+                        <p><strong>Answer: A) \(e\)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continuity Section -->
+            <div id="continuity-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Continuity Practice Questions</h2>
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> Define \(f(x) = \begin{cases} x \sin\left(\frac{1}{x}\right) & x \neq 0 \\ 0 & x = 0 \end{cases}\). Is \(f\) continuous at \(x = 0\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Not continuous</div>
+                        <div class="option" data-value="B">B) Continuous</div>
+                        <div class="option" data-value="C">C) Continuous but not differentiable</div>
+                        <div class="option" data-value="D">D) Differentiable</div>
+                        <div class="option" data-value="E">E) Uniformly continuous</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('cont-exp1')">Show/Hide Explanation</span></p>
+                    <div id="cont-exp1" class="explanation">
+                        <p>For continuity at \(x = 0\), check \(\lim_{x \to 0} f(x) = f(0) = 0\). Since \(|\sin\left(\frac{1}{x}\right)| \leq 1\), we have \(|x \sin\left(\frac{1}{x}\right)| \leq |x|\). By the **Squeeze Theorem**, as \(x \to 0\), \(|x| \to 0\), so \(\lim_{x \to 0} x \sin\left(\frac{1}{x}\right) = 0\). Thus, \(f\) is continuous at \(x = 0\). The question is tricky because one might suspect discontinuity due to oscillation, but the squeeze theorem ensures continuity.</p>
+                        <p><strong>Answer: B) Continuous</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>2.</strong> Let \(f(x) = \begin{cases} 1 & x \text{ is rational} \\ 0 & x \text{ is irrational} \end{cases}\). Is \(f\) continuous anywhere?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Nowhere continuous</div>
+                        <div class="option" data-value="B">B) Continuous at \(x = 0\)</div>
+                        <div class="option" data-value="C">C) Continuous at rational points</div>
+                        <div class="option" data-value="D">D) Continuous at irrational points</div>
+                        <div class="option" data-value="E">E) Everywhere continuous</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('cont-exp2')">Show/Hide Explanation</span></p>
+                    <div id="cont-exp2" class de="explanation">
+                        <p>For continuity at \(x = c\), \(\lim_{x \to c} f(x) = f(c)\). Since rationals and irrationals are dense in \(\mathbb{R}\), for any \(c\), a sequence of rationals \(x_n \to c\) gives \(f(x_n) = 1\), and a sequence of irrationals \(y_n \to c\) gives \(f(y_n) = 0\). Thus, the limit does not exist unless \(f(c) = 1\) and \(f(c) = 0\), which is impossible. By the **Sequential Criterion for Continuity**, \(f\) is nowhere continuous.</p>
+                        <p><strong>Answer: A) Nowhere continuous</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>3.</strong> Suppose \(f: [0,1] \to \mathbb{R}\) is continuous and satisfies \(f(x) = f(x^2)\) for all \(x \in [0,1]\). What is \(f(0)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 1</div>
+                        <div class="option" data-value="B">B) 0</div>
+                        <div class="option" data-value="C">C) \(f(1)\)</div>
+                        <div class="option" data-value="D">D) \(f(0^2)\)</div>
+                        <div class="option" data-value="E">E) Cannot determine</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('cont-exp3')">Show/Hide Explanation</span></p>
+                    <div id="cont-exp3" class="explanation">
+                        <p>Since \(f(x) = f(x^2)\), evaluate at \(x = 0\): \(f(0) = f(0^2) = f(0)\), which is true but uninformative. Now, evaluate at \(x = 1\): \(f(1) = f(1^2) = f(1)\). Consider the sequence \(x_n = 0^{2^n} = 0\). By continuity and the **Fixed Point Property** of continuous functions on \([0,1]\), \(f(x_n) = f(0)\), and since \(x_n \to 0\), \(\lim_{n \to \infty} f(x_n) = f(0)\). Now try \(x = \sqrt{1} = 1\): \(f(1) = f(1)\). The key is to test points: if \(x = \sqrt{x}\), then \(x = 0\) or \(x = 1\). Thus, \(f(0) = f(0^2) = f(0)\), and \(f(1) = f(1^2) = f(1)\). The tricky part is realizing \(f(0) = f(1)\) due to the functional equation and continuity on a closed interval. Thus, \(f(0) = f(1)\).</p>
+                        <p><strong>Answer: C) \(f(1)\)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Differentiation Section -->
+            <div id="differentiation-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Differentiation Practice Questions</h2>
+                <div class="question" data-correct="A">
+                    <p><strong>1.</strong> Let \(f(x) = |x| \sin(x)\). Is \(f\) differentiable at \(x = 0\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes, and \(f'(0) = 0\)</div>
+                        <div class="option" data-value="B">B) Yes, and \(f'(0) = 1\)</div>
+                        <div class="option" data-value="C">C) Yes, and \(f'(0) = -1\)</div>
+                        <div class="option" data-value="D">D) No</div>
+                        <div class="option" data-value="E">E) Yes, but \(f'(0)\) is undefined</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('diff-exp1')">Show/Hide Explanation</span></p>
+                    <div id="diff-exp1" class="explanation">
+                        <p>Check differentiability at \(x = 0\): compute \(f'(0) = \lim_{h \to 0} \frac{f(h) - f(0)}{h} = \lim_{h \to 0} \frac{|h| \sin(h)}{h} = \lim_{h \to 0} \text{sgn}(h) \sin(h)\). For \(h > 0\), this is \(\sin(h) \to 0\); for \(h < 0\), this is \(-\sin(h) \to 0\). Since both one-sided limits equal 0, \(f'(0) = 0\). By the **Definition of the Derivative**, \(f\) is differentiable at \(x = 0\).</p>
+                        <p><strong>Answer: A) Yes, and \(f'(0) = 0\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>2.</strong> Suppose \(f\) is differentiable on \(\mathbb{R}\) and \(|f'(x)| \leq 1\) for all \(x\). If \(f(0) = 0\), what is the largest possible value of \(f(2)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 1</div>
+                        <div class="option" data-value="B">B) 2</div>
+                        <div class="option" data-value="C">C) 0</div>
+                        <div class="option" data-value="D">D) 4</div>
+                        <div class="option" data-value="E">E) \(\infty\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('diff-exp2')">Show/Hide Explanation</span></p>
+                    <div id="diff-exp2" class="explanation">
+                        <p>By the **Mean Value Theorem**, for some \(c \in (0,2)\), \(f(2) - f(0) = f'(c) \cdot (2 - 0)\). Since \(|f'(c)| \leq 1\), we have \(|f(2)| \leq 2\). The largest possible value occurs when \(f'(c) = 1\), so \(f(2) = 2\). For example, \(f(x) = x\) satisfies \(f'(x) = 1\) and \(f(2) = 2\). Thus, the maximum is 2.</p>
+                        <p><strong>Answer: B) 2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>3.</strong> Let \(f(x) = x^2 \sin\left(\frac{1}{x}\right)\) for \(x \neq 0\), and \(f(0) = 0\). Is \(f\) differentiable at \(x = 0\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) No</div>
+                        <div class="option" data-value="B">B) Yes, and \(f'(0) = 1\)</div>
+                        <div class="option" data-value="C">C) Yes, and \(f'(0) = 0\)</div>
+                        <div class="option" data-value="D">D) Yes, and \(f'(0) = \sin(1)\)</div>
+                        <div class="option" data-value="E">E) Yes, but \(f'(0)\) is undefined</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('diff-exp3')">Show/Hide Explanation</span></p>
+                    <div id="diff-exp3" class="explanation">
+                        <p>Compute \(f'(0) = \lim_{h \to 0} \frac{f(h) - f(0)}{h} = \lim_{h \to 0} \frac{h^2 \sin\left(\frac{1}{h}\right)}{h} = \lim_{h \to 0} h \sin\left(\frac{1}{h}\right)\). Since \(|\sin\left(\frac{1}{h}\right)| \leq 1\), \(|h \sin\left(\frac{1}{h}\right)| \leq |h|\). By the **Squeeze Theorem**, as \(h \to 0\), \(|h| \to 0\), so the limit is 0. Thus, \(f\) is differentiable at \(x = 0\), and \(f'(0) = 0\). The oscillation of \(\sin\left(\frac{1}{h}\right)\) makes this tricky, but the \(h^2\) term ensures differentiability.</p>
+                        <p><strong>Answer: C) Yes, and \(f'(0) = 0\)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integration Section -->
+            <div id="integration-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Integration Practice Questions</h2>
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> Evaluate \(\int_0^1 \frac{\ln(1 + x)}{x} \, dx\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 1</div>
+                        <div class="option" data-value="B">B) \(\frac{\pi^2}{12}\)</div>
+                        <div class="option" data-value="C">C) \(\frac{\pi^2}{6}\)</div>
+                        <div class="option" data-value="D">D) \(\ln(2)\)</div>
+                        <div class="option" data-value="E">E) Diverges</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('int-exp1')">Show/Hide Explanation</span></p>
+                    <div id="int-exp1" class="explanation">
+                        <p>Use the series expansion \(\ln(1 + x) = \sum_{n=1}^\infty (-1)^{n-1} \frac{x^n}{n}\) for \(|x| < 1\). Then, \(\frac{\ln(1 + x)}{x} = \sum_{n=1}^\infty (-1)^{n-1} \frac{x^{n-1}}{n}\). Integrate term-by-term: \(\int_0^1 \sum_{n=1}^\infty (-1)^{n-1} \frac{x^{n-1}}{n} \, dx = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} \int_0^1 x^{n-1} \, dx = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} \cdot \frac{1}{n} = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^2}\). This is the Dirichlet eta function: \(\eta(2) = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^2} = \frac{\pi^2}{12}\). By the **Term-by-Term Integration Theorem** for uniformly convergent series, the integral converges to \(\frac{\pi^2}{12}\).</p>
+                        <p><strong>Answer: B) \(\frac{\pi^2}{12}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>2.</strong> Consider the improper integral \(\int_0^\infty \frac{\sin(x)}{x} \, dx\). Does it converge?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Diverges</div>
+                        <div class="option" data-value="B">B) Converges to 0</div>
+                        <div class="option" data-value="C">C) Converges to \(\frac{\pi}{2}\)</div>
+                        <div class="option" data-value="D">D) Converges to 1</div>
+                        <div class="option" data-value="E">E) Converges to \(\pi\)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('int-exp2')">Show/Hide Explanation</span></p>
+                    <div id="int-exp2" class="explanation">
+                        <p>This is the Dirichlet integral. The integrand \(\frac{\sin(x)}{x}\) is continuous for \(x \neq 0\), and at \(x = 0\), \(\lim_{x \to 0} \frac{\sin(x)}{x} = 1\), so define \(f(0) = 1\). The integral \(\int_0^\infty \frac{\sin(x)}{x} \, dx\) is improper. Split it: \(\int_0^1 + \int_1^\infty\). The first part converges since \(\frac{\sin(x)}{x}\) is bounded. For the second, use **Dirichlet's Test for Integrals**: \(\sin(x)\) is bounded, and \(\int_1^\infty \frac{1}{x} \, dx\) diverges slowly, but the oscillatory nature of \(\sin(x)\) ensures convergence to \(\frac{\pi}{2}\), a standard result in real analysis.</p>
+                        <p><strong>Answer: C) Converges to \(\frac{\pi}{2}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>3.</strong> Let \(f_n(x) = n x (1 - x^2)^n\) on \([0,1]\). Evaluate \(\lim_{n \to \infty} \int_0^1 f_n(x) \, dx\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\frac{1}{2}\)</div>
+                        <div class="option" data-value="B">B) 0</div>
+                        <div class="option" data-value="C">C) 1</div>
+                        <div class="option" data-value="D">D) \(\infty\)</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('int-exp3')">Show/Hide Explanation</span></p>
+                    <div id="int-exp3" class="explanation">
+                        <p>Compute \(\int_0^1 n x (1 - x^2)^n \, dx\). Substitute \(u = 1 - x^2\), so \(du = -2x \, dx\), \(x \, dx = -\frac{du}{2}\), and limits \(x = 0 \to u = 1\), \(x = 1 \to u = 0\). The integral becomes \(\int_1^0 n \left(-\frac{du}{2}\right) u^n = \frac{n}{2} \int_0^1 u^n \, du = \frac{n}{2} \cdot \frac{1}{n+1} = \frac{n}{2(n+1)}\). As \(n \to \infty\), \(\lim_{n \to \infty} \frac{n}{2(n+1)} = \frac{1}{2}\). By the **Limit of Integrals Theorem**, the limit exists and equals \(\frac{1}{2}\).</p>
+                        <p><strong>Answer: A) \(\frac{1}{2}\)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Series of Functions Section -->
+            <div id="functionseries-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Series of Functions Practice Questions</h2>
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> Consider the series \(\sum_{n=1}^\infty \frac{x^n}{n^2}\) on \([-1,1]\). Determine where it converges uniformly.</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) On \([-1,1]\)</div>
+                        <div class="option" data-value="B">B) On \([-1,1)\)</div>
+                        <div class="option" data-value="C">C) On \((-1,1]\)</div>
+                        <div class="option" data-value="D">D) On \((-1,1)\)</div>
+                        <div class="option" data-value="E">E) Nowhere</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('fs-exp1')">Show/Hide Explanation</span></p>
+                    <div id="fs-exp1" class="explanation">
+                        <p>Use the **Weierstrass M-test**: For \(|x| \leq 1\), \(\left| \frac{x^n}{n^2} \right| \leq \frac{1}{n^2}\). Since \(\sum \frac{1}{n^2} < \infty\), the series converges uniformly on \([-1,1]\). However, at \(x = 1\), \(\sum \frac{1}{n^2}\) converges, but at \(x = -1\), \(\sum \frac{(-1)^n}{n^2}\) converges conditionally. The M-test applies to absolute convergence, so uniform convergence holds on \([-1,1]\), but the question is tricky: the boundary at \(x = 1\) is included, so \([-1,1)\) is incorrect. Correct answer is \([-1,1]\).</p>
+                        <p><strong>Answer: A) On \([-1,1]\)</strong> (Note: Corrected option label)</p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>2.</strong> Let \(f_n(x) = \frac{n x}{1 + n^2 x^2}\) on \(\mathbb{R}\). What is the pointwise limit of \(f_n(x)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(f(x) = x\)</div>
+                        <div class="option" data-value="B">B) \(f(x) = \frac{1}{x}\)</div>
+                        <div class="option" data-value="C">C) \(f(x) = 0\)</div>
+                        <div class="option" data-value="D">D) \(f(x) = 1\)</div>
+                        <div class="option" data-value="E">E) Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('fs-exp2')">Show/Hide Explanation</span></p>
+                    <div id="fs-exp2" class="exDark="explanation">
+                        <p>For fixed \(x\), compute \(\lim_{n \to \infty} \frac{n x}{1 + n^2 x^2}\). Rewrite as \(\frac{\frac{x}{n}}{\frac{1}{n^2} + x^2}\). As \(n \to \infty\), the numerator \(\frac{x}{n} \to 0\), and the denominator \(\frac{1}{n^2} + x^2 \to x^2\) (if \(x \neq 0\)). Thus, the limit is 0. At \(x = 0\), \(f_n(0) = 0\), so the limit is 0. By the **Pointwise Convergence Theorem**, the limit function is \(f(x) = 0\).</p>
+                        <p><strong>Answer: C) \(f(x) = 0\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>3.</strong> Consider the series \(\sum_{n=1}^\infty n x^n\) on \((-1,1)\). Is the sum differentiable on \((-1,1)\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                        <div class="option" data-value="C">C) Only at \(x = 0\)</div>
+                        <div class="option" data-value="D">D) Only on \((-1/2,1/2)\)</div>
+                        <div class="option" data-value="E">E) Cannot determine</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('fs-exp3')">Show/Hide Explanation</span></p>
+                    <div id="fs-exp3" class="explanation">
+                        <p>The series is \(\sum_{n=1}^\infty n x^n\). Its sum is \(f(x) = \sum_{n=1}^\infty n x^n = x \sum_{n=1}^\infty n x^{n-1} = x \cdot \frac{1}{(1-x)^2} = \frac{x}{(1-x)^2}\) for \(|x| < 1\). The derivative series is \(\sum_{n=1}^\infty n^2 x^{n-1}\). Check uniform convergence of the derivative series on \([-r,r]\), \(0 < r < 1\), using the **Weierstrass M-test**: \(\left| n^2 x^{n-1} \right| \leq n^2 r^{n-1}\), and \(\sum n^2 r^{n-1} < \infty\). Thus, the derivative series converges uniformly on compact subsets of \((-1,1)\). By the **Term-by-Term Differentiation Theorem**, the series is differentiable on \((-1,1)\).</p>
+                        <p><strong>Answer: A) Yes</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        // Inject uniform ❌ wrong-attempt counter into each question
+        document.addEventListener('DOMContentLoaded', () => {
+            const questions = document.querySelectorAll('.question');
+            let autoId = 1;
+            window.__analysisIncorrect = window.__analysisIncorrect || {};
+            questions.forEach(q => {
+                if (!q.id) { q.id = `q${autoId++}`; } else { autoId++; }
+                window.__analysisIncorrect[q.id] = 0;
+                const qaEl = document.getElementById('questions-answered');
+                if (qaEl) qaEl.textContent = `0/${questions.length}`;
+                let meta = q.querySelector('.question-meta');
+                if (!meta) {
+                    meta = document.createElement('div');
+                    meta.className = 'question-meta';
+                    q.insertBefore(meta, q.firstChild);
+                }
+                if (!meta.querySelector('.q-errors')) {
+                    const wrap = document.createElement('span');
+                    wrap.innerHTML = '❌ <span class="q-errors" data-errors="0">0</span>';
+                    meta.appendChild(wrap);
+                }
+            });
+        });
+        function toggleExplanation(id) {
+            const element = document.getElementById(id);
+            element.style.display = element.style.display === 'none' || element.style.display === '' ? 'block' : 'none';
+        }
+
+        document.querySelectorAll('.question').forEach(question => {
+            const correctAnswer = question.getAttribute('data-correct');
+            const options = question.querySelectorAll('.option');
+            const feedback = question.querySelector('.feedback');
+
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    options.forEach(opt => {
+                        opt.classList.remove('selected-correct', 'selected-wrong');
+                    });
+                    feedback.classList.remove('correct', 'wrong');
+                    feedback.style.display = 'none';
+                    feedback.textContent = '';
+
+                    const selectedValue = option.getAttribute('data-value');
+                    if (selectedValue === correctAnswer) {
+                        option.classList.add('selected-correct');
+                        feedback.textContent = 'Correct';
+                        feedback.classList.add('correct');
+                    } else {
+                        option.classList.add('selected-wrong');
+                        feedback.textContent = 'Wrong';
+                        feedback.classList.add('wrong');
+                        const qid = question.id;
+                        window.__analysisIncorrect = window.__analysisIncorrect || {};
+                        window.__analysisIncorrect[qid] = (window.__analysisIncorrect[qid] || 0) + 1;
+                        const errEl = question.querySelector('.q-errors');
+                        if (errEl) {
+                            errEl.setAttribute('data-errors', String(window.__analysisIncorrect[qid]));
+                            errEl.textContent = String(window.__analysisIncorrect[qid]);
+                        }
+                    }
+                    feedback.style.display = 'block';
+
+                    // Update dashboard counters
+                    window.__analysisAnswered = window.__analysisAnswered || new Set();
+                    window.__analysisFirstCorrect = window.__analysisFirstCorrect || new Set();
+                    const qid2 = question.id;
+                    if (!window.__analysisAnswered.has(qid2)) {
+                        window.__analysisAnswered.add(qid2);
+                    }
+                    if (selectedValue === correctAnswer) {
+                        if ((window.__analysisIncorrect && (window.__analysisIncorrect[qid2] || 0)) === 0) {
+                            window.__analysisFirstCorrect.add(qid2);
+                        }
+                    }
+                    const total = document.querySelectorAll('.question').length;
+                    const ans = window.__analysisAnswered ? window.__analysisAnswered.size : 0;
+                    const cor = window.__analysisFirstCorrect ? window.__analysisFirstCorrect.size : 0;
+                    const acc = ans > 0 ? Math.round((cor / ans) * 100) : 0;
+                    const qaEl = document.getElementById('questions-answered');
+                    if (qaEl) qaEl.textContent = `${ans}/${total}`;
+                    const caEl = document.getElementById('correct-answers');
+                    if (caEl) caEl.textContent = String(cor);
+                    const arEl = document.getElementById('accuracy-rate');
+                    if (arEl) arEl.textContent = `${acc}%`;
+                });
+            });
+        });
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.topic-section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            document.querySelectorAll('.sidebar-nav button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            const selectedSection = document.getElementById(sectionId + '-section');
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            } else {
+                console.warn(`Section ${sectionId} not found`);
+            }
+
+            const activeButton = document.querySelector(`.sidebar-nav button[onclick="showSection('${sectionId}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('sequences');
+        });
+
+        // Dashboard timer
+        let globalStartTime = null;
+        let globalTimerInterval = null;
+        let isPaused = false;
+        let isStarted = false;
+
+        function updateGlobalTimer() {
+            const now = new Date();
+            const elapsed = Math.floor((now - globalStartTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            const el = document.getElementById('time-elapsed');
+            if (el) el.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function startTimers() {
+            if (!isStarted) {
+                isStarted = true;
+                globalStartTime = new Date();
+                globalTimerInterval = setInterval(updateGlobalTimer, 1000);
+                document.getElementById('start-btn').disabled = true;
+                document.getElementById('results-btn').disabled = false;
+                document.getElementById('pause-btn').disabled = false;
+                document.getElementById('reset-btn').disabled = false;
+            }
+        }
+
+        function pauseTimers() {
+            if (isStarted && !isPaused) {
+                isPaused = true;
+                clearInterval(globalTimerInterval);
+                document.getElementById('pause-btn').textContent = 'Resume';
+            } else if (isStarted && isPaused) {
+                isPaused = false;
+                globalTimerInterval = setInterval(updateGlobalTimer, 1000);
+                document.getElementById('pause-btn').textContent = 'Pause';
+            }
+        }
+
+        function resetTimers() {
+            if (globalTimerInterval) clearInterval(globalTimerInterval);
+            globalStartTime = null;
+            globalTimerInterval = null;
+            isStarted = false;
+            isPaused = false;
+            const te = document.getElementById('time-elapsed');
+            if (te) te.textContent = '00:00';
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('pause-btn').disabled = true;
+            document.getElementById('pause-btn').textContent = 'Pause';
+            document.getElementById('reset-btn').disabled = true;
+            document.getElementById('results-btn').disabled = true;
+
+            window.__analysisAnswered = new Set();
+            window.__analysisFirstCorrect = new Set();
+            const qaEl = document.getElementById('questions-answered');
+            if (qaEl) qaEl.textContent = `0/${document.querySelectorAll('.question').length}`;
+            const caEl = document.getElementById('correct-answers');
+            if (caEl) caEl.textContent = '0';
+            const arEl = document.getElementById('accuracy-rate');
+            if (arEl) arEl.textContent = '0%';
+            const res = document.getElementById('results');
+            if (res) res.style.display = 'none';
+        }
+
+        function showResultsDash() {
+            const totalQuestions = document.querySelectorAll('.question').length;
+            const totalTime = globalStartTime ? Math.floor((new Date() - globalStartTime) / 1000) : 0;
+            const minutes = Math.floor(totalTime / 60);
+            const seconds = totalTime % 60;
+            const avgTimePerQuestion = 120;
+            const expectedTotalTime = totalQuestions * avgTimePerQuestion;
+            const correctCount = window.__analysisFirstCorrect ? window.__analysisFirstCorrect.size : 0;
+            const answeredCount = window.__analysisAnswered ? window.__analysisAnswered.size : 0;
+            const accuracy = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+            const timeComparison = totalTime <= expectedTotalTime 
+                ? `Great job! You completed in ${minutes}:${seconds.toString().padStart(2, '0')} minutes, which is ${Math.floor((expectedTotalTime - totalTime) / 60)} minutes faster than the expected ${Math.floor(expectedTotalTime / 60)} minutes.`
+                : `You took ${minutes}:${seconds.toString().padStart(2, '0')} minutes, which is ${Math.floor((totalTime - expectedTotalTime) / 60)} minutes longer than the expected ${Math.floor(expectedTotalTime / 60)} minutes. Consider practicing to improve your speed.`;
+
+            let incorrectSummary = '<strong>Question Summary:</strong><ul>';
+            document.querySelectorAll('.question').forEach((q, idx) => {
+                const qid = q.id;
+                const count = (window.__analysisIncorrect && window.__analysisIncorrect[qid]) || 0;
+                const isAnswered = window.__analysisAnswered && window.__analysisAnswered.has(qid);
+                const isCorrectFirst = window.__analysisFirstCorrect && window.__analysisFirstCorrect.has(qid);
+                let status = '';
+                if (!isAnswered) status = 'Not attempted (counted as incorrect)';
+                else if (isCorrectFirst) status = 'Correct';
+                else status = 'Incorrect';
+                incorrectSummary += `<li>Question ${idx + 1}: ${status}, ${count} wrong attempt(s)</li>`;
+            });
+            incorrectSummary += '</ul>';
+
+            const tt = document.getElementById('time-taken');
+            if (tt) tt.innerHTML = `<strong>Time Taken:</strong> ${minutes}:${seconds.toString().padStart(2, '0')} minutes`;
+            const tc = document.getElementById('time-comparison');
+            if (tc) tc.innerHTML = timeComparison;
+            const ic = document.getElementById('incorrect-counts');
+            if (ic) ic.innerHTML = incorrectSummary;
+            const wp = document.getElementById('weak-points');
+            if (wp) wp.innerHTML = '';
+            const performanceSummary = `<strong>Overall Performance:</strong><p>Answered: ${answeredCount}/${totalQuestions} questions | Correct: ${correctCount}/${totalQuestions} (${accuracy}%) | Total Score: ${correctCount}/${totalQuestions}</p>`;
+            if (tt) tt.innerHTML = performanceSummary + tt.innerHTML;
+            const res = document.getElementById('results');
+            if (res) { res.style.display = 'block'; res.scrollIntoView({ behavior: 'smooth' }); }
+        }
+
+        document.getElementById('start-btn').addEventListener('click', startTimers);
+        document.getElementById('pause-btn').addEventListener('click', pauseTimers);
+        document.getElementById('reset-btn').addEventListener('click', resetTimers);
+        document.getElementById('results-btn').addEventListener('click', showResultsDash);
+    </script>
+</body>
+</html>

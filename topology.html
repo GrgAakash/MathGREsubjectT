@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topology Practice Questions - Math GRE Prep</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: relative;
+            z-index: 15;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 1100px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard div {
+            text-align: center;
+            flex: 1;
+        }
+
+        .dashboard p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .dashboard button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .dashboard button:hover {
+            background: #228B7E;
+        }
+
+        .dashboard button:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar-nav {
+            flex-basis: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            z-index: 5;
+        }
+
+        .sidebar-nav button {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar-nav button:hover {
+            background-color: #e9ecef;
+        }
+
+        .sidebar-nav button.active {
+            background-color: var(--accent);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex-grow: 1;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.9em;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 500;
+            flex-wrap: wrap;
+        }
+
+        .question p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            font-size: 1em;
+        }
+
+        .option:hover {
+            background: #e9ecef;
+            border-color: #aaa;
+        }
+
+        .option.selected-correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .option.selected-wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct {
+            color: #28a745;
+            display: block;
+        }
+
+        .feedback.wrong {
+            color: #dc3545;
+            display: block;
+        }
+
+        .toggle-btn {
+            cursor: pointer;
+            color: var(--accent);
+            text-decoration: underline;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .toggle-btn:hover {
+            color: #228B7E;
+        }
+
+        .explanation {
+            display: none;
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent);
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        #results {
+            display: none;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        /* removed per-question timer styles */
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .main-container {
+                flex-direction: column;
+                padding: 10px;
+                gap: 15px;
+            }
+            
+            .dashboard {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .sidebar-nav {
+                flex-basis: auto;
+                width: 100%;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .sidebar-nav button {
+                width: auto;
+                flex-grow: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .question {
+                padding: 15px;
+            }
+            .option {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+    <style>
+        /* Codes_QTCat theme overlay - non-invasive visual refresh */
+        body { font-family: 'Courier New', monospace; background-color: #f0f0f0; color: #0d0d0d; font-weight: bold; }
+        header { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+        header h1 { text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #cccccc; font-weight: bold; }
+        .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
+        .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
+        .nav-links a:hover { opacity: 1; text-decoration: underline; }
+        .dashboard { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .dashboard button { background: #0d0d0d; color: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .dashboard button:hover { background: #ffffff; color: #0d0d0d; }
+        .main-container { background: transparent; }
+        .sidebar-nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .sidebar-nav button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; background: #f8f9fa; }
+        .sidebar-nav button.active { background-color: #0d0d0d; color: #ffffff; }
+        .timer-btn { border: 2px solid #0d0d0d; border-radius: 20px; font-weight: bold; }
+        .question { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .option { background: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .option:hover { background: #f0f0f0; border-color: #0d0d0d; }
+        .feedback { font-weight: bold; color: #0d0d0d; }
+        .feedback.correct { color: #28a745; }
+        .feedback.wrong { color: #c62828; }
+        .toggle-btn { color: #D97706; }
+        .toggle-btn:hover { color: #a65e05; }
+        footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+    </style>
+    <style>
+        /* Remove explanations */
+        .toggle-btn { display: none !important; }
+        .explanation { display: none !important; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Topology Practice Questions</h1>
+        <p class="subtitle">Master topology concepts with interactive practice</p>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <div>
+            <p id="time-elapsed">00:00</p>
+            <p>Time Elapsed</p>
+        </div>
+        <div>
+            <p id="questions-answered">0/2</p>
+            <p>Questions Answered</p>
+        </div>
+        <div>
+            <p id="correct-answers">0</p>
+            <p>Correct Answers</p>
+        </div>
+        <div>
+            <p id="accuracy-rate">0%</p>
+            <p>Accuracy Rate</p>
+        </div>
+        <div>
+            <button id="start-btn">Start</button>
+            <button id="pause-btn" disabled>Pause</button>
+            <button id="reset-btn">Reset</button>
+            <button id="results-btn" disabled>End</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <nav class="sidebar-nav">
+            <button onclick="showSection('general-topology')" class="active">General Topology</button>
+            <button onclick="showSection('algebraic-topology')">Algebraic Topology</button>
+        </nav>
+
+        <div class="main-content">
+            <div id="results">
+                <h2>Results</h2>
+                <p id="time-taken"></p>
+                <p id="time-comparison"></p>
+                <p id="incorrect-counts"></p>
+                <p id="weak-points"></p>
+            </div>
+
+            <section id="general-topology-section" class="topic-section">
+                <h2>General Topology Practice Questions</h2>
+
+                <div class="question" id="q1">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Easy</span>
+                    </div>
+                    <p><strong>1.</strong> Let \( X = \{a, b, c\} \) with topology \( \tau = \{\emptyset, \{a\}, \{a, b\}, X\} \). Is the set \( \{b, c\} \) open in \( X \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                        <div class="option" data-value="C">C) Open and closed</div>
+                        <div class="option" data-value="D">D) Neither open nor closed</div>
+                        <div class="option" data-value="E">E) Cannot determine</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q1')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q1">
+                        <p>A set is open if it belongs to the topology \( \tau \). The topology is \( \tau = \{\emptyset, \{a\}, \{a, b\}, X\} \). Since \( \{b, c\} \notin \tau \), it is not open. By the definition of a topology, only sets in \( \tau \) are open.</p>
+                        <p><strong>Answer: B) No</strong></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="algebraic-topology-section" class="topic-section">
+                <h2>Algebraic Topology Practice Questions</h2>
+
+                <div class="question" id="q11">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>11.</strong> What is the fundamental group \( \pi_1(S^1) \) of the circle \( S^1 \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( \{e\} \) (trivial group)</div>
+                        <div class="option" data-value="B">B) \( \mathbb{Z}_2 \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{Z} \)</div>
+                        <div class="option" data-value="D">D) \( \mathbb{Z} \oplus \mathbb{Z} \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{Q} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q11')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q11">
+                        <p>The fundamental group of the circle \( S^1 \) is isomorphic to the group of integers, \( \mathbb{Z} \). This can be shown using the winding number of a loop on the circle.</p>
+                        <p><strong>Answer: C) \( \mathbb{Z} \)</strong></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        let globalStartTime = null;
+        let globalTimerInterval = null;
+        // per-question timers removed
+        let answeredQuestions = new Set();
+        let correctFirstAttempts = new Set();
+        let incorrectCounts = {};
+        let questionTimes = {};
+        let isPaused = false;
+        let isStarted = false;
+        let questionAnswered = {}; // Track which questions have been answered correctly
+
+        // Initialize question timers and error counts
+        // removed initializeQuestionData
+
+        function updateGlobalTimer() {
+            const now = new Date();
+            const elapsed = Math.floor((now - globalStartTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            document.getElementById('time-elapsed').textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // removed per-question timer updates
+
+        // removed toggleQuestionTimer
+        function startTimers() {
+            if (!isStarted) {
+                isStarted = true;
+                globalStartTime = new Date();
+                updateGlobalTimer(); // Add this line to immediately update display
+                globalTimerInterval = setInterval(updateGlobalTimer, 1000);
+                document.getElementById('start-btn').disabled = true;
+                document.getElementById('results-btn').disabled = false;
+                document.getElementById('pause-btn').disabled = false;
+                document.getElementById('reset-btn').disabled = false;
+            }
+        }
+
+        function pauseTimers() {
+            if (isStarted && !isPaused) {
+                isPaused = true;
+                clearInterval(globalTimerInterval);
+                // per-question timers removed
+                document.getElementById('pause-btn').textContent = 'Resume';
+            } else if (isStarted && isPaused) {
+                isPaused = false;
+                globalTimerInterval = setInterval(updateGlobalTimer, 1000);
+                // per-question timers removed
+                document.getElementById('pause-btn').textContent = 'Pause';
+            }
+        }
+
+        // Fixed option click handler with proper mistake counting
+        document.querySelectorAll('.question').forEach(question => {
+            const options = question.querySelectorAll('.option');
+            const feedback = question.querySelector('.feedback');
+            const questionId = question.id;
+            
+            const correctAnswers = {
+                'q1': 'B',
+                'q11': 'C'
+            };
+            
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    const correctAnswer = correctAnswers[questionId];
+                    if (!correctAnswer || questionAnswered[questionId]) return;
+                    
+                    const selected = option.getAttribute('data-value');
+                    const questionNum = parseInt(questionId.replace('q', ''));
+                    // Mark as answered on first interaction
+                    if (!answeredQuestions.has(questionNum)) {
+                        answeredQuestions.add(questionNum);
+                        const totalQuestions = document.querySelectorAll('.question').length;
+                        document.getElementById('questions-answered').textContent = `${answeredQuestions.size}/${totalQuestions}`;
+                    }
+                    
+                    // Clear previous selections
+                    options.forEach(opt => {
+                        opt.classList.remove('selected-correct', 'selected-wrong', 'selected');
+                    });
+
+                    if (selected === correctAnswer) {
+                        option.classList.add('selected-correct');
+                        feedback.textContent = 'Correct! ✓';
+                        feedback.className = 'feedback correct';
+                        feedback.style.display = 'block';
+                        
+                        // Mark question as answered correctly
+                        questionAnswered[questionId] = true;
+                        
+                        // per-question timer removed
+                        
+                        // Update tracking
+                        if (!answeredQuestions.has(questionNum)) {
+                            answeredQuestions.add(questionNum);
+                            const totalQuestions = document.querySelectorAll('.question').length;
+                            document.getElementById('questions-answered').textContent = `${answeredQuestions.size}/${totalQuestions}`;
+                        }
+                        if (incorrectCounts[questionId] === 0) {
+                            correctFirstAttempts.add(questionNum);
+                            document.getElementById('correct-answers').textContent = correctFirstAttempts.size;
+                        }
+                        
+                        const accuracy = answeredQuestions.size > 0 ? Math.round((correctFirstAttempts.size / answeredQuestions.size) * 100) : 0;
+                        document.getElementById('accuracy-rate').textContent = `${accuracy}%`;
+                        
+                    } else {
+                        option.classList.add('selected-wrong');
+                        feedback.textContent = 'Incorrect ✗ Try again!';
+                        feedback.className = 'feedback wrong';
+                        feedback.style.display = 'block';
+                        
+                        // Only increment mistake counter once per wrong attempt
+                        incorrectCounts[questionId] = (incorrectCounts[questionId] || 0) + 1;
+                        const errorElement = document.querySelector(`#${questionId} .q-errors`);
+                        if (errorElement) {
+                            errorElement.setAttribute('data-errors', incorrectCounts[questionId]);
+                            errorElement.textContent = incorrectCounts[questionId];
+                        }
+                        
+                        // Clear selection after a brief delay to allow multiple attempts
+                        setTimeout(() => {
+                            option.classList.remove('selected-wrong');
+                            feedback.style.display = 'none';
+                        }, 1500);
+                    }
+                    
+                    question.setAttribute('data-selected', selected);
+                    // Update accuracy and correct count after any click
+                    const correctCountNow = correctFirstAttempts.size;
+                    const answeredNow = answeredQuestions.size;
+                    const accNow = answeredNow > 0 ? Math.round((correctCountNow / answeredNow) * 100) : 0;
+                    document.getElementById('correct-answers').textContent = String(correctCountNow);
+                    document.getElementById('accuracy-rate').textContent = `${accNow}%`;
+                });
+            });
+        });
+
+        function resetTimers() {
+            // Clear all intervals
+            if (globalTimerInterval) clearInterval(globalTimerInterval);
+            // per-question timers removed
+            
+            // Reset all state variables
+            globalStartTime = null;
+            // per-question timers removed
+            answeredQuestions.clear();
+            correctFirstAttempts.clear();
+            incorrectCounts = {};
+            // per-question timers removed
+            questionAnswered = {};
+            isStarted = false;
+            isPaused = false;
+            
+            // Reset UI elements
+            document.getElementById('time-elapsed').textContent = '00:00';
+            const totalQuestions = document.querySelectorAll('.question').length;
+            document.getElementById('questions-answered').textContent = `0/${totalQuestions}`;
+            document.getElementById('correct-answers').textContent = '0';
+            document.getElementById('accuracy-rate').textContent = '0%';
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('pause-btn').disabled = true;
+            document.getElementById('pause-btn').textContent = 'Pause';
+            document.getElementById('reset-btn').disabled = true;
+            document.getElementById('results-btn').disabled = true;
+            document.getElementById('results').style.display = 'none';
+            
+            // Reset all questions
+            document.querySelectorAll('.question').forEach(questionElement => {
+                const questionId = questionElement.id;
+                const questionNum = parseInt(questionId.replace('q', ''));
+                
+                // Reset error displays
+                const errorElement = questionElement.querySelector('.q-errors');
+                if (errorElement) {
+                    errorElement.setAttribute('data-errors', '0');
+                    errorElement.textContent = '0';
+                }
+                
+                // Clear option selections
+                questionElement.querySelectorAll('.option').forEach(option => {
+                    option.classList.remove('selected-correct', 'selected-wrong', 'selected');
+                });
+                
+                // Hide feedback
+                const feedback = questionElement.querySelector('.feedback');
+                if (feedback) {
+                    feedback.style.display = 'none';
+                    feedback.classList.remove('correct', 'wrong');
+                    feedback.textContent = '';
+                }
+                
+                // Remove data-selected attribute
+                questionElement.removeAttribute('data-selected');
+            });
+            
+            // per-question timer init removed
+        }
+
+        function showResults() {
+    const allQuestions = document.querySelectorAll('.question');
+    const totalQuestions = allQuestions.length;
+    const totalTime = globalStartTime ? Math.floor((new Date() - globalStartTime) / 1000) : 0;
+    const minutes = Math.floor(totalTime / 60);
+    const seconds = totalTime % 60;
+    const avgTimePerQuestion = 120; // 2 minutes per question
+    const expectedTotalTime = totalQuestions * avgTimePerQuestion;
+    
+    // Calculate accuracy based on total questions (unattempted = incorrect)
+    const correctCount = correctFirstAttempts.size;
+    const accuracy = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
+    
+    const timeComparison = totalTime <= expectedTotalTime 
+        ? `Great job! You completed in ${minutes}:${seconds.toString().padStart(2, '0')} minutes, which is ${Math.floor((expectedTotalTime - totalTime) / 60)} minutes faster than the expected ${Math.floor(expectedTotalTime / 60)} minutes.` 
+        : `You took ${minutes}:${seconds.toString().padStart(2, '0')} minutes, which is ${Math.floor((totalTime - expectedTotalTime) / 60)} minutes longer than the expected ${Math.floor(expectedTotalTime / 60)} minutes. Consider practicing to improve your speed.`;
+
+    let incorrectSummary = '<strong>Question Summary:</strong><ul>';
+    let weakPoints = '<strong>Areas for Improvement:</strong><p>';
+    let hasWeakPoints = false;
+
+    // Check only the actual questions that exist on the page
+    allQuestions.forEach((questionElement, index) => {
+        const questionId = questionElement.id;
+        const questionNum = parseInt(questionId.replace('q', ''));
+        const displayNum = index + 1; // Sequential numbering for display
+        
+        const count = incorrectCounts[questionId] || 0;
+        const time = 0;
+        const isAnswered = answeredQuestions.has(questionNum);
+        const isCorrect = correctFirstAttempts.has(questionNum);
+        
+        let status = '';
+        if (!isAnswered) {
+            status = 'Not attempted (counted as incorrect)';
+        } else if (isCorrect) {
+            status = 'Correct';
+        } else {
+            status = 'Incorrect';
+        }
+        
+        incorrectSummary += `<li>Question ${displayNum}: ${status}, ${count} wrong attempt(s)</li>`;
+        
+        // Mark as weak point if: not attempted, multiple wrong attempts, or took too long
+        if (!isAnswered || count >= 2) {
+            hasWeakPoints = true;
+            weakPoints += `Question ${displayNum}: `;
+            if (!isAnswered) weakPoints += 'Not attempted, ';
+            if (count >= 2) weakPoints += `${count} incorrect attempts, `;
+            weakPoints += 'needs review.<br>';
+        }
+    });
+    
+    incorrectSummary += '</ul>';
+    if (!hasWeakPoints) {
+        weakPoints += 'No significant weak points detected. You performed well on attempted questions!';
+    }
+    weakPoints += '</p>';
+
+    // Update the results display
+    document.getElementById('time-taken').innerHTML = `<strong>Time Taken:</strong> ${minutes}:${seconds.toString().padStart(2, '0')} minutes`;
+    document.getElementById('time-comparison').innerHTML = timeComparison;
+    document.getElementById('incorrect-counts').innerHTML = incorrectSummary;
+    document.getElementById('weak-points').innerHTML = weakPoints;
+    
+    // Add overall performance summary
+    const performanceSummary = `<strong>Overall Performance:</strong><p>Answered: ${answeredQuestions.size}/${totalQuestions} questions | Correct: ${correctCount}/${totalQuestions} (${accuracy}%) | Total Score: ${correctCount}/${totalQuestions}</p>`;
+    document.getElementById('time-taken').innerHTML = performanceSummary + document.getElementById('time-taken').innerHTML;
+    
+    document.getElementById('results').style.display = 'block';
+    
+    // Scroll to results
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+}
+
+        function toggleExplanation(id) {
+            const explanation = document.getElementById(id);
+            explanation.style.display = explanation.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.topic-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            document.querySelectorAll('.sidebar-nav button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            const selectedSection = document.getElementById(sectionId + '-section');
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+
+            const activeButton = document.querySelector(`.sidebar-nav button[onclick="showSection('${sectionId}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+
+            // Reset UI and counters to match other subjects
+            document.querySelectorAll('.question').forEach(question => {
+                question.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected-correct', 'selected-wrong', 'selected');
+                });
+                const feedback = question.querySelector('.feedback');
+                if (feedback) {
+                    feedback.classList.remove('correct', 'wrong');
+                    feedback.style.display = 'none';
+                    feedback.textContent = '';
+                }
+                const errEl = question.querySelector('.q-errors');
+                if (errEl) {
+                    errEl.setAttribute('data-errors', '0');
+                    errEl.textContent = '0';
+                }
+            });
+            answeredQuestions = new Set();
+            correctFirstAttempts = new Set();
+            const qaEl = document.getElementById('questions-answered');
+            if (qaEl) qaEl.textContent = `0/${document.querySelectorAll('.question').length}`;
+            const caEl = document.getElementById('correct-answers');
+            if (caEl) caEl.textContent = '0';
+            const arEl = document.getElementById('accuracy-rate');
+            if (arEl) arEl.textContent = '0%';
+        }
+
+        document.getElementById('start-btn').addEventListener('click', startTimers);
+        document.getElementById('pause-btn').addEventListener('click', pauseTimers);
+        document.getElementById('reset-btn').addEventListener('click', resetTimers);
+        document.getElementById('results-btn').addEventListener('click', showResults);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('general-topology');
+            const qaEl = document.getElementById('questions-answered');
+            if (qaEl) qaEl.textContent = `0/${document.querySelectorAll('.question').length}`;
+            const caEl = document.getElementById('correct-answers');
+            if (caEl) caEl.textContent = '0';
+            const arEl = document.getElementById('accuracy-rate');
+            if (arEl) arEl.textContent = '0%';
+        });
+    </script>
+</body>
+</html>

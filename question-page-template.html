@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Name - GRE Math Subject Test Questions</title>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .question-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .question-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .question-difficulty {
+            background-color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .question-body {
+            padding: 1.5rem;
+        }
+        
+        .question-content {
+            margin-bottom: 2rem;
+        }
+        
+        .options {
+            padding-left: 1.5rem;
+        }
+        
+        .option {
+            margin-bottom: 0.75rem;
+        }
+        
+        .solution {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .solution-toggle {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .filter-section {
+            background-color: #e9ecef;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .filter-select {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #ced4da;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 0.5rem;
+        }
+        
+        .pagination-button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            background-color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-button:hover,
+        .pagination-button.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .math {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <style>
+        /* Codes_QTCat theme overlay - non-invasive visual refresh */
+        body { font-family: 'Courier New', monospace; background-color: #f0f0f0; color: #0d0d0d; font-weight: bold; }
+        header { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+        header h1 { text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #cccccc; font-weight: bold; }
+        .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
+        .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
+        .nav-links a:hover { opacity: 1; text-decoration: underline; }
+        .filter-section { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+        .question-card { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .question-header { background: #ffffff; color: #0d0d0d; border-bottom: 2px solid #0d0d0d; }
+        .solution-toggle { background: #0d0d0d; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .solution-toggle:hover { background: #ffffff; color: #0d0d0d; }
+        .pagination-button { border: 2px solid #0d0d0d; border-radius: 0; }
+        .pagination-button:hover, .pagination-button.active { background: #0d0d0d; color: #ffffff; }
+        footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+    </style>
+    <style>
+        /* Remove explanations */
+        .toggle-btn { display: none !important; }
+        .explanation { display: none !important; }
+    </style>
+    <!-- MathJax for rendering math equations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                processEscapes: true
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Category Name</h1>
+        <p class="subtitle">GRE Math Subject Test Questions</p>
+    </header>
+    
+    <nav class="nav">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section class="filter-section">
+            <h2>Filter Questions</h2>
+            <div class="filter-controls">
+                <select class="filter-select" id="difficulty-filter">
+                    <option value="all">All Difficulties</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                
+                <select class="filter-select" id="topic-filter">
+                    <option value="all">All Topics</option>
+                    <!-- Topics will vary based on category -->
+                    <option value="topic1">Topic 1</option>
+                    <option value="topic2">Topic 2</option>
+                    <option value="topic3">Topic 3</option>
+                </select>
+                
+                <select class="filter-select" id="year-filter">
+                    <option value="all">All Years</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+            </div>
+        </section>
+        
+        <section class="questions-section">
+            <!-- Sample Question 1 -->
+            <div class="question-card" data-difficulty="medium" data-topic="topic1" data-year="2023">
+                <div class="question-header">
+                    <h3>Question #1</h3>
+                    <span class="question-difficulty">Medium</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>Let $f: \mathbb{R} \to \mathbb{R}$ be a differentiable function such that $f'(x) = f(x)$ for all $x \in \mathbb{R}$ and $f(0) = 1$. What is the value of $f(2)$?</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> $e$</div>
+                            <div class="option"><strong>(B)</strong> $e^2$</div>
+                            <div class="option"><strong>(C)</strong> $2e$</div>
+                            <div class="option"><strong>(D)</strong> $e^{1/2}$</div>
+                            <div class="option"><strong>(E)</strong> $2$</div>
+                        </div>
+                    </div>
+                    
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden">
+                        <h4>Solution:</h4>
+                        <p>The differential equation $f'(x) = f(x)$ with initial condition $f(0) = 1$ has the unique solution $f(x) = e^x$.</p>
+                        <p>Therefore, $f(2) = e^2$.</p>
+                        <p><strong>Answer: (B) $e^2$</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sample Question 2 -->
+            <div class="question-card" data-difficulty="hard" data-topic="topic2" data-year="2022">
+                <div class="question-header">
+                    <h3>Question #2</h3>
+                    <span class="question-difficulty">Hard</span>
+                </div>
+                <div class="question-body">
+                    <div class="question-content">
+                        <p>Find the value of the integral:</p>
+                        <p>$\int_0^{\pi/2} \frac{\sin x}{\sin x + \cos x} dx$</p>
+                        <div class="options">
+                            <div class="option"><strong>(A)</strong> $\frac{\pi}{4}$</div>
+                            <div class="option"><strong>(B)</strong> $\frac{\pi}{2}$</div>
+                            <div class="option"><strong>(C)</strong> $\frac{\pi}{3}$</div>
+                            <div class="option"><strong>(D)</strong> $\ln 2$</div>
+                            <div class="option"><strong>(E)</strong> $1$</div>
+                        </div>
+                    </div>
+                    
+                    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+                    <div class="solution hidden">
+                        <h4>Solution:</h4>
+                        <p>Let $I = \int_0^{\pi/2} \frac{\sin x}{\sin x + \cos x} dx$</p>
+                        <p>We can make the substitution $u = \frac{\pi}{2} - x$ to get:</p>
+                        <p>$I = \int_0^{\pi/2} \frac{\sin(\frac{\pi}{2} - u)}{\sin(\frac{\pi}{2} - u) + \cos(\frac{\pi}{2} - u)} du$</p>
+                        <p>Which simplifies to:</p>
+                        <p>$I = \int_0^{\pi/2} \frac{\cos u}{\cos u + \sin u} du$</p>
+                        <p>Adding these two equations:</p>
+                        <p>$2I = \int_0^{\pi/2} \frac{\sin x + \cos u}{\sin x + \cos x} dx = \int_0^{\pi/2} 1 dx = \frac{\pi}{2}$</p>
+                        <p>Therefore $I = \frac{\pi}{4}$</p>
+                        <p><strong>Answer: (A) $\frac{\pi}{4}$</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- More questions would be added here -->
+            
+        </section>
+        
+        <div class="pagination">
+            <button class="pagination-button active">1</button>
+            <button class="pagination-button">2</button>
+            <button class="pagination-button">3</button>
+            <button class="pagination-button">4</button>
+            <button class="pagination-button">5</button>
+            <button class="pagination-button">Next →</button>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        // Toggle solution visibility
+        function toggleSolution(button) {
+            const solution = button.nextElementSibling;
+            if (solution.classList.contains('hidden')) {
+                solution.classList.remove('hidden');
+                button.textContent = 'Hide Solution';
+            } else {
+                solution.classList.add('hidden');
+                button.textContent = 'Show Solution';
+            }
+        }
+        
+        // Filter functionality
+        const difficultyFilter = document.getElementById('difficulty-filter');
+        const topicFilter = document.getElementById('topic-filter');
+        const yearFilter = document.getElementById('year-filter');
+        const questions = document.querySelectorAll('.question-card');
+        
+        function applyFilters() {
+            const difficultyValue = difficultyFilter.value;
+            const topicValue = topicFilter.value;
+            const yearValue = yearFilter.value;
+            
+            questions.forEach(question => {
+                const matchesDifficulty = difficultyValue === 'all' || question.dataset.difficulty === difficultyValue;
+                const matchesTopic = topicValue === 'all' || question.dataset.topic === topicValue;
+                const matchesYear = yearValue === 'all' || question.dataset.year === yearValue;
+                
+                if (matchesDifficulty && matchesTopic && matchesYear) {
+                    question.style.display = 'block';
+                } else {
+                    question.style.display = 'none';
+                }
+            });
+        }
+        
+        difficultyFilter.addEventListener('change', applyFilters);
+        topicFilter.addEventListener('change', applyFilters);
+        yearFilter.addEventListener('change', applyFilters);
+        
+        // Pagination functionality (simplified for template)
+        const paginationButtons = document.querySelectorAll('.pagination-button');
+        
+        paginationButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                paginationButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                // In a real implementation, this would load different questions
+            });
+        });
+    </script>
+</body>
+</html>

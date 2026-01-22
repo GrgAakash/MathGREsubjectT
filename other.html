@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Practice Questions - Math GRE Prep</title>
+    <!-- MathJax CDN for LaTeX rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: relative;
+            z-index: 15;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar-nav {
+            flex-basis: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            z-index: 5;
+        }
+
+        .sidebar-nav button {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar-nav button:hover {
+            background-color: #e9ecef;
+        }
+
+        .sidebar-nav button.active {
+            background-color: var(--accent);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex-grow: 1;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            font-size: 1em;
+        }
+
+        .option:hover {
+            background: #e9ecef;
+            border-color: #aaa;
+        }
+
+        .option.selected-correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .option.selected-wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct {
+            color: #28a745;
+            display: block;
+        }
+
+        .feedback.wrong {
+            color: #dc3545;
+            display: block;
+        }
+
+        .toggle-btn {
+            cursor: pointer;
+            color: var(--accent);
+            text-decoration: underline;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .toggle-btn:hover {
+            color: #228B7E;
+        }
+
+        .explanation {
+            display: none;
+            background: #f1f3f5;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent);
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .main-container {
+                flex-direction: column;
+                padding: 10px;
+                gap: 15px;
+            }
+            
+            .sidebar-nav {
+                flex-basis: auto;
+                width: 100%;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .sidebar-nav button {
+                width: auto;
+                flex-grow: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .question {
+                padding: 15px;
+            }
+            .option {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+    <style>
+        /* Uniform question meta row */
+        .question-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 500;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    </style>
+    <style>
+        /* Codes_QTCat theme overlay */
+        body { font-family: 'Courier New', monospace; background-color: #f0f0f0; color: #0d0d0d; font-weight: bold; }
+        header { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+        header h1 { text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #cccccc; font-weight: bold; }
+        .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
+        .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
+        .nav-links a:hover { opacity: 1; text-decoration: underline; }
+        .sidebar-nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .sidebar-nav button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; background: #f8f9fa; }
+        .sidebar-nav button.active { background-color: #0d0d0d; color: #ffffff; }
+        .question { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .option { background: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .option:hover { background: #f0f0f0; border-color: #0d0d0d; }
+        footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+    </style>
+    <style>
+        /* Dashboard styling */
+        .dashboard { display:flex; justify-content:center; gap:20px; margin:20px auto; max-width:1100px; background:#ffffff; padding:20px; border:2px solid #0d0d0d; box-shadow:2px 2px 0px #0d0d0d; }
+        .dashboard div { text-align:center; flex:1; }
+        .dashboard p { margin:5px 0; color:#0d0d0d; font-weight:bold; }
+        .dashboard button { padding:10px 20px; margin:5px; background:#0d0d0d; color:#ffffff; border:2px solid #0d0d0d; border-radius:0; cursor:pointer; font-size:14px; font-weight:bold; }
+        .dashboard button:hover { background:#ffffff; color:#0d0d0d; }
+        .dashboard button:disabled { background:#cccccc; color:#ffffff; cursor:not-allowed; }
+    </style>
+    <style>
+        /* Remove explanations */
+        .toggle-btn { display: none !important; }
+        .explanation { display: none !important; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Misc. Math Practice Questions</h1>
+        <p class="subtitle">Master Complex Analysis and Number Theory concepts</p>
+    </header>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+                <a href="other.html">Advanced Topics</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <div>
+            <p id="time-elapsed">00:00</p>
+            <p>Time Elapsed</p>
+        </div>
+        <div>
+            <p id="questions-answered">0/0</p>
+            <p>Questions Answered</p>
+        </div>
+        <div>
+            <p id="correct-answers">0</p>
+            <p>Correct Answers</p>
+        </div>
+        <div>
+            <p id="accuracy-rate">0%</p>
+            <p>Accuracy Rate</p>
+        </div>
+        <div>
+            <button id="start-btn">Start</button>
+            <button id="pause-btn" disabled>Pause</button>
+            <button id="reset-btn" disabled>Reset</button>
+            <button id="results-btn" disabled>End</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <nav class="sidebar-nav">
+            <button onclick="showSection('complex-analysis')" class="active" aria-label="Show Complex Analysis questions">Complex Analysis</button>
+            <button onclick="showSection('number-theory')" aria-label="Show Number Theory questions">Number Theory</button>
+        </nav>
+
+        <div class="main-content">
+            <div id="results" style="display:none;">
+                <h2>Results</h2>
+                <p id="time-taken"></p>
+                <p id="time-comparison"></p>
+                <p id="incorrect-counts"></p>
+                <p id="weak-points"></p>
+            </div>
+            <!-- Complex Analysis Section -->
+            <div id="complex-analysis-section" class="topic-section">
+                <h2 class="page-title">Complex Analysis Practice Questions</h2>
+
+                <div class="question" data-correct="A">
+                    <p><strong>1.</strong> Let \(f(z) = \frac{1}{z^2 + 1}\). Evaluate the contour integral \(\oint_C f(z) dz\), where \(C\) is the circle \(|z| = 2\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) \(2\pi i\)</div>
+                        <div class="option" data-value="C">C) \(-2\pi i\)</div>
+                        <div class="option" data-value="D">D) \(\pi i\)</div>
+                        <div class="option" data-value="E">E) \(-\pi i\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp1')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp1" class="explanation">
+                        <p>The poles of \(f(z)\) are at \(z = i\) and \(z = -i\). Both poles lie inside the circle \(|z| = 2\). By the <strong>Residue Theorem</strong>, the integral is \(2\pi i\) times the sum of the residues inside the contour. The residue at \(z = i\) is \(\text{Res}(f, i) = \lim_{z \to i} (z-i) \frac{1}{(z-i)(z+i)} = \lim_{z \to i} \frac{1}{z+i} = \frac{1}{2i}\). The residue at \(z = -i\) is \(\text{Res}(f, -i) = \lim_{z \to -i} (z+i) \frac{1}{(z-i)(z+i)} = \lim_{z \to -i} \frac{1}{z-i} = \frac{1}{-2i}\). The sum of residues is \(\frac{1}{2i} + \frac{1}{-2i} = 0\). Therefore, the integral is \(2\pi i \cdot 0 = 0\).</p>
+                        <p><strong>Answer: A) 0</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>2.</strong> What is the Taylor series expansion of \(f(z) = \frac{1}{(1-z)^2}\) centered at \(z=0\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\sum_{n=0}^\infty z^n\)</div>
+                        <div class="option" data-value="B">B) \(\sum_{n=0}^\infty (n-1) z^n\)</div>
+                        <div class="option" data-value="C">C) \(\sum_{n=1}^\infty n z^{n-1}\)</div>
+                        <div class="option" data-value="D">D) \(\sum_{n=0}^\infty (n+1) z^n\)</div>
+                        <div class="option" data-value="E">E) \(\sum_{n=0}^\infty \frac{z^n}{n!}\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp2')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp2" class="explanation">
+                        <p>We know the geometric series formula \(\frac{1}{1-z} = \sum_{n=0}^\infty z^n\) for \(|z| < 1\). Differentiating term by term with respect to \(z\) gives \(\frac{1}{(1-z)^2} = \frac{d}{dz} \left( \sum_{n=0}^\infty z^n \right) = \sum_{n=1}^\infty n z^{n-1}\). Let \(m = n-1\), so \(n = m+1\). When \(n=1\), \(m=0\). Then \(\frac{1}{(1-z)^2} = \sum_{m=0}^\infty (m+1) z^m = \sum_{n=0}^\infty (n+1) z^n\) for \(|z| < 1\).</p>
+                        <p><strong>Answer: (D) \(\sum_{n=0}^\infty (n+1) z^n\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>3.</strong> What is the residue of \(f(z) = \frac{1 - \cos(z)}{z^2}\) at \(z=0\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 0</div>
+                        <div class="option" data-value="B">B) 1</div>
+                        <div class="option" data-value="C">C) \(1/6\)</div>
+                        <div class="option" data-value="D">D) \(-1/6\)</div>
+                        <div class="option" data-value="E">E) \(1/3!\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp3')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp3" class="explanation">
+                        <p> DIY </p>
+                        <p><strong>Answer: (C) \(1/6\)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Number Theory Section -->
+            <div id="number-theory-section" class="topic-section" style="display: none;">
+                <h2 class="page-title">Number Theory Practice Questions</h2>
+
+                <div class="question" data-correct="B">
+                    <p><strong>1.</strong> What is the greatest common divisor (GCD) of 252 and 180?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 12</div>
+                        <div class="option" data-value="B">B) 36</div>
+                        <div class="option" data-value="C">C) 18</div>
+                        <div class="option" data-value="D">D) 72</div>
+                        <div class="option" data-value="E">E) 6</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('nt-exp1')">Show/Hide Explanation</span></p>
+                    <div id="nt-exp1" class="explanation">
+                        <p>Use the Euclidean algorithm: \(252 = 1 \cdot 180 + 72\), \(180 = 2 \cdot 72 + 36\), \(72 = 2 \cdot 36 + 0\). The last non-zero remainder is 36. Thus, \(\gcd(252, 180) = 36\).</p>
+                        <p><strong>Answer: (B) 36</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>2.</strong> How many positive divisors does \(2^3 \cdot 3^2 \cdot 5^1\) have?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 12</div>
+                        <div class="option" data-value="B">B) 18</div>
+                        <div class="option" data-value="C">C) 24</div>
+                        <div class="option" data-value="D">D) 16</div>
+                        <div class="option" data-value="E">E) 8</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('nt-exp2')">Show/Hide Explanation</span></p>
+                    <div id="nt-exp2" class="explanation">
+                        <p>For a number \(n = p_1^{e_1} \cdot p_2^{e_2} \cdots p_k^{e_k}\), the number of positive divisors is \((e_1 + 1)(e_2 + 1) \cdots (e_k + 1)\). Here, \(n = 2^3 \cdot 3^2 \cdot 5^1\), so the number of divisors is \((3+1)(2+1)(1+1) = 4 \cdot 3 \cdot 2 = 24\).</p>
+                        <p><strong>Answer: (C) 24</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>3.</strong> Find the smallest positive integer \(n\) such that \(n \equiv 3 \pmod{7}\) and \(n \equiv 5 \pmod{11}\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 47</div>
+                        <div class="option" data-value="B">B) 68</div>
+                        <div class="option" data-value="C">C) 26</div>
+                        <div class="option" data-value="D">D) 82</div>
+                        <div class="option" data-value="E">E) 33</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('nt-exp3')">Show/Hide Explanation</span></p>
+                    <div id="nt-exp3" class="explanation">
+                        <p> DIY </p>
+                        <p><strong>Answer: (A) 47</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Math GRE Prep. All rights reserved.</p>
+        <p><a href="contact.html" style="color: var(--accent); text-decoration: none;">Contact Us</a> | <a href="privacy.html" style="color: var(--accent); text-decoration: none;">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // Inject ❌ counters and initialize totals
+        document.addEventListener('DOMContentLoaded', () => {
+            const questions = document.querySelectorAll('.question');
+            const qaEl = document.getElementById('questions-answered');
+            if (qaEl) qaEl.textContent = `0/${questions.length}`;
+            let autoId = 1;
+            window.__otherIncorrect = window.__otherIncorrect || {};
+            questions.forEach(q => {
+                if (!q.id) { q.id = `q${autoId++}`; } else { autoId++; }
+                window.__otherIncorrect[q.id] = 0;
+                let meta = q.querySelector('.question-meta');
+                if (!meta) {
+                    meta = document.createElement('div');
+                    meta.className = 'question-meta';
+                    q.insertBefore(meta, q.firstChild);
+                }
+                if (!meta.querySelector('.q-errors')) {
+                    const wrap = document.createElement('span');
+                    wrap.innerHTML = '❌ <span class="q-errors" data-errors="0">0</span>';
+                    meta.appendChild(wrap);
+                }
+            });
+        });
+        // Toggle explanation visibility
+        function toggleExplanation(id) {
+            const explanation = document.getElementById(id);
+            const isDisplayed = explanation.style.display === 'block';
+            explanation.style.display = isDisplayed ? 'none' : 'block';
+            const btn = explanation.previousElementSibling.querySelector('.toggle-btn');
+            btn.textContent = isDisplayed ? 'Show/Hide Explanation' : 'Hide Explanation';
+        }
+
+        // Switch between sections
+        function showSection(section) {
+            const sections = ['complex-analysis-section', 'number-theory-section'];
+            const buttons = document.querySelectorAll('.sidebar-nav button');
+            
+            sections.forEach(sec => {
+                const sectionElement = document.getElementById(sec);
+                sectionElement.style.display = sec === `${section}-section` ? 'block' : 'none';
+            });
+            
+            buttons.forEach(btn => {
+                btn.classList.toggle('active', btn.onclick.toString().includes(section));
+            });
+        }
+
+        // Handle option selection + counters
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const question = this.closest('.question');
+                const correctAnswer = question.getAttribute('data-correct');
+                const feedback = question.querySelector('.feedback');
+                const options = question.querySelectorAll('.option');
+                
+                // Reset previous selections
+                options.forEach(opt => { opt.classList.remove('selected-correct', 'selected-wrong'); });
+                
+                // Mark selected option
+                const selectedValue = this.getAttribute('data-value');
+                // mark answered on any click
+                window.__otherAnswered = window.__otherAnswered || new Set();
+                const qidAnswered = question.id;
+                if (!window.__otherAnswered.has(qidAnswered)) {
+                    window.__otherAnswered.add(qidAnswered);
+                    const totalQ = document.querySelectorAll('.question').length;
+                    const qa = document.getElementById('questions-answered');
+                    if (qa) qa.textContent = `${window.__otherAnswered.size}/${totalQ}`;
+                }
+                if (selectedValue === correctAnswer) {
+                    this.classList.add('selected-correct');
+                    feedback.textContent = 'Correct!';
+                    feedback.classList.remove('wrong');
+                    feedback.classList.add('correct');
+                    // Update correct-on-first metric
+                    window.__otherFirstCorrect = window.__otherFirstCorrect || new Set();
+                    const qid = question.id;
+                    if ((window.__otherIncorrect && (window.__otherIncorrect[qid] || 0)) === 0) {
+                        window.__otherFirstCorrect.add(qid);
+                    }
+                } else {
+                    this.classList.add('selected-wrong');
+                    feedback.textContent = 'Incorrect. Try again!';
+                    feedback.classList.remove('correct');
+                    feedback.classList.add('wrong');
+                    // increment wrong count
+                    window.__otherIncorrect = window.__otherIncorrect || {};
+                    const qid = question.id;
+                    window.__otherIncorrect[qid] = (window.__otherIncorrect[qid] || 0) + 1;
+                    const errEl = question.querySelector('.q-errors');
+                    if (errEl) {
+                        errEl.setAttribute('data-errors', String(window.__otherIncorrect[qid]));
+                        errEl.textContent = String(window.__otherIncorrect[qid]);
+                    }
+                }
+                // Update accuracy and correct count after any click
+                const total = document.querySelectorAll('.question').length;
+                const ca = document.getElementById('correct-answers');
+                if (ca) ca.textContent = String(window.__otherFirstCorrect ? window.__otherFirstCorrect.size : 0);
+                const accEl = document.getElementById('accuracy-rate');
+                const ansSize = window.__otherAnswered ? window.__otherAnswered.size : 0;
+                const corSize = window.__otherFirstCorrect ? window.__otherFirstCorrect.size : 0;
+                const acc = ansSize > 0 ? Math.round((corSize / ansSize) * 100) : 0;
+                if (accEl) accEl.textContent = `${acc}%`;
+            });
+        });
+
+        // Dashboard timer
+        let globalStartTime = null;
+        let globalTimerInterval = null;
+        let isPaused = false;
+        let isStarted = false;
+
+        function updateGlobalTimer() {
+            const now = new Date();
+            const elapsed = Math.floor((now - globalStartTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            const el = document.getElementById('time-elapsed');
+            if (el) el.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function startTimers() {
+            if (!isStarted) {
+                isStarted = true;
+                globalStartTime = new Date();
+                globalTimerInterval = setInterval(updateGlobalTimer, 1000);
+                document.getElementById('start-btn').disabled = true;
+                document.getElementById('results-btn').disabled = false;
+                document.getElementById('pause-btn').disabled = false;
+                document.getElementById('reset-btn').disabled = false;
+            }
+        }
+
+        function pauseTimers() {
+            if (isStarted && !isPaused) {
+                isPaused = true;
+                clearInterval(globalTimerInterval);
+                document.getElementById('pause-btn').textContent = 'Resume';
+            } else if (isStarted && isPaused) {
+                isPaused = false;
+                globalTimerInterval = setInterval(updateGlobalTimer, 1000);
+                document.getElementById('pause-btn').textContent = 'Pause';
+            }
+        }
+
+        function resetTimers() {
+            if (globalTimerInterval) clearInterval(globalTimerInterval);
+            globalStartTime = null;
+            globalTimerInterval = null;
+            isStarted = false;
+            isPaused = false;
+            const te = document.getElementById('time-elapsed');
+            if (te) te.textContent = '00:00';
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('pause-btn').disabled = true;
+            document.getElementById('pause-btn').textContent = 'Pause';
+            document.getElementById('reset-btn').disabled = true;
+            document.getElementById('results-btn').disabled = true;
+
+            window.__otherAnswered = new Set();
+            window.__otherFirstCorrect = new Set();
+            const qa = document.getElementById('questions-answered');
+            if (qa) qa.textContent = `0/${document.querySelectorAll('.question').length}`;
+            const ca = document.getElementById('correct-answers');
+            if (ca) ca.textContent = '0';
+            const accEl = document.getElementById('accuracy-rate');
+            if (accEl) accEl.textContent = '0%';
+            const res = document.getElementById('results');
+            if (res) res.style.display = 'none';
+        }
+
+        function showResultsDash() {
+            const totalQuestions = document.querySelectorAll('.question').length;
+            const totalTime = globalStartTime ? Math.floor((new Date() - globalStartTime) / 1000) : 0;
+            const minutes = Math.floor(totalTime / 60);
+            const seconds = totalTime % 60;
+            const avgTimePerQuestion = 120;
+            const expectedTotalTime = totalQuestions * avgTimePerQuestion;
+            const correctCount = window.__otherFirstCorrect ? window.__otherFirstCorrect.size : 0;
+            const answeredCount = window.__otherAnswered ? window.__otherAnswered.size : 0;
+            const accuracy = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+            const timeComparison = totalTime <= expectedTotalTime 
+                ? `Great job! You completed in ${minutes}:${seconds.toString().padStart(2, '0')} minutes, which is ${Math.floor((expectedTotalTime - totalTime) / 60)} minutes faster than the expected ${Math.floor(expectedTotalTime / 60)} minutes.`
+                : `You took ${minutes}:${seconds.toString().padStart(2, '0')} minutes, which is ${Math.floor((totalTime - expectedTotalTime) / 60)} minutes longer than the expected ${Math.floor(expectedTotalTime / 60)} minutes. Consider practicing to improve your speed.`;
+
+            let incorrectSummary = '<strong>Question Summary:</strong><ul>';
+            document.querySelectorAll('.question').forEach((q, idx) => {
+                const qid = q.id;
+                const count = (window.__otherIncorrect && window.__otherIncorrect[qid]) || 0;
+                const isAnswered = window.__otherAnswered && window.__otherAnswered.has(qid);
+                const isCorrectFirst = window.__otherFirstCorrect && window.__otherFirstCorrect.has(qid);
+                let status = '';
+                if (!isAnswered) status = 'Not attempted (counted as incorrect)';
+                else if (isCorrectFirst) status = 'Correct';
+                else status = 'Incorrect';
+                incorrectSummary += `<li>Question ${idx + 1}: ${status}, ${count} wrong attempt(s)</li>`;
+            });
+            incorrectSummary += '</ul>';
+
+            const tt = document.getElementById('time-taken');
+            if (tt) tt.innerHTML = `<strong>Time Taken:</strong> ${minutes}:${seconds.toString().padStart(2, '0')} minutes`;
+            const tc = document.getElementById('time-comparison');
+            if (tc) tc.innerHTML = timeComparison;
+            const ic = document.getElementById('incorrect-counts');
+            if (ic) ic.innerHTML = incorrectSummary;
+            const wp = document.getElementById('weak-points');
+            if (wp) wp.innerHTML = '';
+            const performanceSummary = `<strong>Overall Performance:</strong><p>Answered: ${answeredCount}/${totalQuestions} questions | Correct: ${correctCount}/${totalQuestions} (${accuracy}%) | Total Score: ${correctCount}/${totalQuestions}</p>`;
+            if (tt) tt.innerHTML = performanceSummary + tt.innerHTML;
+            const res = document.getElementById('results');
+            if (res) { res.style.display = 'block'; res.scrollIntoView({ behavior: 'smooth' }); }
+        }
+
+        document.getElementById('start-btn').addEventListener('click', startTimers);
+        document.getElementById('pause-btn').addEventListener('click', pauseTimers);
+        document.getElementById('reset-btn').addEventListener('click', resetTimers);
+        document.getElementById('results-btn').addEventListener('click', showResultsDash);
+
+        // Initialize MathJax
+        window.MathJax.typeset();
+    </script>
+</body>
+</html>
+
+
+
