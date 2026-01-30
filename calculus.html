@@ -1128,11 +1128,452 @@
                     </div>
                 </div>
 
-                  <p><strong>References:</strong><br>
+                <!-- Additional 20 Tricky Limits Questions -->
+
+                <div class="question" id="q51" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>31.</strong> Evaluate \( \lim_{x \to \infty} \frac{x + \sin x}{x} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">0</div>
+                        <div class="option" data-value="C">2</div>
+                        <div class="option" data-value="D">\( \infty \)</div>
+                        <div class="option" data-value="E">Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q51')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q51">
+                        <p>\( \frac{x + \sin x}{x} = 1 + \frac{\sin x}{x} \). Since \( |\sin x| \leq 1 \), we have \( \frac{\sin x}{x} \to 0 \) as \( x \to \infty \). Thus the limit is 1.</p>
+                        <p><strong>Answer: (A) 1</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q52" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>32.</strong> Evaluate \( \lim_{x \to 0} \frac{e^x - 1 - x}{x^2} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{3} \)</div>
+                        <div class="option" data-value="E">\( e \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q52')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q52">
+                        <p>\( e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \ldots \). So \( e^x - 1 - x = \frac{x^2}{2} + O(x^3) \), giving limit \( \frac{1}{2} \).</p>
+                        <p><strong>Answer: (C) \( \frac{1}{2} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q53" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>33.</strong> Evaluate \( \lim_{x \to 0} \frac{\tan x - x}{x^3} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{3} \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{6} \)</div>
+                        <div class="option" data-value="D">1</div>
+                        <div class="option" data-value="E">0</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q53')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q53">
+                        <p>\( \tan x = x + \frac{x^3}{3} + \frac{2x^5}{15} + \ldots \). So \( \tan x - x = \frac{x^3}{3} + O(x^5) \), giving limit \( \frac{1}{3} \).</p>
+                        <p><strong>Answer: (B) \( \frac{1}{3} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q54" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>34.</strong> Evaluate \( \lim_{x \to 0^+} x^{1/\ln x} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">\( e^{-1} \)</div>
+                        <div class="option" data-value="D">\( e \)</div>
+                        <div class="option" data-value="E">Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q54')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q54">
+                        <p>Let \( y = x^{1/\ln x} \). Then \( \ln y = \frac{\ln x}{\ln x} = 1 \). So \( y = e^1 = e \).</p>
+                        <p><strong>Answer: (D) \( e \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q55" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>35.</strong> Evaluate \( \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^{n^2} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( e \)</div>
+                        <div class="option" data-value="B">\( e^2 \)</div>
+                        <div class="option" data-value="C">1</div>
+                        <div class="option" data-value="D">0</div>
+                        <div class="option" data-value="E">\( \infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q55')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q55">
+                        <p>Take log: \( n^2 \ln\left(1 + \frac{1}{n}\right) \approx n^2 \cdot \frac{1}{n} = n \to \infty \). So the limit is \( e^\infty = \infty \).</p>
+                        <p><strong>Answer: (E) \( \infty \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q56" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>36.</strong> Evaluate \( \lim_{x \to 0^+} x^x \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">0</div>
+                        <div class="option" data-value="C">\( e \)</div>
+                        <div class="option" data-value="D">\( e^{-1} \)</div>
+                        <div class="option" data-value="E">Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q56')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q56">
+                        <p>\( x^x = e^{x \ln x} \). As \( x \to 0^+ \), \( x \ln x \to 0 \) (since \( \lim_{x \to 0^+} x \ln x = 0 \) by L'Hôpital). So \( x^x \to e^0 = 1 \).</p>
+                        <p><strong>Answer: (A) 1</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q57" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>37.</strong> Evaluate \( \lim_{x \to \infty} \left(1 + \frac{1}{x} + \frac{1}{x^2}\right)^x \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">\( e \)</div>
+                        <div class="option" data-value="C">\( e^2 \)</div>
+                        <div class="option" data-value="D">\( \infty \)</div>
+                        <div class="option" data-value="E">0</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q57')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q57">
+                        <p>Take log: \( x \ln\left(1 + \frac{1}{x} + \frac{1}{x^2}\right) \approx x \cdot \left(\frac{1}{x} + \frac{1}{x^2}\right) = 1 + \frac{1}{x} \to 1 \). So limit is \( e^1 = e \).</p>
+                        <p><strong>Answer: (B) \( e \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q58" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>38.</strong> Evaluate \( \lim_{x \to 0} \frac{a^x - 1}{x} \) for \( a > 0 \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">\( a \)</div>
+                        <div class="option" data-value="C">\( \ln a \)</div>
+                        <div class="option" data-value="D">\( e^a \)</div>
+                        <div class="option" data-value="E">0</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q58')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q58">
+                        <p>\( a^x = e^{x \ln a} = 1 + x \ln a + O(x^2) \). So \( \frac{a^x - 1}{x} = \ln a + O(x) \to \ln a \).</p>
+                        <p><strong>Answer: (C) \( \ln a \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q59" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>39.</strong> Evaluate \( \lim_{x \to 0} \frac{\cosh x - 1}{x^2} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">\( \frac{1}{4} \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="E">\( e \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q59')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q59">
+                        <p>\( \cosh x = \frac{e^x + e^{-x}}{2} = 1 + \frac{x^2}{2} + \frac{x^4}{24} + \ldots \). So \( \cosh x - 1 = \frac{x^2}{2} + O(x^4) \), giving limit \( \frac{1}{2} \).</p>
+                        <p><strong>Answer: (D) \( \frac{1}{2} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q60" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>40.</strong> Evaluate \( \lim_{x \to \infty} (\ln x)^{1/x} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">0</div>
+                        <div class="option" data-value="C">\( e \)</div>
+                        <div class="option" data-value="D">\( \infty \)</div>
+                        <div class="option" data-value="E">Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q60')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q60">
+                        <p>Take log: \( \frac{\ln(\ln x)}{x} \to 0 \) as \( x \to \infty \) (numerator grows slower than denominator). So limit is \( e^0 = 1 \).</p>
+                        <p><strong>Answer: (A) 1</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q61" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Easy</span>
+                    </div>
+                    <p><strong>41.</strong> Evaluate \( \lim_{x \to 0} \frac{\sinh x}{x} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">\( e \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="E">Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q61')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q61">
+                        <p>\( \sinh x = x + \frac{x^3}{6} + \ldots \). So \( \frac{\sinh x}{x} = 1 + \frac{x^2}{6} + \ldots \to 1 \).</p>
+                        <p><strong>Answer: (B) 1</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q62" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>42.</strong> Evaluate \( \lim_{x \to 0} \frac{1 - \cos x \cos 2x \cos 3x}{x^2} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">3</div>
+                        <div class="option" data-value="C">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="D">6</div>
+                        <div class="option" data-value="E">7</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q62')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q62">
+                        <p>\( \cos(kx) \approx 1 - \frac{k^2 x^2}{2} \). So \( \cos x \cos 2x \cos 3x \approx (1 - \frac{x^2}{2})(1 - 2x^2)(1 - \frac{9x^2}{2}) \approx 1 - \frac{x^2}{2} - 2x^2 - \frac{9x^2}{2} = 1 - 7x^2 \). Thus limit is 7.</p>
+                        <p><strong>Answer: (E) 7</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q63" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>43.</strong> Evaluate \( \lim_{n \to \infty} n \sin\left(\frac{1}{n}\right) \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">0</div>
+                        <div class="option" data-value="C">\( \infty \)</div>
+                        <div class="option" data-value="D">\( \pi \)</div>
+                        <div class="option" data-value="E">Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q63')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q63">
+                        <p>Let \( u = \frac{1}{n} \). As \( n \to \infty \), \( u \to 0 \). So \( n \sin(1/n) = \frac{\sin u}{u} \to 1 \).</p>
+                        <p><strong>Answer: (A) 1</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q64" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>44.</strong> Evaluate \( \lim_{x \to \infty} x\left(a^{1/x} - 1\right) \) for \( a > 0 \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">\( a \)</div>
+                        <div class="option" data-value="C">\( \ln a \)</div>
+                        <div class="option" data-value="D">1</div>
+                        <div class="option" data-value="E">\( \infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q64')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q64">
+                        <p>Let \( u = 1/x \). As \( x \to \infty \), \( u \to 0 \). So \( x(a^{1/x} - 1) = \frac{a^u - 1}{u} \to \ln a \).</p>
+                        <p><strong>Answer: (C) \( \ln a \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q65" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>45.</strong> Evaluate \( \lim_{x \to 0} \frac{\sqrt{1+x} - \sqrt{1-x}}{x} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">2</div>
+                        <div class="option" data-value="D">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="E">Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q65')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q65">
+                        <p>Multiply by conjugate: \( \frac{(1+x)-(1-x)}{x(\sqrt{1+x}+\sqrt{1-x})} = \frac{2x}{x(\sqrt{1+x}+\sqrt{1-x})} = \frac{2}{\sqrt{1+x}+\sqrt{1-x}} \to \frac{2}{2} = 1 \).</p>
+                        <p><strong>Answer: (B) 1</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q66" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>46.</strong> Evaluate \( \lim_{x \to 0} \frac{\arctan x - x}{x^3} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{6} \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{3} \)</div>
+                        <div class="option" data-value="D">\( -\frac{1}{3} \)</div>
+                        <div class="option" data-value="E">0</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q66')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q66">
+                        <p>\( \arctan x = x - \frac{x^3}{3} + \frac{x^5}{5} - \ldots \). So \( \arctan x - x = -\frac{x^3}{3} + O(x^5) \), giving limit \( -\frac{1}{3} \).</p>
+                        <p><strong>Answer: (D) \( -\frac{1}{3} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q67" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>47.</strong> Evaluate \( \lim_{x \to \frac{\pi}{2}^-} (1 - \sin x) \tan^2 x \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="D">\( \infty \)</div>
+                        <div class="option" data-value="E">2</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q67')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q67">
+                        <p>Let \( u = \frac{\pi}{2} - x \). As \( x \to \frac{\pi}{2}^- \), \( u \to 0^+ \). Then \( \sin x = \cos u \approx 1 - \frac{u^2}{2} \), so \( 1 - \sin x \approx \frac{u^2}{2} \). Also \( \tan x = \cot u \approx \frac{1}{u} \). So \( (1 - \sin x) \tan^2 x \approx \frac{u^2}{2} \cdot \frac{1}{u^2} = \frac{1}{2} \).</p>
+                        <p><strong>Answer: (C) \( \frac{1}{2} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q68" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>48.</strong> Evaluate \( \lim_{x \to 0^+} \left(\frac{1}{x}\right)^{\sin x} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">0</div>
+                        <div class="option" data-value="C">\( \infty \)</div>
+                        <div class="option" data-value="D">\( e \)</div>
+                        <div class="option" data-value="E">Does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q68')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q68">
+                        <p>Take log: \( \sin x \cdot \ln(1/x) = -\sin x \cdot \ln x \). Since \( \sin x \approx x \) and \( x \ln x \to 0 \) as \( x \to 0^+ \), the log approaches 0. So limit is \( e^0 = 1 \).</p>
+                        <p><strong>Answer: (A) 1</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q69" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>49.</strong> Evaluate \( \lim_{n \to \infty} \sum_{k=1}^{n} \frac{k}{n^2} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">\( \frac{1}{3} \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="E">\( \infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q69')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q69">
+                        <p>\( \sum_{k=1}^{n} \frac{k}{n^2} = \frac{1}{n^2} \cdot \frac{n(n+1)}{2} = \frac{n+1}{2n} \to \frac{1}{2} \). This is also the Riemann sum for \( \int_0^1 x \, dx = \frac{1}{2} \).</p>
+                        <p><strong>Answer: (D) \( \frac{1}{2} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q70" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>50.</strong> Evaluate \( \lim_{x \to 0} \frac{\sin x - x \cos x}{x - \sin x} \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="D">3</div>
+                        <div class="option" data-value="E">2</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q70')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q70">
+                        <p>Using Taylor: \( \sin x = x - \frac{x^3}{6} + O(x^5) \), \( \cos x = 1 - \frac{x^2}{2} + O(x^4) \). Numerator: \( (x - \frac{x^3}{6}) - x(1 - \frac{x^2}{2}) = \frac{x^3}{3} + O(x^5) \). Denominator: \( x - (x - \frac{x^3}{6}) = \frac{x^3}{6} + O(x^5) \). Ratio: \( \frac{1/3}{1/6} = 2 \).</p>
+                        <p><strong>Answer: (E) 2</strong></p>
+                    </div>
+                </div>
+
+                <p><strong>References:</strong><br>
                     (1) <a href="https://sites.math.rutgers.edu/~iacoley/greprep.html" target="_blank">Rutgers GRE Prep</a><br>
                     (2) Cracking the GRE Mathematics Subject Test, 4th Edition<br>
                     (3) IIT JAM</p>
-                </div>  
 
 
 
@@ -1621,7 +2062,905 @@
                     (3) IIT JAM</p>
             </section>
 
-            
+            <section id="differentiation-section" class="topic-section" style="display: none;">
+                <h2>Differentiation Practice Questions</h2>
+
+                <div class="question" id="q71" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>1.</strong> If \( f(x) = x^x \) for \( x > 0 \), find \( f'(1) \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">\( e \)</div>
+                        <div class="option" data-value="C">1</div>
+                        <div class="option" data-value="D">2</div>
+                        <div class="option" data-value="E">\( \ln 2 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q71')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q71">
+                        <p>\( f(x) = x^x = e^{x \ln x} \). So \( f'(x) = x^x(\ln x + 1) \). At \( x = 1 \): \( f'(1) = 1^1(\ln 1 + 1) = 1 \cdot 1 = 1 \).</p>
+                        <p><strong>Answer: (C) 1</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q72" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>2.</strong> If \( y = (\sin x)^{\cos x} \) for \( 0 < x < \frac{\pi}{2} \), find \( \frac{dy}{dx} \) at \( x = \frac{\pi}{4} \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \left(\frac{1}{\sqrt{2}}\right)^{1/\sqrt{2}} \left( \frac{1}{\sqrt{2}} - \frac{\ln(1/\sqrt{2})}{\sqrt{2}} \right) \)</div>
+                        <div class="option" data-value="B">\( \left(\frac{1}{\sqrt{2}}\right)^{1/\sqrt{2}} \)</div>
+                        <div class="option" data-value="C">0</div>
+                        <div class="option" data-value="D">1</div>
+                        <div class="option" data-value="E">\( -1 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q72')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q72">
+                        <p>Using logarithmic differentiation: \( \ln y = \cos x \ln(\sin x) \). Then \( \frac{y'}{y} = -\sin x \ln(\sin x) + \cos x \cdot \frac{\cos x}{\sin x} = -\sin x \ln(\sin x) + \cot x \cos x \).</p>
+                        <p><strong>Answer: (A)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q73" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>3.</strong> Find \( \frac{d}{dx}[\ln(\ln(\ln x))] \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{1}{\ln(\ln x)} \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{x \ln x \ln(\ln x)} \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{x \ln x} \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{x \ln(\ln x)} \)</div>
+                        <div class="option" data-value="E">\( \frac{1}{x} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q73')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q73">
+                        <p>By chain rule: \( \frac{d}{dx}[\ln(\ln(\ln x))] = \frac{1}{\ln(\ln x)} \cdot \frac{1}{\ln x} \cdot \frac{1}{x} = \frac{1}{x \ln x \ln(\ln x)} \).</p>
+                        <p><strong>Answer: (B) \( \frac{1}{x \ln x \ln(\ln x)} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q74" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>4.</strong> If \( f(x) = x^{1/x} \) for \( x > 0 \), find \( f'(e) \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( e^{1/e} \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{e} \)</div>
+                        <div class="option" data-value="C">\( e \)</div>
+                        <div class="option" data-value="D">0</div>
+                        <div class="option" data-value="E">1</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q74')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q74">
+                        <p>\( f(x) = e^{\frac{\ln x}{x}} \). So \( f'(x) = f(x) \cdot \frac{d}{dx}\left(\frac{\ln x}{x}\right) = f(x) \cdot \frac{1 - \ln x}{x^2} \). At \( x = e \): \( f'(e) = e^{1/e} \cdot \frac{1 - 1}{e^2} = 0 \).</p>
+                        <p><strong>Answer: (D) 0</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q75" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>5.</strong> If \( x^3 + y^3 = 6xy \), find \( \frac{dy}{dx} \) at the point \( (3, 3) \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">\( \frac{1}{3} \)</div>
+                        <div class="option" data-value="D">\( -\frac{1}{3} \)</div>
+                        <div class="option" data-value="E">\( -1 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q75')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q75">
+                        <p>Implicit differentiation: \( 3x^2 + 3y^2 y' = 6y + 6xy' \). So \( y' = \frac{6y - 3x^2}{3y^2 - 6x} = \frac{2y - x^2}{y^2 - 2x} \). At \( (3, 3) \): \( y' = \frac{6 - 9}{9 - 6} = \frac{-3}{3} = -1 \).</p>
+                        <p><strong>Answer: (E) \( -1 \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q76" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>6.</strong> If \( F(x) = \int_0^{x^2} e^{-t^2} \, dt \), find \( F'(x) \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 2x e^{-x^4} \)</div>
+                        <div class="option" data-value="B">\( e^{-x^4} \)</div>
+                        <div class="option" data-value="C">\( 2x e^{-x^2} \)</div>
+                        <div class="option" data-value="D">\( e^{-x^2} \)</div>
+                        <div class="option" data-value="E">\( x^2 e^{-x^4} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q76')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q76">
+                        <p>By the Fundamental Theorem of Calculus and chain rule: \( F'(x) = e^{-(x^2)^2} \cdot 2x = 2x e^{-x^4} \).</p>
+                        <p><strong>Answer: (A) \( 2x e^{-x^4} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q77" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>7.</strong> Find \( \frac{d}{dx}\left[(1+x)^{1/x}\right] \) at \( x = 1 \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 2(\ln 2 - 1) \)</div>
+                        <div class="option" data-value="B">\( \ln 2 \)</div>
+                        <div class="option" data-value="C">\( 2(\frac{1}{2} - \ln 2) \)</div>
+                        <div class="option" data-value="D">\( 1 - \ln 2 \)</div>
+                        <div class="option" data-value="E">0</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q77')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q77">
+                        <p>Let \( y = (1+x)^{1/x} \). Then \( \ln y = \frac{\ln(1+x)}{x} \). Differentiating: \( \frac{y'}{y} = \frac{\frac{x}{1+x} - \ln(1+x)}{x^2} \). At \( x = 1 \): \( y = 2 \), \( \frac{y'}{y} = \frac{\frac{1}{2} - \ln 2}{1} \). So \( y' = 2(\frac{1}{2} - \ln 2) \).</p>
+                        <p><strong>Answer: (C) \( 2(\frac{1}{2} - \ln 2) \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q78" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>8.</strong> If \( f(x) = e^{\sin x} \), find \( f''(0) \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">\( e \)</div>
+                        <div class="option" data-value="D">\( -1 \)</div>
+                        <div class="option" data-value="E">2</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q78')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q78">
+                        <p>\( f'(x) = e^{\sin x} \cos x \). \( f''(x) = e^{\sin x}(\cos^2 x - \sin x) \). At \( x = 0 \): \( f''(0) = e^0(1 - 0) = 1 \).</p>
+                        <p><strong>Answer: (B) 1</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q79" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>9.</strong> Simplify \( \frac{d}{dx}\left[\arctan\left(\frac{x-1}{x+1}\right)\right] \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{1}{1+x^2} \)</div>
+                        <div class="option" data-value="B">\( \frac{2}{1+x^2} \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{x^2+1} \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{1+x^2} \)</div>
+                        <div class="option" data-value="E">\( \frac{x}{1+x^2} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q79')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q79">
+                        <p>Note: \( \arctan\left(\frac{x-1}{x+1}\right) = \arctan(x) - \frac{\pi}{4} \) for \( x > -1 \). So derivative is \( \frac{1}{1+x^2} \). Alternatively, use chain rule directly.</p>
+                        <p><strong>Answer: (D) \( \frac{1}{1+x^2} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q80" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>10.</strong> If \( y = x^{e^x} \) for \( x > 0 \), find \( \frac{dy}{dx} \) at \( x = 1 \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 2e \)</div>
+                        <div class="option" data-value="B">\( e \)</div>
+                        <div class="option" data-value="C">\( e^e \)</div>
+                        <div class="option" data-value="D">\( e + 1 \)</div>
+                        <div class="option" data-value="E">\( e^2 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q80')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q80">
+                        <p>\( \ln y = e^x \ln x \). So \( \frac{y'}{y} = e^x \ln x + \frac{e^x}{x} \). At \( x = 1 \): \( y = 1^e = 1 \), \( \frac{y'}{y} = e \cdot 0 + e = e + e = 2e \). So \( y' = 1 \cdot 2e = 2e \).</p>
+                        <p><strong>Answer: (A) \( 2e \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q81" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>11.</strong> If \( f(x) = |x^3 - x| \), find \( f'(2) \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">6</div>
+                        <div class="option" data-value="B">10</div>
+                        <div class="option" data-value="C">12</div>
+                        <div class="option" data-value="D">\( -11 \)</div>
+                        <div class="option" data-value="E">11</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q81')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q81">
+                        <p>At \( x = 2 \): \( x^3 - x = 8 - 2 = 6 > 0 \). So \( f(x) = x^3 - x \) near \( x = 2 \). Thus \( f'(x) = 3x^2 - 1 \), and \( f'(2) = 12 - 1 = 11 \).</p>
+                        <p><strong>Answer: (E) 11</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q82" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>12.</strong> If \( f(x) = \arcsin(x) + \arccos(x) \), then \( f'(x) = \)?</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{2}{\sqrt{1-x^2}} \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{\sqrt{1-x^2}} \)</div>
+                        <div class="option" data-value="C">0</div>
+                        <div class="option" data-value="D">\( -\frac{1}{\sqrt{1-x^2}} \)</div>
+                        <div class="option" data-value="E">1</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q82')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q82">
+                        <p>Since \( \arcsin(x) + \arccos(x) = \frac{\pi}{2} \) for all \( x \in [-1, 1] \), the derivative is 0.</p>
+                        <p><strong>Answer: (C) 0</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q83" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>13.</strong> If \( f \) is differentiable on \( [0, 1] \) with \( f(0) = 0 \) and \( f(1) = 1 \), then by MVT there exists \( c \in (0, 1) \) such that \( f'(c) = \)?</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="D">2</div>
+                        <div class="option" data-value="E">Cannot be determined</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q83')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q83">
+                        <p>By MVT: \( f'(c) = \frac{f(1) - f(0)}{1 - 0} = \frac{1 - 0}{1} = 1 \).</p>
+                        <p><strong>Answer: (B) 1</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q84" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>14.</strong> Find \( \frac{d}{dx}[\cosh^{-1}(x)] \) for \( x > 1 \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{1}{\sqrt{x^2-1}} \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{\sqrt{x^2+1}} \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{x^2-1} \)</div>
+                        <div class="option" data-value="D">\( \frac{-1}{\sqrt{x^2-1}} \)</div>
+                        <div class="option" data-value="E">\( \frac{x}{\sqrt{x^2-1}} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q84')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q84">
+                        <p>If \( y = \cosh^{-1}(x) \), then \( x = \cosh(y) \). So \( \frac{dx}{dy} = \sinh(y) = \sqrt{\cosh^2(y) - 1} = \sqrt{x^2 - 1} \). Thus \( \frac{dy}{dx} = \frac{1}{\sqrt{x^2 - 1}} \).</p>
+                        <p><strong>Answer: (A) \( \frac{1}{\sqrt{x^2-1}} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q85" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>15.</strong> The \( n \)-th derivative of \( e^x \sin x \) evaluated at \( x = 0 \) equals:</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 2^{n/2} \cos\left(\frac{n\pi}{4}\right) \)</div>
+                        <div class="option" data-value="B">\( 2^n \sin\left(\frac{n\pi}{4}\right) \)</div>
+                        <div class="option" data-value="C">\( 2^{n/2} \cos\left(\frac{n\pi}{2}\right) \)</div>
+                        <div class="option" data-value="D">\( 2^{n/2} \sin\left(\frac{n\pi}{4}\right) \)</div>
+                        <div class="option" data-value="E">\( n! \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q85')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q85">
+                        <p>Note \( e^x \sin x = \text{Im}(e^{(1+i)x}) \). The \( n \)-th derivative is \( (1+i)^n e^{(1+i)x} \). At \( x = 0 \): \( (1+i)^n = (\sqrt{2})^n e^{in\pi/4} = 2^{n/2}(\cos\frac{n\pi}{4} + i\sin\frac{n\pi}{4}) \). Taking imaginary part: \( 2^{n/2} \sin\frac{n\pi}{4} \).</p>
+                        <p><strong>Answer: (D) \( 2^{n/2} \sin\left(\frac{n\pi}{4}\right) \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q86" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Easy</span>
+                    </div>
+                    <p><strong>16.</strong> Find \( \frac{d}{dx}[\ln|\sec x + \tan x|] \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \tan x \)</div>
+                        <div class="option" data-value="B">\( \cot x \)</div>
+                        <div class="option" data-value="C">\( \sin x \)</div>
+                        <div class="option" data-value="D">\( \cos x \)</div>
+                        <div class="option" data-value="E">\( \sec x \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q86')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q86">
+                        <p>\( \frac{d}{dx}[\ln|\sec x + \tan x|] = \frac{\sec x \tan x + \sec^2 x}{\sec x + \tan x} = \frac{\sec x(\tan x + \sec x)}{\sec x + \tan x} = \sec x \).</p>
+                        <p><strong>Answer: (E) \( \sec x \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q87" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>17.</strong> If \( y = (\ln x)^{\ln x} \) for \( x > 1 \), find \( \frac{dy}{dx} \) at \( x = e \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">\( e \)</div>
+                        <div class="option" data-value="C">\( \frac{2}{e} \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{e} \)</div>
+                        <div class="option" data-value="E">1</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q87')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q87">
+                        <p>Let \( u = \ln x \), so \( y = u^u \). Using the formula \( \frac{d}{dx}[u^u] = u^u(\ln u + 1) \cdot \frac{du}{dx} \). At \( x = e \): \( u = 1 \), \( u^u = 1 \), \( \ln u = 0 \), \( \frac{du}{dx} = \frac{1}{e} \). So \( \frac{dy}{dx} = 1 \cdot (0 + 1) \cdot \frac{1}{e} = \frac{1}{e} \).</p>
+                        <p><strong>Answer: (D) \( \frac{1}{e} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q88" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>18.</strong> Find \( \frac{d}{dx}\left[\int_x^{x^2} \sin(t^2) \, dt\right] \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \sin(x^2) - \sin(x^4) \)</div>
+                        <div class="option" data-value="B">\( 2x\sin(x^4) - \sin(x^2) \)</div>
+                        <div class="option" data-value="C">\( \sin(x^4) - \sin(x^2) \)</div>
+                        <div class="option" data-value="D">\( 2x\sin(x^4) + \sin(x^2) \)</div>
+                        <div class="option" data-value="E">\( \sin(x^4) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q88')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q88">
+                        <p>By Leibniz rule: \( \frac{d}{dx}\int_x^{x^2} \sin(t^2) dt = \sin((x^2)^2) \cdot 2x - \sin(x^2) \cdot 1 = 2x\sin(x^4) - \sin(x^2) \).</p>
+                        <p><strong>Answer: (B) \( 2x\sin(x^4) - \sin(x^2) \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q89" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>19.</strong> If \( f(x) = x^3 - 3x + 2 \), how many real roots does \( f'(x) = 0 \) have?</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">2</div>
+                        <div class="option" data-value="B">1</div>
+                        <div class="option" data-value="C">0</div>
+                        <div class="option" data-value="D">3</div>
+                        <div class="option" data-value="E">Infinitely many</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q89')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q89">
+                        <p>\( f'(x) = 3x^2 - 3 = 3(x^2 - 1) = 3(x-1)(x+1) \). So \( f'(x) = 0 \) when \( x = 1 \) or \( x = -1 \). Two real roots.</p>
+                        <p><strong>Answer: (A) 2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q90" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>20.</strong> If \( f(x) = \frac{x}{1+x^2} \), find the maximum value of \( f(x) \) on \( [0, \infty) \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">\( \frac{1}{4} \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{3} \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="E">0</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q90')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q90">
+                        <p>\( f'(x) = \frac{(1+x^2) - x(2x)}{(1+x^2)^2} = \frac{1-x^2}{(1+x^2)^2} \). Setting \( f'(x) = 0 \): \( x = 1 \) (for \( x \geq 0 \)). \( f(1) = \frac{1}{2} \). Check: \( f(0) = 0 \), \( f(x) \to 0 \) as \( x \to \infty \). Max is \( \frac{1}{2} \).</p>
+                        <p><strong>Answer: (D) \( \frac{1}{2} \)</strong></p>
+                    </div>
+                </div>
+
+                <p><strong>References:</strong><br>
+                    (1) <a href="https://sites.math.rutgers.edu/~iacoley/greprep.html" target="_blank">Rutgers GRE Prep</a><br>
+                    (2) Cracking the GRE Mathematics Subject Test, 4th Edition<br>
+                    (3) IIT JAM</p>
+            </section>
+
+            <section id="integration-section" class="topic-section" style="display: none;">
+                <h2>Integration Practice Questions</h2>
+
+                <div class="question" id="q91" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Easy</span>
+                    </div>
+                    <p><strong>1.</strong> Evaluate \( \int x e^x \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( x e^x + C \)</div>
+                        <div class="option" data-value="B">\( (x-1)e^x + C \)</div>
+                        <div class="option" data-value="C">\( (x+1)e^x + C \)</div>
+                        <div class="option" data-value="D">\( \frac{x^2}{2}e^x + C \)</div>
+                        <div class="option" data-value="E">\( e^x + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q91')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q91">
+                        <p>By parts: Let \( u = x \), \( dv = e^x dx \). Then \( du = dx \), \( v = e^x \). \( \int xe^x dx = xe^x - \int e^x dx = xe^x - e^x + C = (x-1)e^x + C \).</p>
+                        <p><strong>Answer: (B) \( (x-1)e^x + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q92" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Easy</span>
+                    </div>
+                    <p><strong>2.</strong> Evaluate \( \int \sin^2 x \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{x}{2} + \frac{\sin 2x}{2} + C \)</div>
+                        <div class="option" data-value="B">\( \frac{x}{2} + \frac{\cos 2x}{4} + C \)</div>
+                        <div class="option" data-value="C">\( \frac{x}{2} - \frac{\sin 2x}{4} + C \)</div>
+                        <div class="option" data-value="D">\( \frac{\sin^3 x}{3} + C \)</div>
+                        <div class="option" data-value="E">\( -\cos^2 x + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q92')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q92">
+                        <p>Use \( \sin^2 x = \frac{1 - \cos 2x}{2} \). So \( \int \sin^2 x \, dx = \int \frac{1 - \cos 2x}{2} dx = \frac{x}{2} - \frac{\sin 2x}{4} + C \).</p>
+                        <p><strong>Answer: (C) \( \frac{x}{2} - \frac{\sin 2x}{4} + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q93" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Easy</span>
+                    </div>
+                    <p><strong>3.</strong> Evaluate \( \int \frac{1}{1+x^2} \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \arctan x + C \)</div>
+                        <div class="option" data-value="B">\( \arcsin x + C \)</div>
+                        <div class="option" data-value="C">\( \ln(1+x^2) + C \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{2}\ln(1+x^2) + C \)</div>
+                        <div class="option" data-value="E">\( \text{arcsec } x + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q93')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q93">
+                        <p>This is a standard integral: \( \int \frac{1}{1+x^2} dx = \arctan x + C \).</p>
+                        <p><strong>Answer: (A) \( \arctan x + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q94" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>4.</strong> Evaluate \( \int \tan x \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \ln|\sin x| + C \)</div>
+                        <div class="option" data-value="B">\( \sec^2 x + C \)</div>
+                        <div class="option" data-value="C">\( \ln|\tan x| + C \)</div>
+                        <div class="option" data-value="D">\( -\ln|\cos x| + C \)</div>
+                        <div class="option" data-value="E">\( \sec x + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q94')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q94">
+                        <p>\( \int \tan x \, dx = \int \frac{\sin x}{\cos x} dx = -\ln|\cos x| + C = \ln|\sec x| + C \).</p>
+                        <p><strong>Answer: (D) \( -\ln|\cos x| + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q95" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>5.</strong> Evaluate \( \int \sec^2 x \tan x \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \sec x + C \)</div>
+                        <div class="option" data-value="B">\( \tan x + C \)</div>
+                        <div class="option" data-value="C">\( \frac{\sec^2 x}{2} + C \)</div>
+                        <div class="option" data-value="D">\( \sec^3 x + C \)</div>
+                        <div class="option" data-value="E">\( \frac{\tan^2 x}{2} + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q95')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q95">
+                        <p>Let \( u = \tan x \), then \( du = \sec^2 x \, dx \). So \( \int \sec^2 x \tan x \, dx = \int u \, du = \frac{u^2}{2} + C = \frac{\tan^2 x}{2} + C \).</p>
+                        <p><strong>Answer: (E) \( \frac{\tan^2 x}{2} + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q96" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>6.</strong> Evaluate \( \int x \ln x \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{x^2 \ln x}{2} + C \)</div>
+                        <div class="option" data-value="B">\( \frac{x^2 \ln x}{2} - \frac{x^2}{4} + C \)</div>
+                        <div class="option" data-value="C">\( \frac{x^2 \ln x}{2} + \frac{x^2}{4} + C \)</div>
+                        <div class="option" data-value="D">\( x^2 \ln x - x^2 + C \)</div>
+                        <div class="option" data-value="E">\( \frac{x^2}{2}(\ln x - 1) + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q96')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q96">
+                        <p>By parts: \( u = \ln x \), \( dv = x \, dx \). Then \( du = \frac{1}{x}dx \), \( v = \frac{x^2}{2} \). \( \int x \ln x \, dx = \frac{x^2 \ln x}{2} - \int \frac{x^2}{2} \cdot \frac{1}{x} dx = \frac{x^2 \ln x}{2} - \frac{x^2}{4} + C \).</p>
+                        <p><strong>Answer: (B) \( \frac{x^2 \ln x}{2} - \frac{x^2}{4} + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q97" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>7.</strong> Evaluate \( \int e^x \sin x \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{e^x(\sin x - \cos x)}{2} + C \)</div>
+                        <div class="option" data-value="B">\( \frac{e^x(\sin x + \cos x)}{2} + C \)</div>
+                        <div class="option" data-value="C">\( e^x \sin x + C \)</div>
+                        <div class="option" data-value="D">\( e^x \cos x + C \)</div>
+                        <div class="option" data-value="E">\( \frac{e^x \sin x}{2} + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q97')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q97">
+                        <p>Let \( I = \int e^x \sin x \, dx \). By parts twice: \( I = e^x \sin x - e^x \cos x - I \). So \( 2I = e^x(\sin x - \cos x) \), thus \( I = \frac{e^x(\sin x - \cos x)}{2} + C \).</p>
+                        <p><strong>Answer: (A) \( \frac{e^x(\sin x - \cos x)}{2} + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q98" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>8.</strong> Evaluate \( \int \frac{1}{x \ln x} \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{1}{\ln x} + C \)</div>
+                        <div class="option" data-value="B">\( \ln x + C \)</div>
+                        <div class="option" data-value="C">\( \ln|\ln x| + C \)</div>
+                        <div class="option" data-value="D">\( \frac{(\ln x)^2}{2} + C \)</div>
+                        <div class="option" data-value="E">\( x \ln x + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q98')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q98">
+                        <p>Let \( u = \ln x \), then \( du = \frac{1}{x} dx \). So \( \int \frac{1}{x \ln x} dx = \int \frac{1}{u} du = \ln|u| + C = \ln|\ln x| + C \).</p>
+                        <p><strong>Answer: (C) \( \ln|\ln x| + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q99" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>9.</strong> Evaluate \( \int \arctan x \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( x \arctan x + C \)</div>
+                        <div class="option" data-value="B">\( x \arctan x + \ln(1+x^2) + C \)</div>
+                        <div class="option" data-value="C">\( x \arctan x - \ln(1+x^2) + C \)</div>
+                        <div class="option" data-value="D">\( x \arctan x - \frac{1}{2}\ln(1+x^2) + C \)</div>
+                        <div class="option" data-value="E">\( \frac{x}{1+x^2} + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q99')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q99">
+                        <p>By parts: \( u = \arctan x \), \( dv = dx \). Then \( du = \frac{1}{1+x^2} dx \), \( v = x \). \( \int \arctan x \, dx = x \arctan x - \int \frac{x}{1+x^2} dx = x \arctan x - \frac{1}{2}\ln(1+x^2) + C \).</p>
+                        <p><strong>Answer: (D) \( x \arctan x - \frac{1}{2}\ln(1+x^2) + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q100" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>10.</strong> Evaluate \( \int_0^1 \frac{x}{1+x^2} \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{\pi}{4} \)</div>
+                        <div class="option" data-value="B">\( 1 \)</div>
+                        <div class="option" data-value="C">\( \ln 2 \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{4} \)</div>
+                        <div class="option" data-value="E">\( \frac{\ln 2}{2} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q100')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q100">
+                        <p>\( \int_0^1 \frac{x}{1+x^2} dx = \frac{1}{2}[\ln(1+x^2)]_0^1 = \frac{1}{2}(\ln 2 - \ln 1) = \frac{\ln 2}{2} \).</p>
+                        <p><strong>Answer: (E) \( \frac{\ln 2}{2} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q101" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>11.</strong> Evaluate \( \int \frac{1}{x^2-1} \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{1}{2}\ln\left|\frac{x-1}{x+1}\right| + C \)</div>
+                        <div class="option" data-value="B">\( \ln|x^2-1| + C \)</div>
+                        <div class="option" data-value="C">\( \text{arctanh}(x) + C \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{2}\ln\left|\frac{x+1}{x-1}\right| + C \)</div>
+                        <div class="option" data-value="E">\( \frac{-1}{x^2-1} + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q101')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q101">
+                        <p>Partial fractions: \( \frac{1}{x^2-1} = \frac{1}{(x-1)(x+1)} = \frac{1}{2}\left(\frac{1}{x-1} - \frac{1}{x+1}\right) \). Integrating: \( \frac{1}{2}(\ln|x-1| - \ln|x+1|) + C = \frac{1}{2}\ln\left|\frac{x-1}{x+1}\right| + C \).</p>
+                        <p><strong>Answer: (A) \( \frac{1}{2}\ln\left|\frac{x-1}{x+1}\right| + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q102" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>12.</strong> Evaluate \( \int_0^\infty e^{-x^2} \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \sqrt{\pi} \)</div>
+                        <div class="option" data-value="B">\( \frac{\sqrt{\pi}}{2} \)</div>
+                        <div class="option" data-value="C">\( \frac{\pi}{2} \)</div>
+                        <div class="option" data-value="D">\( 1 \)</div>
+                        <div class="option" data-value="E">\( \frac{1}{2} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q102')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q102">
+                        <p>This is the Gaussian integral. \( \int_{-\infty}^\infty e^{-x^2} dx = \sqrt{\pi} \). By symmetry, \( \int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2} \).</p>
+                        <p><strong>Answer: (B) \( \frac{\sqrt{\pi}}{2} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q103" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>13.</strong> Evaluate \( \int \sin^3 x \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( -\cos x + \cos^3 x + C \)</div>
+                        <div class="option" data-value="B">\( \cos x - \frac{\cos^3 x}{3} + C \)</div>
+                        <div class="option" data-value="C">\( -\cos x + \frac{\cos^3 x}{3} + C \)</div>
+                        <div class="option" data-value="D">\( \frac{-\sin^4 x}{4} + C \)</div>
+                        <div class="option" data-value="E">\( \frac{3\cos x - \cos 3x}{4} + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q103')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q103">
+                        <p>\( \int \sin^3 x \, dx = \int \sin x (1 - \cos^2 x) dx \). Let \( u = \cos x \), \( du = -\sin x \, dx \). Then \( \int -(1-u^2) du = -u + \frac{u^3}{3} + C = -\cos x + \frac{\cos^3 x}{3} + C \).</p>
+                        <p><strong>Answer: (C) \( -\cos x + \frac{\cos^3 x}{3} + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q104" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>14.</strong> Evaluate \( \int \frac{1}{1 + \sin x} \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \ln|1 + \sin x| + C \)</div>
+                        <div class="option" data-value="B">\( -\cot x + \csc x + C \)</div>
+                        <div class="option" data-value="C">\( \sec x + \tan x + C \)</div>
+                        <div class="option" data-value="D">\( \tan x - \sec x + C \)</div>
+                        <div class="option" data-value="E">\( \frac{x}{1 + \sin x} + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q104')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q104">
+                        <p>Multiply by \( \frac{1 - \sin x}{1 - \sin x} \): \( \int \frac{1 - \sin x}{\cos^2 x} dx = \int (\sec^2 x - \sec x \tan x) dx = \tan x - \sec x + C \).</p>
+                        <p><strong>Answer: (D) \( \tan x - \sec x + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q105" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>15.</strong> Evaluate \( \int \sqrt{1-x^2} \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \arcsin x + C \)</div>
+                        <div class="option" data-value="B">\( x\sqrt{1-x^2} + C \)</div>
+                        <div class="option" data-value="C">\( \frac{x\sqrt{1-x^2}}{2} + C \)</div>
+                        <div class="option" data-value="D">\( \frac{\arcsin x}{2} + C \)</div>
+                        <div class="option" data-value="E">\( \frac{x\sqrt{1-x^2}}{2} + \frac{\arcsin x}{2} + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q105')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q105">
+                        <p>Use trig substitution \( x = \sin \theta \). Then \( \sqrt{1-x^2} = \cos \theta \) and \( dx = \cos \theta \, d\theta \). \( \int \cos^2 \theta \, d\theta = \frac{\theta}{2} + \frac{\sin 2\theta}{4} = \frac{\arcsin x}{2} + \frac{x\sqrt{1-x^2}}{2} + C \).</p>
+                        <p><strong>Answer: (E) \( \frac{x\sqrt{1-x^2}}{2} + \frac{\arcsin x}{2} + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q106" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>16.</strong> Evaluate \( \int \frac{x^2}{x^2+1} \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( x - \arctan x + C \)</div>
+                        <div class="option" data-value="B">\( x + \arctan x + C \)</div>
+                        <div class="option" data-value="C">\( \frac{x^3}{3(x^2+1)} + C \)</div>
+                        <div class="option" data-value="D">\( \ln(x^2+1) + C \)</div>
+                        <div class="option" data-value="E">\( x - \frac{1}{2}\ln(x^2+1) + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q106')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q106">
+                        <p>\( \frac{x^2}{x^2+1} = 1 - \frac{1}{x^2+1} \). So \( \int \frac{x^2}{x^2+1} dx = x - \arctan x + C \).</p>
+                        <p><strong>Answer: (A) \( x - \arctan x + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q107" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>17.</strong> Evaluate \( \int_0^{\pi/2} \sin^4 x \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{\pi}{4} \)</div>
+                        <div class="option" data-value="B">\( \frac{3\pi}{16} \)</div>
+                        <div class="option" data-value="C">\( \frac{\pi}{8} \)</div>
+                        <div class="option" data-value="D">\( \frac{3\pi}{8} \)</div>
+                        <div class="option" data-value="E">\( \frac{\pi}{16} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q107')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q107">
+                        <p>By Wallis' formula: \( \int_0^{\pi/2} \sin^{2n} x \, dx = \frac{(2n-1)!!}{(2n)!!} \cdot \frac{\pi}{2} \). For \( n = 2 \): \( \frac{3!!}{4!!} \cdot \frac{\pi}{2} = \frac{3}{4 \cdot 2} \cdot \frac{\pi}{2} = \frac{3}{8} \cdot \frac{\pi}{2} = \frac{3\pi}{16} \).</p>
+                        <p><strong>Answer: (B) \( \frac{3\pi}{16} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q108" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>18.</strong> Evaluate \( \int \frac{1}{x^2 + 2x + 2} \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \ln|x^2 + 2x + 2| + C \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{x+1} + C \)</div>
+                        <div class="option" data-value="C">\( \arctan(x+1) + C \)</div>
+                        <div class="option" data-value="D">\( \arctan(x) + C \)</div>
+                        <div class="option" data-value="E">\( \frac{1}{2}\arctan(x+1) + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q108')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q108">
+                        <p>Complete the square: \( x^2 + 2x + 2 = (x+1)^2 + 1 \). So \( \int \frac{1}{(x+1)^2 + 1} dx = \arctan(x+1) + C \).</p>
+                        <p><strong>Answer: (C) \( \arctan(x+1) + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q109" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>19.</strong> Evaluate \( \int e^{\sqrt{x}} \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( e^{\sqrt{x}} + C \)</div>
+                        <div class="option" data-value="B">\( 2e^{\sqrt{x}} + C \)</div>
+                        <div class="option" data-value="C">\( 2e^{\sqrt{x}}(\sqrt{x} + 1) + C \)</div>
+                        <div class="option" data-value="D">\( 2e^{\sqrt{x}}(\sqrt{x} - 1) + C \)</div>
+                        <div class="option" data-value="E">\( \sqrt{x}e^{\sqrt{x}} + C \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q109')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q109">
+                        <p>Let \( u = \sqrt{x} \), so \( x = u^2 \), \( dx = 2u \, du \). Then \( \int e^{\sqrt{x}} dx = \int 2ue^u du = 2(ue^u - e^u) + C = 2e^u(u-1) + C = 2e^{\sqrt{x}}(\sqrt{x} - 1) + C \).</p>
+                        <p><strong>Answer: (D) \( 2e^{\sqrt{x}}(\sqrt{x} - 1) + C \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q110" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>20.</strong> Evaluate \( \int_0^1 \frac{\ln x}{1-x} \, dx \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( -1 \)</div>
+                        <div class="option" data-value="B">\( -\frac{\pi^2}{12} \)</div>
+                        <div class="option" data-value="C">\( -\ln 2 \)</div>
+                        <div class="option" data-value="D">\( \frac{\pi^2}{12} \)</div>
+                        <div class="option" data-value="E">\( -\frac{\pi^2}{6} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q110')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q110">
+                        <p>This integral equals \( -\sum_{n=1}^\infty \frac{1}{n^2} = -\frac{\pi^2}{6} \). One can show this by expanding \( \frac{1}{1-x} = \sum_{n=0}^\infty x^n \) and integrating term by term.</p>
+                        <p><strong>Answer: (E) \( -\frac{\pi^2}{6} \)</strong></p>
+                    </div>
+                </div>
+
+                <p><strong>References:</strong><br>
+                    (1) <a href="https://sites.math.rutgers.edu/~iacoley/greprep.html" target="_blank">Rutgers GRE Prep</a><br>
+                    (2) Cracking the GRE Mathematics Subject Test, 4th Edition<br>
+                    (3) IIT JAM</p>
+            </section>
+
+
         </div>
     </div>
 
@@ -1641,7 +2980,7 @@
         let isStarted = false;
 
         // Initialize error counts
-        for (let i = 1; i <= 50; i++) {
+        for (let i = 1; i <= 110; i++) {
             if (!incorrectCounts[`q${i}`]) incorrectCounts[`q${i}`] = 0;
             const errorElement = document.querySelector(`#q${i} .q-errors`);
             if (errorElement) {
@@ -1749,7 +3088,70 @@
         'q47': 'C',
         'q48': 'B',
         'q49': 'D',
-        'q50': 'A'
+        'q50': 'A',
+        // Additional Limit questions (q51-q70)
+        'q51': 'A',
+        'q52': 'C',
+        'q53': 'B',
+        'q54': 'D',
+        'q55': 'E',
+        'q56': 'A',
+        'q57': 'B',
+        'q58': 'C',
+        'q59': 'D',
+        'q60': 'A',
+        'q61': 'B',
+        'q62': 'E',
+        'q63': 'A',
+        'q64': 'C',
+        'q65': 'B',
+        'q66': 'D',
+        'q67': 'C',
+        'q68': 'A',
+        'q69': 'D',
+        'q70': 'E',
+        // Differentiation questions (q71-q90)
+        'q71': 'C',
+        'q72': 'A',
+        'q73': 'B',
+        'q74': 'D',
+        'q75': 'E',
+        'q76': 'A',
+        'q77': 'C',
+        'q78': 'B',
+        'q79': 'D',
+        'q80': 'A',
+        'q81': 'E',
+        'q82': 'C',
+        'q83': 'B',
+        'q84': 'A',
+        'q85': 'D',
+        'q86': 'E',
+        'q87': 'D',
+        'q88': 'B',
+        'q89': 'A',
+        'q90': 'D',
+        // Integration questions (q91-q110)
+        'q91': 'B',
+        'q92': 'C',
+        'q93': 'A',
+        'q94': 'D',
+        'q95': 'E',
+        'q96': 'B',
+        'q97': 'A',
+        'q98': 'C',
+        'q99': 'D',
+        'q100': 'E',
+        'q101': 'A',
+        'q102': 'B',
+        'q103': 'C',
+        'q104': 'D',
+        'q105': 'E',
+        'q106': 'A',
+        'q107': 'B',
+        'q108': 'C',
+        'q109': 'D',
+        'q110': 'E'
     };
     options.forEach(option => {
         option.addEventListener('click', () => {
@@ -1847,11 +3249,11 @@
             document.getElementById('results-btn').disabled = true;
             document.getElementById('results').style.display = 'none';
             
-            for (let i = 1; i <= 50; i++) {
+            for (let i = 1; i <= 110; i++) {
                 document.querySelectorAll(`.question .option`).forEach(option => {
                     option.classList.remove('selected-correct', 'selected-wrong', 'selected');
                 });
-                
+
                 const errorElement = document.querySelector(`#q${i} .q-errors`);
                 if (errorElement) {
                     errorElement.setAttribute('data-errors', '0');
