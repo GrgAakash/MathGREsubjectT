@@ -2241,25 +2241,25 @@
                     </div>
                 </div>
 
-                <div class="question" id="q79" data-correct="D">
+                <div class="question" id="q79" data-correct="C">
                     <div class="question-meta">
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
-                        <span>Medium</span>
+                        <span>Hard</span>
                     </div>
-                    <p><strong>9.</strong> Simplify \( \frac{d}{dx}\left[\arctan\left(\frac{x-1}{x+1}\right)\right] \).</p>
+                    <p><strong>9.</strong> Let \( f(x) = \arctan\left(\frac{2x}{1-x^2}\right) \). Find \( f'(x) \) for \( |x| < 1 \).</p>
                     <p class="source"><em>Source: GRE Practice</em></p>
                     <div class="options">
                         <div class="option" data-value="A">\( \frac{1}{1+x^2} \)</div>
-                        <div class="option" data-value="B">\( \frac{2}{1+x^2} \)</div>
-                        <div class="option" data-value="C">\( \frac{1}{x^2+1} \)</div>
-                        <div class="option" data-value="D">\( \frac{1}{1+x^2} \)</div>
-                        <div class="option" data-value="E">\( \frac{x}{1+x^2} \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{1-x^2} \)</div>
+                        <div class="option" data-value="C">\( \frac{2}{1+x^2} \)</div>
+                        <div class="option" data-value="D">\( \frac{2x}{(1+x^2)^2} \)</div>
+                        <div class="option" data-value="E">\( \frac{2}{(1-x^2)^2 + 4x^2} \cdot \frac{2(1+x^2)}{(1-x^2)^2} \)</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q79')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q79">
-                        <p>Note: \( \arctan\left(\frac{x-1}{x+1}\right) = \arctan(x) - \frac{\pi}{4} \) for \( x > -1 \). So derivative is \( \frac{1}{1+x^2} \). Alternatively, use chain rule directly.</p>
-                        <p><strong>Answer: (D) \( \frac{1}{1+x^2} \)</strong></p>
+                        <p>The key identity: \( \arctan\left(\frac{2x}{1-x^2}\right) = 2\arctan(x) \) for \( |x| < 1 \). So \( f'(x) = \frac{2}{1+x^2} \). The brute-force chain rule works but is much harder.</p>
+                        <p><strong>Answer: (C) \( \frac{2}{1+x^2} \)</strong></p>
                     </div>
                 </div>
 
@@ -2334,20 +2334,20 @@
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Hard</span>
                     </div>
-                    <p><strong>13.</strong> If \( f \) is differentiable on \( [0, 1] \) with \( f(0) = 0 \) and \( f(1) = 1 \), then by MVT there exists \( c \in (0, 1) \) such that \( f'(c) = \)?</p>
+                    <p><strong>13.</strong> If \( f(x) = x^3 e^{-x} \), find the number of inflection points of \( f \) on \( (0, \infty) \).</p>
                     <p class="source"><em>Source: GRE Practice</em></p>
                     <div class="options">
-                        <div class="option" data-value="A">0</div>
-                        <div class="option" data-value="B">1</div>
-                        <div class="option" data-value="C">\( \frac{1}{2} \)</div>
-                        <div class="option" data-value="D">2</div>
-                        <div class="option" data-value="E">Cannot be determined</div>
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">2</div>
+                        <div class="option" data-value="C">3</div>
+                        <div class="option" data-value="D">0</div>
+                        <div class="option" data-value="E">Infinitely many</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q83')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q83">
-                        <p>By MVT: \( f'(c) = \frac{f(1) - f(0)}{1 - 0} = \frac{1 - 0}{1} = 1 \).</p>
-                        <p><strong>Answer: (B) 1</strong></p>
+                        <p>\( f'(x) = e^{-x}(3x^2 - x^3) = x^2 e^{-x}(3 - x) \). \( f''(x) = e^{-x}(x^3 - 6x^2 + 6x) = xe^{-x}(x^2 - 6x + 6) \). Setting \( f''(x) = 0 \): \( x = 0 \) or \( x = 3 \pm \sqrt{3} \). On \( (0, \infty) \): \( x = 3 - \sqrt{3} \approx 1.27 \) and \( x = 3 + \sqrt{3} \approx 4.73 \). Both are sign changes, giving 2 inflection points.</p>
+                        <p><strong>Answer: (B) 2</strong></p>
                     </div>
                 </div>
 
@@ -2464,22 +2464,22 @@
                 <div class="question" id="q89" data-correct="A">
                     <div class="question-meta">
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
-                        <span>Medium</span>
+                        <span>Hard</span>
                     </div>
-                    <p><strong>19.</strong> If \( f(x) = x^3 - 3x + 2 \), how many real roots does \( f'(x) = 0 \) have?</p>
+                    <p><strong>19.</strong> Let \( g(x) = \int_0^x \frac{\sin t}{t} \, dt \). Then \( g''(x) \) equals:</p>
                     <p class="source"><em>Source: GRE Practice</em></p>
                     <div class="options">
-                        <div class="option" data-value="A">2</div>
-                        <div class="option" data-value="B">1</div>
-                        <div class="option" data-value="C">0</div>
-                        <div class="option" data-value="D">3</div>
-                        <div class="option" data-value="E">Infinitely many</div>
+                        <div class="option" data-value="A">\( \frac{x \cos x - \sin x}{x^2} \)</div>
+                        <div class="option" data-value="B">\( \frac{\sin x}{x} \)</div>
+                        <div class="option" data-value="C">\( \frac{\cos x}{x} \)</div>
+                        <div class="option" data-value="D">\( \frac{\cos x - \sin x}{x} \)</div>
+                        <div class="option" data-value="E">\( \frac{x \cos x + \sin x}{x^2} \)</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q89')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q89">
-                        <p>\( f'(x) = 3x^2 - 3 = 3(x^2 - 1) = 3(x-1)(x+1) \). So \( f'(x) = 0 \) when \( x = 1 \) or \( x = -1 \). Two real roots.</p>
-                        <p><strong>Answer: (A) 2</strong></p>
+                        <p>By FTC: \( g'(x) = \frac{\sin x}{x} \). Then \( g''(x) = \frac{x \cos x - \sin x}{x^2} \) by quotient rule.</p>
+                        <p><strong>Answer: (A) \( \frac{x \cos x - \sin x}{x^2} \)</strong></p>
                     </div>
                 </div>
 
@@ -2488,20 +2488,20 @@
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Hard</span>
                     </div>
-                    <p><strong>20.</strong> If \( f(x) = \frac{x}{1+x^2} \), find the maximum value of \( f(x) \) on \( [0, \infty) \).</p>
+                    <p><strong>20.</strong> Let \( f(x) = x^a (1-x)^b \) on \( [0, 1] \) with \( a, b > 0 \). The maximum occurs at \( x = \)?</p>
                     <p class="source"><em>Source: GRE Practice</em></p>
                     <div class="options">
-                        <div class="option" data-value="A">1</div>
-                        <div class="option" data-value="B">\( \frac{1}{4} \)</div>
-                        <div class="option" data-value="C">\( \frac{1}{3} \)</div>
-                        <div class="option" data-value="D">\( \frac{1}{2} \)</div>
-                        <div class="option" data-value="E">0</div>
+                        <div class="option" data-value="A">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="B">\( \frac{a}{b} \)</div>
+                        <div class="option" data-value="C">\( \frac{b}{a+b} \)</div>
+                        <div class="option" data-value="D">\( \frac{a}{a+b} \)</div>
+                        <div class="option" data-value="E">\( \frac{a-1}{a+b-2} \)</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q90')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q90">
-                        <p>\( f'(x) = \frac{(1+x^2) - x(2x)}{(1+x^2)^2} = \frac{1-x^2}{(1+x^2)^2} \). Setting \( f'(x) = 0 \): \( x = 1 \) (for \( x \geq 0 \)). \( f(1) = \frac{1}{2} \). Check: \( f(0) = 0 \), \( f(x) \to 0 \) as \( x \to \infty \). Max is \( \frac{1}{2} \).</p>
-                        <p><strong>Answer: (D) \( \frac{1}{2} \)</strong></p>
+                        <p>\( f'(x) = ax^{a-1}(1-x)^b - bx^a(1-x)^{b-1} = x^{a-1}(1-x)^{b-1}[a(1-x) - bx] \). Setting the bracket to zero: \( a - ax - bx = 0 \), so \( x = \frac{a}{a+b} \). Since \( f(0) = f(1) = 0 \), this interior critical point is the maximum.</p>
+                        <p><strong>Answer: (D) \( \frac{a}{a+b} \)</strong></p>
                     </div>
                 </div>
 
@@ -2561,66 +2561,66 @@
                 <div class="question" id="q93" data-correct="A">
                     <div class="question-meta">
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
-                        <span>Easy</span>
+                        <span>Hard</span>
                     </div>
-                    <p><strong>3.</strong> Evaluate \( \int \frac{1}{1+x^2} \, dx \).</p>
+                    <p><strong>3.</strong> Evaluate \( \int_0^{\pi} x \sin x \, dx \).</p>
                     <p class="source"><em>Source: GRE Practice</em></p>
                     <div class="options">
-                        <div class="option" data-value="A">\( \arctan x + C \)</div>
-                        <div class="option" data-value="B">\( \arcsin x + C \)</div>
-                        <div class="option" data-value="C">\( \ln(1+x^2) + C \)</div>
-                        <div class="option" data-value="D">\( \frac{1}{2}\ln(1+x^2) + C \)</div>
-                        <div class="option" data-value="E">\( \text{arcsec } x + C \)</div>
+                        <div class="option" data-value="A">\( \pi \)</div>
+                        <div class="option" data-value="B">\( 2\pi \)</div>
+                        <div class="option" data-value="C">\( \frac{\pi}{2} \)</div>
+                        <div class="option" data-value="D">\( \pi^2 \)</div>
+                        <div class="option" data-value="E">0</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q93')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q93">
-                        <p>This is a standard integral: \( \int \frac{1}{1+x^2} dx = \arctan x + C \).</p>
-                        <p><strong>Answer: (A) \( \arctan x + C \)</strong></p>
+                        <p>By parts: \( u = x \), \( dv = \sin x \, dx \). Then \( du = dx \), \( v = -\cos x \). \( \int_0^{\pi} x \sin x \, dx = [-x\cos x]_0^{\pi} + \int_0^{\pi} \cos x \, dx = \pi + [\sin x]_0^{\pi} = \pi + 0 = \pi \).</p>
+                        <p><strong>Answer: (A) \( \pi \)</strong></p>
                     </div>
                 </div>
 
                 <div class="question" id="q94" data-correct="D">
                     <div class="question-meta">
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
-                        <span>Medium</span>
+                        <span>Hard</span>
                     </div>
-                    <p><strong>4.</strong> Evaluate \( \int \tan x \, dx \).</p>
+                    <p><strong>4.</strong> Evaluate \( \int_0^1 \frac{x^3}{\sqrt{1-x^2}} \, dx \).</p>
                     <p class="source"><em>Source: GRE Practice</em></p>
                     <div class="options">
-                        <div class="option" data-value="A">\( \ln|\sin x| + C \)</div>
-                        <div class="option" data-value="B">\( \sec^2 x + C \)</div>
-                        <div class="option" data-value="C">\( \ln|\tan x| + C \)</div>
-                        <div class="option" data-value="D">\( -\ln|\cos x| + C \)</div>
-                        <div class="option" data-value="E">\( \sec x + C \)</div>
+                        <div class="option" data-value="A">\( \frac{\pi}{4} \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{4} \)</div>
+                        <div class="option" data-value="D">\( \frac{2}{3} \)</div>
+                        <div class="option" data-value="E">\( \frac{\pi}{6} \)</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q94')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q94">
-                        <p>\( \int \tan x \, dx = \int \frac{\sin x}{\cos x} dx = -\ln|\cos x| + C = \ln|\sec x| + C \).</p>
-                        <p><strong>Answer: (D) \( -\ln|\cos x| + C \)</strong></p>
+                        <p>Let \( u = 1 - x^2 \), \( du = -2x \, dx \). Then \( x^2 = 1 - u \). \( \int_0^1 \frac{x^2 \cdot x}{\sqrt{1-x^2}} dx = \int_1^0 \frac{(1-u)}{u^{1/2}} \cdot \frac{-du}{2} = \frac{1}{2}\int_0^1 (u^{-1/2} - u^{1/2}) du = \frac{1}{2}[2u^{1/2} - \frac{2u^{3/2}}{3}]_0^1 = \frac{1}{2}(2 - \frac{2}{3}) = \frac{2}{3} \).</p>
+                        <p><strong>Answer: (D) \( \frac{2}{3} \)</strong></p>
                     </div>
                 </div>
 
                 <div class="question" id="q95" data-correct="E">
                     <div class="question-meta">
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
-                        <span>Medium</span>
+                        <span>Hard</span>
                     </div>
-                    <p><strong>5.</strong> Evaluate \( \int \sec^2 x \tan x \, dx \).</p>
+                    <p><strong>5.</strong> Evaluate \( \int \frac{x^2 + 1}{x^4 + 1} \, dx \).</p>
                     <p class="source"><em>Source: GRE Practice</em></p>
                     <div class="options">
-                        <div class="option" data-value="A">\( \sec x + C \)</div>
-                        <div class="option" data-value="B">\( \tan x + C \)</div>
-                        <div class="option" data-value="C">\( \frac{\sec^2 x}{2} + C \)</div>
-                        <div class="option" data-value="D">\( \sec^3 x + C \)</div>
-                        <div class="option" data-value="E">\( \frac{\tan^2 x}{2} + C \)</div>
+                        <div class="option" data-value="A">\( \arctan(x^2) + C \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{2}\ln\left|\frac{x^2+1}{x^2-1}\right| + C \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{2}\arctan(x^2) + C \)</div>
+                        <div class="option" data-value="D">\( \arctan(x - \frac{1}{x}) + C \)</div>
+                        <div class="option" data-value="E">\( \frac{1}{\sqrt{2}} \arctan\left(\frac{x - 1/x}{\sqrt{2}}\right) + C \)</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q95')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q95">
-                        <p>Let \( u = \tan x \), then \( du = \sec^2 x \, dx \). So \( \int \sec^2 x \tan x \, dx = \int u \, du = \frac{u^2}{2} + C = \frac{\tan^2 x}{2} + C \).</p>
-                        <p><strong>Answer: (E) \( \frac{\tan^2 x}{2} + C \)</strong></p>
+                        <p>Divide numerator and denominator by \( x^2 \): \( \int \frac{1 + 1/x^2}{x^2 + 1/x^2} dx \). Note \( x^2 + 1/x^2 = (x - 1/x)^2 + 2 \) and \( d(x - 1/x) = (1 + 1/x^2) dx \). So the integral becomes \( \int \frac{du}{u^2 + 2} = \frac{1}{\sqrt{2}} \arctan\frac{u}{\sqrt{2}} + C \).</p>
+                        <p><strong>Answer: (E) \( \frac{1}{\sqrt{2}} \arctan\left(\frac{x - 1/x}{\sqrt{2}}\right) + C \)</strong></p>
                     </div>
                 </div>
 
@@ -2739,20 +2739,20 @@
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                         <span>Hard</span>
                     </div>
-                    <p><strong>11.</strong> Evaluate \( \int \frac{1}{x^2-1} \, dx \).</p>
+                    <p><strong>11.</strong> Evaluate \( \int_0^{\infty} \frac{x}{(1+x^2)^2} \, dx \).</p>
                     <p class="source"><em>Source: GRE Practice</em></p>
                     <div class="options">
-                        <div class="option" data-value="A">\( \frac{1}{2}\ln\left|\frac{x-1}{x+1}\right| + C \)</div>
-                        <div class="option" data-value="B">\( \ln|x^2-1| + C \)</div>
-                        <div class="option" data-value="C">\( \text{arctanh}(x) + C \)</div>
-                        <div class="option" data-value="D">\( \frac{1}{2}\ln\left|\frac{x+1}{x-1}\right| + C \)</div>
-                        <div class="option" data-value="E">\( \frac{-1}{x^2-1} + C \)</div>
+                        <div class="option" data-value="A">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="B">\( \frac{\pi}{4} \)</div>
+                        <div class="option" data-value="C">1</div>
+                        <div class="option" data-value="D">\( \frac{\pi}{2} \)</div>
+                        <div class="option" data-value="E">Diverges</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q101')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q101">
-                        <p>Partial fractions: \( \frac{1}{x^2-1} = \frac{1}{(x-1)(x+1)} = \frac{1}{2}\left(\frac{1}{x-1} - \frac{1}{x+1}\right) \). Integrating: \( \frac{1}{2}(\ln|x-1| - \ln|x+1|) + C = \frac{1}{2}\ln\left|\frac{x-1}{x+1}\right| + C \).</p>
-                        <p><strong>Answer: (A) \( \frac{1}{2}\ln\left|\frac{x-1}{x+1}\right| + C \)</strong></p>
+                        <p>Let \( u = 1 + x^2 \), \( du = 2x \, dx \). Then \( \int_0^{\infty} \frac{x}{(1+x^2)^2} dx = \frac{1}{2} \int_1^{\infty} \frac{du}{u^2} = \frac{1}{2}\left[-\frac{1}{u}\right]_1^{\infty} = \frac{1}{2}(0 + 1) = \frac{1}{2} \).</p>
+                        <p><strong>Answer: (A) \( \frac{1}{2} \)</strong></p>
                     </div>
                 </div>
 
@@ -2960,6 +2960,455 @@
                     (3) IIT JAM</p>
             </section>
 
+            <section id="series-section" class="topic-section" style="display: none;">
+                <h2>Series of Functions Practice Questions</h2>
+
+                <div class="question" id="q111" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>1.</strong> Find the radius of convergence of \( \sum_{n=0}^{\infty} \frac{n^n}{n!} x^n \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 1 \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{e} \)</div>
+                        <div class="option" data-value="D">\( e \)</div>
+                        <div class="option" data-value="E">\( \infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q111')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q111">
+                        <p>By the ratio test: \( \frac{a_{n+1}}{a_n} = \frac{(n+1)^{n+1}}{(n+1)!} \cdot \frac{n!}{n^n} \cdot |x| = \frac{(n+1)^n}{n^n} |x| = \left(1 + \frac{1}{n}\right)^n |x| \to e|x| \). Converges when \( e|x| < 1 \), so \( R = \frac{1}{e} \).</p>
+                        <p><strong>Answer: (C) \( \frac{1}{e} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q112" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>2.</strong> Find the radius of convergence of \( \sum_{n=1}^{\infty} \frac{n! \, x^n}{n^n} \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">\( \frac{1}{e} \)</div>
+                        <div class="option" data-value="C">\( e \)</div>
+                        <div class="option" data-value="D">\( \infty \)</div>
+                        <div class="option" data-value="E">0</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q112')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q112">
+                        <p>By the ratio test: \( \left|\frac{a_{n+1}}{a_n}\right| = |x| \cdot \frac{(n+1)!}{(n+1)^{n+1}} \cdot \frac{n^n}{n!} = |x| \cdot \frac{n^n}{(n+1)^n} = |x| \cdot \frac{1}{(1+1/n)^n} \to \frac{|x|}{e} \). Converges when \( \frac{|x|}{e} < 1 \), so \( R = e \).</p>
+                        <p><strong>Answer: (C) \( e \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q113" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>3.</strong> Compute \( \sum_{n=1}^{\infty} \frac{n^2}{2^n} \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">4</div>
+                        <div class="option" data-value="B">6</div>
+                        <div class="option" data-value="C">8</div>
+                        <div class="option" data-value="D">\( \frac{10}{3} \)</div>
+                        <div class="option" data-value="E">\( \infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q113')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q113">
+                        <p>Start with \( \frac{1}{1-x} = \sum x^n \). Differentiate: \( \frac{1}{(1-x)^2} = \sum n x^{n-1} \). Multiply by \( x \): \( \frac{x}{(1-x)^2} = \sum n x^n \). Differentiate again: \( \frac{1+x}{(1-x)^3} = \sum n^2 x^{n-1} \). Multiply by \( x \): \( \frac{x(1+x)}{(1-x)^3} = \sum n^2 x^n \). Set \( x = \frac{1}{2} \): \( \frac{\frac{1}{2} \cdot \frac{3}{2}}{(1/2)^3} = \frac{3/4}{1/8} = 6 \).</p>
+                        <p><strong>Answer: (B) 6</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q114" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>4.</strong> Determine \( \sum_{n=1}^{\infty} \frac{n}{2^n} \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">\( \frac{3}{2} \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="D">2</div>
+                        <div class="option" data-value="E">\( \infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q114')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q114">
+                        <p>From \( \frac{1}{1-x} = \sum x^n \), differentiate: \( \frac{1}{(1-x)^2} = \sum n x^{n-1} \). Multiply by \( x \): \( \frac{x}{(1-x)^2} = \sum n x^n \). Set \( x = \frac{1}{2} \): \( \frac{1/2}{(1/2)^2} = \frac{1/2}{1/4} = 2 \).</p>
+                        <p><strong>Answer: (D) 2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q115" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>5.</strong> Which series converges conditionally?</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \sum_{n=1}^{\infty} \frac{1}{n^2} \)</div>
+                        <div class="option" data-value="B">\( \sum_{n=1}^{\infty} \frac{(-1)^n}{n^2} \)</div>
+                        <div class="option" data-value="C">\( \sum_{n=1}^{\infty} \frac{1}{n} \)</div>
+                        <div class="option" data-value="D">\( \sum_{n=1}^{\infty} \frac{1}{2^n} \)</div>
+                        <div class="option" data-value="E">\( \sum_{n=1}^{\infty} \frac{(-1)^n}{n} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q115')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q115">
+                        <p>The alternating harmonic series \( \sum \frac{(-1)^n}{n} \) converges by the alternating series test, but \( \sum \frac{1}{n} \) diverges. So it converges conditionally. (A), (B), (D) converge absolutely; (C) diverges.</p>
+                        <p><strong>Answer: (E) \( \sum_{n=1}^{\infty} \frac{(-1)^n}{n} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q116" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>6.</strong> The Taylor series of \( \ln(1+x) \) centered at \( x = 0 \) is:</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \sum_{n=0}^{\infty} \frac{(-1)^n x^n}{n} \)</div>
+                        <div class="option" data-value="B">\( \sum_{n=1}^{\infty} \frac{(-1)^{n+1} x^n}{n} \)</div>
+                        <div class="option" data-value="C">\( \sum_{n=1}^{\infty} \frac{x^n}{n} \)</div>
+                        <div class="option" data-value="D">\( \sum_{n=0}^{\infty} \frac{x^{n+1}}{n+1} \)</div>
+                        <div class="option" data-value="E">\( \sum_{n=1}^{\infty} \frac{(-1)^n x^n}{n!} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q116')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q116">
+                        <p>\( \ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots = \sum_{n=1}^{\infty} \frac{(-1)^{n+1} x^n}{n} \) for \( -1 < x \leq 1 \). Note (A) has \( n=0 \) which gives division by zero.</p>
+                        <p><strong>Answer: (B) \( \sum_{n=1}^{\infty} \frac{(-1)^{n+1} x^n}{n} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q117" data-correct="A">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>7.</strong> Find the interval of convergence of \( \sum_{n=1}^{\infty} \frac{(-1)^n x^n}{n} \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( (-1, 1] \)</div>
+                        <div class="option" data-value="B">\( [-1, 1] \)</div>
+                        <div class="option" data-value="C">\( (-1, 1) \)</div>
+                        <div class="option" data-value="D">\( [-1, 1) \)</div>
+                        <div class="option" data-value="E">\( (-\infty, \infty) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q117')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q117">
+                        <p>Radius of convergence \( R = 1 \). At \( x = 1 \): \( \sum \frac{(-1)^n}{n} \) converges (alternating series test). At \( x = -1 \): \( \sum \frac{1}{n} \) diverges. So the interval is \( (-1, 1] \).</p>
+                        <p><strong>Answer: (A) \( (-1, 1] \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q118" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>8.</strong> Let \( f_n(x) = x^n \) on \( [0,1) \). Does \( f_n \to 0 \) uniformly?</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">Yes, by Weierstrass M-test</div>
+                        <div class="option" data-value="B">Yes, since each \( f_n \) is continuous</div>
+                        <div class="option" data-value="C">No, because \( \sup_{x \in [0,1)} |x^n| = 1 \) for all \( n \)</div>
+                        <div class="option" data-value="D">No, because \( f_n(0) \neq 0 \)</div>
+                        <div class="option" data-value="E">Yes, by dominated convergence</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q118')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q118">
+                        <p>Pointwise, \( x^n \to 0 \) for each \( x \in [0,1) \). But \( \sup_{x \in [0,1)} |x^n - 0| = \sup_{x \in [0,1)} x^n = 1 \not\to 0 \). The convergence is not uniform because the sup does not go to 0.</p>
+                        <p><strong>Answer: (C) No, because \( \sup_{x \in [0,1)} |x^n| = 1 \) for all \( n \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q119" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>9.</strong> Compute \( \sum_{n=1}^{\infty} \frac{1}{n(n+1) \cdot 2^n} \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 2\ln 2 - 1 \)</div>
+                        <div class="option" data-value="B">\( \ln 2 \)</div>
+                        <div class="option" data-value="C">\( 1 - \ln 2 \)</div>
+                        <div class="option" data-value="D">\( \frac{\pi}{4} - \frac{1}{2} \)</div>
+                        <div class="option" data-value="E">\( 2 - 2\ln 2 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q119')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q119">
+                        <p>By partial fractions: \( \frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1} \). So \( \sum_{n=1}^{\infty} \frac{1}{n(n+1)2^n} = \sum_{n=1}^{\infty} \frac{1}{n \cdot 2^n} - \sum_{n=1}^{\infty} \frac{1}{(n+1) \cdot 2^n} \). Using \( -\ln(1-x) = \sum \frac{x^n}{n} \), at \( x = \frac{1}{2} \): the first sum is \( \ln 2 \). For the second: substituting \( m = n+1 \), we get \( \sum_{m=2}^{\infty} \frac{1}{m \cdot 2^{m-1}} = 2\sum_{m=2}^{\infty} \frac{1}{m \cdot 2^m} = 2(\ln 2 - \frac{1}{2}) = 2\ln 2 - 1 \). Thus the answer is \( \ln 2 - (2\ln 2 - 1) = 1 - \ln 2 \).</p>
+                        <p><strong>Answer: (C) \( 1 - \ln 2 \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q120" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>10.</strong> The coefficient of \( x^5 \) in the Maclaurin series of \( e^x \sin x \) is:</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \frac{1}{120} \)</div>
+                        <div class="option" data-value="B">\( \frac{1}{24} \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{12} \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{30} \)</div>
+                        <div class="option" data-value="E">\( -\frac{1}{30} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q120')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q120">
+                        <p>We need the coefficient of \( x^5 \) in \( (1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \frac{x^5}{120} + \cdots)(x - \frac{x^3}{6} + \frac{x^5}{120} - \cdots) \). Collecting: \( \frac{1}{120} + \frac{1}{120} - \frac{1}{12} - \frac{1}{6} + \frac{1}{2} \cdot \frac{1}{6} - \frac{1}{6} \cdot \frac{1}{6} + \frac{1}{24} \cdot 0 \ldots \) By careful computation or using \( e^x \sin x = \text{Im}(e^{(1+i)x}) \), the coefficient of \( x^5 \) is \( \frac{1}{5!}\text{Im}((1+i)^5) \). \( (1+i)^5 = (1+i)(1+i)^4 = (1+i) \cdot (-4) = -4 - 4i \). So coefficient \( = \frac{-4}{120} = -\frac{1}{30} \).</p>
+                        <p><strong>Answer: (E) \( -\frac{1}{30} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q121" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>11.</strong> Determine which of the following series converges conditionally but not absolutely.</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \sum_{n=1}^{\infty} \frac{(-1)^n}{n^2} \)</div>
+                        <div class="option" data-value="B">\( \sum_{n=1}^{\infty} \frac{(-1)^n}{2^n} \)</div>
+                        <div class="option" data-value="C">\( \sum_{n=2}^{\infty} \frac{(-1)^n}{n \ln n} \)</div>
+                        <div class="option" data-value="D">Both (C) and (E)</div>
+                        <div class="option" data-value="E">\( \sum_{n=1}^{\infty} \frac{(-1)^n}{\sqrt{n}} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q121')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q121">
+                        <p>(A) converges absolutely since \( \sum 1/n^2 \) converges. (B) converges absolutely since \( \sum 1/2^n \) converges. (C) converges by alternating series test but \( \sum 1/(n\ln n) \) diverges by the integral test (\( \int \frac{dx}{x\ln x} = \ln(\ln x) \to \infty \)), so it converges conditionally. (E) converges by alternating series test but \( \sum 1/\sqrt{n} \) diverges (p-series, p = 1/2), so it also converges conditionally. Both (C) and (E) converge conditionally.</p>
+                        <p><strong>Answer: (D) Both (C) and (E)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q122" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>12.</strong> Determine \( \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \ln 2 \)</div>
+                        <div class="option" data-value="B">\( \frac{\pi}{4} \)</div>
+                        <div class="option" data-value="C">\( \frac{\pi}{6} \)</div>
+                        <div class="option" data-value="D">\( \frac{\pi}{2} \)</div>
+                        <div class="option" data-value="E">1</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q122')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q122">
+                        <p>This is the Leibniz formula for \( \pi \). Since \( \arctan x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{2n+1} \), setting \( x = 1 \): \( \arctan(1) = \frac{\pi}{4} = \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1} \).</p>
+                        <p><strong>Answer: (B) \( \frac{\pi}{4} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q123" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>13.</strong> Let \( f_n(x) = n x (1-x^2)^n \) on \( [0,1] \). Then \( \lim_{n \to \infty} \int_0^1 f_n(x)\,dx = \)</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">\( 1 \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{2} \)</div>
+                        <div class="option" data-value="D">\( \frac{1}{e} \)</div>
+                        <div class="option" data-value="E">The limit does not exist</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q123')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q123">
+                        <p>Substitute \( u = 1 - x^2 \), so \( du = -2x\,dx \): \( \int_0^1 n x(1-x^2)^n dx = \frac{n}{2}\int_0^1 u^n\,du = \frac{n}{2} \cdot \frac{1}{n+1} = \frac{n}{2(n+1)} \to \frac{1}{2} \). Note that \( f_n \to 0 \) pointwise on \( [0,1] \) (since \( (1-x^2)^n \to 0 \) for \( x \neq 0 \)), but the integral does NOT go to 0 — this shows the convergence is not uniform, and we cannot interchange limit and integral.</p>
+                        <p><strong>Answer: (C) \( \frac{1}{2} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q124" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>14.</strong> Find the radius of convergence of \( \sum_{n=1}^{\infty} \frac{x^n}{n \cdot 3^n} \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">\( \frac{1}{3} \)</div>
+                        <div class="option" data-value="C">\( e \)</div>
+                        <div class="option" data-value="D">3</div>
+                        <div class="option" data-value="E">\( \infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q124')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q124">
+                        <p>By the ratio test: \( \left|\frac{a_{n+1}}{a_n}\right| = \frac{|x|}{3} \cdot \frac{n}{n+1} \to \frac{|x|}{3} \). Converges when \( \frac{|x|}{3} < 1 \), so \( R = 3 \).</p>
+                        <p><strong>Answer: (D) 3</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q125" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>15.</strong> The Taylor series of \( \arctan x \) about \( x = 0 \) is valid for:</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( (-1, 1) \)</div>
+                        <div class="option" data-value="B">\( (-\infty, \infty) \)</div>
+                        <div class="option" data-value="C">\( [0, 1] \)</div>
+                        <div class="option" data-value="D">\( (-1, 1] \)</div>
+                        <div class="option" data-value="E">\( [-1, 1] \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q125')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q125">
+                        <p>\( \arctan x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{2n+1} \). The radius of convergence is 1. At \( x = 1 \): \( \sum \frac{(-1)^n}{2n+1} \) converges (alternating series). At \( x = -1 \): \( \sum \frac{(-1)^{n+1}}{2n+1} \) also converges. So the interval is \( [-1, 1] \).</p>
+                        <p><strong>Answer: (E) \( [-1, 1] \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q126" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>16.</strong> Let \( f(x) = \sum_{n=0}^{\infty} a_n x^n \) where \( a_n = \begin{cases} 1/2^k & \text{if } n = 2k \\ 1/3^k & \text{if } n = 2k+1 \end{cases} \). Find the radius of convergence.</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 2 \)</div>
+                        <div class="option" data-value="B">\( \sqrt{2} \)</div>
+                        <div class="option" data-value="C">\( \sqrt{3} \)</div>
+                        <div class="option" data-value="D">\( 3 \)</div>
+                        <div class="option" data-value="E">\( \frac{1}{\sqrt{2}} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q126')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q126">
+                        <p>By the Hadamard formula: \( \frac{1}{R} = \limsup_{n \to \infty} |a_n|^{1/n} \). For even \( n = 2k \): \( |a_n|^{1/n} = (1/2^k)^{1/2k} = (1/2)^{1/2} = 1/\sqrt{2} \). For odd \( n = 2k+1 \): \( |a_n|^{1/n} = (1/3^k)^{1/(2k+1)} \to (1/3)^{1/2} = 1/\sqrt{3} \). The \( \limsup \) is the larger value: \( 1/\sqrt{2} \). So \( R = \sqrt{2} \).</p>
+                        <p><strong>Answer: (B) \( \sqrt{2} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q127" data-correct="B">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>17.</strong> Compute \( \sum_{n=0}^{\infty} \frac{(-1)^n \pi^{2n}}{(2n)!} \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">0</div>
+                        <div class="option" data-value="B">\( -1 \)</div>
+                        <div class="option" data-value="C">\( 1 \)</div>
+                        <div class="option" data-value="D">\( \pi \)</div>
+                        <div class="option" data-value="E">\( e^\pi \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q127')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q127">
+                        <p>Recall \( \cos x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} \). Setting \( x = \pi \): \( \cos \pi = -1 \).</p>
+                        <p><strong>Answer: (B) \( -1 \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q128" data-correct="C">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>18.</strong> Find the radius of convergence of \( \sum_{n=0}^{\infty} \frac{(2n)!}{(n!)^2} x^n \).</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">1</div>
+                        <div class="option" data-value="B">\( 2 \)</div>
+                        <div class="option" data-value="C">\( \frac{1}{4} \)</div>
+                        <div class="option" data-value="D">\( 4 \)</div>
+                        <div class="option" data-value="E">\( \frac{1}{2} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q128')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q128">
+                        <p>By the ratio test: \( \frac{a_{n+1}}{a_n} = \frac{(2n+2)!}{((n+1)!)^2} \cdot \frac{(n!)^2}{(2n)!} = \frac{(2n+2)(2n+1)}{(n+1)^2} = \frac{2(2n+1)}{n+1} \to 4 \). So the series converges when \( 4|x| < 1 \), giving \( R = \frac{1}{4} \).</p>
+                        <p><strong>Answer: (C) \( \frac{1}{4} \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q129" data-correct="D">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Medium</span>
+                    </div>
+                    <p><strong>19.</strong> Which of the following is the Maclaurin series for \( \frac{1}{(1-x)^2} \)?</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \sum_{n=0}^{\infty} x^{2n} \)</div>
+                        <div class="option" data-value="B">\( \sum_{n=0}^{\infty} 2^n x^n \)</div>
+                        <div class="option" data-value="C">\( \sum_{n=0}^{\infty} \frac{x^n}{n!} \)</div>
+                        <div class="option" data-value="D">\( \sum_{n=0}^{\infty} (n+1) x^n \)</div>
+                        <div class="option" data-value="E">\( \sum_{n=1}^{\infty} n x^{n-1} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q129')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q129">
+                        <p>Differentiate \( \frac{1}{1-x} = \sum_{n=0}^{\infty} x^n \) to get \( \frac{1}{(1-x)^2} = \sum_{n=1}^{\infty} n x^{n-1} = \sum_{n=0}^{\infty} (n+1)x^n \). Note (D) and (E) represent the same series, but (D) is in standard form.</p>
+                        <p><strong>Answer: (D) \( \sum_{n=0}^{\infty} (n+1) x^n \)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" id="q130" data-correct="E">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                        <span>Hard</span>
+                    </div>
+                    <p><strong>20.</strong> The function \( f(x) = \sum_{n=1}^{\infty} \frac{\sin(nx)}{n^2} \) is:</p>
+                    <p class="source"><em>Source: GRE Practice</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">Discontinuous everywhere</div>
+                        <div class="option" data-value="B">Continuous but nowhere differentiable</div>
+                        <div class="option" data-value="C">Not uniformly convergent</div>
+                        <div class="option" data-value="D">Divergent for some \( x \)</div>
+                        <div class="option" data-value="E">Continuous on \( \mathbb{R} \), by Weierstrass M-test</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q130')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q130">
+                        <p>Since \( \left|\frac{\sin(nx)}{n^2}\right| \leq \frac{1}{n^2} = M_n \) and \( \sum \frac{1}{n^2} = \frac{\pi^2}{6} < \infty \), by the Weierstrass M-test the series converges uniformly. Since each term is continuous and the convergence is uniform, \( f \) is continuous on \( \mathbb{R} \).</p>
+                        <p><strong>Answer: (E) Continuous on \( \mathbb{R} \), by Weierstrass M-test</strong></p>
+                    </div>
+                </div>
+
+                <p><strong>References:</strong><br>
+                    (1) <a href="https://sites.math.rutgers.edu/~iacoley/greprep.html" target="_blank">Rutgers GRE Prep</a><br>
+                    (2) Cracking the GRE Mathematics Subject Test, 4th Edition<br>
+                    (3) IIT JAM</p>
+            </section>
+
 
         </div>
     </div>
@@ -2980,7 +3429,7 @@
         let isStarted = false;
 
         // Initialize error counts
-        for (let i = 1; i <= 110; i++) {
+        for (let i = 1; i <= 130; i++) {
             if (!incorrectCounts[`q${i}`]) incorrectCounts[`q${i}`] = 0;
             const errorElement = document.querySelector(`#q${i} .q-errors`);
             if (errorElement) {
@@ -3119,7 +3568,7 @@
         'q76': 'A',
         'q77': 'C',
         'q78': 'B',
-        'q79': 'D',
+        'q79': 'C',
         'q80': 'A',
         'q81': 'E',
         'q82': 'C',
@@ -3151,7 +3600,28 @@
         'q107': 'B',
         'q108': 'C',
         'q109': 'D',
-        'q110': 'E'
+        'q110': 'E',
+        // Series of Functions questions (q111-q130)
+        'q111': 'C',
+        'q112': 'C',
+        'q113': 'B',
+        'q114': 'D',
+        'q115': 'E',
+        'q116': 'B',
+        'q117': 'A',
+        'q118': 'C',
+        'q119': 'C',
+        'q120': 'E',
+        'q121': 'D',
+        'q122': 'B',
+        'q123': 'C',
+        'q124': 'D',
+        'q125': 'E',
+        'q126': 'B',
+        'q127': 'B',
+        'q128': 'C',
+        'q129': 'D',
+        'q130': 'E'
     };
     options.forEach(option => {
         option.addEventListener('click', () => {
@@ -3249,7 +3719,7 @@
             document.getElementById('results-btn').disabled = true;
             document.getElementById('results').style.display = 'none';
             
-            for (let i = 1; i <= 110; i++) {
+            for (let i = 1; i <= 130; i++) {
                 document.querySelectorAll(`.question .option`).forEach(option => {
                     option.classList.remove('selected-correct', 'selected-wrong', 'selected');
                 });
