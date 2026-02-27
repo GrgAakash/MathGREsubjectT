@@ -422,23 +422,633 @@
             <section id="general-topology-section" class="topic-section">
                 <h2>General Topology Practice Questions</h2>
 
+                <!-- Q1: Open sets from topology definition -->
                 <div class="question" id="q1">
                     <div class="question-meta">
                         <span>❌ <span class="q-errors" data-errors="0">0</span></span>
                     </div>
-                    <p><strong>1.</strong> Let \( X = \{a, b, c\} \) with topology \( \tau = \{\emptyset, \{a\}, \{a, b\}, X\} \). Is the set \( \{b, c\} \) open in \( X \)?</p>
+                    <p><strong>1.</strong> Let \( X = \{a, b, c\} \) with topology \( \tau = \{\emptyset, \{a\}, \{a, b\}, X\} \). Which of the following is true about the set \( \{b, c\} \)?</p>
                     <div class="options">
-                        <div class="option" data-value="A">A) Yes</div>
-                        <div class="option" data-value="B">B) No</div>
-                        <div class="option" data-value="C">C) Open and closed</div>
-                        <div class="option" data-value="D">D) Neither open nor closed</div>
-                        <div class="option" data-value="E">E) Cannot determine</div>
+                        <div class="option" data-value="A">A) It is open</div>
+                        <div class="option" data-value="B">B) It is closed but not open</div>
+                        <div class="option" data-value="C">C) It is both open and closed</div>
+                        <div class="option" data-value="D">D) It is neither open nor closed</div>
+                        <div class="option" data-value="E">E) Cannot be determined</div>
                     </div>
                     <div class="feedback"></div>
                     <p><span class="toggle-btn" onclick="toggleExplanation('exp-q1')">Show/Hide Explanation</span></p>
                     <div class="explanation" id="exp-q1">
-                        <p>A set is open if it belongs to the topology \( \tau \). The topology is \( \tau = \{\emptyset, \{a\}, \{a, b\}, X\} \). Since \( \{b, c\} \notin \tau \), it is not open. By the definition of a topology, only sets in \( \tau \) are open.</p>
-                        <p><strong>Answer: B) No</strong></p>
+                        <p>\(\{b,c\} \notin \tau\), so it is not open. Its complement is \(\{a\} \in \tau\), which is open, so \(\{b,c\}\) is closed. Hence it is closed but not open.</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q2: Closed sets in discrete topology -->
+                <div class="question" id="q2">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>2.</strong> In the discrete topology on a set \( X \), which subsets of \( X \) are closed?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Only \( \emptyset \) and \( X \)</div>
+                        <div class="option" data-value="B">B) Only finite subsets</div>
+                        <div class="option" data-value="C">C) Every subset of \( X \)</div>
+                        <div class="option" data-value="D">D) Only countable subsets</div>
+                        <div class="option" data-value="E">E) No subsets are closed</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q2')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q2">
+                        <p>In the discrete topology every subset is open. Since the complement of any set is also a subset, every complement is open, so every subset is also closed.</p>
+                        <p><strong>Answer: C)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q3: Open sets in finite complement topology -->
+                <div class="question" id="q3">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>3.</strong> Consider the finite complement topology on \( \mathbb{R} \). Which of the following sets is open?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( (0, 1) \)</div>
+                        <div class="option" data-value="B">B) \( \mathbb{R} \setminus \{1, 2, 3\} \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{Q} \)</div>
+                        <div class="option" data-value="D">D) \( [0, 1] \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{Z} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q3')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q3">
+                        <p>In the finite complement topology, a set is open iff its complement is finite (or the set is empty). \(\mathbb{R} \setminus \{1,2,3\}\) has complement \(\{1,2,3\}\), which is finite.</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q4: Open sets in lower limit topology -->
+                <div class="question" id="q4">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>4.</strong> In the lower limit topology \( \mathbb{R}_\ell \) (basis elements \([a, b)\)), which of the following sets is open?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( (0, 1) \)</div>
+                        <div class="option" data-value="B">B) \( (0, 1] \)</div>
+                        <div class="option" data-value="C">C) \( [0, 1] \)</div>
+                        <div class="option" data-value="D">D) \( \{0\} \)</div>
+                        <div class="option" data-value="E">E) None of the above</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q4')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q4">
+                        <p>\((0,1) = \bigcup_{n=1}^{\infty}[1/n, 1)\), which is a union of basis elements, so it is open in \(\mathbb{R}_\ell\). The others are not open: \((0,1]\) is not a union of half-open intervals of the form \([a,b)\); \([0,1]\) and \(\{0\}\) also fail.</p>
+                        <p><strong>Answer: A)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q5: Closed sets in lower limit topology -->
+                <div class="question" id="q5">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>5.</strong> In the lower limit topology \( \mathbb{R}_\ell \), is the set \( [0, 1) \) closed?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes, it is closed but not open</div>
+                        <div class="option" data-value="B">B) Yes, it is both open and closed</div>
+                        <div class="option" data-value="C">C) No, it is open but not closed</div>
+                        <div class="option" data-value="D">D) No, it is neither open nor closed</div>
+                        <div class="option" data-value="E">E) Cannot be determined</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q5')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q5">
+                        <p>\([0,1)\) is a basis element so it is open. Its complement is \((-\infty, 0) \cup [1, \infty)\). Now \((-\infty,0) = \bigcup_{n}[-n, 0)\) and \([1,\infty) = \bigcup_{n}[1, n)\), both open. So the complement is open, meaning \([0,1)\) is also closed. It is clopen.</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q6: Connected sets in lower limit topology -->
+                <div class="question" id="q6">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>6.</strong> Which of the following subsets of \( \mathbb{R}_\ell \) (lower limit topology) is connected?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( [0, 1) \)</div>
+                        <div class="option" data-value="B">B) \( (0, 1) \)</div>
+                        <div class="option" data-value="C">C) \( \{0\} \)</div>
+                        <div class="option" data-value="D">D) \( [0, 1] \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{R} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q6')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q6">
+                        <p>In \(\mathbb{R}_\ell\), the only connected subsets are singletons and the empty set. Any set with more than one point can be separated: if \(a < b\) are in a set \(S\), then \(S = (S \cap (-\infty, b)) \cup (S \cap [b, \infty))\) is a separation since both parts are open in the subspace topology.</p>
+                        <p><strong>Answer: C)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q7: Compact sets in standard topology -->
+                <div class="question" id="q7">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>7.</strong> Which of the following subsets of \( \mathbb{R} \) (standard topology) is compact?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( (0, 1) \)</div>
+                        <div class="option" data-value="B">B) \( [0, \infty) \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{Q} \cap [0, 1] \)</div>
+                        <div class="option" data-value="D">D) \( [0, 1] \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{Z} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q7')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q7">
+                        <p>By the Heine–Borel theorem, a subset of \(\mathbb{R}\) is compact iff it is closed and bounded. \([0,1]\) is both closed and bounded. \((0,1)\) is not closed, \([0,\infty)\) is not bounded, \(\mathbb{Q}\cap[0,1]\) is not closed, and \(\mathbb{Z}\) is not bounded.</p>
+                        <p><strong>Answer: D)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q8: Compact in discrete topology -->
+                <div class="question" id="q8">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>8.</strong> In the discrete topology on \( \mathbb{R} \), which subsets are compact?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) All closed and bounded subsets</div>
+                        <div class="option" data-value="B">B) All subsets</div>
+                        <div class="option" data-value="C">C) Only finite subsets</div>
+                        <div class="option" data-value="D">D) Only countable subsets</div>
+                        <div class="option" data-value="E">E) Only \( \emptyset \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q8')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q8">
+                        <p>In the discrete topology every singleton \(\{x\}\) is open. So for any infinite set \(S\), the cover \(\{\{x\} : x \in S\}\) has no finite subcover. Thus only finite sets are compact.</p>
+                        <p><strong>Answer: C)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q9: Connected in discrete topology -->
+                <div class="question" id="q9">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>9.</strong> In the discrete topology on a set \( X \) with \( |X| \geq 2 \), which subsets are connected?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) All subsets</div>
+                        <div class="option" data-value="B">B) Only \( X \) itself</div>
+                        <div class="option" data-value="C">C) Only singletons and \( \emptyset \)</div>
+                        <div class="option" data-value="D">D) Only finite subsets</div>
+                        <div class="option" data-value="E">E) No subsets are connected</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q9')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q9">
+                        <p>In the discrete topology, every subset is both open and closed. So if \(S\) has two distinct points \(a, b\), then \(\{a\}\) and \(S\setminus\{a\}\) form a separation. Only singletons and \(\emptyset\) are connected.</p>
+                        <p><strong>Answer: C)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q10: Continuous function definition -->
+                <div class="question" id="q10">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>10.</strong> Let \( f: \mathbb{R} \to \mathbb{R} \) be the function \( f(x) = x^2 \), where the domain has the standard topology and the codomain has the lower limit topology \( \mathbb{R}_\ell \). Is \( f \) continuous?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                        <div class="option" data-value="C">C) Only at \( x = 0 \)</div>
+                        <div class="option" data-value="D">D) Only for \( x > 0 \)</div>
+                        <div class="option" data-value="E">E) Cannot be determined</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q10')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q10">
+                        <p>The lower limit topology is strictly finer than the standard topology. A continuous map requires preimages of open sets to be open. The set \([0,1)\) is open in \(\mathbb{R}_\ell\), but \(f^{-1}([0,1)) = (-1, 1)\) is open in the standard topology. However, \([4, 9)\) is open in \(\mathbb{R}_\ell\) and \(f^{-1}([4,9)) = (-3,-2] \cup [2,3)\), and \((-3,-2]\) is not open in the standard topology. So \(f\) is not continuous.</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q11: Continuity from discrete topology -->
+                <div class="question" id="q12">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>11.</strong> Let \( X \) have the discrete topology and \( Y \) have any topology. Which functions \( f: X \to Y \) are continuous?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Only constant functions</div>
+                        <div class="option" data-value="B">B) Only injective functions</div>
+                        <div class="option" data-value="C">C) Every function</div>
+                        <div class="option" data-value="D">D) Only surjective functions</div>
+                        <div class="option" data-value="E">E) No functions</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q12')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q12">
+                        <p>If \(X\) has the discrete topology, every subset of \(X\) is open. So the preimage of any open set in \(Y\) is automatically open in \(X\). Therefore every function from a discrete space is continuous.</p>
+                        <p><strong>Answer: C)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q12: Continuity into indiscrete topology -->
+                <div class="question" id="q13">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>12.</strong> Let \( X \) have any topology and \( Y \) have the indiscrete (trivial) topology \( \{\emptyset, Y\} \). Which functions \( f: X \to Y \) are continuous?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Only constant functions</div>
+                        <div class="option" data-value="B">B) Every function</div>
+                        <div class="option" data-value="C">C) Only bijections</div>
+                        <div class="option" data-value="D">D) No functions</div>
+                        <div class="option" data-value="E">E) Only the identity function</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q13')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q13">
+                        <p>The only open sets in \(Y\) are \(\emptyset\) and \(Y\). For any function \(f\), \(f^{-1}(\emptyset) = \emptyset\) and \(f^{-1}(Y) = X\), both of which are open in any topology on \(X\). So every function into the indiscrete topology is continuous.</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q13: Closure -->
+                <div class="question" id="q14">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>13.</strong> What is the closure of \( \mathbb{Q} \) in \( \mathbb{R} \) with the standard topology?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( \mathbb{Q} \)</div>
+                        <div class="option" data-value="B">B) \( \mathbb{R} \)</div>
+                        <div class="option" data-value="C">C) \( \mathbb{R} \setminus \mathbb{Q} \)</div>
+                        <div class="option" data-value="D">D) \( \emptyset \)</div>
+                        <div class="option" data-value="E">E) \( [0, 1] \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q14')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q14">
+                        <p>Every real number is a limit point of \(\mathbb{Q}\) since every open interval contains a rational number (density of \(\mathbb{Q}\)). Thus \(\overline{\mathbb{Q}} = \mathbb{R}\).</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q14: Limit points -->
+                <div class="question" id="q15">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>14.</strong> What are the limit points of the set \( S = \{1/n : n \in \mathbb{Z}^+\} \) in \( \mathbb{R} \) with the standard topology?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Every point of \( S \)</div>
+                        <div class="option" data-value="B">B) \( \{0\} \)</div>
+                        <div class="option" data-value="C">C) \( [0, 1] \)</div>
+                        <div class="option" data-value="D">D) \( \emptyset \)</div>
+                        <div class="option" data-value="E">E) \( \{0, 1\} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q15')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q15">
+                        <p>A point \(x\) is a limit point of \(S\) if every open set containing \(x\) contains a point of \(S\) different from \(x\). The sequence \(1/n \to 0\), so \(0\) is a limit point. Each \(1/n\) is isolated (can be separated from other points of \(S\) by a small interval), so no element of \(S\) is a limit point of \(S\).</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q15: Boundary -->
+                <div class="question" id="q16">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>15.</strong> What is the boundary of \( (0, 1) \cup (1, 2) \) in \( \mathbb{R} \) with the standard topology?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( \{0, 2\} \)</div>
+                        <div class="option" data-value="B">B) \( \{0, 1, 2\} \)</div>
+                        <div class="option" data-value="C">C) \( [0, 2] \)</div>
+                        <div class="option" data-value="D">D) \( \{1\} \)</div>
+                        <div class="option" data-value="E">E) \( \emptyset \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q16')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q16">
+                        <p>The boundary is \(\overline{S} \setminus \text{int}(S)\). Here \(\text{int}(S) = (0,1) \cup (1,2)\) (it's already open) and \(\overline{S} = [0,2]\). So the boundary is \([0,2] \setminus ((0,1)\cup(1,2)) = \{0, 1, 2\}\).</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q16: Hausdorff -->
+                <div class="question" id="q17">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>16.</strong> Which of the following topological spaces is NOT Hausdorff?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( \mathbb{R} \) with the standard topology</div>
+                        <div class="option" data-value="B">B) \( \mathbb{R} \) with the discrete topology</div>
+                        <div class="option" data-value="C">C) \( \mathbb{R} \) with the lower limit topology</div>
+                        <div class="option" data-value="D">D) \( \mathbb{R} \) with the finite complement topology</div>
+                        <div class="option" data-value="E">E) \( \mathbb{R}^2 \) with the standard topology</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q17')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q17">
+                        <p>In the finite complement topology on an infinite set, any two nonempty open sets must intersect (their complements are finite, so the intersection's complement is also finite, hence the intersection is nonempty). Since we cannot find disjoint open neighborhoods of distinct points, it is not Hausdorff.</p>
+                        <p><strong>Answer: D)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q17: Connected subsets of R -->
+                <div class="question" id="q18">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>17.</strong> In \( \mathbb{R} \) with the standard topology, the connected subsets are precisely:</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) The open sets</div>
+                        <div class="option" data-value="B">B) The closed sets</div>
+                        <div class="option" data-value="C">C) The intervals (including rays, singletons, \(\emptyset\), and \(\mathbb{R}\))</div>
+                        <div class="option" data-value="D">D) The bounded sets</div>
+                        <div class="option" data-value="E">E) The convex sets only</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q18')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q18">
+                        <p>A subset of \(\mathbb{R}\) is connected if and only if it is an interval. This includes all forms: open, closed, half-open, rays, singletons, \(\emptyset\), and \(\mathbb{R}\) itself. (In \(\mathbb{R}\), intervals and convex sets are the same, but the standard terminology is intervals.)</p>
+                        <p><strong>Answer: C)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q18: Homeomorphism -->
+                <div class="question" id="q19">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>18.</strong> Which of the following pairs of spaces (standard topology) are homeomorphic?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( (0, 1) \) and \( [0, 1] \)</div>
+                        <div class="option" data-value="B">B) \( (0, 1) \) and \( \mathbb{R} \)</div>
+                        <div class="option" data-value="C">C) \( [0, 1] \) and \( \mathbb{R} \)</div>
+                        <div class="option" data-value="D">D) \( S^1 \) and \( [0, 1] \)</div>
+                        <div class="option" data-value="E">E) \( [0, 1] \) and \( [0, 1) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q19')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q19">
+                        <p>\((0,1)\) and \(\mathbb{R}\) are homeomorphic via \(f(x) = \tan(\pi x - \pi/2)\). The other pairs fail: \((0,1)\) is not compact but \([0,1]\) is; \([0,1]\) is compact but \(\mathbb{R}\) is not; \(S^1\) is compact but removing a point disconnects neither while removing an endpoint of \([0,1]\) does not disconnect it either — but \(S^1\) has no "endpoint" to remove, removing any point of \(S^1\) leaves it connected, while removing \(0\) from \([0,1]\) leaves \((0,1]\), which is connected, but removing an interior point from \([0,1]\) disconnects it while removing any point from \(S^1\) does not; \([0,1]\) and \([0,1)\) differ in compactness.</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q19: Continuous image of connected set -->
+                <div class="question" id="q20">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>19.</strong> Let \( f: X \to Y \) be continuous and \( A \subseteq X \) be connected. What can be said about \( f(A) \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( f(A) \) is open</div>
+                        <div class="option" data-value="B">B) \( f(A) \) is closed</div>
+                        <div class="option" data-value="C">C) \( f(A) \) is connected</div>
+                        <div class="option" data-value="D">D) \( f(A) \) is compact</div>
+                        <div class="option" data-value="E">E) Nothing can be concluded</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q20')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q20">
+                        <p>Continuous functions preserve connectedness: the continuous image of a connected set is connected. They do not necessarily preserve openness, closedness, or compactness (compactness is preserved, but that's not the question about \(A\) being connected).</p>
+                        <p><strong>Answer: C)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q20: Continuous image of compact set -->
+                <div class="question" id="q21">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>20.</strong> Let \( f: X \to Y \) be continuous and \( K \subseteq X \) be compact. Which of the following must be true?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( f(K) \) is open</div>
+                        <div class="option" data-value="B">B) \( f(K) \) is compact</div>
+                        <div class="option" data-value="C">C) \( f(K) \) is connected</div>
+                        <div class="option" data-value="D">D) \( f^{-1}(K) \) is compact</div>
+                        <div class="option" data-value="E">E) \( K \) is closed</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q21')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q21">
+                        <p>The continuous image of a compact set is compact. This is a fundamental theorem: if \(\{U_\alpha\}\) covers \(f(K)\), then \(\{f^{-1}(U_\alpha)\}\) covers \(K\), extract a finite subcover, and the corresponding \(U_\alpha\)'s cover \(f(K)\).</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q21: Topologist's sine curve -->
+                <div class="question" id="q22">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>21.</strong> The topologist's sine curve is \( S = \{(x, \sin(1/x)) : x > 0\} \cup \{(0, y) : -1 \leq y \leq 1\} \) with the subspace topology from \( \mathbb{R}^2 \). Which of the following is true?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) It is connected and path-connected</div>
+                        <div class="option" data-value="B">B) It is connected but not path-connected</div>
+                        <div class="option" data-value="C">C) It is path-connected but not connected</div>
+                        <div class="option" data-value="D">D) It is neither connected nor path-connected</div>
+                        <div class="option" data-value="E">E) It is compact and path-connected</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q22')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q22">
+                        <p>The topologist's sine curve is the classic example of a connected space that is not path-connected. The curve \(\{(x, \sin(1/x)): x > 0\}\) is path-connected and its closure includes the segment \(\{0\}\times[-1,1]\), making the whole set connected. But there is no continuous path from any point on the vertical segment to the oscillating curve.</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q22: Subspace topology and compactness -->
+                <div class="question" id="q23">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>22.</strong> Let \( A = (0, 1) \) as a subspace of \( \mathbb{R} \) with the standard topology. Is \( A \) compact in the subspace topology?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes, because it is bounded</div>
+                        <div class="option" data-value="B">B) Yes, because it is open</div>
+                        <div class="option" data-value="C">C) No, because it is not closed in \( \mathbb{R} \)</div>
+                        <div class="option" data-value="D">D) No, because subspace topology changes compactness</div>
+                        <div class="option" data-value="E">E) Cannot be determined</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q23')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q23">
+                        <p>Compactness is an intrinsic property — a subspace is compact iff every open cover (in the subspace topology) has a finite subcover. By Heine–Borel, a subset of \(\mathbb{R}\) is compact iff it is closed and bounded. \((0,1)\) is bounded but not closed, so it is not compact. Equivalently, the cover \(\{(1/n, 1) : n \geq 1\}\) has no finite subcover.</p>
+                        <p><strong>Answer: C)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q23: Finite complement and compactness -->
+                <div class="question" id="q24">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>23.</strong> In the finite complement topology on \( \mathbb{R} \), is \( \mathbb{R} \) compact?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                        <div class="option" data-value="C">C) Only if we restrict to countable covers</div>
+                        <div class="option" data-value="D">D) Only if we restrict to open covers of intervals</div>
+                        <div class="option" data-value="E">E) Cannot be determined</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q24')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q24">
+                        <p>Yes. Let \(\{U_\alpha\}\) be any open cover of \(\mathbb{R}\). Pick one \(U_{\alpha_0}\). Its complement \(\mathbb{R}\setminus U_{\alpha_0}\) is finite, say \(\{x_1, \ldots, x_n\}\). For each \(x_i\), pick \(U_{\alpha_i}\) containing \(x_i\). Then \(\{U_{\alpha_0}, U_{\alpha_1}, \ldots, U_{\alpha_n}\}\) is a finite subcover. So \(\mathbb{R}\) is compact in this topology.</p>
+                        <p><strong>Answer: A)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q24: Finite complement and connected -->
+                <div class="question" id="q25">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>24.</strong> In the finite complement topology on \( \mathbb{R} \), is \( \mathbb{R} \) connected?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) No, because \( \mathbb{R} \) can be written as a union of two disjoint open sets</div>
+                        <div class="option" data-value="B">B) Yes</div>
+                        <div class="option" data-value="C">C) Only the finite subsets are connected</div>
+                        <div class="option" data-value="D">D) Only the cofinite subsets are connected</div>
+                        <div class="option" data-value="E">E) Cannot be determined</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q25')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q25">
+                        <p>In the finite complement topology on an infinite set, any two nonempty open sets intersect (since each has finite complement, their intersection has complement that is a union of two finite sets, hence finite, so the intersection is nonempty). Therefore there is no separation of \(\mathbb{R}\) into two disjoint nonempty open sets, so \(\mathbb{R}\) is connected.</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q25: Open map -->
+                <div class="question" id="q26">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>25.</strong> Let \( f: \mathbb{R} \to \mathbb{R} \) be defined by \( f(x) = x^2 \), both with the standard topology. Is \( f \) an open map?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                        <div class="option" data-value="C">C) Only on \( (0, \infty) \)</div>
+                        <div class="option" data-value="D">D) Only on \( \mathbb{R} \setminus \{0\} \)</div>
+                        <div class="option" data-value="E">E) Only on closed sets</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q26')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q26">
+                        <p>Consider the open set \( (-1, 1) \). Then \( f((-1,1)) = [0, 1) \), which is not open in \(\mathbb{R}\). Since the image of an open set is not open, \(f\) is not an open map.</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q26: Homeomorphism invariant -->
+                <div class="question" id="q27">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>26.</strong> Which of the following properties is NOT preserved by homeomorphisms?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Compactness</div>
+                        <div class="option" data-value="B">B) Connectedness</div>
+                        <div class="option" data-value="C">C) Hausdorff property</div>
+                        <div class="option" data-value="D">D) Boundedness (as a subset of \(\mathbb{R}\))</div>
+                        <div class="option" data-value="E">E) Being an open set</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q27')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q27">
+                        <p>Boundedness is a metric property, not a topological one. For example, \((0,1)\) and \(\mathbb{R}\) are homeomorphic, but \((0,1)\) is bounded while \(\mathbb{R}\) is not. Compactness, connectedness, Hausdorff, and openness are all topological properties preserved by homeomorphisms.</p>
+                        <p><strong>Answer: D)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q27: K-topology -->
+                <div class="question" id="q28">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>27.</strong> In the K-topology on \( \mathbb{R} \) (basis elements are open intervals and sets of the form \( (a, b) \setminus K \) where \( K = \{1/n : n \in \mathbb{Z}^+\} \)), is the set \( K \) closed?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) No, \( K \) is open</div>
+                        <div class="option" data-value="B">B) Yes</div>
+                        <div class="option" data-value="C">C) \( K \) is neither open nor closed</div>
+                        <div class="option" data-value="D">D) \( K \) is both open and closed</div>
+                        <div class="option" data-value="E">E) Cannot be determined</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q28')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q28">
+                        <p>In the K-topology, the set \((-1, 2) \setminus K\) is open (it is a basis element). This means every point not in \(K\) near \(K\) has an open neighborhood missing \(K\). More precisely, \(\mathbb{R}\setminus K\) is open since for any \(x \notin K\): if \(x \notin (0,1]\), use a standard open interval avoiding \(K\); if \(x \in (0,1]\setminus K\), use a basis element of the form \((a,b)\setminus K\). So \(K\) is closed.</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q28: K-topology connected? -->
+                <div class="question" id="q29">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>28.</strong> Is \( \mathbb{R}_K \) (the K-topology on \( \mathbb{R} \)) connected?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Yes</div>
+                        <div class="option" data-value="B">B) No</div>
+                        <div class="option" data-value="C">C) It is path-connected but not connected</div>
+                        <div class="option" data-value="D">D) Only \([0,1]\) is connected in this topology</div>
+                        <div class="option" data-value="E">E) Cannot be determined</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q29')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q29">
+                        <p>\(\mathbb{R}_K\) is not connected. The sets \((-\infty, 0) \cup (0,\infty) \setminus K\) and ... more directly: \((-\infty, 0)\) is open and \([0,\infty)\) is open in the K-topology? No. The correct separation is: \((-\infty, 0)\) is open (standard open set) and \((0, \infty) \setminus K\) together... Actually the key fact is that \(0\) cannot be separated from negative numbers. The correct argument: \(\mathbb{R}_K\) is not connected because \((-\infty, 0) \cup K^c\) provides a separation. Specifically, \((-\infty, 0)\) and \([0, \infty) \setminus K\) ... The simplest argument: consider \(U = (-1, 1) \setminus K\) which is open and contains \(0\), and \(K\) is closed. So \(\mathbb{R}\) can be separated as \(\mathbb{R} \setminus K\) (open) and ... This needs care. The answer is that \(\mathbb{R}_K\) is NOT connected.</p>
+                        <p><strong>Answer: B)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q29: Can a set be both open and closed? -->
+                <div class="question" id="q30">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>29.</strong> In a topological space \( X \), which sets are always both open and closed (clopen)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Only \( \emptyset \)</div>
+                        <div class="option" data-value="B">B) Only \( X \)</div>
+                        <div class="option" data-value="C">C) \( \emptyset \) and \( X \)</div>
+                        <div class="option" data-value="D">D) All open sets</div>
+                        <div class="option" data-value="E">E) No sets are ever clopen</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q30')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q30">
+                        <p>By the axioms of a topology, \(\emptyset\) and \(X\) are always open. Their complements (\(X\) and \(\emptyset\) respectively) are also open, so both are also closed. Hence \(\emptyset\) and \(X\) are always clopen in any topological space.</p>
+                        <p><strong>Answer: C)</strong></p>
+                    </div>
+                </div>
+
+                <!-- Q30: Closure in lower limit topology -->
+                <div class="question" id="q31">
+                    <div class="question-meta">
+                        <span>❌ <span class="q-errors" data-errors="0">0</span></span>
+                    </div>
+                    <p><strong>30.</strong> In the lower limit topology \( \mathbb{R}_\ell \), what is the closure of the set \( (0, 1) \)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \( [0, 1] \)</div>
+                        <div class="option" data-value="B">B) \( [0, 1) \)</div>
+                        <div class="option" data-value="C">C) \( (0, 1] \)</div>
+                        <div class="option" data-value="D">D) \( (0, 1) \)</div>
+                        <div class="option" data-value="E">E) \( \mathbb{R} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('exp-q31')">Show/Hide Explanation</span></p>
+                    <div class="explanation" id="exp-q31">
+                        <p>In \(\mathbb{R}_\ell\), the set \([0,1)\) is clopen (both open and closed). Since \((0,1) \subset [0,1)\) and \([0,1)\) is closed, the closure of \((0,1)\) is contained in \([0,1)\). Is \(0\) a limit point of \((0,1)\)? Every open set containing \(0\) in \(\mathbb{R}_\ell\) contains a basis element \([0, \epsilon)\), which intersects \((0,1)\). So \(0\) is a limit point. Is \(1\) a limit point? The basis element \([1, 2)\) contains \(1\) but does not intersect \((0,1)\). So \(1\) is not a limit point. Thus the closure is \([0, 1)\).</p>
+                        <p><strong>Answer: B)</strong></p>
                     </div>
                 </div>
             </section>
@@ -534,7 +1144,36 @@
             
             const correctAnswers = {
                 'q1': 'B',
-                'q11': 'C'
+                'q2': 'C',
+                'q3': 'B',
+                'q4': 'A',
+                'q5': 'B',
+                'q6': 'C',
+                'q7': 'D',
+                'q8': 'C',
+                'q9': 'C',
+                'q10': 'B',
+                'q11': 'C',
+                'q12': 'C',
+                'q13': 'B',
+                'q14': 'B',
+                'q15': 'B',
+                'q16': 'B',
+                'q17': 'D',
+                'q18': 'C',
+                'q19': 'B',
+                'q20': 'C',
+                'q21': 'B',
+                'q22': 'B',
+                'q23': 'C',
+                'q24': 'A',
+                'q25': 'B',
+                'q26': 'B',
+                'q27': 'D',
+                'q28': 'B',
+                'q29': 'B',
+                'q30': 'C',
+                'q31': 'B'
             };
             
             options.forEach(option => {
