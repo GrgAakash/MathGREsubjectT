@@ -423,6 +423,296 @@
                         <p><strong>Answer: (C) \(1/6\)</strong></p>
                     </div>
                 </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>4.</strong> Evaluate \(\oint_C \frac{e^z}{z-1} dz\) where \(C\) is the circle \(|z| = 2\) traversed counterclockwise.</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(0\)</div>
+                        <div class="option" data-value="B">B) \(2\pi i e\)</div>
+                        <div class="option" data-value="C">C) \(\pi i e\)</div>
+                        <div class="option" data-value="D">D) \(2\pi i\)</div>
+                        <div class="option" data-value="E">E) \(e\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp4')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp4" class="explanation">
+                        <p>By Cauchy's Integral Formula, \(\oint_C \frac{f(z)}{z - z_0} dz = 2\pi i \, f(z_0)\) for \(f\) analytic inside \(C\) and \(z_0\) inside \(C\). Here \(f(z) = e^z\) and \(z_0 = 1\), which lies inside \(|z|=2\). So the integral equals \(2\pi i \cdot e^1 = 2\pi i e\).</p>
+                        <p><strong>Answer: (B) \(2\pi i e\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>5.</strong> Which of the following is the Laurent series of \(f(z) = \frac{1}{z(z-1)}\) valid for \(0 < |z| < 1\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\sum_{n=0}^\infty z^n\)</div>
+                        <div class="option" data-value="B">B) \(-\sum_{n=0}^\infty z^n\)</div>
+                        <div class="option" data-value="C">C) \(\frac{1}{z} + \sum_{n=1}^\infty z^n\)</div>
+                        <div class="option" data-value="D">D) \(-\frac{1}{z} - \sum_{n=0}^\infty z^n\)</div>
+                        <div class="option" data-value="E">E) \(\frac{1}{z} - \sum_{n=0}^\infty z^n\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp5')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp5" class="explanation">
+                        <p>Write \(\frac{1}{z(z-1)} = \frac{1}{z} \cdot \frac{1}{z-1} = \frac{1}{z} \cdot \frac{-1}{1-z}\). For \(|z| < 1\), \(\frac{1}{1-z} = \sum_{n=0}^\infty z^n\). Thus \(f(z) = -\frac{1}{z} \sum_{n=0}^\infty z^n = -\frac{1}{z} - 1 - z - z^2 - \cdots = -\frac{1}{z} - \sum_{n=0}^\infty z^n\).</p>
+                        <p><strong>Answer: (D) \(-\frac{1}{z} - \sum_{n=0}^\infty z^n\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>6.</strong> A function \(f\) is entire and \(|f(z)| \leq M|z|^2\) for all \(z \in \mathbb{C}\) and some constant \(M > 0\). What can be concluded?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(f\) is a constant</div>
+                        <div class="option" data-value="B">B) \(f\) is a polynomial of degree at most 1</div>
+                        <div class="option" data-value="C">C) \(f\) is a polynomial of degree at most 2</div>
+                        <div class="option" data-value="D">D) \(f\) must be \(f(z) = Mz^2\)</div>
+                        <div class="option" data-value="E">E) No conclusion can be drawn</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp6')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp6" class="explanation">
+                        <p>By the generalized Liouville theorem, if \(f\) is entire and \(|f(z)| \leq M|z|^n\) for large \(|z|\), then \(f\) is a polynomial of degree at most \(n\). Here \(n = 2\), so \(f\) must be a polynomial of degree at most 2.</p>
+                        <p><strong>Answer: (C) \(f\) is a polynomial of degree at most 2</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>7.</strong> Let \(f(z) = u + iv\) be analytic. Which pair of equations must \(u\) and \(v\) satisfy?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(u_x = v_y\) and \(u_y = -v_x\)</div>
+                        <div class="option" data-value="B">B) \(u_x = -v_y\) and \(u_y = v_x\)</div>
+                        <div class="option" data-value="C">C) \(u_x = v_x\) and \(u_y = v_y\)</div>
+                        <div class="option" data-value="D">D) \(u_{xx} + u_{yy} = 1\)</div>
+                        <div class="option" data-value="E">E) \(u_x = v_y\) and \(u_y = v_x\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp7')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp7" class="explanation">
+                        <p>The Cauchy-Riemann equations are a necessary condition for analyticity: \(u_x = v_y\) and \(u_y = -v_x\). These ensure the complex derivative \(f'(z)\) exists.</p>
+                        <p><strong>Answer: (A) \(u_x = v_y\) and \(u_y = -v_x\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="E">
+                    <p><strong>8.</strong> How many zeros does the polynomial \(p(z) = z^5 + 3z + 1\) have inside the circle \(|z| = 2\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 1</div>
+                        <div class="option" data-value="B">B) 2</div>
+                        <div class="option" data-value="C">C) 3</div>
+                        <div class="option" data-value="D">D) 4</div>
+                        <div class="option" data-value="E">E) 5</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp8')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp8" class="explanation">
+                        <p>Apply Rouché's theorem with \(f(z) = z^5\) and \(g(z) = 3z + 1\). On \(|z| = 2\): \(|f(z)| = 32\) and \(|g(z)| \leq 3(2) + 1 = 7 < 32\). Since \(|f(z)| > |g(z)|\) on \(|z|=2\), by Rouché's theorem \(p(z) = f(z) + g(z)\) has the same number of zeros inside \(|z|=2\) as \(f(z) = z^5\), which has 5 zeros (counting multiplicity).</p>
+                        <p><strong>Answer: (E) 5</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>9.</strong> What is the order of the pole of \(f(z) = \frac{\sin z}{z^4}\) at \(z = 0\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) 4</div>
+                        <div class="option" data-value="B">B) 3</div>
+                        <div class="option" data-value="C">C) 2</div>
+                        <div class="option" data-value="D">D) 1</div>
+                        <div class="option" data-value="E">E) \(z = 0\) is a removable singularity</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp9')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp9" class="explanation">
+                        <p>Since \(\sin z = z - \frac{z^3}{6} + \frac{z^5}{120} - \cdots\), we have \(\frac{\sin z}{z^4} = \frac{1}{z^3} - \frac{1}{6z} + \frac{z}{120} - \cdots\). The lowest power of \(z\) in the denominator is \(z^3\), so \(z = 0\) is a pole of order 3.</p>
+                        <p><strong>Answer: (B) 3</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>10.</strong> Which of the following maps the upper half-plane \(\text{Im}(z) > 0\) conformally onto the open unit disk \(|w| < 1\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(w = z + i\)</div>
+                        <div class="option" data-value="B">B) \(w = e^{iz}\)</div>
+                        <div class="option" data-value="C">C) \(w = \dfrac{z - i}{z + i}\)</div>
+                        <div class="option" data-value="D">D) \(w = z^2\)</div>
+                        <div class="option" data-value="E">E) \(w = \dfrac{z + i}{z - i}\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp10')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp10" class="explanation">
+                        <p>The Möbius transformation \(w = \frac{z - i}{z + i}\) maps the upper half-plane to the unit disk. To verify: when \(z = 0\) (on the real axis), \(w = \frac{-i}{i} = -1\), which is on the unit circle. When \(z = i\) (interior of upper half-plane), \(w = 0\), which is in the unit disk. This is the standard conformal map from \(\mathbb{H}\) to \(\mathbb{D}\).</p>
+                        <p><strong>Answer: (C) \(w = \frac{z-i}{z+i}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>11.</strong> If \(f\) is analytic and non-constant on a connected open set \(\Omega\), which statement is true?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(|f|\) attains its maximum on \(\Omega\)</div>
+                        <div class="option" data-value="B">B) \(|f|\) attains its minimum on \(\Omega\)</div>
+                        <div class="option" data-value="C">C) \(\text{Re}(f)\) must be zero somewhere in \(\Omega\)</div>
+                        <div class="option" data-value="D">D) \(|f|\) attains its maximum only on the boundary of \(\Omega\)</div>
+                        <div class="option" data-value="E">E) \(f\) must be a Möbius transformation</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp11')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp11" class="explanation">
+                        <p>By the <strong>Maximum Modulus Principle</strong>, if \(f\) is analytic and non-constant on a connected open set \(\Omega\), then \(|f(z)|\) cannot attain its maximum at any interior point of \(\Omega\). Therefore, the maximum of \(|f|\) on a closed bounded region is attained only on the boundary.</p>
+                        <p><strong>Answer: (D)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>12.</strong> Evaluate \(\int_{-\infty}^{\infty} \frac{1}{1 + x^2} dx\) using residues.</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\pi\)</div>
+                        <div class="option" data-value="B">B) \(2\pi\)</div>
+                        <div class="option" data-value="C">C) \(\pi/2\)</div>
+                        <div class="option" data-value="D">D) \(2\pi i\)</div>
+                        <div class="option" data-value="E">E) \(0\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp12')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp12" class="explanation">
+                        <p>Consider \(f(z) = \frac{1}{1+z^2} = \frac{1}{(z-i)(z+i)}\). Integrating over a semicircular contour in the upper half-plane, the pole inside is at \(z = i\). The residue there is \(\lim_{z \to i}(z-i)\frac{1}{(z-i)(z+i)} = \frac{1}{2i}\). By the residue theorem, \(\int_{-\infty}^{\infty} \frac{dx}{1+x^2} = 2\pi i \cdot \frac{1}{2i} = \pi\).</p>
+                        <p><strong>Answer: (A) \(\pi\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="E">
+                    <p><strong>13.</strong> Let \(f : \mathbb{D} \to \mathbb{D}\) be analytic with \(f(0) = 0\), where \(\mathbb{D}\) is the open unit disk. By the Schwarz lemma, which must hold?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(|f(z)| \geq |z|\) for all \(z \in \mathbb{D}\)</div>
+                        <div class="option" data-value="B">B) \(f(z) = z\) for all \(z \in \mathbb{D}\)</div>
+                        <div class="option" data-value="C">C) \(|f'(0)| \geq 1\)</div>
+                        <div class="option" data-value="D">D) \(f\) must be a rotation</div>
+                        <div class="option" data-value="E">E) \(|f(z)| \leq |z|\) for all \(z \in \mathbb{D}\) and \(|f'(0)| \leq 1\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp13')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp13" class="explanation">
+                        <p>The <strong>Schwarz Lemma</strong> states: if \(f : \mathbb{D} \to \mathbb{D}\) is analytic and \(f(0) = 0\), then \(|f(z)| \leq |z|\) for all \(z \in \mathbb{D}\) and \(|f'(0)| \leq 1\). Equality \(|f(z_0)| = |z_0|\) for some \(z_0 \neq 0\), or \(|f'(0)| = 1\), implies \(f(z) = e^{i\theta} z\) for some real \(\theta\).</p>
+                        <p><strong>Answer: (E)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>14.</strong> What is the type of singularity of \(f(z) = e^{1/z}\) at \(z = 0\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Removable singularity</div>
+                        <div class="option" data-value="B">B) Essential singularity</div>
+                        <div class="option" data-value="C">C) Simple pole</div>
+                        <div class="option" data-value="D">D) Pole of order 2</div>
+                        <div class="option" data-value="E">E) Branch point</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp14')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp14" class="explanation">
+                        <p>The Laurent expansion of \(e^{1/z} = \sum_{n=0}^\infty \frac{1}{n! z^n} = 1 + \frac{1}{z} + \frac{1}{2!z^2} + \cdots\) has infinitely many negative-power terms. A singularity with infinitely many principal part terms is an <strong>essential singularity</strong>. By the Casorati-Weierstrass theorem, near an essential singularity the function comes arbitrarily close to every complex value.</p>
+                        <p><strong>Answer: (B) Essential singularity</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>15.</strong> The function \(f(z) = \text{Log}(z)\) (the principal logarithm) is analytic on which domain?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\mathbb{C} \setminus \{0\}\)</div>
+                        <div class="option" data-value="B">B) \(\mathbb{C}\)</div>
+                        <div class="option" data-value="C">C) \(\mathbb{C}\) minus the non-positive real axis</div>
+                        <div class="option" data-value="D">D) The upper half-plane</div>
+                        <div class="option" data-value="E">E) The open unit disk</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp15')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp15" class="explanation">
+                        <p>The principal logarithm \(\text{Log}(z) = \ln|z| + i\,\text{Arg}(z)\) uses the principal argument \(\text{Arg}(z) \in (-\pi, \pi]\). It is analytic everywhere except on the branch cut, which is the non-positive real axis \(\{x \leq 0\}\), where \(\text{Arg}(z)\) is discontinuous.</p>
+                        <p><strong>Answer: (C)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="A">
+                    <p><strong>16.</strong> If \(u(x,y)\) is harmonic on a simply connected domain \(\Omega\), which of the following is true?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) There exists a harmonic conjugate \(v\) such that \(f = u + iv\) is analytic on \(\Omega\)</div>
+                        <div class="option" data-value="B">B) \(u\) must be identically zero</div>
+                        <div class="option" data-value="C">C) \(u\) is not differentiable</div>
+                        <div class="option" data-value="D">D) \(u\) satisfies \(\nabla^2 u = 1\)</div>
+                        <div class="option" data-value="E">E) \(u\) has no maximum on \(\Omega\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp16')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp16" class="explanation">
+                        <p>On a simply connected domain, every harmonic function \(u\) (satisfying \(\nabla^2 u = 0\)) has a harmonic conjugate \(v\) such that \(u + iv\) is analytic. This is a consequence of the fact that the domain has no holes, so the conjugate differential form is exact.</p>
+                        <p><strong>Answer: (A)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>17.</strong> Compute the residue of \(f(z) = \frac{z}{(z-1)^2(z+2)}\) at \(z = 1\).</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(\dfrac{1}{9}\)</div>
+                        <div class="option" data-value="B">B) \(\dfrac{1}{3}\)</div>
+                        <div class="option" data-value="C">C) \(\dfrac{1}{6}\)</div>
+                        <div class="option" data-value="D">D) \(\dfrac{2}{9}\)</div>
+                        <div class="option" data-value="E">E) \(1\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp17')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp17" class="explanation">
+                        <p>Since \(z=1\) is a pole of order 2, the residue is \(\lim_{z \to 1} \frac{d}{dz}\left[(z-1)^2 f(z)\right] = \frac{d}{dz}\left[\frac{z}{z+2}\right]_{z=1}\). Computing: \(\frac{d}{dz}\frac{z}{z+2} = \frac{(z+2) - z}{(z+2)^2} = \frac{2}{(z+2)^2}\). At \(z = 1\): \(\frac{2}{(1+2)^2} = \frac{2}{9}\).</p>
+                        <p><strong>Answer: (D) \(\dfrac{2}{9}\)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="C">
+                    <p><strong>18.</strong> Which of the following entire functions is bounded on all of \(\mathbb{C}\)?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) \(f(z) = z^2\)</div>
+                        <div class="option" data-value="B">B) \(f(z) = e^z\)</div>
+                        <div class="option" data-value="C">C) \(f(z) = \sin(1/2)\) (constant function)</div>
+                        <div class="option" data-value="D">D) \(f(z) = \cos z\)</div>
+                        <div class="option" data-value="E">E) \(f(z) = e^z + e^{-z}\)</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp18')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp18" class="explanation">
+                        <p>By <strong>Liouville's Theorem</strong>, the only bounded entire functions are constants. Among the choices, \(f(z) = \sin(1/2)\) is a constant (a real number), hence trivially entire and bounded. All other options are non-constant entire functions, which by Liouville's theorem must be unbounded.</p>
+                        <p><strong>Answer: (C)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="B">
+                    <p><strong>19.</strong> Let \(f\) be analytic in the annulus \(1 < |z| < 3\). Which series represents \(f\) in that region?</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) Taylor series centered at 0</div>
+                        <div class="option" data-value="B">B) Laurent series \(\sum_{n=-\infty}^{\infty} a_n z^n\)</div>
+                        <div class="option" data-value="C">C) Fourier series in \(x\) and \(y\)</div>
+                        <div class="option" data-value="D">D) Power series with non-negative exponents only</div>
+                        <div class="option" data-value="E">E) A polynomial</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp19')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp19" class="explanation">
+                        <p>In an annular region \(r < |z-z_0| < R\), an analytic function is represented by its <strong>Laurent series</strong> \(\sum_{n=-\infty}^{\infty} a_n (z-z_0)^n\), which includes both non-negative and negative powers of \(z\). A Taylor series (only non-negative powers) is valid only in a disk, not a punctured annulus with a hole.</p>
+                        <p><strong>Answer: (B)</strong></p>
+                    </div>
+                </div>
+
+                <div class="question" data-correct="D">
+                    <p><strong>20.</strong> The image of the real axis under the Möbius transformation \(f(z) = \dfrac{z - i}{z + i}\) is:</p>
+                    <div class="options">
+                        <div class="option" data-value="A">A) The imaginary axis</div>
+                        <div class="option" data-value="B">B) A line through the origin at angle \(\pi/4\)</div>
+                        <div class="option" data-value="C">C) The upper half-plane</div>
+                        <div class="option" data-value="D">D) The unit circle \(|w| = 1\)</div>
+                        <div class="option" data-value="E">E) The real axis</div>
+                    </div>
+                    <div class="feedback" aria-live="polite"></div>
+                    <p><span class="toggle-btn" onclick="toggleExplanation('ca-exp20')">Show/Hide Explanation</span></p>
+                    <div id="ca-exp20" class="explanation">
+                        <p>For \(z = x \in \mathbb{R}\), compute \(\left|\frac{x - i}{x + i}\right| = \frac{|x - i|}{|x + i|} = \frac{\sqrt{x^2 + 1}}{\sqrt{x^2 + 1}} = 1\). So every real \(z\) maps to a point with \(|w| = 1\). Since Möbius transformations map circles/lines to circles/lines, and the real axis (a generalized circle) maps onto \(|w| = 1\). This is consistent with \(f\) being the standard map from the upper half-plane to the unit disk.</p>
+                        <p><strong>Answer: (D) The unit circle \(|w| = 1\)</strong></p>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Number Theory Section -->
@@ -535,7 +825,7 @@
                 btn.classList.toggle('active', btn.onclick.toString().includes(section));
             });
         }
-
+        
         // Handle option selection + counters
         document.querySelectorAll('.option').forEach(option => {
             option.addEventListener('click', function() {
