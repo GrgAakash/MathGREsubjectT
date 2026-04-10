@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Test 3 (GR9367) - Math GRE Prep</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['\\(','\\)']],
+                displayMath: [['\\[','\\]']],
+                processEscapes: true
+            }
+        });
+    </script>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 { margin: 0; font-size: 2rem; }
+
+        .subtitle { opacity: 0.9; margin-top: 0.5rem; font-size: 1rem; }
+
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: relative;
+            z-index: 15;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; color: white; text-decoration: none; }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover { opacity: 0.8; }
+
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 1100px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard div { text-align: center; flex: 1; }
+        .dashboard p { margin: 5px 0; color: #333; }
+
+        .dashboard button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .dashboard button:hover { background: #228B7E; }
+        .dashboard button:disabled { background: #cccccc; cursor: not-allowed; }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar-nav {
+            flex-basis: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            z-index: 5;
+        }
+
+        .sidebar-nav button {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar-nav button:hover { background-color: #e9ecef; }
+
+        .sidebar-nav button.active {
+            background-color: var(--accent);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .main-content { flex-grow: 1; }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .question p { margin: 10px 0; font-size: 1.1em; }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            font-size: 1em;
+        }
+
+        .option:hover { background: #e9ecef; border-color: #aaa; }
+        .option.selected-correct { background: #d4edda; border-color: #28a745; }
+        .option.selected-wrong { background: #f8d7da; border-color: #dc3545; }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct { color: #28a745; display: block; }
+        .feedback.wrong { color: #dc3545; display: block; }
+
+        #results {
+            display: none;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .main-container { flex-direction: column; padding: 10px; gap: 15px; }
+            .dashboard { flex-direction: column; gap: 15px; }
+            .sidebar-nav {
+                flex-basis: auto;
+                width: 100%;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .sidebar-nav button { width: auto; flex-grow: 1; }
+        }
+
+        @media (max-width: 600px) {
+            .question { padding: 15px; }
+            .option { padding: 8px 12px; }
+        }
+    </style>
+    <style>
+        body { font-family: 'Courier New', monospace; background-color: #f0f0f0; color: #0d0d0d; font-weight: bold; }
+        header { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+        header h1 { text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #cccccc; font-weight: bold; }
+        .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
+        .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
+        .nav-links a:hover { opacity: 1; text-decoration: underline; }
+        .dashboard { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .dashboard button { background: #0d0d0d; color: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .dashboard button:hover { background: #ffffff; color: #0d0d0d; }
+        .sidebar-nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .sidebar-nav button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; background: #f8f9fa; }
+        .sidebar-nav button.active { background-color: #0d0d0d; color: #ffffff; }
+        .question { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .option { background: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .option:hover { background: #f0f0f0; border-color: #0d0d0d; }
+        .feedback { font-weight: bold; }
+        .feedback.correct { color: #28a745; }
+        .feedback.wrong { color: #c62828; }
+        footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Practice Test 3 (GR9367)</h1>
+        <p class="subtitle">GRE Mathematics Subject Test &mdash; 66 Questions, 170 Minutes</p>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <div>
+            <p id="time-elapsed">00:00</p>
+            <p>Time Elapsed</p>
+        </div>
+        <div>
+            <p id="questions-answered">0/66</p>
+            <p>Questions Answered</p>
+        </div>
+        <div>
+            <p id="correct-answers">0</p>
+            <p>Correct Answers</p>
+        </div>
+        <div>
+            <p id="accuracy-rate">0%</p>
+            <p>Accuracy Rate</p>
+        </div>
+        <div>
+            <button id="start-btn">Start</button>
+            <button id="pause-btn" disabled>Pause</button>
+            <button id="reset-btn">Reset</button>
+            <button id="results-btn" disabled>End</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <nav class="sidebar-nav">
+            <button onclick="showSection('sec-1-10')" class="active">Q 1–10</button>
+            <button onclick="showSection('sec-11-20')">Q 11–20</button>
+            <button onclick="showSection('sec-21-30')">Q 21–30</button>
+            <button onclick="showSection('sec-31-40')">Q 31–40</button>
+            <button onclick="showSection('sec-41-50')">Q 41–50</button>
+            <button onclick="showSection('sec-51-60')">Q 51–60</button>
+            <button onclick="showSection('sec-61-66')">Q 61–66</button>
+        </nav>
+
+        <div class="main-content">
+            <div id="results">
+                <h2>Results</h2>
+                <p id="time-taken"></p>
+                <p id="time-comparison"></p>
+                <p id="incorrect-counts"></p>
+                <p id="weak-points"></p>
+            </div>
+
+            <!-- ========== Q 1-10 ========== -->
+            <section id="sec-1-10-section" class="topic-section">
+                <h2>Questions 1–10</h2>
+
+                <div class="question" id="q1" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>1.</strong> If \( f(g(x)) = 5 \) and \( f(x) = x + 3 \) for all real \( x \), then \( g(x) = \)</p>
+                    <p class="source"><em>Source: GR9367, Q1</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( x - 3 \)</div>
+                        <div class="option" data-value="B">\( 3 - x \)</div>
+                        <div class="option" data-value="C">\( \dfrac{5}{x+3} \)</div>
+                        <div class="option" data-value="D">\( 2 \)</div>
+                        <div class="option" data-value="E">\( 8 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q2" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>2.</strong> \( \displaystyle\lim_{x \to 0} \frac{\tan x}{\cos x} = \)</p>
+                    <p class="source"><em>Source: GR9367, Q2</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( -\infty \)</div>
+                        <div class="option" data-value="B">\( -1 \)</div>
+                        <div class="option" data-value="C">\( 0 \)</div>
+                        <div class="option" data-value="D">\( 1 \)</div>
+                        <div class="option" data-value="E">\( +\infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q3" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>3.</strong> \( \displaystyle\int_0^{\log 4} e^{2x}\, dx = \)</p>
+                    <p class="source"><em>Source: GR9367, Q3</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{15}{2} \)</div>
+                        <div class="option" data-value="B">\( 8 \)</div>
+                        <div class="option" data-value="C">\( \dfrac{17}{2} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{\log 16}{2} - 1 \)</div>
+                        <div class="option" data-value="E">\( \log 4 - \dfrac{1}{2} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q4" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>4.</strong> Let \( A - B \) denote \( \{x \in A : x \notin B\} \). If \( (A - B) \cup B = A \), which of the following must be true?</p>
+                    <p class="source"><em>Source: GR9367, Q4</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( B \) is empty</div>
+                        <div class="option" data-value="B">\( A \subseteq B \)</div>
+                        <div class="option" data-value="C">\( B \subseteq A \)</div>
+                        <div class="option" data-value="D">\( (B - A) \cup A = B \)</div>
+                        <div class="option" data-value="E">None of the above</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q5" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>5.</strong> If \( f(x) = |x| + 3x^2 \) for all real \( x \), then \( f'(-1) \) is</p>
+                    <p class="source"><em>Source: GR9367, Q5</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( -7 \)</div>
+                        <div class="option" data-value="B">\( -5 \)</div>
+                        <div class="option" data-value="C">\( 5 \)</div>
+                        <div class="option" data-value="D">\( 7 \)</div>
+                        <div class="option" data-value="E">nonexistent</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q6" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>6.</strong> For what value of \( b \) is the value of \( \displaystyle\int_b^{b+1} (x^2 + x)\, dx \) a minimum?</p>
+                    <p class="source"><em>Source: GR9367, Q6</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( -1 \)</div>
+                        <div class="option" data-value="C">\( -2 \)</div>
+                        <div class="option" data-value="D">\( -3 \)</div>
+                        <div class="option" data-value="E">\( -4 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q7" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>7.</strong> In how many of the eight standard octants of \( xyz \)-space does the graph of \( z = e^{x+y} \) appear?</p>
+                    <p class="source"><em>Source: GR9367, Q7</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">One</div>
+                        <div class="option" data-value="B">Two</div>
+                        <div class="option" data-value="C">Three</div>
+                        <div class="option" data-value="D">Four</div>
+                        <div class="option" data-value="E">Eight</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q8" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>8.</strong> Suppose that the function \( f \) is defined on an interval by the formula \( f(x) = \sqrt{\tan^2 x - 1} \). If \( f \) is continuous, which of the following intervals could be its domain?</p>
+                    <p class="source"><em>Source: GR9367, Q8</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \left(\dfrac{3\pi}{4},\, \pi\right) \)</div>
+                        <div class="option" data-value="B">\( \left(\dfrac{\pi}{4},\, \dfrac{\pi}{2}\right) \)</div>
+                        <div class="option" data-value="C">\( \left(\dfrac{\pi}{4},\, \dfrac{3\pi}{4}\right) \)</div>
+                        <div class="option" data-value="D">\( \left(-\dfrac{\pi}{4},\, 0\right) \)</div>
+                        <div class="option" data-value="E">\( \left(-\dfrac{3\pi}{4},\, -\dfrac{\pi}{4}\right) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q9" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>9.</strong> \( \displaystyle\int_0^1 \frac{x}{2 - x^2}\, dx = \)</p>
+                    <p class="source"><em>Source: GR9367, Q9</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( -\dfrac{1}{2} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{5}{3} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{\log 2 - e}{2} \)</div>
+                        <div class="option" data-value="D">\( -\dfrac{\log 2}{2} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{\log 2}{2} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q10" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>10.</strong> If \( f''(x) = f'(x) \) for all real \( x \), and if \( f(0) = 0 \) and \( f'(0) = -1 \), then \( f(x) = \)</p>
+                    <p class="source"><em>Source: GR9367, Q10</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 1 - e^x \)</div>
+                        <div class="option" data-value="B">\( e^x - 1 \)</div>
+                        <div class="option" data-value="C">\( e^{-x} - 1 \)</div>
+                        <div class="option" data-value="D">\( e^{-x} \)</div>
+                        <div class="option" data-value="E">\( -e^x \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            </section>
+
+            <!-- ========== Q 11-20 ========== -->
+            <section id="sec-11-20-section" class="topic-section" style="display:none;">
+                <h2>Questions 11–20</h2>
+
+                <div class="question" id="q11" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>11.</strong> If \( \phi(x,y,z) = x^2 + 2xy + xz^{3/2} \), which of the following partial derivatives are identically zero?</p>
+                    <p>I. \( \dfrac{\partial^2 \phi}{\partial y^2} \) &emsp; II. \( \dfrac{\partial^2 \phi}{\partial x \,\partial y} \) &emsp; III. \( \dfrac{\partial^2 \phi}{\partial z \,\partial y} \)</p>
+                    <p class="source"><em>Source: GR9367, Q11</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">III only</div>
+                        <div class="option" data-value="B">I and II only</div>
+                        <div class="option" data-value="C">I and III only</div>
+                        <div class="option" data-value="D">II and III only</div>
+                        <div class="option" data-value="E">I, II, and III</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q12" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>12.</strong> \( \displaystyle\lim_{x \to 0} \frac{\sin 2x}{(1+x)\log(1+x)} = \)</p>
+                    <p class="source"><em>Source: GR9367, Q12</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( -2 \)</div>
+                        <div class="option" data-value="B">\( -\dfrac{1}{2} \)</div>
+                        <div class="option" data-value="C">\( 0 \)</div>
+                        <div class="option" data-value="D">\( \dfrac{1}{2} \)</div>
+                        <div class="option" data-value="E">\( 2 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q13" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>13.</strong> \( \displaystyle\lim_{n \to \infty} \int_1^n \frac{1}{x^n}\, dx = \)</p>
+                    <p class="source"><em>Source: GR9367, Q13</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 1 \)</div>
+                        <div class="option" data-value="C">\( e \)</div>
+                        <div class="option" data-value="D">\( \pi \)</div>
+                        <div class="option" data-value="E">\( +\infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q14" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>14.</strong> At a 15 percent annual inflation rate, the value of the dollar would decrease by approximately one-half every 5 years. At this inflation rate, in approximately how many years would the dollar be worth \( \dfrac{1}{1{,}000{,}000} \) of its present value?</p>
+                    <p class="source"><em>Source: GR9367, Q14</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 25 \)</div>
+                        <div class="option" data-value="B">\( 50 \)</div>
+                        <div class="option" data-value="C">\( 75 \)</div>
+                        <div class="option" data-value="D">\( 100 \)</div>
+                        <div class="option" data-value="E">\( 125 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q15" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>15.</strong> Let \( f(x) = \displaystyle\int_1^x \frac{1}{1+t^2}\, dt \) for all real \( x \). An equation of the line tangent to the graph of \( f \) at the point \( (2, f(2)) \) is</p>
+                    <p class="source"><em>Source: GR9367, Q15</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( y - 1 = \tfrac{1}{5}(x-2) \)</div>
+                        <div class="option" data-value="B">\( y - \arctan 2 = \tfrac{1}{5}(x-2) \)</div>
+                        <div class="option" data-value="C">\( y - 1 = (\arctan 2)(x-2) \)</div>
+                        <div class="option" data-value="D">\( y - \arctan 2 + \tfrac{\pi}{4} = \tfrac{1}{5}(x-2) \)</div>
+                        <div class="option" data-value="E">\( y - \tfrac{\pi}{2} = (\arctan 2)(x-2) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q16" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>16.</strong> Let \( f(x) = e^{g(x)}h(x) \) and \( h'(x) = -g'(x)h(x) \) for all real \( x \). Which of the following must be true?</p>
+                    <p class="source"><em>Source: GR9367, Q16</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( f \) is a constant function.</div>
+                        <div class="option" data-value="B">\( f \) is a linear nonconstant function.</div>
+                        <div class="option" data-value="C">\( g \) is a constant function.</div>
+                        <div class="option" data-value="D">\( g \) is a linear nonconstant function.</div>
+                        <div class="option" data-value="E">None of the above</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q17" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>17.</strong> \( 1 - \sin^2\!\left(\arccos\dfrac{\pi}{12}\right) = \)</p>
+                    <p class="source"><em>Source: GR9367, Q17</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \sqrt{\dfrac{1 - \cos\frac{\pi}{24}}{2}} \)</div>
+                        <div class="option" data-value="B">\( \sqrt{\dfrac{1 - \cos\frac{\pi}{6}}{2}} \)</div>
+                        <div class="option" data-value="C">\( \sqrt{\dfrac{1 + \cos\frac{\pi}{24}}{2}} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{\pi}{6} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{\pi^2}{144} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q18" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>18.</strong> If \( f(x) = \displaystyle\sum_{n=0}^{\infty} (-1)^n x^{2n} \) for all \( x \in (0,1) \), then \( f'(x) = \)</p>
+                    <p class="source"><em>Source: GR9367, Q18</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \sin x \)</div>
+                        <div class="option" data-value="B">\( \cos x \)</div>
+                        <div class="option" data-value="C">\( \dfrac{1}{1+x^2} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{-2x}{(1+x^2)^2} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{2x}{(1-2x)^2} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q19" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>19.</strong> Which of the following is the general solution of the differential equation \( \dfrac{d^3y}{dt^3} - 3\dfrac{d^2y}{dt^2} + 3\dfrac{dy}{dt} - y = 0 \)?</p>
+                    <p class="source"><em>Source: GR9367, Q19</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( c_1 e^t + c_2 t e^t + c_3 t^2 e^t \)</div>
+                        <div class="option" data-value="B">\( c_1 e^{-t} + c_2 t e^{-t} + c_3 t^2 e^{-t} \)</div>
+                        <div class="option" data-value="C">\( c_1 e^t - c_2 e^{-t} + c_3 t e^{t^2} \)</div>
+                        <div class="option" data-value="D">\( c_1 e^t + c_2 e^{2t} + c_3 e^{3t} \)</div>
+                        <div class="option" data-value="E">\( c_1 e^{2t} + c_2 t e^{-2t} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q20" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>20.</strong> Which of the following double integrals represents the volume of the solid bounded above by \( z = 6 - x^2 - 2y^2 \) and below by \( z = -2 + x^2 + 2y^2 \)?</p>
+                    <p class="source"><em>Source: GR9367, Q20</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 4\displaystyle\int_{x=0}^{2}\int_{y=0}^{\sqrt{2}} (8-2x^2-4y^2)\,dy\,dx \)</div>
+                        <div class="option" data-value="B">\( \displaystyle\int_{x=-2}^{2}\int_{y=-\sqrt{(4-x^2)/2}}^{\sqrt{(4-x^2)/2}} (8-2x^2-4y^2)\,dy\,dx \)</div>
+                        <div class="option" data-value="C">\( 4\displaystyle\int_{y=0}^{\sqrt{2}}\int_{x=-\sqrt{4-2y^2}}^{\sqrt{4-2y^2}} dx\,dy \)</div>
+                        <div class="option" data-value="D">\( \displaystyle\int_{y=-\sqrt{2}}^{\sqrt{2}}\int_{x=-2}^{2} (8-2x^2-4y^2)\,dx\,dy \)</div>
+                        <div class="option" data-value="E">\( 2\displaystyle\int_{y=0}^{\sqrt{2}}\int_{x=0}^{\sqrt{4-2y^2}} (8-2x^2-4y^2)\,dx\,dy \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            </section>
+
+            <!-- ========== Q 21-30 ========== -->
+            <section id="sec-21-30-section" class="topic-section" style="display:none;">
+                <h2>Questions 21–30</h2>
+
+                <div class="question" id="q21" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>21.</strong> Let \( a \) be a number in the interval \( (0,1) \) and let \( f \) be a function defined on \( [0,1] \) by \[ f(x) = \begin{cases} a^2 & \text{if } 0 \le x < a, \\ \sqrt{x} & \text{otherwise.} \end{cases} \] Then the value of \( a \) for which \( \displaystyle\int_0^1 f(x)\,dx = 1 \) is</p>
+                    <p class="source"><em>Source: GR9367, Q21</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{1}{4} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{1}{3} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{1}{2} \)</div>
+                        <div class="option" data-value="D">\( 1 \)</div>
+                        <div class="option" data-value="E">nonexistent</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q22" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>22.</strong> If \( b \) and \( c \) are elements in a group \( G \), and if \( b^5 = c^3 = e \), where \( e \) is the unit element of \( G \), then the inverse of \( b^2 c b^4 c^2 \) must be</p>
+                    <p class="source"><em>Source: GR9367, Q22</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( b^3 c^2 bc \)</div>
+                        <div class="option" data-value="B">\( b^4 c^2 b^2 c \)</div>
+                        <div class="option" data-value="C">\( c^2 b^4 c b^2 \)</div>
+                        <div class="option" data-value="D">\( c b^2 c^2 b^4 \)</div>
+                        <div class="option" data-value="E">\( c b c^2 b^3 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q23" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>23.</strong> Let \( f \) be a real-valued function continuous on \([0,1]\) and differentiable on \((0,1)\) with \( f(0)=1 \) and \( f(1)=0 \). Which of the following must be true?</p>
+                    <p>I. There exists \( x \in (0,1) \) such that \( f(x) = x \).<br>
+                    II. There exists \( x \in (0,1) \) such that \( f'(x) = -1 \).<br>
+                    III. \( f(x) > 0 \) for all \( x \in [0,1) \).</p>
+                    <p class="source"><em>Source: GR9367, Q23</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">I only</div>
+                        <div class="option" data-value="B">II only</div>
+                        <div class="option" data-value="C">I and II only</div>
+                        <div class="option" data-value="D">II and III only</div>
+                        <div class="option" data-value="E">I, II, and III</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q24" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>24.</strong> If \( A \) and \( B \) are events in a probability space such that \( 0 < P(A) = P(B) = P(A \cap B) < 1 \), which of the following CANNOT be true?</p>
+                    <p class="source"><em>Source: GR9367, Q24</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( A \) and \( B \) are independent.</div>
+                        <div class="option" data-value="B">\( A \) is a proper subset of \( B \).</div>
+                        <div class="option" data-value="C">\( A \neq B \)</div>
+                        <div class="option" data-value="D">\( A \cap B = A \cup B \)</div>
+                        <div class="option" data-value="E">\( P(A)P(B) < P(A \cap B) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q25" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>25.</strong> Let \( f \) be a real-valued function with domain \([0,1]\). If there is some \( K > 0 \) such that \( |f(x) - f(y)| \le K|x-y| \) for all \( x \) and \( y \) in \([0,1]\), which of the following must be true?</p>
+                    <p class="source"><em>Source: GR9367, Q25</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( f \) is discontinuous at each point of \((0,1)\).</div>
+                        <div class="option" data-value="B">\( f \) is not continuous on \((0,1)\), but is discontinuous at only countably many points of \((0,1)\).</div>
+                        <div class="option" data-value="C">\( f \) is continuous on \((0,1)\), but is differentiable at only countably many points of \((0,1)\).</div>
+                        <div class="option" data-value="D">\( f \) is continuous on \((0,1)\), but may not be differentiable on \((0,1)\).</div>
+                        <div class="option" data-value="E">\( f \) is differentiable on \((0,1)\).</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q26" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>26.</strong> Let \( \mathbf{i}=(1,0,0) \), \( \mathbf{j}=(0,1,0) \), and \( \mathbf{k}=(0,0,1) \). The vectors \( \mathbf{v}_1 \) and \( \mathbf{v}_2 \) are orthogonal if \( \mathbf{v}_1 = \mathbf{i}+\mathbf{j}-\mathbf{k} \) and \( \mathbf{v}_2 = \)</p>
+                    <p class="source"><em>Source: GR9367, Q26</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \mathbf{i}+\mathbf{j}-\mathbf{k} \)</div>
+                        <div class="option" data-value="B">\( \mathbf{i}-\mathbf{j}+\mathbf{k} \)</div>
+                        <div class="option" data-value="C">\( \mathbf{i}+\mathbf{k} \)</div>
+                        <div class="option" data-value="D">\( \mathbf{j}-\mathbf{k} \)</div>
+                        <div class="option" data-value="E">\( \mathbf{i}+\mathbf{j} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q27" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>27.</strong> If the curve in the \( yz \)-plane with equation \( z = f(y) \) is rotated around the \( y \)-axis, an equation of the resulting surface of revolution is</p>
+                    <p class="source"><em>Source: GR9367, Q27</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( x^2 + z^2 = [f(y)]^2 \)</div>
+                        <div class="option" data-value="B">\( x^2 + z^2 = f(y) \)</div>
+                        <div class="option" data-value="C">\( x^2 + z^2 = |f(y)| \)</div>
+                        <div class="option" data-value="D">\( y^2 + z^2 = |f(y)| \)</div>
+                        <div class="option" data-value="E">\( y^2 + z^2 = [f(x)]^2 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q28" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>28.</strong> Let \( A \) and \( B \) be subspaces of a vector space \( V \). Which of the following must be subspaces of \( V \)?</p>
+                    <p>I. \( A + B = \{a+b : a \in A \text{ and } b \in B\} \)<br>
+                    II. \( A \cup B \)<br>
+                    III. \( A \cap B \)<br>
+                    IV. \( \{x \in V : x \notin A\} \)</p>
+                    <p class="source"><em>Source: GR9367, Q28</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">I and II only</div>
+                        <div class="option" data-value="B">I and III only</div>
+                        <div class="option" data-value="C">III and IV only</div>
+                        <div class="option" data-value="D">I, II, and III only</div>
+                        <div class="option" data-value="E">I, II, III, and IV</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q29" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>29.</strong> \( \displaystyle\lim_{n\to\infty} \sum_{k=1}^{n}\left(\frac{1}{k} - \frac{1}{2^k}\right) = \)</p>
+                    <p class="source"><em>Source: GR9367, Q29</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 1 \)</div>
+                        <div class="option" data-value="C">\( 2 \)</div>
+                        <div class="option" data-value="D">\( 4 \)</div>
+                        <div class="option" data-value="E">\( +\infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q30" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>30.</strong> If \( f(x_1,\dots,x_n) = \displaystyle\sum_{1 \le i < j \le n} x_i x_j \), then \( \dfrac{\partial f}{\partial x_n} = \)</p>
+                    <p class="source"><em>Source: GR9367, Q30</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( n! \)</div>
+                        <div class="option" data-value="B">\( \displaystyle\sum_{1\le i<j<n} x_i x_j \)</div>
+                        <div class="option" data-value="C">\( \displaystyle\sum_{1\le i<j<n} (x_i + x_j) \)</div>
+                        <div class="option" data-value="D">\( \displaystyle\sum_{j=1}^{n} x_j \)</div>
+                        <div class="option" data-value="E">\( \displaystyle\sum_{j=1}^{n-1} x_j \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            </section>
+
+            <!-- ========== Q 31-40 ========== -->
+            <section id="sec-31-40-section" class="topic-section" style="display:none;">
+                <h2>Questions 31–40</h2>
+
+                <div class="question" id="q31" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>31.</strong> If \( f(x) = \begin{cases} \sqrt{1-x^2} & \text{for } 0 \le x \le 1 \\ x-1 & \text{for } 1 < x \le 2, \end{cases} \) then \( \displaystyle\int_0^2 f(x)\,dx \) is</p>
+                    <p class="source"><em>Source: GR9367, Q31</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{\pi}{2} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{\sqrt{2}}{2} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{1}{2} + \dfrac{\pi}{4} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{1}{2} + \dfrac{\pi}{2} \)</div>
+                        <div class="option" data-value="E">undefined</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q32" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>32.</strong> Let \( \mathbb{R} \) denote the field of real numbers, \( \mathbb{Q} \) the field of rational numbers, and \( \mathbb{Z} \) the ring of integers. Which of the following subsets \( F_i \) of \( \mathbb{R} \), \( 1 \le i \le 4 \), are subfields of \( \mathbb{R} \)?</p>
+                    <p>\( F_1 = \{a/b : a,b \in \mathbb{Z} \text{ and } b \text{ is odd}\} \)<br>
+                    \( F_2 = \{a + b\sqrt{2} : a,b \in \mathbb{Z}\} \)<br>
+                    \( F_3 = \{a + b\sqrt{2} : a,b \in \mathbb{Q}\} \)<br>
+                    \( F_4 = \{a + b\sqrt[3]{2} : a,b \in \mathbb{Q}\} \)</p>
+                    <p class="source"><em>Source: GR9367, Q32</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">No \( F_i \) is a subfield of \( \mathbb{R} \).</div>
+                        <div class="option" data-value="B">\( F_3 \) only</div>
+                        <div class="option" data-value="C">\( F_2 \) and \( F_3 \) only</div>
+                        <div class="option" data-value="D">\( F_1 \), \( F_2 \), and \( F_3 \) only</div>
+                        <div class="option" data-value="E">\( F_1 \), \( F_2 \), \( F_3 \), and \( F_4 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q33" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>33.</strong> If \( n \) apples, no two of the same weight, are lined up at random on a table, what is the probability that they are lined up in order of increasing weight from left to right?</p>
+                    <p class="source"><em>Source: GR9367, Q33</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{1}{2} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{1}{n} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{1}{n!} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{1}{2^n} \)</div>
+                        <div class="option" data-value="E">\( \left(\dfrac{1}{n}\right)^n \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q34" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>34.</strong> \( \dfrac{d}{dx}\displaystyle\int_0^{x^2} e^{-t^2}\,dt = \)</p>
+                    <p class="source"><em>Source: GR9367, Q34</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( e^{-x^2} \)</div>
+                        <div class="option" data-value="B">\( 2e^{-x^2} \)</div>
+                        <div class="option" data-value="C">\( 2e^{-x^4} \)</div>
+                        <div class="option" data-value="D">\( x^2 e^{-x^2} \)</div>
+                        <div class="option" data-value="E">\( 2x e^{-x^4} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q35" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>35.</strong> Let \( f \) be a real-valued function defined on the set of integers and satisfying \( f(x) = \tfrac{1}{2}f(x-1) + \tfrac{1}{2}f(x+1) \). Which of the following must be true?</p>
+                    <p>I. The graph of \( f \) is a subset of a line.<br>
+                    II. \( f \) is strictly increasing.<br>
+                    III. \( f \) is a constant function.</p>
+                    <p class="source"><em>Source: GR9367, Q35</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">None</div>
+                        <div class="option" data-value="B">I only</div>
+                        <div class="option" data-value="C">II only</div>
+                        <div class="option" data-value="D">I and II</div>
+                        <div class="option" data-value="E">I and III</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q36" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>36.</strong> If \( F \) is a function such that, for all positive integers \( x \) and \( y \), \( F(x,1)=x+1 \), \( F(1,y)=2y \), and \( F(x+1,y+1)=F(F(x,y+1),y) \), then \( F(2,2) = \)</p>
+                    <p class="source"><em>Source: GR9367, Q36</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 8 \)</div>
+                        <div class="option" data-value="B">\( 7 \)</div>
+                        <div class="option" data-value="C">\( 6 \)</div>
+                        <div class="option" data-value="D">\( 5 \)</div>
+                        <div class="option" data-value="E">\( 4 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q37" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>37.</strong> If \( \det\begin{pmatrix}a&b&c\\d&e&f\\g&h&k\end{pmatrix}=9 \), then \( \det\begin{pmatrix}3a&3b&3c\\g-4a&h-4b&k-4c\\d&e&f\end{pmatrix}= \)</p>
+                    <p class="source"><em>Source: GR9367, Q37</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( -108 \)</div>
+                        <div class="option" data-value="B">\( -27 \)</div>
+                        <div class="option" data-value="C">\( 3 \)</div>
+                        <div class="option" data-value="D">\( 12 \)</div>
+                        <div class="option" data-value="E">\( 27 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q38" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>38.</strong> \( \displaystyle\lim_{n\to\infty}\frac{3}{n}\sum_{i=1}^{n}\left[\left(\frac{3i}{n}\right)^2 - \frac{3i}{n}\right] = \)</p>
+                    <p class="source"><em>Source: GR9367, Q38</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( -\dfrac{1}{6} \)</div>
+                        <div class="option" data-value="B">\( 0 \)</div>
+                        <div class="option" data-value="C">\( 3 \)</div>
+                        <div class="option" data-value="D">\( \dfrac{9}{2} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{31}{6} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q39" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>39.</strong> For a real number \( x \), \( \log(1 + \sin 2\pi x) \) is <em>not</em> a real number if and only if \( x \) is</p>
+                    <p class="source"><em>Source: GR9367, Q39</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">an integer</div>
+                        <div class="option" data-value="B">nonpositive</div>
+                        <div class="option" data-value="C">equal to \( \dfrac{2n-1}{2} \) for some integer \( n \)</div>
+                        <div class="option" data-value="D">equal to \( \dfrac{4n-1}{4} \) for some integer \( n \)</div>
+                        <div class="option" data-value="E">any real number</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q40" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>40.</strong> If \( x \), \( y \), and \( z \) are selected independently and at random from the interval \([0,1]\), then the probability that \( x \ge yz \) is</p>
+                    <p class="source"><em>Source: GR9367, Q40</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{3}{4} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{2}{3} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{1}{2} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{1}{3} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{1}{4} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            </section>
+
+            <!-- ========== Q 41-50 ========== -->
+            <section id="sec-41-50-section" class="topic-section" style="display:none;">
+                <h2>Questions 41–50</h2>
+
+                <div class="question" id="q41" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>41.</strong> If \( A = \begin{pmatrix}1&2\\0&-1\end{pmatrix} \), then the set of all vectors \( X \) for which \( AX = X \) is</p>
+                    <p class="source"><em>Source: GR9367, Q41</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \left\{\binom{a}{b}\;\middle|\; a=0 \text{ and } b \text{ is arbitrary}\right\} \)</div>
+                        <div class="option" data-value="B">\( \left\{\binom{a}{b}\;\middle|\; a \text{ is arbitrary and } b=0\right\} \)</div>
+                        <div class="option" data-value="C">\( \left\{\binom{a}{b}\;\middle|\; a=-b \text{ and } b \text{ is arbitrary}\right\} \)</div>
+                        <div class="option" data-value="D">\( \left\{\binom{0}{0}\right\} \)</div>
+                        <div class="option" data-value="E">the empty set</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q42" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>42.</strong> What is the greatest value of \( b \) for which any real-valued function \( f \) that satisfies the following properties must also satisfy \( f(1) < 5 \)?</p>
+                    <p>(i) \( f \) is infinitely differentiable on the real numbers;<br>
+                    (ii) \( f(0) = 1 \), \( f'(0) = 1 \), and \( f''(0) = 2 \); and<br>
+                    (iii) \( |f'''(x)| < b \) for all \( x \) in \((0,1)\).</p>
+                    <p class="source"><em>Source: GR9367, Q42</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 1 \)</div>
+                        <div class="option" data-value="B">\( 2 \)</div>
+                        <div class="option" data-value="C">\( 6 \)</div>
+                        <div class="option" data-value="D">\( 12 \)</div>
+                        <div class="option" data-value="E">\( 24 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q43" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>43.</strong> Let \( n \) be an integer greater than 1. Which of the following conditions guarantee that the equation \( x^n = \displaystyle\sum_{i=0}^{n-1} a_i x^i \) has at least one root in the interval \((0,1)\)?</p>
+                    <p>I. \( a_0 > 0 \) and \( \displaystyle\sum_{i=0}^{n-1} a_i < 1 \)<br>
+                    II. \( a_0 > 0 \) and \( \displaystyle\sum_{i=0}^{n-1} a_i > 1 \)<br>
+                    III. \( a_0 < 0 \) and \( \displaystyle\sum_{i=0}^{n-1} a_i > 1 \)</p>
+                    <p class="source"><em>Source: GR9367, Q43</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">None</div>
+                        <div class="option" data-value="B">I only</div>
+                        <div class="option" data-value="C">II only</div>
+                        <div class="option" data-value="D">III only</div>
+                        <div class="option" data-value="E">I and III</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q44" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>44.</strong> If \( x \) is a real number and \( P \) is a polynomial function, then \( \displaystyle\lim_{h\to 0}\frac{P(x+3h)+P(x-3h)-2P(x)}{h^2} = \)</p>
+                    <p class="source"><em>Source: GR9367, Q44</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 6P'(x) \)</div>
+                        <div class="option" data-value="C">\( 3P''(x) \)</div>
+                        <div class="option" data-value="D">\( 9P''(x) \)</div>
+                        <div class="option" data-value="E">\( \infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q45" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>45.</strong> Consider the system of equations \[ ax^2 + by^3 = c \\ dx^2 + ey^3 = f \] where \( a,b,c,d,e, \) and \( f \) are real constants and \( ae \neq bd \). The maximum possible number of real solutions \((x,y)\) of the system is</p>
+                    <p class="source"><em>Source: GR9367, Q45</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">none</div>
+                        <div class="option" data-value="B">one</div>
+                        <div class="option" data-value="C">two</div>
+                        <div class="option" data-value="D">three</div>
+                        <div class="option" data-value="E">five</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q46" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>46.</strong> If \( x^3 - x + 1 = a_0 + a_1(x-2) + a_2(x-2)^2 + a_3(x-2)^3 \) for all real numbers \( x \), then \( (a_0,a_1,a_2,a_3) \) is</p>
+                    <p class="source"><em>Source: GR9367, Q46</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \left(1,\,\tfrac{1}{2},\,0,\,-\tfrac{1}{8}\right) \)</div>
+                        <div class="option" data-value="B">\( (1,\,-1,\,0,\,1) \)</div>
+                        <div class="option" data-value="C">\( (7,\,6,\,10,\,1) \)</div>
+                        <div class="option" data-value="D">\( (7,\,11,\,12,\,6) \)</div>
+                        <div class="option" data-value="E">\( (7,\,11,\,6,\,1) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q47" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>47.</strong> Let \( C \) be the ellipse with center \((0,0)\), major axis of length \( 2a \), and minor axis of length \( 2b \). The value of \( \displaystyle\oint_C x\,dy - y\,dx \) is</p>
+                    <p class="source"><em>Source: GR9367, Q47</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \pi\sqrt{a^2+b^2} \)</div>
+                        <div class="option" data-value="B">\( 2\pi\sqrt{a^2+b^2} \)</div>
+                        <div class="option" data-value="C">\( 2\pi ab \)</div>
+                        <div class="option" data-value="D">\( \pi ab \)</div>
+                        <div class="option" data-value="E">\( \dfrac{\pi ab}{2} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q48" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>48.</strong> Let \( G_n \) denote the cyclic group of order \( n \). Which of the following direct products is NOT cyclic?</p>
+                    <p class="source"><em>Source: GR9367, Q48</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( G_{17} \times G_{11} \)</div>
+                        <div class="option" data-value="B">\( G_{17} \times G_{11} \times G_5 \)</div>
+                        <div class="option" data-value="C">\( G_{17} \times G_{33} \)</div>
+                        <div class="option" data-value="D">\( G_{22} \times G_{33} \)</div>
+                        <div class="option" data-value="E">\( G_{49} \times G_{121} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q49" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>49.</strong> Let \( X \) be a random variable with probability density function \( f(x) = \begin{cases}\tfrac{3}{4}(1-x^2) & \text{if } -1 \le x \le 1,\\ 0 & \text{otherwise.}\end{cases} \) What is the standard deviation of \( X \)?</p>
+                    <p class="source"><em>Source: GR9367, Q49</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( \dfrac{1}{5} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{\sqrt{30}}{15} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{1}{\sqrt{5}} \)</div>
+                        <div class="option" data-value="E">\( 1 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q50" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>50.</strong> The set of all points \((x,y,z)\) in Euclidean 3-space such that \( \begin{vmatrix}1&x&y&z\\1&1&0&0\\1&0&1&0\\1&0&0&1\end{vmatrix}=0 \) is</p>
+                    <p class="source"><em>Source: GR9367, Q50</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">a plane containing the points \((1,0,0)\), \((0,1,0)\), and \((0,0,1)\)</div>
+                        <div class="option" data-value="B">a sphere with center at the origin and radius 1</div>
+                        <div class="option" data-value="C">a surface containing the point \((1,1,1)\)</div>
+                        <div class="option" data-value="D">a vector space with basis \(\{(1,0,0),(0,1,0),(0,0,1)\}\)</div>
+                        <div class="option" data-value="E">none of the above</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            </section>
+
+            <!-- ========== Q 51-60 ========== -->
+            <section id="sec-51-60-section" class="topic-section" style="display:none;">
+                <h2>Questions 51–60</h2>
+
+                <div class="question" id="q51" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>51.</strong> An automorphism \( \phi \) of a field \( F \) is a one-to-one mapping of \( F \) onto itself such that \( \phi(a+b)=\phi(a)+\phi(b) \) and \( \phi(ab)=\phi(a)\phi(b) \) for all \( a,b \in F \). If \( F \) is the field of rational numbers, then the number of distinct automorphisms of \( F \) is</p>
+                    <p class="source"><em>Source: GR9367, Q51</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 1 \)</div>
+                        <div class="option" data-value="C">\( 2 \)</div>
+                        <div class="option" data-value="D">\( 4 \)</div>
+                        <div class="option" data-value="E">infinite</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q52" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>52.</strong> Let \( T \) be the transformation of the \( xy \)-plane that reflects each vector through the \( x \)-axis and then doubles the vector's length. If \( A \) is the \( 2\times 2 \) matrix such that \( T\!\left(\begin{bmatrix}x\\y\end{bmatrix}\right) = A\begin{bmatrix}x\\y\end{bmatrix} \), then \( A = \)</p>
+                    <p class="source"><em>Source: GR9367, Q52</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \begin{bmatrix}0&2\\2&0\end{bmatrix} \)</div>
+                        <div class="option" data-value="B">\( \begin{bmatrix}\frac{\sqrt{2}}{2}&1\\1&-\frac{\sqrt{2}}{2}\end{bmatrix} \)</div>
+                        <div class="option" data-value="C">\( \begin{bmatrix}\frac{\sqrt{2}}{2}&-\frac{\sqrt{2}}{2}\\\frac{\sqrt{2}}{2}&\frac{\sqrt{2}}{2}\end{bmatrix} \)</div>
+                        <div class="option" data-value="D">\( \begin{bmatrix}2&0\\0&-2\end{bmatrix} \)</div>
+                        <div class="option" data-value="E">\( \begin{bmatrix}0&-2\\-2&0\end{bmatrix} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q53" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>53.</strong> Let \( r > 0 \) and let \( C \) be the circle \( |z|=r \) in the complex plane. If \( P \) is a polynomial function, then \( \displaystyle\int_C P(z)\,dz = \)</p>
+                    <p class="source"><em>Source: GR9367, Q53</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( \pi r^2 \)</div>
+                        <div class="option" data-value="C">\( 2\pi i \)</div>
+                        <div class="option" data-value="D">\( 2\pi P(0)i \)</div>
+                        <div class="option" data-value="E">\( P(r) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q54" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>54.</strong> If \( f \) and \( g \) are real-valued differentiable functions and if \( f'(x) \ge g'(x) \) for all \( x \) in the closed interval \([0,1]\), which of the following must be true?</p>
+                    <p class="source"><em>Source: GR9367, Q54</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( f(0) \ge g(0) \)</div>
+                        <div class="option" data-value="B">\( f(1) \ge g(1) \)</div>
+                        <div class="option" data-value="C">\( f(1)-g(1) \ge f(0)-g(0) \)</div>
+                        <div class="option" data-value="D">\( f-g \) has no maximum on \([0,1]\)</div>
+                        <div class="option" data-value="E">\( \dfrac{f}{g} \) is a nondecreasing function on \([0,1]\).</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q55" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>55.</strong> Let \( p \) and \( q \) be distinct primes. There is a proper subgroup \( J \) of the additive group of integers which contains exactly three elements of the set \( \{p,\,p+q,\,pq,\,p^q,\,q^p\} \). Which three elements are in \( J \)?</p>
+                    <p class="source"><em>Source: GR9367, Q55</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( pq,\,p^q,\,q^p \)</div>
+                        <div class="option" data-value="B">\( p+q,\,pq,\,p^q \)</div>
+                        <div class="option" data-value="C">\( p,\,p+q,\,pq \)</div>
+                        <div class="option" data-value="D">\( p,\,p^q,\,q^p \)</div>
+                        <div class="option" data-value="E">\( p,\,pq,\,p^q \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q56" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>56.</strong> For a subset \( S \) of a topological space \( X \), let \( \text{cl}(S) \) denote the closure of \( S \) in \( X \), and let \( S' = \{x : x \in \text{cl}(S-\{x\})\} \) denote the derived set of \( S \). If \( A \) and \( B \) are subsets of \( X \), which of the following statements are true?</p>
+                    <p>I. \( (A \cup B)' = A' \cup B' \)<br>
+                    II. \( (A \cap B)' = A' \cap B' \)<br>
+                    III. If \( A' \) is empty, then \( A \) is closed in \( X \).<br>
+                    IV. If \( A \) is open in \( X \), then \( A' \) is not empty.</p>
+                    <p class="source"><em>Source: GR9367, Q56</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">I and II only</div>
+                        <div class="option" data-value="B">I and III only</div>
+                        <div class="option" data-value="C">II and IV only</div>
+                        <div class="option" data-value="D">I, II, and III only</div>
+                        <div class="option" data-value="E">I, II, III, and IV</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q57" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>57.</strong> Consider a procedure for determining whether a given name appears in an alphabetized list of \( n \) names (binary search). If \( n \) is very large, the maximum number of steps required by this procedure is close to</p>
+                    <p class="source"><em>Source: GR9367, Q57</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( n \)</div>
+                        <div class="option" data-value="B">\( n^2 \)</div>
+                        <div class="option" data-value="C">\( \log_2 n \)</div>
+                        <div class="option" data-value="D">\( n\log_2 n \)</div>
+                        <div class="option" data-value="E">\( n^2 \log_2 n \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q58" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>58.</strong> Which of the following is an eigenvalue of the matrix \( \begin{pmatrix}2&1-i\\1+i&-2\end{pmatrix} \) over the complex numbers?</p>
+                    <p class="source"><em>Source: GR9367, Q58</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 1 \)</div>
+                        <div class="option" data-value="C">\( \sqrt{6} \)</div>
+                        <div class="option" data-value="D">\( i \)</div>
+                        <div class="option" data-value="E">\( 1+i \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q59" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>59.</strong> Two subgroups \( H \) and \( K \) of a group \( G \) have orders 12 and 30, respectively. Which of the following could NOT be the order of the subgroup of \( G \) generated by \( H \) and \( K \)?</p>
+                    <p class="source"><em>Source: GR9367, Q59</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 30 \)</div>
+                        <div class="option" data-value="B">\( 60 \)</div>
+                        <div class="option" data-value="C">\( 120 \)</div>
+                        <div class="option" data-value="D">\( 360 \)</div>
+                        <div class="option" data-value="E">Countable infinity</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q60" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>60.</strong> Let \( A \) and \( B \) be subsets of a set \( M \) and let \( S_0 = \{A,B\} \). For \( i \ge 0 \), define \( S_{i+1} \) inductively to be the collection of subsets \( Y \) of \( M \) that are of the form \( C \cup D \), \( C \cap D \), or \( M - C \) (the complement of \( C \) in \( M \)), where \( C,D \in S_i \). Let \( S = \displaystyle\bigcup_{i=0}^{\infty} S_i \). What is the largest possible number of elements of \( S \)?</p>
+                    <p class="source"><em>Source: GR9367, Q60</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 4 \)</div>
+                        <div class="option" data-value="B">\( 8 \)</div>
+                        <div class="option" data-value="C">\( 15 \)</div>
+                        <div class="option" data-value="D">\( 16 \)</div>
+                        <div class="option" data-value="E">\( S \) may be infinite.</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            </section>
+
+            <!-- ========== Q 61-66 ========== -->
+            <section id="sec-61-66-section" class="topic-section" style="display:none;">
+                <h2>Questions 61–66</h2>
+
+                <div class="question" id="q61" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>61.</strong> A city has square city blocks formed by a grid of north-south and east-west streets. One automobile route from City Hall to the main firehouse is to go exactly 5 blocks east and 7 blocks north. How many different routes from City Hall to the main firehouse traverse exactly 12 city blocks?</p>
+                    <p class="source"><em>Source: GR9367, Q61</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 5 \cdot 7 \)</div>
+                        <div class="option" data-value="B">\( \dfrac{7!}{5!} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{12!}{7!\,5!} \)</div>
+                        <div class="option" data-value="D">\( 2^{12} \)</div>
+                        <div class="option" data-value="E">\( 7!\,5! \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q62" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>62.</strong> Let \( R \) be the set of real numbers with the topology generated by the basis \( \{[a,b) : a < b,\; a,b \in R\} \). If \( X \) is the subset \([0,1]\) of \( R \), which of the following must be true?</p>
+                    <p>I. \( X \) is compact.<br>
+                    II. \( X \) is Hausdorff.<br>
+                    III. \( X \) is connected.</p>
+                    <p class="source"><em>Source: GR9367, Q62</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">I only</div>
+                        <div class="option" data-value="B">II only</div>
+                        <div class="option" data-value="C">III only</div>
+                        <div class="option" data-value="D">I and II</div>
+                        <div class="option" data-value="E">II and III</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q63" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>63.</strong> Let \( R \) be the circular region of the \( xy \)-plane with center at the origin and radius 2. Then \( \displaystyle\iint_R e^{-(x^2+y^2)}\,dx\,dy = \)</p>
+                    <p class="source"><em>Source: GR9367, Q63</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 4\pi \)</div>
+                        <div class="option" data-value="B">\( \pi e^{-4} \)</div>
+                        <div class="option" data-value="C">\( 4\pi e^{-4} \)</div>
+                        <div class="option" data-value="D">\( \pi(1-e^{-4}) \)</div>
+                        <div class="option" data-value="E">\( 4\pi(e - e^{-4}) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q64" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>64.</strong> Let \( V \) be the real vector space of real-valued functions defined on the real numbers and having derivatives of all orders. If \( D \) is the mapping from \( V \) into \( V \) that maps every function in \( V \) to its derivative, what are all the eigenvectors of \( D \)?</p>
+                    <p class="source"><em>Source: GR9367, Q64</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">All nonzero functions in \( V \)</div>
+                        <div class="option" data-value="B">All nonzero constant functions in \( V \)</div>
+                        <div class="option" data-value="C">All nonzero functions of the form \( ke^{\lambda x} \), where \( k \) and \( \lambda \) are real numbers</div>
+                        <div class="option" data-value="D">All nonzero functions of the form \( \displaystyle\sum_{i=0}^{k} c_i x^i \), where \( k > 0 \) and the \( c_i \)'s are real numbers</div>
+                        <div class="option" data-value="E">There are no eigenvectors of \( D \).</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q65" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>65.</strong> If \( f \) is a function defined by a complex power series expansion in \( z - a \) which converges for \( |z-a| < 1 \) and diverges for \( |z-a| > 1 \), which of the following must be true?</p>
+                    <p class="source"><em>Source: GR9367, Q65</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( f(z) \) is analytic in the open unit disk with center at \( a \)</div>
+                        <div class="option" data-value="B">The power series for \( f(z+a) \) converges for \( |z+a| < 1 \).</div>
+                        <div class="option" data-value="C">\( f'(a) = 0 \)</div>
+                        <div class="option" data-value="D">\( \displaystyle\int_C f(z)\,dz = 0 \) for any circle \( C \) in the plane.</div>
+                        <div class="option" data-value="E">\( f(z) \) has a pole of order 1 at \( z = a \).</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q66" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>66.</strong> Let \( n \) be any positive integer and \( 1 \le x_1 < x_2 < \cdots < x_{n+1} \le 2n \), where each \( x_i \) is an integer. Which of the following must be true?</p>
+                    <p>I. There is an \( x_i \) that is the square of an integer.<br>
+                    II. There is an \( i \) such that \( x_{i+1} = x_i + 1 \).<br>
+                    III. There is an \( x_i \) that is prime.</p>
+                    <p class="source"><em>Source: GR9367, Q66</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">I only</div>
+                        <div class="option" data-value="B">II only</div>
+                        <div class="option" data-value="C">I and II</div>
+                        <div class="option" data-value="D">I and III</div>
+                        <div class="option" data-value="E">II and III</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        let globalTimerInterval;
+        let globalStartTime;
+        let answeredQuestions = new Set();
+        let correctFirstAttempts = new Set();
+        let incorrectCounts = {};
+        let isStarted = false;
+        let isPaused = false;
+
+        function startTimers() {
+            if (!isStarted) {
+                globalStartTime = new Date();
+                isStarted = true;
+            }
+            if (isPaused) {
+                const pausedDuration = new Date() - pauseTime;
+                globalStartTime = new Date(globalStartTime.getTime() + pausedDuration);
+                isPaused = false;
+            }
+            globalTimerInterval = setInterval(() => {
+                const elapsed = Math.floor((new Date() - globalStartTime) / 1000);
+                const m = Math.floor(elapsed / 60);
+                const s = elapsed % 60;
+                document.getElementById('time-elapsed').textContent =
+                    `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+            }, 1000);
+            document.getElementById('start-btn').disabled = true;
+            document.getElementById('pause-btn').disabled = false;
+            document.getElementById('reset-btn').disabled = false;
+            document.getElementById('results-btn').disabled = false;
+        }
+
+        let pauseTime;
+        function pauseTimers() {
+            if (!isPaused) {
+                clearInterval(globalTimerInterval);
+                pauseTime = new Date();
+                isPaused = true;
+                document.getElementById('pause-btn').textContent = 'Resume';
+            } else {
+                startTimers();
+                document.getElementById('pause-btn').textContent = 'Pause';
+            }
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function () {
+                if (!isStarted) return;
+                const question = this.closest('.question');
+                const questionId = question.id;
+                const questionNum = parseInt(questionId.replace('q', ''));
+                const correct = question.getAttribute('data-correct');
+                const selected = this.getAttribute('data-value');
+                const feedback = question.querySelector('.feedback');
+                const isFirstAttempt = !answeredQuestions.has(questionNum);
+
+                if (question.querySelector('.option.selected-correct')) return;
+
+                if (selected === correct) {
+                    this.classList.add('selected-correct');
+                    feedback.textContent = 'Correct!';
+                    feedback.className = 'feedback correct';
+                    feedback.style.display = 'block';
+                    if (isFirstAttempt) {
+                        correctFirstAttempts.add(questionNum);
+                    }
+                    answeredQuestions.add(questionNum);
+                    const totalQ = document.querySelectorAll('.question').length;
+                    document.getElementById('questions-answered').textContent = `${answeredQuestions.size}/${totalQ}`;
+                } else {
+                    option.classList.add('selected-wrong');
+                    feedback.textContent = 'Incorrect. Try again!';
+                    feedback.className = 'feedback wrong';
+                    feedback.style.display = 'block';
+                    incorrectCounts[questionId] = (incorrectCounts[questionId] || 0) + 1;
+                    const errorEl = question.querySelector('.q-errors');
+                    if (errorEl) {
+                        errorEl.setAttribute('data-errors', incorrectCounts[questionId]);
+                        errorEl.textContent = incorrectCounts[questionId];
+                    }
+                    if (isFirstAttempt) answeredQuestions.add(questionNum);
+                    const totalQ = document.querySelectorAll('.question').length;
+                    document.getElementById('questions-answered').textContent = `${answeredQuestions.size}/${totalQ}`;
+                }
+
+                question.setAttribute('data-selected', selected);
+                const correctNow = correctFirstAttempts.size;
+                const answeredNow = answeredQuestions.size;
+                const accNow = answeredNow > 0 ? Math.round((correctNow / answeredNow) * 100) : 0;
+                document.getElementById('correct-answers').textContent = String(correctNow);
+                document.getElementById('accuracy-rate').textContent = `${accNow}%`;
+            });
+        });
+
+        function resetTimers() {
+            if (globalTimerInterval) clearInterval(globalTimerInterval);
+            globalStartTime = null;
+            answeredQuestions.clear();
+            correctFirstAttempts.clear();
+            incorrectCounts = {};
+            isStarted = false;
+            isPaused = false;
+
+            document.getElementById('time-elapsed').textContent = '00:00';
+            const totalQ = document.querySelectorAll('.question').length;
+            document.getElementById('questions-answered').textContent = `0/${totalQ}`;
+            document.getElementById('correct-answers').textContent = '0';
+            document.getElementById('accuracy-rate').textContent = '0%';
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('pause-btn').disabled = true;
+            document.getElementById('pause-btn').textContent = 'Pause';
+            document.getElementById('reset-btn').disabled = true;
+            document.getElementById('results-btn').disabled = true;
+            document.getElementById('results').style.display = 'none';
+
+            document.querySelectorAll('.option').forEach(o => o.classList.remove('selected-correct','selected-wrong','selected'));
+            document.querySelectorAll('.question').forEach(q => q.removeAttribute('data-selected'));
+            document.querySelectorAll('.feedback').forEach(f => { f.style.display = 'none'; f.className = 'feedback'; f.textContent = ''; });
+            document.querySelectorAll('.q-errors').forEach(e => { e.setAttribute('data-errors','0'); e.textContent = '0'; });
+        }
+
+        function showResults() {
+            const allQ = document.querySelectorAll('.question');
+            const totalQ = allQ.length;
+            const totalTime = globalStartTime ? Math.floor((new Date() - globalStartTime) / 1000) : 0;
+            const mins = Math.floor(totalTime / 60);
+            const secs = totalTime % 60;
+            const correctCount = correctFirstAttempts.size;
+            const accuracy = totalQ > 0 ? Math.round((correctCount / totalQ) * 100) : 0;
+
+            let summary = '<strong>Question Summary:</strong><ul>';
+            allQ.forEach((el, idx) => {
+                const qid = el.id;
+                const count = incorrectCounts[qid] || 0;
+                const num = parseInt(qid.replace('q',''));
+                const isAnswered = answeredQuestions.has(num);
+                const isCorrect = correctFirstAttempts.has(num);
+                let status = !isAnswered ? 'Not attempted' : (isCorrect ? 'Correct' : 'Incorrect');
+                summary += `<li>Q${num}: ${status}, ${count} wrong attempt(s)</li>`;
+            });
+            summary += '</ul>';
+
+            const rawScore = correctCount - (Object.values(incorrectCounts).reduce((a,b)=>a+b,0)) / 4;
+
+            document.getElementById('time-taken').innerHTML =
+                `<strong>Overall:</strong> ${correctCount}/${totalQ} correct (${accuracy}%) | Raw Score (C - I/4): ${rawScore.toFixed(1)}<br><strong>Time:</strong> ${mins}:${secs.toString().padStart(2,'0')}`;
+            document.getElementById('time-comparison').innerHTML = '';
+            document.getElementById('incorrect-counts').innerHTML = summary;
+            document.getElementById('weak-points').innerHTML = '';
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.topic-section').forEach(s => s.style.display = 'none');
+            document.querySelectorAll('.sidebar-nav button').forEach(b => b.classList.remove('active'));
+            const sec = document.getElementById(sectionId + '-section');
+            if (sec) sec.style.display = 'block';
+            const btn = document.querySelector(`.sidebar-nav button[onclick="showSection('${sectionId}')"]`);
+            if (btn) btn.classList.add('active');
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+
+        document.getElementById('start-btn').addEventListener('click', startTimers);
+        document.getElementById('pause-btn').addEventListener('click', pauseTimers);
+        document.getElementById('reset-btn').addEventListener('click', resetTimers);
+        document.getElementById('results-btn').addEventListener('click', showResults);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('sec-1-10');
+        });
+    </script>
+</body>
+</html>
