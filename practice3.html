@@ -249,7 +249,12 @@
         .sidebar-nav button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; background: #f8f9fa; }
         .sidebar-nav button.active { background-color: #0d0d0d; color: #ffffff; }
         .question { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
-        .option { background: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .topic-section > h2 { margin: 0 0 1rem; font-size: 1.15rem; }
+        .question p { line-height: 1.45; }
+        .question p.source { margin: 0.35rem 0 0.75rem; }
+        .question .MathJax, .question .mjx-chtml { font-size: 1.02em !important; vertical-align: middle; }
+        .option { background: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; line-height: 1.42; }
+        .option .MathJax, .option .mjx-chtml { font-size: 1.02em !important; vertical-align: middle; }
         .option:hover { background: #f0f0f0; border-color: #0d0d0d; }
         .feedback { font-weight: bold; }
         .feedback.correct { color: #28a745; }
@@ -750,12 +755,12 @@
 
                 <div class="question" id="q30" data-correct="E">
                     <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
-                    <p><strong>30.</strong> If \( f(x_1,\dots,x_n) = \displaystyle\sum_{1 \le i < j \le n} x_i x_j \), then \( \dfrac{\partial f}{\partial x_n} = \)</p>
+                    <p><strong>30.</strong> If \( f(x_1,\dots,x_n) = \displaystyle\sum_{1 \le i &lt; j \le n} x_i x_j \), then \( \dfrac{\partial f}{\partial x_n} = \)</p>
                     <p class="source"><em>Source: GR9367, Q30</em></p>
                     <div class="options">
                         <div class="option" data-value="A">\( n! \)</div>
-                        <div class="option" data-value="B">\( \displaystyle\sum_{1\le i<j<n} x_i x_j \)</div>
-                        <div class="option" data-value="C">\( \displaystyle\sum_{1\le i<j<n} (x_i + x_j) \)</div>
+                        <div class="option" data-value="B">\( \displaystyle\sum_{1\le i&lt;j&lt;n} x_i x_j \)</div>
+                        <div class="option" data-value="C">\( \displaystyle\sum_{1\le i&lt;j&lt;n} (x_i + x_j) \)</div>
                         <div class="option" data-value="D">\( \displaystyle\sum_{j=1}^{n} x_j \)</div>
                         <div class="option" data-value="E">\( \displaystyle\sum_{j=1}^{n-1} x_j \)</div>
                     </div>

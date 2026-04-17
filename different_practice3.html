@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Test (Alternate) - Math GRE Prep</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['\\(','\\)']],
+                displayMath: [['\\[','\\]']],
+                processEscapes: true
+            }
+        });
+    </script>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 { margin: 0; font-size: 2rem; }
+
+        .subtitle { opacity: 0.9; margin-top: 0.5rem; font-size: 1rem; }
+
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: relative;
+            z-index: 15;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; color: white; text-decoration: none; }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover { opacity: 0.8; }
+
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 1100px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard div { text-align: center; flex: 1; }
+        .dashboard p { margin: 5px 0; color: #333; }
+
+        .dashboard button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .dashboard button:hover { background: #228B7E; }
+        .dashboard button:disabled { background: #cccccc; cursor: not-allowed; }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar-nav {
+            flex-basis: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            z-index: 5;
+        }
+
+        .sidebar-nav button {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar-nav button:hover { background-color: #e9ecef; }
+
+        .sidebar-nav button.active {
+            background-color: var(--accent);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .main-content { flex-grow: 1; }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .question p { margin: 10px 0; font-size: 1.1em; }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            font-size: 1em;
+        }
+
+        .option:hover { background: #e9ecef; border-color: #aaa; }
+        .option.selected-correct { background: #d4edda; border-color: #28a745; }
+        .option.selected-wrong { background: #f8d7da; border-color: #dc3545; }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct { color: #28a745; display: block; }
+        .feedback.wrong { color: #dc3545; display: block; }
+
+        #results {
+            display: none;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .main-container { flex-direction: column; padding: 10px; gap: 15px; }
+            .dashboard { flex-direction: column; gap: 15px; }
+            .sidebar-nav {
+                flex-basis: auto;
+                width: 100%;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .sidebar-nav button { width: auto; flex-grow: 1; }
+        }
+
+        @media (max-width: 600px) {
+            .question { padding: 15px; }
+            .option { padding: 8px 12px; }
+        }
+    </style>
+    <style>
+        body { font-family: 'Courier New', monospace; background-color: #f0f0f0; color: #0d0d0d; font-weight: bold; }
+        header { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+        header h1 { text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #cccccc; font-weight: bold; }
+        .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
+        .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
+        .nav-links a:hover { opacity: 1; text-decoration: underline; }
+        .dashboard { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .dashboard button { background: #0d0d0d; color: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .dashboard button:hover { background: #ffffff; color: #0d0d0d; }
+        .sidebar-nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .sidebar-nav button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; background: #f8f9fa; }
+        .sidebar-nav button.active { background-color: #0d0d0d; color: #ffffff; }
+        .question { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .topic-section > h2 { margin: 0 0 1rem; font-size: 1.15rem; }
+        .question p { line-height: 1.45; }
+        .question p.source { margin: 0.35rem 0 0.75rem; }
+        .question .MathJax, .question .mjx-chtml { font-size: 1.02em !important; vertical-align: middle; }
+        .option { background: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; line-height: 1.42; }
+        .option .MathJax, .option .mjx-chtml { font-size: 1.02em !important; vertical-align: middle; }
+        .option:hover { background: #f0f0f0; border-color: #0d0d0d; }
+        .feedback { font-weight: bold; }
+        .feedback.correct { color: #28a745; }
+        .feedback.wrong { color: #c62828; }
+        footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Practice Test (Alternate)</h1>
+        <p class="subtitle">GRE Mathematics Subject Test &mdash; 66 Questions, 170 Minutes</p>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <div>
+            <p id="time-elapsed">00:00</p>
+            <p>Time Elapsed</p>
+        </div>
+        <div>
+            <p id="questions-answered">0/66</p>
+            <p>Questions Answered</p>
+        </div>
+        <div>
+            <p id="correct-answers">0</p>
+            <p>Correct Answers</p>
+        </div>
+        <div>
+            <p id="accuracy-rate">0%</p>
+            <p>Accuracy Rate</p>
+        </div>
+        <div>
+            <button id="start-btn">Start</button>
+            <button id="pause-btn" disabled>Pause</button>
+            <button id="reset-btn">Reset</button>
+            <button id="results-btn" disabled>End</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <nav class="sidebar-nav">
+            <button onclick="showSection('sec-1-10')" class="active">Q 1–10</button>
+            <button onclick="showSection('sec-11-20')">Q 11–20</button>
+            <button onclick="showSection('sec-21-30')">Q 21–30</button>
+            <button onclick="showSection('sec-31-40')">Q 31–40</button>
+            <button onclick="showSection('sec-41-50')">Q 41–50</button>
+            <button onclick="showSection('sec-51-60')">Q 51–60</button>
+            <button onclick="showSection('sec-61-66')">Q 61–66</button>
+        </nav>
+
+        <div class="main-content">
+            <div id="results">
+                <h2>Results</h2>
+                <p id="time-taken"></p>
+                <p id="time-comparison"></p>
+                <p id="incorrect-counts"></p>
+                <p id="weak-points"></p>
+            </div>
+
+            <section id="sec-1-10-section" class="topic-section">
+                <h2>Questions 1–10</h2>
+
+                <div class="question" id="q1" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>1.</strong> The generating function f(x) for the Fibonacci numbers 1, 1, 2, 3, 5, 8, 13, 21, is given by</p>
+                    <p class="source"><em>Source: Different_Practice3, Q1</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( (1-x+x^{2}-x^{3})^{1/2} \)</div>
+                        <div class="option" data-value="B">\( (1-x-x^{2})^{-1} \)</div>
+                        <div class="option" data-value="C">\( (1-x-x^{2}-x^{3})^{-1} \)</div>
+                        <div class="option" data-value="D">\( (1+x+x^{2})^{-1/2} \)</div>
+                        <div class="option" data-value="E">\( (1-x^{2}+x^{3})^{-1} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q2" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>2.</strong> The number of solutions of \( p(x)=x^{2}+3x+2 \) in \( \mathbb{Z}_{6} \) is</p>
+                    <p class="source"><em>Source: Different_Practice3, Q2</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 1 \)</div>
+                        <div class="option" data-value="C">\( 2 \)</div>
+                        <div class="option" data-value="D">\( 3 \)</div>
+                        <div class="option" data-value="E">\( 4 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q3" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>3.</strong> Which of the following matrices is normal? \( (i=\sqrt{-1}) \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q3</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \left[\begin{matrix}-1&1\\ 0&1\end{matrix}\right] \)</div>
+                        <div class="option" data-value="B">\( \left[\begin{matrix}1&-1\\ 0&1\end{matrix}\right] \)</div>
+                        <div class="option" data-value="C">\( \left[\begin{matrix}1&-1\\ 0&-1\end{matrix}\right] \)</div>
+                        <div class="option" data-value="D">\( \left[\begin{matrix}i&1\\ -1&0\end{matrix}\right] \)</div>
+                        <div class="option" data-value="E">\( \left[\begin{matrix}0&i\\ -1&1\end{matrix}\right] \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q4" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>4.</strong> Find the locus of all points (x, y), such that the sum of those distances from (0, 1) and (1,0) is 2.</p>
+                    <p class="source"><em>Source: Different_Practice3, Q4</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( x^{2}+xy+y^{2}-2x-2y+2=0 \)</div>
+                        <div class="option" data-value="B">\( 3x^{2}-2xy+3y^{2}-4x+4y-2=0 \)</div>
+                        <div class="option" data-value="C">\( 4x^{2}-2xy+4y^{2}-2x-2y=0 \)</div>
+                        <div class="option" data-value="D">\( 3x^{2}+2xy+3y^{2}-4x-4y=0 \)</div>
+                        <div class="option" data-value="E">\( x^{2}-2xy+y^{2}+2x-2y+4=0 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q5" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>5.</strong> Find \( \prod_{k=2}^{+\infty}(1-\dfrac{1}{k^{2}}) \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q5</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{1}{2} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{1}{4} \)</div>
+                        <div class="option" data-value="C">\( 0 \)</div>
+                        <div class="option" data-value="D">\( \dfrac{3}{4} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{1}{8} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q6" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>6.</strong> The cross ratio of the following set of lines is</p>
+                    <p class="source"><em>Source: Different_Practice3, Q6</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{4}{3} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{3}{2} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{1}{5} \)</div>
+                        <div class="option" data-value="D">\( -\dfrac{5}{6} \)</div>
+                        <div class="option" data-value="E">\( 1 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q7" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>7.</strong> Find the characteristic of the ring \( \mathbb{Z}_{2}+\mathbb{Z}_{3} \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q7</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 6 \)</div>
+                        <div class="option" data-value="C">\( 3 \)</div>
+                        <div class="option" data-value="D">\( 4 \)</div>
+                        <div class="option" data-value="E">\( 2 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q8" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>8.</strong> Find \( \lim_{n\rightarrow+\infty}(\sqrt{n^{4}+i\,n^{2}}-n^{2}) \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q8</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{i}{2} \)</div>
+                        <div class="option" data-value="B">\( 0 \)</div>
+                        <div class="option" data-value="C">\( +\infty \)</div>
+                        <div class="option" data-value="D">\( -\dfrac{1}{2} \)</div>
+                        <div class="option" data-value="E">\( \sqrt{i} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q9" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>9.</strong> Which of the following is a solution of \( u(x)=x+\int_{0}^{x}(t-x)u(t)dt \) ?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q9</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \sin x \)</div>
+                        <div class="option" data-value="B">\( x \cos x \)</div>
+                        <div class="option" data-value="C">\( \ln(x+1) \)</div>
+                        <div class="option" data-value="D">\( x\,e^{-x} \)</div>
+                        <div class="option" data-value="E">\( x\,e^{x} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q10" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>10.</strong> Find \( \int_{0}^{1}(\ln\dfrac{1}{x})^{5}dx \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q10</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 120 \)</div>
+                        <div class="option" data-value="B">\( +\infty \)</div>
+                        <div class="option" data-value="C">\( 1 \)</div>
+                        <div class="option" data-value="D">\( 720 \)</div>
+                        <div class="option" data-value="E">\( 24 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+            </section>
+
+            <section id="sec-11-20-section" class="topic-section" style="display:none;">
+                <h2>Questions 11–20</h2>
+
+                <div class="question" id="q11" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>11.</strong> Find the Laplace transform of f(x)=\( \{\begin{matrix}0&\text{if}&x\in&(-\infty,1)\\ 1&\text{if}&x\in(1,+\infty)\end{matrix} \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q11</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( e^{-p} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{1}{p} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{1}{e^{p-1}} \)</div>
+                        <div class="option" data-value="D">\( p\,e^{p} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{1}{p\,e^{p}} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q12" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>12.</strong> Let \( T: \mathbb{R}^{2}\rightarrow \mathbb{R}^{2} \) be defined by \( T(x,y)=\left[\begin{matrix}2x-y\\ x+3y\end{matrix}\right] \). Find the adjoint \( T^{*} \) of T.</p>
+                    <p class="source"><em>Source: Different_Practice3, Q12</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \left[\begin{matrix}2x+y\\ -x+3y\end{matrix}\right] \)</div>
+                        <div class="option" data-value="B">\( \left[\begin{matrix}x+2y\\ x-3y\end{matrix}\right] \)</div>
+                        <div class="option" data-value="C">\( \left[\begin{matrix}2x+y\\ x-3y\end{matrix}\right] \)</div>
+                        <div class="option" data-value="D">\( \left[\begin{matrix}\dfrac{x}{2}-y\\ -x+\dfrac{y}{3}\end{matrix}\right] \)</div>
+                        <div class="option" data-value="E">\( \left[\begin{matrix}3x-y\\ x+2y\end{matrix}\right] \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q13" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>13.</strong> The value of \( l=\int_{0}^{\dfrac{\pi}{2}}\dfrac{\cos\,x}{\cos\,x+\sin\,x}dx \); is</p>
+                    <p class="source"><em>Source: Different_Practice3, Q13</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 1 \)</div>
+                        <div class="option" data-value="B">\( \dfrac{\pi}{2} \)</div>
+                        <div class="option" data-value="C">\( 0 \)</div>
+                        <div class="option" data-value="D">\( \dfrac{\pi}{4} \)</div>
+                        <div class="option" data-value="E">\( \pi \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q14" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>14.</strong> Find the discriminant of the ternary quadratic form \( x^{2}-y^{2}+z^{2}-2xy+4yz-6xz \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q14</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 25 \)</div>
+                        <div class="option" data-value="B">\( 13 \)</div>
+                        <div class="option" data-value="C">\( 0 \)</div>
+                        <div class="option" data-value="D">\( 15 \)</div>
+                        <div class="option" data-value="E">\( 19 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q15" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>15.</strong> The radius of curvature of \( f(x)=x+\dfrac{1}{x} \) at P(1,2) is</p>
+                    <p class="source"><em>Source: Different_Practice3, Q15</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 1 \)</div>
+                        <div class="option" data-value="B">\( \sqrt{2} \)</div>
+                        <div class="option" data-value="C">\( 4 \)</div>
+                        <div class="option" data-value="D">\( 2 \)</div>
+                        <div class="option" data-value="E">\( \dfrac{1}{2} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q16" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>16.</strong> If \( \Gamma(p) \) represents the gamma function, then \( \int_{0}^{+\infty}e^{-x^{2}}dx \) is equal to \( \dfrac{1}{2}\Gamma(p) \) when p is equal to</p>
+                    <p class="source"><em>Source: Different_Practice3, Q16</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( -1 \)</div>
+                        <div class="option" data-value="B">\( \dfrac{1}{2} \)</div>
+                        <div class="option" data-value="C">\( 1 \)</div>
+                        <div class="option" data-value="D">\( \dfrac{1}{4} \)</div>
+                        <div class="option" data-value="E">\( 2 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q17" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>17.</strong> The factor group \( \dfrac{(\mathbb{Z}_{2}\times \mathbb{Z}_{3})}{\langle 1,0 \rangle} \) has order</p>
+                    <p class="source"><em>Source: Different_Practice3, Q17</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 2 \)</div>
+                        <div class="option" data-value="B">\( 3 \)</div>
+                        <div class="option" data-value="C">\( 4 \)</div>
+                        <div class="option" data-value="D">\( 1 \)</div>
+                        <div class="option" data-value="E">\( 6 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q18" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>18.</strong> Let \( \mathcal{R}[0,1] \) denote the set of Riemann integrable functions defined on [0,1]. Which of the following is not satisfied by function d defined on \( \mathcal{R}[0,1] \) by \( d(f,g)=\int_{0}^{1}|f(x)-g(x)|dx \)?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q18</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( d(f,f)=0 \)</div>
+                        <div class="option" data-value="B">\( d(f,g)\ge0 \)</div>
+                        <div class="option" data-value="C">\( d(f,g)>0 if f\ne g \)</div>
+                        <div class="option" data-value="D">\( d(f,g)=d(g,f) \)</div>
+                        <div class="option" data-value="E">\( d(f,g)\le d(f,h)+d(h,g) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q19" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>19.</strong> Find the simple continued fraction for \( \dfrac{13}{42} \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q19</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{1}{2+\dfrac{1}{3+\dfrac{1}{3}}} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{1}{3+\dfrac{1}{3+\dfrac{1}{4}}} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{1}{3+\dfrac{1}{2+\dfrac{1}{4}}} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{1}{4+\dfrac{1}{4+\dfrac{1}{3}}} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{1}{3+\dfrac{1}{4+\dfrac{1}{3}}} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q20" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>20.</strong> Which of the following polynomials satisfies an Eisenstein criterion for irreducibility over the rationals?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q20</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( x^{5}+3x^{4}+18x^{2}+15x+9 \)</div>
+                        <div class="option" data-value="B">\( 2x^{5}+9x^{4}+15x^{2}+3x+18 \)</div>
+                        <div class="option" data-value="C">\( 3x^{5}+18x^{4}+15x^{2}+9x+3 \)</div>
+                        <div class="option" data-value="D">\( 4x^{5}+15x^{4}+9x^{2}+3x+18 \)</div>
+                        <div class="option" data-value="E">\( 5x^{5}+9x^{4}+18x^{2}+3x+15 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+            </section>
+
+            <section id="sec-21-30-section" class="topic-section" style="display:none;">
+                <h2>Questions 21–30</h2>
+
+                <div class="question" id="q21" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>21.</strong> The number of degrees that the conic, defined by \( x^{2}-y^{2}+2\sqrt{3}xy=2 \), must be rotated in order to eliminate the xy term is</p>
+                    <p class="source"><em>Source: Different_Practice3, Q21</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 15 \)</div>
+                        <div class="option" data-value="B">\( 30 \)</div>
+                        <div class="option" data-value="C">\( 45 \)</div>
+                        <div class="option" data-value="D">\( 60 \)</div>
+                        <div class="option" data-value="E">\( 75 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q22" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>22.</strong> For the initial value problem \( y^{\prime\prime}+6y^{\prime}+9y=0 \), \( y(0)=3 \), \( y^{\prime}(0)=-11 \), find \( f(y) \), the Laplace transform of y.</p>
+                    <p class="source"><em>Source: Different_Practice3, Q22</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{1}{p+3}+\dfrac{2}{(p+3)^{2}} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{-2}{p+3}-\dfrac{3}{(p+3)^{2}} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{3}{(p+3)^{2}} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{3}{p+3}-\dfrac{2}{(p+3)^{2}} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{1}{p+3}-\dfrac{2}{{(p+3)}^{2}} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q23" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>23.</strong> Find the join of the subgroups \( \langle 4 \rangle \) and \( \langle 6 \rangle \) of \( \mathbb{Z}_{12} \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q23</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \langle 0 \rangle \)</div>
+                        <div class="option" data-value="B">\( \langle 2 \rangle \)</div>
+                        <div class="option" data-value="C">\( \langle 3 \rangle \)</div>
+                        <div class="option" data-value="D">\( \langle 4 \rangle \)</div>
+                        <div class="option" data-value="E">\( \langle 5 \rangle \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q24" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>24.</strong> For which n is the regular n-gon not constructible with a straightedge and compass?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q24</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 6 \)</div>
+                        <div class="option" data-value="B">\( 9 \)</div>
+                        <div class="option" data-value="C">\( 15 \)</div>
+                        <div class="option" data-value="D">\( 17 \)</div>
+                        <div class="option" data-value="E">\( 20 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q25" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>25.</strong> Given \( T=\left[\begin{matrix}1&0\\ 1&1\end{matrix}\right] \), the sum of the elements in \( T^{n} \) is</p>
+                    <p class="source"><em>Source: Different_Practice3, Q25</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 3n \)</div>
+                        <div class="option" data-value="B">\( n+3 \)</div>
+                        <div class="option" data-value="C">\( n \)</div>
+                        <div class="option" data-value="D">\( 2n \)</div>
+                        <div class="option" data-value="E">\( n+2 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q26" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>26.</strong> Let \( b: \mathbb{R}\times\mathbb{R}\rightarrow\mathbb{R} \) be the bilinear form defined by \( b(X;Y)=x_{1}y_{1}-2x_{1}y_{2}+x_{2}y_{1}+3x_{2}y_{2} \), where \( X=(x_{1},x_{2}) \) and \( Y=(y_{1},y_{2}) \). Find the \( 2\times 2 \) matrix B of b relative to the basis \( U=\{u_{1},u_{2}\} \) where \( u_{1}=(0,1) \) and \( u_{2}=(1,1) \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q26</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \left[\begin{matrix}5&-3\\ 0&2\end{matrix}\right] \)</div>
+                        <div class="option" data-value="B">\( \left[\begin{matrix}2&2\\ 1&1\end{matrix}\right] \)</div>
+                        <div class="option" data-value="C">\( \left[\begin{matrix}3&-1\\ 1&2\end{matrix}\right] \)</div>
+                        <div class="option" data-value="D">\( \left[\begin{matrix}0&4\\ -1&3\end{matrix}\right] \)</div>
+                        <div class="option" data-value="E">\( \left[\begin{matrix}-1&4\\ 2&3\end{matrix}\right] \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q27" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>27.</strong> Let \( X=\{a,b,c\} \). Which of the following classes of subsets of X does not form a topology on X?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q27</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \{X,\emptyset\} \)</div>
+                        <div class="option" data-value="B">\( \{X,\emptyset,\{a\}\} \)</div>
+                        <div class="option" data-value="C">\( \{X,\emptyset,\{a\},\{b\},\{a,b\}\} \)</div>
+                        <div class="option" data-value="D">\( \{X,\emptyset,\{a,b\},\{a,c\},\{b,c\},\{a,b,c\}\} \)</div>
+                        <div class="option" data-value="E">\( P(X), the power set of X \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q28" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>28.</strong> The eigenvalues for the initial value-eigenvalue problem \( y^{\prime\prime}+\lambda y=0 \), \( y(0)=0 \), \( y(\pi)=0 \) are given by</p>
+                    <p class="source"><em>Source: Different_Practice3, Q28</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 1, 2, 3, 4, ... \)</div>
+                        <div class="option" data-value="B">\( 1, 4, 9, 16, ... \)</div>
+                        <div class="option" data-value="C">\( 0,\pm1,\pm2,\pm3,\pm4,... \)</div>
+                        <div class="option" data-value="D">\( 0,\pm1,\pm4,\pm9,\pm16,... \)</div>
+                        <div class="option" data-value="E">\( ...,-3,-2,-1 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q29" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>29.</strong> For switching functions f, g, and h, the expression \( (f\vee g)\wedge(\overline{f}\vee h) \) is equivalent to</p>
+                    <p class="source"><em>Source: Different_Practice3, Q29</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( g\overline{f}\wedge gh \)</div>
+                        <div class="option" data-value="B">\( g\vee h \)</div>
+                        <div class="option" data-value="C">\( g\wedge f\,h \)</div>
+                        <div class="option" data-value="D">\( g\overline{f}\vee fh\vee gh \)</div>
+                        <div class="option" data-value="E">\( g\overline{f}\wedge fh\vee gh \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q30" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>30.</strong> For the inner product \( \langle A, B \rangle=\text{trace}(B^{\prime}A) \) defined on the vector space of 2&times;2 matrices on \( \mathbb{R} \), find the square of the norm of \( T=\left[\begin{matrix}1&3\\ 2&-1\end{matrix}\right] \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q30</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 5 \)</div>
+                        <div class="option" data-value="B">\( 10 \)</div>
+                        <div class="option" data-value="C">\( 15 \)</div>
+                        <div class="option" data-value="D">\( 20 \)</div>
+                        <div class="option" data-value="E">\( 25 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+            </section>
+
+            <section id="sec-31-40-section" class="topic-section" style="display:none;">
+                <h2>Questions 31–40</h2>
+
+                <div class="question" id="q31" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>31.</strong> Find the limit of the series \( x^{4}+\dfrac{x^{4}}{1+x^{2}}+\dfrac{x^{4}}{(1+x^{2})^{2}}+\dfrac{x^{4}}{(1+x^{2})^{3}}+... \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q31</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( x^{6}+x^{4} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{x^{6}}{1+x^{2}} \)</div>
+                        <div class="option" data-value="C">\( x^{6} \)</div>
+                        <div class="option" data-value="D">\( x^{4}+\dfrac{x^{6}}{1+x^{2}} \)</div>
+                        <div class="option" data-value="E">\( x^{4}+x^{2} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q32" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>32.</strong> The domain of \( f(x)=\int(x+2x^{2}+3x^{3}+...) dx \) is</p>
+                    <p class="source"><em>Source: Different_Practice3, Q32</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( (-1,1) \)</div>
+                        <div class="option" data-value="B">\( [-1,1) \)</div>
+                        <div class="option" data-value="C">\( [-\dfrac{1}{2},\dfrac{1}{2}] \)</div>
+                        <div class="option" data-value="D">\( [\dfrac{1}{2},\dfrac{1}{2}) \)</div>
+                        <div class="option" data-value="E">\( (-1,1] \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q33" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>33.</strong> Determine the number of homomorphisms from the group \( \mathbb{Z}_{8} \) onto the group \( \mathbb{Z}_{4} \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q33</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 1 \)</div>
+                        <div class="option" data-value="C">\( 2 \)</div>
+                        <div class="option" data-value="D">\( 3 \)</div>
+                        <div class="option" data-value="E">\( 4 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q34" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>34.</strong> The solution of \( x^{2}y^{\prime\prime}+6xy^{\prime}+6y=0 \) for \( x&gt;0 \), is given by</p>
+                    <p class="source"><em>Source: Different_Practice3, Q34</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( c_{1}x^{3}-c_{2}x^{2} \)</div>
+                        <div class="option" data-value="B">\( c_{1}x+c_{2}\ln\,x \)</div>
+                        <div class="option" data-value="C">\( \dfrac{c_{1}}{x^{3}}+\dfrac{c_{2}}{x^{2}} \)</div>
+                        <div class="option" data-value="D">\( c_{1}e^{-2x}+c_{2}e^{-3x} \)</div>
+                        <div class="option" data-value="E">\( c_{1}x\,\ln\,x+c_{2}\ln\,x \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q35" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>35.</strong> The remainder of \( 5^{34} \) when divided by 17 is</p>
+                    <p class="source"><em>Source: Different_Practice3, Q35</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 2 \)</div>
+                        <div class="option" data-value="C">\( 4 \)</div>
+                        <div class="option" data-value="D">\( 6 \)</div>
+                        <div class="option" data-value="E">\( 8 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q36" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>36.</strong> Find the curl of \( \vec{u}=xyz\vec{i}+xy^{2}\vec{j}+yz\vec{k} \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q36</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( xz\vec{i}+(x-yz)\vec{j}+2y\vec{k} \)</div>
+                        <div class="option" data-value="B">\( (x-z)\vec{i}-yz\vec{j}+xyz\vec{k} \)</div>
+                        <div class="option" data-value="C">\( z\vec{i}+xy\vec{j}+(y^{2}-xz)\vec{k} \)</div>
+                        <div class="option" data-value="D">\( xy\vec{i}-(z-y)\vec{j}+(xy-yz)\vec{k} \)</div>
+                        <div class="option" data-value="E">\( (xy-yz)\vec{i}-yz\vec{j}+x\vec{k} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q37" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>37.</strong> The inverse of the function \( f(x)=\dfrac{x}{x-1} \) is</p>
+                    <p class="source"><em>Source: Different_Practice3, Q37</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{x}{x+1} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{x}{x-1} \)</div>
+                        <div class="option" data-value="C">\( 1+\dfrac{1}{x} \)</div>
+                        <div class="option" data-value="D">\( 1-\dfrac{1}{x} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{x-1}{x+1} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q38" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>38.</strong> Find the slope of the tangent line to the ellipse \( 2x^{2}+y^{2}+30=8y-12x \) at \( (x_{0},y_{0}) \), where \( x_{0}=-2 \) and \( y_{0}&gt;4 \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q38</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{1}{\sqrt{2}} \)</div>
+                        <div class="option" data-value="B">\( -\sqrt{2} \)</div>
+                        <div class="option" data-value="C">\( 2 \)</div>
+                        <div class="option" data-value="D">\( \dfrac{1}{2} \)</div>
+                        <div class="option" data-value="E">\( -2 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q39" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>39.</strong> For matrices A=\( \left[\begin{matrix}1&1\\ 0&-1\end{matrix}\right] \), B=\( \left[\begin{matrix}0&1\\ 1&1\end{matrix}\right] \), C=\( \left[\begin{matrix}-1&0\\ 1&1\end{matrix}\right] \), and D=\( \left[\begin{matrix}3&3\\ 0&-2\end{matrix}\right] \), the matrix D is a linear combination (aA+bB+cC) of A, B, C for a,b,c, given by</p>
+                    <p class="source"><em>Source: Different_Practice3, Q39</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 1,1,-1 \)</div>
+                        <div class="option" data-value="B">\( 2,1,-1 \)</div>
+                        <div class="option" data-value="C">\( 2,2,-2 \)</div>
+                        <div class="option" data-value="D">\( 1,-2,1 \)</div>
+                        <div class="option" data-value="E">\( -1,1,-2 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q40" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>40.</strong> Given \( p(x)=\sum_{k=1}^{+\infty}\dfrac{(x-2)^{k}}{k^{2}} \), find the interval in which \( p^{\prime}(x) \) converges</p>
+                    <p class="source"><em>Source: Different_Practice3, Q40</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( {2} \)</div>
+                        <div class="option" data-value="B">\( [1,3) \)</div>
+                        <div class="option" data-value="C">\( [1,3] \)</div>
+                        <div class="option" data-value="D">\( (1,3] \)</div>
+                        <div class="option" data-value="E">\( R \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+            </section>
+
+            <section id="sec-41-50-section" class="topic-section" style="display:none;">
+                <h2>Questions 41–50</h2>
+
+                <div class="question" id="q41" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>41.</strong> Find the Laplace transform of \( \int_{0}^{x}\sin\,2t\,dt \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q41</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{1}{p^{2}+4} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{2p}{p^{2}+4} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{2}{p^{3}+4p} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{4}{p^{4}+16} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{1}{p^{2}+2p} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q42" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>42.</strong> If \( f^{\prime}(x_{0})=\sqrt{3} \), then the tangent line to the graph of f at \( x_{0} \) makes an angle of \( \beta \) degrees with the positive x-axis. Find \( \beta \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q42</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 30 \)</div>
+                        <div class="option" data-value="C">\( 45 \)</div>
+                        <div class="option" data-value="D">\( 60 \)</div>
+                        <div class="option" data-value="E">\( 90 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q43" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>43.</strong> Let \( T:\mathbb{R}^{3}\rightarrow \mathbb{R}^{3} \) be defined by \( T(x,y,z)=(x+y,\,x-y+z,\,y+2z) \). Find the trace of \( T \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q43</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 5 \)</div>
+                        <div class="option" data-value="B">\( -1 \)</div>
+                        <div class="option" data-value="C">\( 0 \)</div>
+                        <div class="option" data-value="D">\( 7 \)</div>
+                        <div class="option" data-value="E">\( 2 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q44" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>44.</strong> Find the sum of \( \dfrac{1}{2!}+\dfrac{2}{3!}+\dfrac{3}{4!}+... \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q44</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{3}{4} \)</div>
+                        <div class="option" data-value="B">\( 1 \)</div>
+                        <div class="option" data-value="C">\( \dfrac{5}{4} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{3}{2} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{7}{4} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q45" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>45.</strong> Which of the following is not a proper ideal of the ring \( \mathbb{Z}_{12} \)?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q45</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \langle 5 \rangle \)</div>
+                        <div class="option" data-value="B">\( \langle 8 \rangle \)</div>
+                        <div class="option" data-value="C">\( \langle 2 \rangle \)</div>
+                        <div class="option" data-value="D">\( \langle 3 \rangle \)</div>
+                        <div class="option" data-value="E">\( \langle 4 \rangle \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q46" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>46.</strong> Assuming that a person selects an answer to each of the first ten questions on this examination at random and that the selections are independent, what is the probability that he/she will guess exactly five answers correct?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q46</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{(63)4^{6}}{5^{10}} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{(65)4^{6}}{5^{10}} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{4^{9}}{5^{10}} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{(61)4^{6}}{5^{10}} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{(67)4^{6}}{5^{10}} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q47" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>47.</strong> Find the Jacobian of the transformation from the xy-plane to the uv-plane defined by \( u=f(x,y)=xe^{xy}, v=g(x,y)=ye^{xy} \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q47</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 2xye \)</div>
+                        <div class="option" data-value="B">\( (1-x^{2}y^{2})e^{2xy} \)</div>
+                        <div class="option" data-value="C">\( 2e^{2xy} \)</div>
+                        <div class="option" data-value="D">\( (2xy+1)e^{2xy} \)</div>
+                        <div class="option" data-value="E">\( 0 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q48" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>48.</strong> On average, a baseball player gets a hit in one out of three attempts. Assuming that the attempts are independent, what is the probability that he gets exactly three hits in six attempts?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q48</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{150}{3^{8}} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{160}{3^{5}} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{1}{2} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{80}{3^{6}} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{40}{3^{6}} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q49" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>49.</strong> Find the number of units in the ring \( \mathbb{Z}_{8} \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q49</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 1 \)</div>
+                        <div class="option" data-value="C">\( 2 \)</div>
+                        <div class="option" data-value="D">\( 3 \)</div>
+                        <div class="option" data-value="E">\( 4 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q50" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>50.</strong> Define \( f(x)=x \) for \( x\in(0,1) \). Find the coefficient of the third term in the half range Fourier sine series.</p>
+                    <p class="source"><em>Source: Different_Practice3, Q50</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{2}{3\pi} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{4}{9\pi^{2}} \)</div>
+                        <div class="option" data-value="C">\( \dfrac{2}{9\pi^{2}} \)</div>
+                        <div class="option" data-value="D">\( \dfrac{1}{3\pi} \)</div>
+                        <div class="option" data-value="E">\( \dfrac{1}{9\pi^{2}} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+            </section>
+
+            <section id="sec-51-60-section" class="topic-section" style="display:none;">
+                <h2>Questions 51–60</h2>
+
+                <div class="question" id="q51" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>51.</strong> Let V be the vector space of functions \( f:\mathbb{R}\rightarrow\mathbb{R} \). Let S be the subspace generated by \( \{e^{x},e^{2x},e^{-2x}\} \). Define \( D_{x} \) to be the derivative operator on S. Find the determinant of \( D_{x} \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q51</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 2 \)</div>
+                        <div class="option" data-value="B">\( 0 \)</div>
+                        <div class="option" data-value="C">\( -4 \)</div>
+                        <div class="option" data-value="D">\( 1 \)</div>
+                        <div class="option" data-value="E">\( -1 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q52" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>52.</strong> Find Green&#x27;s function for \( y^{\prime\prime}+5y^{\prime}+6y=\sin\,x \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q52</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 2e^{2(t-x)}+3e^{3(t-x)} \)</div>
+                        <div class="option" data-value="B">\( e^{2(t-x)}-e^{3(t-x)} \)</div>
+                        <div class="option" data-value="C">\( e^{(t+x)}-e^{(t-x)} \)</div>
+                        <div class="option" data-value="D">\( 2e^{(t-x)}-3e^{(t-x)} \)</div>
+                        <div class="option" data-value="E">\( e^{3(x-t)}-e^{2(x-t)} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q53" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>53.</strong> The Maclaurin series for \( xe^{-x^{2}} \) is given by</p>
+                    <p class="source"><em>Source: Different_Practice3, Q53</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( x-x^{3}+\dfrac{x^{5}}{2!}-\dfrac{x^{7}}{3!}+... \)</div>
+                        <div class="option" data-value="B">\( x^{3}-\dfrac{x^{5}}{2!}+\dfrac{x^{7}}{3!}-\dfrac{x^{9}}{4!} \)</div>
+                        <div class="option" data-value="C">\( x-\dfrac{x^{3}}{2!}+\dfrac{x^{5}}{3!}-\dfrac{x^{7}}{5!}+... \)</div>
+                        <div class="option" data-value="D">\( x+x^{3}+\dfrac{x^{5}}{2!}+\dfrac{x^{7}}{3!}+... \)</div>
+                        <div class="option" data-value="E">\( x+x^{3}-\dfrac{x^{5}}{2!}+\dfrac{x^{7}}{3!}-... \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q54" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>54.</strong> The symmetric difference of the sets \( S=\{1,2,3,4,5\} \) and \( T=\{4,5,6,7,8\} \) is</p>
+                    <p class="source"><em>Source: Different_Practice3, Q54</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( {4,5} \)</div>
+                        <div class="option" data-value="B">\( \emptyset \)</div>
+                        <div class="option" data-value="C">\( {1, 2, 3, 4, 5, 6, 7, 8} \)</div>
+                        <div class="option" data-value="D">\( {3,4,5,6} \)</div>
+                        <div class="option" data-value="E">\( {1, 2, 3, 6, 7, 8} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q55" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>55.</strong> Given \( x_{n+2}+6x_{n+1}+9x_{n}=0 \) \((n=0,1,2,\ldots)\), \( x_{0}=1 \), \( x_{1}=0 \), find \( x_{5} \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q55</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 576 \)</div>
+                        <div class="option" data-value="B">\( 834 \)</div>
+                        <div class="option" data-value="C">\( 1068 \)</div>
+                        <div class="option" data-value="D">\( -972 \)</div>
+                        <div class="option" data-value="E">\( 774 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q56" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>56.</strong> Let V be the vector space of real polynomials with inner product \( (f,g)=\int_{0}^{1}f(x)g(x)dx \) where \( f,g \in V \). Find the cosine of the angle between \( f(x)=2 \) and \( g(x)=x \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q56</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( \dfrac{1}{2} \)</div>
+                        <div class="option" data-value="B">\( \dfrac{\sqrt{3}}{2} \)</div>
+                        <div class="option" data-value="C">\( 0 \)</div>
+                        <div class="option" data-value="D">\( 1 \)</div>
+                        <div class="option" data-value="E">\( \dfrac{\sqrt{2}}{2} \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q57" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>57.</strong> The integral \( \int_{-24}^{4}\dfrac{dx}{\sqrt[3]{{(x-3)}^{2}}} \)</p>
+                    <p class="source"><em>Source: Different_Practice3, Q57</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( converges to 6 \)</div>
+                        <div class="option" data-value="B">\( diverges to +\infty \)</div>
+                        <div class="option" data-value="C">\( converges to 9 \)</div>
+                        <div class="option" data-value="D">\( converges to 12 \)</div>
+                        <div class="option" data-value="E">\( diverges to -\infty \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q58" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>58.</strong> Let n be a positive integer greater than 3. Then \( n^{3}+(n+1)^{3}+(n+2)^{3} \) is divisible by</p>
+                    <p class="source"><em>Source: Different_Practice3, Q58</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 9 \)</div>
+                        <div class="option" data-value="B">\( 4 \)</div>
+                        <div class="option" data-value="C">\( 12 \)</div>
+                        <div class="option" data-value="D">\( 6 \)</div>
+                        <div class="option" data-value="E">\( 15 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q59" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>59.</strong> If F is a finite field, then which of the following numbers can be the cardinality of F?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q59</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 21 \)</div>
+                        <div class="option" data-value="B">\( 45 \)</div>
+                        <div class="option" data-value="C">\( 27 \)</div>
+                        <div class="option" data-value="D">\( 14 \)</div>
+                        <div class="option" data-value="E">\( 33 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q60" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>60.</strong> Consider the set \( S=\{2,3,4,6,8,9\} \) ordered by &ldquo;s is a multiple of t&rdquo;. How many minimal elements does S have?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q60</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 0 \)</div>
+                        <div class="option" data-value="B">\( 1 \)</div>
+                        <div class="option" data-value="C">\( 2 \)</div>
+                        <div class="option" data-value="D">\( 3 \)</div>
+                        <div class="option" data-value="E">\( 4 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+            </section>
+
+            <section id="sec-61-66-section" class="topic-section" style="display:none;">
+                <h2>Questions 61–66</h2>
+
+                <div class="question" id="q61" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>61.</strong> Which of the following is a neighborhood of 0 relative to the usual topology τ for the real numbers?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q61</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( (0,1) \)</div>
+                        <div class="option" data-value="B">\( [-1,1] \)</div>
+                        <div class="option" data-value="C">\( [-1,0] \)</div>
+                        <div class="option" data-value="D">\( [0,1] \)</div>
+                        <div class="option" data-value="E">\( (-1,0) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q62" data-correct="E">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>62.</strong> Find the Cauchy number for the permutation σ=\( \left[\begin{matrix}1&2&3&4&5&6&7\\ 3&6&5&1&4&7&2\end{matrix}\right] \)\( \in S_{7} \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q62</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 1 \)</div>
+                        <div class="option" data-value="B">\( 2 \)</div>
+                        <div class="option" data-value="C">\( 3 \)</div>
+                        <div class="option" data-value="D">\( 4 \)</div>
+                        <div class="option" data-value="E">\( 5 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q63" data-correct="B">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>63.</strong> Which of the following ordinary differential equations is exact?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q63</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( (x+e^{y})dx+(xe^{y}-2xye^{y}-x^{2}y)dy=0 \)</div>
+                        <div class="option" data-value="B">\( (ye^{xy}+\cos\,x)dx+(xe^{xy}+1)dy=0 \)</div>
+                        <div class="option" data-value="C">\( (\sin\,x\,\sin\,y+y^{2})dx+(\cos\,x\,\cos\,y-2xy)dy=0 \)</div>
+                        <div class="option" data-value="D">\( (x^{2}y-y^{2})dx+(2-xy)dy=0 \)</div>
+                        <div class="option" data-value="E">\( (2x+3y-4)dx+(6x+9y+2)dy=0 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q64" data-correct="C">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>64.</strong> Let G be a graph with vertices \( x_{1}, x_{2}, x_{3}, x_{4}, x_{5} \). If \( \text{val}(x_{1})=2 \), \( \text{val}(x_{2})=2 \), \( \text{val}(x_{3})=3 \), \( \text{val}(x_{4})=3 \), and \( \text{val}(x_{5})=4 \), where val(x) denotes the valence of vertex x, how many edges does G have?</p>
+                    <p class="source"><em>Source: Different_Practice3, Q64</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( 4 \)</div>
+                        <div class="option" data-value="B">\( 9 \)</div>
+                        <div class="option" data-value="C">\( 7 \)</div>
+                        <div class="option" data-value="D">\( 8 \)</div>
+                        <div class="option" data-value="E">\( 5 \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q65" data-correct="D">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>65.</strong> If τ is the discrete topology on the real numbers \( \mathbb{R} \), find the closure of (a, b).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q65</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( (a, b) \)</div>
+                        <div class="option" data-value="B">\( [a, b] \)</div>
+                        <div class="option" data-value="C">\( [a, b) \)</div>
+                        <div class="option" data-value="D">\( (a, b] \)</div>
+                        <div class="option" data-value="E">\( R \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+                <div class="question" id="q66" data-correct="A">
+                    <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                    <p><strong>66.</strong> Define \( f: C^{3}\rightarrow C \) by \( f(c)=x-iy+(2+i)z \) where \( c=(x,y,z) \). Find \( \hat{c}\in C^{3} \) such that \( f(c)=(c,\hat{c}) \), where \( (c,\hat{c}) \) is the usual inner product on \( C^{3} \).</p>
+                    <p class="source"><em>Source: Different_Practice3, Q66</em></p>
+                    <div class="options">
+                        <div class="option" data-value="A">\( (1,i,2-i) \)</div>
+                        <div class="option" data-value="B">\( (-1,-i,2-i) \)</div>
+                        <div class="option" data-value="C">\( (1,-i,2+i) \)</div>
+                        <div class="option" data-value="D">\( (-1,i,-2-i) \)</div>
+                        <div class="option" data-value="E">\( (-1,i,-2-i) \)</div>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        let globalTimerInterval;
+        let globalStartTime;
+        let answeredQuestions = new Set();
+        let correctFirstAttempts = new Set();
+        let incorrectCounts = {};
+        let isStarted = false;
+        let isPaused = false;
+
+        function startTimers() {
+            if (!isStarted) {
+                globalStartTime = new Date();
+                isStarted = true;
+            }
+            if (isPaused) {
+                const pausedDuration = new Date() - pauseTime;
+                globalStartTime = new Date(globalStartTime.getTime() + pausedDuration);
+                isPaused = false;
+            }
+            globalTimerInterval = setInterval(() => {
+                const elapsed = Math.floor((new Date() - globalStartTime) / 1000);
+                const m = Math.floor(elapsed / 60);
+                const s = elapsed % 60;
+                document.getElementById('time-elapsed').textContent =
+                    `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+            }, 1000);
+            document.getElementById('start-btn').disabled = true;
+            document.getElementById('pause-btn').disabled = false;
+            document.getElementById('reset-btn').disabled = false;
+            document.getElementById('results-btn').disabled = false;
+        }
+
+        let pauseTime;
+        function pauseTimers() {
+            if (!isPaused) {
+                clearInterval(globalTimerInterval);
+                pauseTime = new Date();
+                isPaused = true;
+                document.getElementById('pause-btn').textContent = 'Resume';
+            } else {
+                startTimers();
+                document.getElementById('pause-btn').textContent = 'Pause';
+            }
+        }
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function () {
+                if (!isStarted) return;
+                const question = this.closest('.question');
+                const questionId = question.id;
+                const questionNum = parseInt(questionId.replace('q', ''));
+                const correct = question.getAttribute('data-correct');
+                const selected = this.getAttribute('data-value');
+                const feedback = question.querySelector('.feedback');
+                const isFirstAttempt = !answeredQuestions.has(questionNum);
+
+                if (question.querySelector('.option.selected-correct')) return;
+
+                if (selected === correct) {
+                    this.classList.add('selected-correct');
+                    feedback.textContent = 'Correct!';
+                    feedback.className = 'feedback correct';
+                    feedback.style.display = 'block';
+                    if (isFirstAttempt) {
+                        correctFirstAttempts.add(questionNum);
+                    }
+                    answeredQuestions.add(questionNum);
+                    const totalQ = document.querySelectorAll('.question').length;
+                    document.getElementById('questions-answered').textContent = `${answeredQuestions.size}/${totalQ}`;
+                } else {
+                    option.classList.add('selected-wrong');
+                    feedback.textContent = 'Incorrect. Try again!';
+                    feedback.className = 'feedback wrong';
+                    feedback.style.display = 'block';
+                    incorrectCounts[questionId] = (incorrectCounts[questionId] || 0) + 1;
+                    const errorEl = question.querySelector('.q-errors');
+                    if (errorEl) {
+                        errorEl.setAttribute('data-errors', incorrectCounts[questionId]);
+                        errorEl.textContent = incorrectCounts[questionId];
+                    }
+                    if (isFirstAttempt) answeredQuestions.add(questionNum);
+                    const totalQ = document.querySelectorAll('.question').length;
+                    document.getElementById('questions-answered').textContent = `${answeredQuestions.size}/${totalQ}`;
+                }
+
+                question.setAttribute('data-selected', selected);
+                const correctNow = correctFirstAttempts.size;
+                const answeredNow = answeredQuestions.size;
+                const accNow = answeredNow > 0 ? Math.round((correctNow / answeredNow) * 100) : 0;
+                document.getElementById('correct-answers').textContent = String(correctNow);
+                document.getElementById('accuracy-rate').textContent = `${accNow}%`;
+            });
+        });
+
+        function resetTimers() {
+            if (globalTimerInterval) clearInterval(globalTimerInterval);
+            globalStartTime = null;
+            answeredQuestions.clear();
+            correctFirstAttempts.clear();
+            incorrectCounts = {};
+            isStarted = false;
+            isPaused = false;
+
+            document.getElementById('time-elapsed').textContent = '00:00';
+            const totalQ = document.querySelectorAll('.question').length;
+            document.getElementById('questions-answered').textContent = `0/${totalQ}`;
+            document.getElementById('correct-answers').textContent = '0';
+            document.getElementById('accuracy-rate').textContent = '0%';
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('pause-btn').disabled = true;
+            document.getElementById('pause-btn').textContent = 'Pause';
+            document.getElementById('reset-btn').disabled = true;
+            document.getElementById('results-btn').disabled = true;
+            document.getElementById('results').style.display = 'none';
+
+            document.querySelectorAll('.option').forEach(o => o.classList.remove('selected-correct','selected-wrong','selected'));
+            document.querySelectorAll('.question').forEach(q => q.removeAttribute('data-selected'));
+            document.querySelectorAll('.feedback').forEach(f => { f.style.display = 'none'; f.className = 'feedback'; f.textContent = ''; });
+            document.querySelectorAll('.q-errors').forEach(e => { e.setAttribute('data-errors','0'); e.textContent = '0'; });
+        }
+
+        function showResults() {
+            const allQ = document.querySelectorAll('.question');
+            const totalQ = allQ.length;
+            const totalTime = globalStartTime ? Math.floor((new Date() - globalStartTime) / 1000) : 0;
+            const mins = Math.floor(totalTime / 60);
+            const secs = totalTime % 60;
+            const correctCount = correctFirstAttempts.size;
+            const accuracy = totalQ > 0 ? Math.round((correctCount / totalQ) * 100) : 0;
+
+            let summary = '<strong>Question Summary:</strong><ul>';
+            allQ.forEach((el, idx) => {
+                const qid = el.id;
+                const count = incorrectCounts[qid] || 0;
+                const num = parseInt(qid.replace('q',''));
+                const isAnswered = answeredQuestions.has(num);
+                const isCorrect = correctFirstAttempts.has(num);
+                let status = !isAnswered ? 'Not attempted' : (isCorrect ? 'Correct' : 'Incorrect');
+                summary += `<li>Q${num}: ${status}, ${count} wrong attempt(s)</li>`;
+            });
+            summary += '</ul>';
+
+            const rawScore = correctCount - (Object.values(incorrectCounts).reduce((a,b)=>a+b,0)) / 4;
+
+            document.getElementById('time-taken').innerHTML =
+                `<strong>Overall:</strong> ${correctCount}/${totalQ} correct (${accuracy}%) | Raw Score (C - I/4): ${rawScore.toFixed(1)}<br><strong>Time:</strong> ${mins}:${secs.toString().padStart(2,'0')}`;
+            document.getElementById('time-comparison').innerHTML = '';
+            document.getElementById('incorrect-counts').innerHTML = summary;
+            document.getElementById('weak-points').innerHTML = '';
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.topic-section').forEach(s => s.style.display = 'none');
+            document.querySelectorAll('.sidebar-nav button').forEach(b => b.classList.remove('active'));
+            const sec = document.getElementById(sectionId + '-section');
+            if (sec) sec.style.display = 'block';
+            const btn = document.querySelector(`.sidebar-nav button[onclick="showSection('${sectionId}')"]`);
+            if (btn) btn.classList.add('active');
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+
+        document.getElementById('start-btn').addEventListener('click', startTimers);
+        document.getElementById('pause-btn').addEventListener('click', pauseTimers);
+        document.getElementById('reset-btn').addEventListener('click', resetTimers);
+        document.getElementById('results-btn').addEventListener('click', showResults);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('sec-1-10');
+        });
+    </script>
+</body>
+</html>
