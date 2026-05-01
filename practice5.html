@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Test 5 - Math GRE Prep</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                displayMath: [['$$','$$'], ['\\[','\\]']],
+                processEscapes: true
+            }
+        });
+    </script>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #166088;
+            --accent: #2a9d8f;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 { margin: 0; font-size: 2rem; }
+
+        .subtitle { opacity: 0.9; margin-top: 0.5rem; font-size: 1rem; }
+
+        .nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            position: relative;
+            z-index: 15;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; color: white; text-decoration: none; }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover { opacity: 0.8; }
+
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 1100px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard div { text-align: center; flex: 1; }
+        .dashboard p { margin: 5px 0; color: #333; }
+
+        .dashboard button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .dashboard button:hover { background: #228B7E; }
+        .dashboard button:disabled { background: #cccccc; cursor: not-allowed; }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar-nav {
+            flex-basis: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            z-index: 5;
+        }
+
+        .sidebar-nav button {
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar-nav button:hover { background-color: #e9ecef; }
+
+        .sidebar-nav button.active {
+            background-color: var(--accent);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .main-content { flex-grow: 1; }
+
+        .question {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .question p { margin: 10px 0; font-size: 1.1em; }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            font-size: 1em;
+        }
+
+        .option:hover { background: #e9ecef; border-color: #aaa; }
+        .option.selected-correct { background: #d4edda; border-color: #28a745; }
+        .option.selected-wrong { background: #f8d7da; border-color: #dc3545; }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.correct { color: #28a745; display: block; }
+        .feedback.wrong { color: #dc3545; display: block; }
+
+        #results {
+            display: none;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .main-container { flex-direction: column; padding: 10px; gap: 15px; }
+            .dashboard { flex-direction: column; gap: 15px; }
+            .sidebar-nav {
+                flex-basis: auto;
+                width: 100%;
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .sidebar-nav button { width: auto; flex-grow: 1; }
+        }
+
+        @media (max-width: 600px) {
+            .question { padding: 15px; }
+            .option { padding: 8px 12px; }
+        }
+    </style>
+    <style>
+        body { font-family: 'Courier New', monospace; background-color: #f0f0f0; color: #0d0d0d; font-weight: bold; }
+        header { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+        header h1 { text-shadow: 2px 2px 0px #ffffff, 4px 4px 0px #cccccc; font-weight: bold; }
+        .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
+        .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
+        .nav-links a:hover { opacity: 1; text-decoration: underline; }
+        .dashboard { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .dashboard button { background: #0d0d0d; color: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; }
+        .dashboard button:hover { background: #ffffff; color: #0d0d0d; }
+        .sidebar-nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .sidebar-nav button { border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; background: #f8f9fa; }
+        .sidebar-nav button.active { background-color: #0d0d0d; color: #ffffff; }
+        .question { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .topic-section > h2 { margin: 0 0 1rem; font-size: 1.15rem; }
+        .question p { line-height: 1.45; }
+        .question p.source { margin: 0.35rem 0 0.75rem; }
+        .question .MathJax, .question .mjx-chtml { font-size: 1.02em !important; vertical-align: middle; }
+        .option { background: #ffffff; border: 2px solid #0d0d0d; border-radius: 0; font-weight: bold; line-height: 1.42; }
+        .option .MathJax, .option .mjx-chtml { font-size: 1.02em !important; vertical-align: middle; }
+        .option:hover { background: #f0f0f0; border-color: #0d0d0d; }
+        .feedback { font-weight: bold; }
+        .feedback.correct { color: #28a745; }
+        .feedback.wrong { color: #c62828; }
+        footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Practice Test 5 (GR9768)</h1>
+        <p class="subtitle">GRE Mathematics Subject Test &mdash; 66 Questions, 170 Minutes</p>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Math GRE Prep</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="resources.html">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard">
+        <div><p id="time-elapsed">00:00</p><p>Time Elapsed</p></div>
+        <div><p id="questions-answered">0/0</p><p>Questions Answered</p></div>
+        <div><p id="correct-answers">0</p><p>Correct Answers</p></div>
+        <div><p id="accuracy-rate">0%</p><p>Accuracy Rate</p></div>
+        <div>
+            <button id="start-btn">Start</button>
+            <button id="pause-btn" disabled>Pause</button>
+            <button id="reset-btn" disabled>Reset</button>
+            <button id="results-btn" disabled>End</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <nav class="sidebar-nav" id="sidebar-nav"></nav>
+        <div class="main-content">
+            <div id="results">
+                <h2>Results</h2>
+                <p id="time-taken"></p>
+                <p id="incorrect-counts"></p>
+            </div>
+            <div id="sections-root"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Math GRE Prep. Hosted on GitHub Pages.</p>
+    </footer>
+
+    <script>
+        let globalTimerInterval;
+        let globalStartTime;
+        let pauseTime;
+        let answeredQuestions = new Set();
+        let correctFirstAttempts = new Set();
+        let incorrectCounts = {};
+        let isStarted = false;
+        let isPaused = false;
+
+        function escapeHtml(s) {
+            return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        function renderTextWithBreaks(s) {
+            return escapeHtml(s).replace(/\n\n/g, "<br><br>").replace(/\n/g, "<br>");
+        }
+
+        function renderStem(s) {
+            const htmlTokens = [];
+            function tok(html) {
+                const t = "\x00T" + htmlTokens.length + "\x00";
+                htmlTokens.push(html);
+                return t;
+            }
+            function safe(t) {
+                return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            }
+
+            // \begin{align*}...\end{align*} → display math for MathJax
+            s = s.replace(/\\begin\{align\*\}([\s\S]*?)\\end\{align\*\}/g,
+                (_, b) => tok("\\[\\begin{aligned}" + safe(b) + "\\end{aligned}\\]"));
+
+            // \begin{center}\begin{tabular}...\end{tabular}\end{center} → HTML table
+            s = s.replace(/\\begin\{center\}\s*\\begin\{tabular\}\{[^}]+\}([\s\S]*?)\\end\{tabular\}\s*\\end\{center\}/g,
+                (_, body) => {
+                    const rows = body.replace(/\\hline/g, "").trim().split(/\\\\\s*\n?/).map(r => r.trim()).filter(Boolean);
+                    const htmlRows = rows.map(row => {
+                        const cells = row.split(/\s*&\s*/);
+                        return "<tr>" + cells.map(c => "<td style=\"padding:3px 8px;border:1px solid #888;text-align:center\">" + safe(c.trim()) + "</td>").join("") + "</tr>";
+                    });
+                    return tok("<div style=\"overflow-x:auto;margin:8px 0\"><table style=\"border-collapse:collapse;margin:0 auto\">" + htmlRows.join("") + "</table></div>");
+                });
+
+            // \begin{center}...\end{center} → centered italic block (for quoted statements)
+            s = s.replace(/\\begin\{center\}([\s\S]*?)\\end\{center\}/g,
+                (_, b) => tok("<div style=\"text-align:center;margin:6px 0;padding:2px 12px;border-left:2px solid #ccc;font-style:italic\">" + safe(b.trim()) + "</div>"));
+
+            // \begin{enumerate}...\end{enumerate} with labeled items (I./II./III.) → ordered list
+            s = s.replace(/\\begin\{enumerate\}([\s\S]*?)\\end\{enumerate\}/g, (_, body) => {
+                const items = [];
+                const itemRx = /\\item\[([^\]]+)\]\s*([\s\S]*?)(?=\\item\[|$)/g;
+                let im;
+                while ((im = itemRx.exec(body)) !== null) {
+                    const content = im[2].trim();
+                    if (content) items.push("<li>" + safe(content) + "</li>");
+                }
+                if (!items.length) {
+                    body.split(/\\item\s+/).filter(Boolean).forEach(i => {
+                        if (i.trim()) items.push("<li>" + safe(i.trim()) + "</li>");
+                    });
+                }
+                return tok("<ol style=\"margin:6px 0 6px 22px\">" + items.join("") + "</ol>");
+            });
+
+            // \underline{...} → <u>
+            s = s.replace(/\\underline\{([^}$\n]+)\}/g, (_, b) => tok("<u>" + safe(b) + "</u>"));
+
+            // Escape remaining HTML special chars (math inside $...$ is safe via decoded DOM)
+            s = safe(s);
+
+            // Restore HTML tokens
+            s = s.replace(/\x00T(\d+)\x00/g, (_, i) => htmlTokens[Number(i)]);
+
+            return s.replace(/\n\n/g, "<br><br>").replace(/\n/g, "<br>");
+        }
+
+        function parseAnswerTable(md) {
+            const map = {};
+            // Find the LAST tabular in the document (the answer key, not Q17's data table)
+            const tabRx = /\\begin\{tabular\}\{[\s\S]*?\\end\{tabular\}/g;
+            let tabMatch, lastBlock = null;
+            while ((tabMatch = tabRx.exec(md)) !== null) lastBlock = tabMatch[0];
+            if (!lastBlock) return map;
+            const rows = lastBlock.split("\n").filter(line => line.includes("&") && line.includes("\\\\"));
+            rows.forEach((line) => {
+                const clean = line.replace(/\\\\/g, "").trim();
+                const cells = clean.split("&").map(s => s.trim());
+                if (cells.length >= 3 && /^\d+$/.test(cells[0])) {
+                    map[Number(cells[0])] = cells[1];
+                }
+                if (cells.length >= 6 && /^\d+$/.test(cells[3])) {
+                    map[Number(cells[3])] = cells[4];
+                }
+            });
+            return map;
+        }
+
+        function parseQuestions(md) {
+            // Split on the LAST \begin{center} to exclude the answer key table.
+            // Q14 and Q17 also have \begin{center} in their bodies, so we must NOT
+            // split on the first occurrence.
+            const parts = md.split("\\begin{center}");
+            const beforeTable = parts.length > 1
+                ? parts.slice(0, -1).join("\\begin{center}")
+                : md;
+            const answers = parseAnswerTable(md);
+            const rx = /(?:^|\n)(\d+)\.\s([\s\S]*?)(?=\n\d+\.\s|$)/g;
+            const questions = [];
+            let m;
+            while ((m = rx.exec(beforeTable)) !== null) {
+                const n = Number(m[1]);
+                const body = m[2].trim();
+                const lastEnumStart = body.lastIndexOf("\\begin{enumerate}");
+                const lastEnumEnd = body.lastIndexOf("\\end{enumerate}");
+                if (lastEnumStart < 0 || lastEnumEnd < 0 || lastEnumEnd <= lastEnumStart) continue;
+                const stem = body.slice(0, lastEnumStart).trim();
+                const optionBlock = body.slice(lastEnumStart, lastEnumEnd + "\\end{enumerate}".length);
+                const options = {};
+                const optionRx = /\\item\[\(([A-E])\)\]\s*([\s\S]*?)(?=\\item\[\([A-E]\)\]|\\end\{enumerate\})/g;
+                let om;
+                while ((om = optionRx.exec(optionBlock)) !== null) {
+                    options[om[1]] = om[2].trim();
+                }
+                if (Object.keys(options).length !== 5) continue;
+                questions.push({
+                    n,
+                    stem,
+                    options,
+                    answer: answers[n] || "A"
+                });
+            }
+            return questions.sort((a, b) => a.n - b.n);
+        }
+
+        function ranges() {
+            return [
+                ["sec-1-10", 1, 10], ["sec-11-20", 11, 20], ["sec-21-30", 21, 30],
+                ["sec-31-40", 31, 40], ["sec-41-50", 41, 50], ["sec-51-60", 51, 60], ["sec-61-66", 61, 66]
+            ];
+        }
+
+        function buildUI(questions) {
+            const sectionsRoot = document.getElementById("sections-root");
+            const sidebar = document.getElementById("sidebar-nav");
+            sectionsRoot.innerHTML = "";
+            sidebar.innerHTML = "";
+
+            ranges().forEach(([id, lo, hi], idx) => {
+                const subset = questions.filter(q => q.n >= lo && q.n <= hi);
+                if (!subset.length) return;
+
+                const btn = document.createElement("button");
+                btn.textContent = `Q ${lo}-${hi}`;
+                btn.className = idx === 0 ? "active" : "";
+                btn.addEventListener("click", () => showSection(id));
+                sidebar.appendChild(btn);
+
+                const sec = document.createElement("section");
+                sec.id = `${id}-section`;
+                sec.className = "topic-section";
+                sec.style.display = idx === 0 ? "block" : "none";
+                sec.innerHTML = `<h2>Questions ${lo}-${hi}</h2>`;
+
+                subset.forEach((q) => {
+                    const qDiv = document.createElement("div");
+                    qDiv.className = "question";
+                    qDiv.id = `q${q.n}`;
+                    qDiv.setAttribute("data-correct", q.answer);
+                    qDiv.innerHTML = `
+                        <div class="question-meta"><span>&#10060; <span class="q-errors" data-errors="0">0</span></span></div>
+                        <p><strong>${q.n}.</strong> ${renderStem(q.stem)}</p>
+<div class="options">
+                            ${["A","B","C","D","E"].map(L => `<div class="option" data-value="${L}">${renderTextWithBreaks(q.options[L])}</div>`).join("")}
+                        </div>
+                        <div class="feedback"></div>
+                    `;
+                    sec.appendChild(qDiv);
+                });
+                sectionsRoot.appendChild(sec);
+            });
+
+            document.getElementById("questions-answered").textContent = `0/${questions.length}`;
+            wireOptionEvents();
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll(".topic-section").forEach(s => s.style.display = "none");
+            document.querySelectorAll(".sidebar-nav button").forEach(b => b.classList.remove("active"));
+            const sec = document.getElementById(`${sectionId}-section`);
+            if (sec) sec.style.display = "block";
+            const idx = ranges().findIndex(([id]) => id === sectionId);
+            const btns = Array.from(document.querySelectorAll(".sidebar-nav button"));
+            if (idx >= 0 && btns[idx]) btns[idx].classList.add("active");
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+
+        function updateScoreUI() {
+            const totalQ = document.querySelectorAll(".question").length;
+            const correctNow = correctFirstAttempts.size;
+            const answeredNow = answeredQuestions.size;
+            const accNow = answeredNow > 0 ? Math.round((correctNow / answeredNow) * 100) : 0;
+            document.getElementById("questions-answered").textContent = `${answeredNow}/${totalQ}`;
+            document.getElementById("correct-answers").textContent = String(correctNow);
+            document.getElementById("accuracy-rate").textContent = `${accNow}%`;
+        }
+
+        function wireOptionEvents() {
+            document.querySelectorAll(".option").forEach(option => {
+                option.addEventListener("click", function () {
+                    if (!isStarted) return;
+                    const question = this.closest(".question");
+                    const questionId = question.id;
+                    const questionNum = parseInt(questionId.replace("q", ""), 10);
+                    const correct = question.getAttribute("data-correct");
+                    const selected = this.getAttribute("data-value");
+                    const feedback = question.querySelector(".feedback");
+                    const isFirstAttempt = !answeredQuestions.has(questionNum);
+
+                    if (question.querySelector(".option.selected-correct")) return;
+
+                    if (selected === correct) {
+                        this.classList.add("selected-correct");
+                        feedback.textContent = "Correct!";
+                        feedback.className = "feedback correct";
+                        if (isFirstAttempt) correctFirstAttempts.add(questionNum);
+                        answeredQuestions.add(questionNum);
+                    } else {
+                        this.classList.add("selected-wrong");
+                        feedback.textContent = "Incorrect. Try again!";
+                        feedback.className = "feedback wrong";
+                        incorrectCounts[questionId] = (incorrectCounts[questionId] || 0) + 1;
+                        const err = question.querySelector(".q-errors");
+                        err.setAttribute("data-errors", String(incorrectCounts[questionId]));
+                        err.textContent = String(incorrectCounts[questionId]);
+                        if (isFirstAttempt) answeredQuestions.add(questionNum);
+                    }
+                    feedback.style.display = "block";
+                    updateScoreUI();
+                });
+            });
+        }
+
+        function startTimers() {
+            if (!isStarted) {
+                globalStartTime = new Date();
+                isStarted = true;
+            }
+            if (isPaused) {
+                const pausedDuration = new Date() - pauseTime;
+                globalStartTime = new Date(globalStartTime.getTime() + pausedDuration);
+                isPaused = false;
+            }
+            globalTimerInterval = setInterval(() => {
+                const elapsed = Math.floor((new Date() - globalStartTime) / 1000);
+                const m = Math.floor(elapsed / 60);
+                const s = elapsed % 60;
+                document.getElementById("time-elapsed").textContent =
+                    `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+            }, 1000);
+            document.getElementById("start-btn").disabled = true;
+            document.getElementById("pause-btn").disabled = false;
+            document.getElementById("reset-btn").disabled = false;
+            document.getElementById("results-btn").disabled = false;
+        }
+
+        function pauseTimers() {
+            if (!isPaused) {
+                clearInterval(globalTimerInterval);
+                pauseTime = new Date();
+                isPaused = true;
+                document.getElementById("pause-btn").textContent = "Resume";
+            } else {
+                startTimers();
+                document.getElementById("pause-btn").textContent = "Pause";
+            }
+        }
+
+        function resetTimers() {
+            if (globalTimerInterval) clearInterval(globalTimerInterval);
+            globalStartTime = null;
+            answeredQuestions.clear();
+            correctFirstAttempts.clear();
+            incorrectCounts = {};
+            isStarted = false;
+            isPaused = false;
+            document.getElementById("time-elapsed").textContent = "00:00";
+            document.getElementById("correct-answers").textContent = "0";
+            document.getElementById("accuracy-rate").textContent = "0%";
+            document.getElementById("start-btn").disabled = false;
+            document.getElementById("pause-btn").disabled = true;
+            document.getElementById("pause-btn").textContent = "Pause";
+            document.getElementById("reset-btn").disabled = true;
+            document.getElementById("results-btn").disabled = true;
+            document.getElementById("results").style.display = "none";
+            document.querySelectorAll(".option").forEach(o => o.classList.remove("selected-correct", "selected-wrong"));
+            document.querySelectorAll(".feedback").forEach(f => { f.style.display = "none"; f.className = "feedback"; f.textContent = ""; });
+            document.querySelectorAll(".q-errors").forEach(e => { e.setAttribute("data-errors", "0"); e.textContent = "0"; });
+            updateScoreUI();
+        }
+
+        function showResults() {
+            const allQ = document.querySelectorAll(".question");
+            const totalQ = allQ.length;
+            const totalTime = globalStartTime ? Math.floor((new Date() - globalStartTime) / 1000) : 0;
+            const mins = Math.floor(totalTime / 60);
+            const secs = totalTime % 60;
+            const correctCount = correctFirstAttempts.size;
+            const accuracy = totalQ > 0 ? Math.round((correctCount / totalQ) * 100) : 0;
+            const wrongAttempts = Object.values(incorrectCounts).reduce((a, b) => a + b, 0);
+            const rawScore = correctCount - wrongAttempts / 4;
+            let summary = "<strong>Question Summary:</strong><ul>";
+            allQ.forEach((el) => {
+                const qid = el.id;
+                const qn = Number(qid.replace("q", ""));
+                const count = incorrectCounts[qid] || 0;
+                const status = !answeredQuestions.has(qn) ? "Not attempted" : (correctFirstAttempts.has(qn) ? "Correct" : "Incorrect");
+                summary += `<li>Q${qn}: ${status}, ${count} wrong attempt(s)</li>`;
+            });
+            summary += "</ul>";
+            document.getElementById("time-taken").innerHTML =
+                `<strong>Overall:</strong> ${correctCount}/${totalQ} correct (${accuracy}%) | Raw Score (C - I/4): ${rawScore.toFixed(1)}<br><strong>Time:</strong> ${mins}:${secs.toString().padStart(2, "0")}`;
+            document.getElementById("incorrect-counts").innerHTML = summary;
+            document.getElementById("results").style.display = "block";
+            document.getElementById("results").scrollIntoView({ behavior: "smooth" });
+        }
+
+        document.getElementById("start-btn").addEventListener("click", startTimers);
+        document.getElementById("pause-btn").addEventListener("click", pauseTimers);
+        document.getElementById("reset-btn").addEventListener("click", resetTimers);
+        document.getElementById("results-btn").addEventListener("click", showResults);
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const md = document.getElementById("practice5-md").textContent;
+            const questions = parseQuestions(md);
+            buildUI(questions);
+            showSection("sec-1-10");
+            resetTimers();
+        });
+    </script>
+    <script type="text/plain" id="practice5-md">
+1. If $F(x) = \int_e^x \log t \, dt$ for all positive $x$, then $F'(x) =$
+\begin{enumerate}
+    \item[(A)] $x$
+    \item[(B)] $\frac{1}{x}$
+    \item[(C)] $\log x$
+    \item[(D)] $x \log x$
+    \item[(E)] $x \log x - 1$
+\end{enumerate}
+
+2. If $F(1) = 2$ and $F(n) = F(n - 1) + \frac{1}{2}$ for all integers $n > 1$, then $F(101) =$
+\begin{enumerate}
+    \item[(A)] $49$
+    \item[(B)] $50$
+    \item[(C)] $51$
+    \item[(D)] $52$
+    \item[(E)] $53$
+\end{enumerate}
+
+3. If $\begin{pmatrix} a & -b \\ b & a \end{pmatrix}$ is invertible under matrix multiplication, then its inverse is
+\begin{enumerate}
+    \item[(A)] $\begin{pmatrix} a & -b \\ b & a \end{pmatrix}$
+    \item[(B)] $\frac{1}{a^2 + b^2} \begin{pmatrix} a & -b \\ b & a \end{pmatrix}$
+    \item[(C)] $\frac{1}{a^2 + b^2} \begin{pmatrix} a & b \\ -b & a \end{pmatrix}$
+    \item[(D)] $\begin{pmatrix} a & b \\ -b & a \end{pmatrix}$
+    \item[(E)] $\frac{1}{a^2 - b^2} \begin{pmatrix} -b & a \\ a & b \end{pmatrix}$
+\end{enumerate}
+
+6. Consider the following sequence of instructions.
+\begin{enumerate}
+    \item Set $k = 999$, $i = 1$, and $p = 0$.
+    \item If $k > i$, then go to step 3; otherwise go to step 5.
+    \item Replace $i$ with $2i$ and replace $p$ with $p + 1$.
+    \item Go to step 2.
+    \item Print $p$.
+\end{enumerate}
+
+If these instructions are followed, what number will be printed at step 5 ?
+\begin{enumerate}
+    \item[(A)] 1
+    \item[(B)] 2
+    \item[(C)] 10
+    \item[(D)] 512
+    \item[(E)] 999
+\end{enumerate}
+
+8. $\int_0^1 \frac{x}{1 + x^2} \, dx =$
+\begin{enumerate}
+    \item[(A)] 1
+    \item[(B)] $\frac{\pi}{4}$
+    \item[(C)] $\tan^{-1} \frac{\sqrt{2}}{2}$
+    \item[(D)] $\log 2$
+    \item[(E)] $\log \sqrt{2}$
+\end{enumerate}
+
+9. If $S$ is a nonempty finite set with $k$ elements, then the number of one-to-one functions from $S$ onto $S$ is
+\begin{enumerate}
+    \item[(A)] $k!$
+    \item[(B)] $k^2$
+    \item[(C)] $k^k$
+    \item[(D)] $2^k$
+    \item[(E)] $2^{k+1}$
+\end{enumerate}
+
+10. Let $g$ be the function defined on the set of all real numbers by
+$$g(x) = \begin{cases} 1 & \text{if } x \text{ is rational,} \\ e^x & \text{if } x \text{ is irrational.} \end{cases}$$
+Then the set of numbers at which $g$ is continuous is
+\begin{enumerate}
+    \item[(A)] the empty set
+    \item[(B)] $\{0\}$
+    \item[(C)] $\{1\}$
+    \item[(D)] the set of rational numbers
+    \item[(E)] the set of irrational numbers
+\end{enumerate}
+
+11. For all real numbers $x$ and $y$, the expression $\frac{x + y + |x - y|}{2}$ is equal to
+\begin{enumerate}
+    \item[(A)] the maximum of $x$ and $y$
+    \item[(B)] the minimum of $x$ and $y$
+    \item[(C)] $|x + y|$
+    \item[(D)] the average of $|x|$ and $|y|$
+    \item[(E)] the average of $|x + y|$ and $x - y$
+\end{enumerate}
+
+12. Let $B$ be a nonempty bounded set of real numbers and let $b$ be the least upper bound of $B$. If $b$ is \underline{not} a member of $B$, which of the following is necessarily true?
+\begin{enumerate}
+    \item[(A)] $B$ is closed.
+    \item[(B)] $B$ is not open.
+    \item[(C)] $b$ is a limit point of $B$.
+    \item[(D)] No sequence in $B$ converges to $b$.
+    \item[(E)] There is an open interval containing $b$ but containing no point of $B$.
+\end{enumerate}
+
+13. A drawer contains 2 blue, 4 red, and 2 yellow socks. If 2 socks are to be randomly selected from the drawer, what is the probability that they will be the same color?
+\begin{enumerate}
+    \item[(A)] $\frac{2}{7}$
+    \item[(B)] $\frac{2}{5}$
+    \item[(C)] $\frac{3}{7}$
+    \item[(D)] $\frac{1}{2}$
+    \item[(E)] $\frac{3}{5}$
+\end{enumerate}
+
+14. Let $\mathbb{R}$ be the set of real numbers and let $f$ and $g$ be functions from $\mathbb{R}$ into $\mathbb{R}$. The negation of the statement
+\begin{center}
+    ``For each $s$ in $\mathbb{R}$, there exists an $r$ in $\mathbb{R}$ such that if $f(r) > 0$, then $g(s) > 0$.''
+\end{center}
+is which of the following?
+\begin{enumerate}
+    \item[(A)] For each $s$ in $\mathbb{R}$, there does not exist an $r$ in $\mathbb{R}$ such that if $f(r) > 0$, then $g(s) > 0$.
+    \item[(B)] For each $s$ in $\mathbb{R}$, there exists an $r$ in $\mathbb{R}$ such that $f(r) > 0$ and $g(s) \le 0$.
+    \item[(C)] There exists an $s$ in $\mathbb{R}$ such that for each $r$ in $\mathbb{R}$, $f(r) > 0$ and $g(s) \le 0$.
+    \item[(D)] There exists an $s$ in $\mathbb{R}$ and there exists an $r$ in $\mathbb{R}$ such that $f(r) \le 0$ and $g(s) \le 0$.
+    \item[(E)] For each $r$ in $\mathbb{R}$, there exists an $s$ in $\mathbb{R}$ such that $f(r) \le 0$ and $g(s) \le 0$.
+\end{enumerate}
+
+15. If $g$ is a function defined on the open interval $(a, b)$ such that $a < g(x) < x$ for all $x \in (a, b)$, then $g$ is
+\begin{enumerate}
+    \item[(A)] an unbounded function
+    \item[(B)] a nonconstant function
+    \item[(C)] a nonnegative function
+    \item[(D)] a strictly increasing function
+    \item[(E)] a polynomial function of degree 1
+\end{enumerate}
+
+16. For what value (or values) of $m$ is the vector $(1, 2, m, 5)$ a linear combination of the vectors $(0, 1, 1, 1)$, $(0, 0, 0, 1)$, and $(1, 1, 2, 0)$ ?
+\begin{enumerate}
+    \item[(A)] For no value of $m$
+    \item[(B)] $-1$ only
+    \item[(C)] $1$ only
+    \item[(D)] $3$ only
+    \item[(E)] For infinitely many values of $m$
+\end{enumerate}
+
+17. For a function $f$, the finite differences $\Delta f(x)$ and $\Delta^2 f(x)$ are defined by $\Delta f(x) = f(x + 1) - f(x)$ and $\Delta^2 f(x) = \Delta f(x + 1) - \Delta f(x)$. What is the value of $f(4)$, given the following partially completed finite difference table?
+\begin{center}
+\begin{tabular}{cccc}
+    $x$ & $f(x)$ & $\Delta f(x)$ & $\Delta^2 f(x)$ \\
+    \hline
+    1 & $-1$ & $4$ & \\
+    2 & & $-2$ & $6$ \\
+    3 & & & \\
+    4 & & &
+\end{tabular}
+\end{center}
+\begin{enumerate}
+    \item[(A)] $-5$
+    \item[(B)] $-1$
+    \item[(C)] $1$
+    \item[(D)] $3$
+    \item[(E)] $5$
+\end{enumerate}
+
+22. Let $\mathbb{Z}$ be the group of all integers under the operation of addition. Which of the following subsets of $\mathbb{Z}$ is NOT a subgroup of $\mathbb{Z}$ ?
+\begin{enumerate}
+    \item[(A)] $\{0\}$
+    \item[(B)] $\{n \in \mathbb{Z} \colon n \ge 0\}$
+    \item[(C)] $\{n \in \mathbb{Z} \colon n \text{ is an even integer}\}$
+    \item[(D)] $\{n \in \mathbb{Z} \colon n \text{ is divisible by both } 6 \text{ and } 9\}$
+    \item[(E)] $\mathbb{Z}$
+\end{enumerate}
+
+23. In the Euclidean plane, point $A$ is on a circle centered at point $O$, and $O$ is on a circle centered at $A$. The circles intersect at points $B$ and $C$. What is the measure of angle $BAC$ ?
+\begin{enumerate}
+    \item[(A)] $60^\circ$
+    \item[(B)] $90^\circ$
+    \item[(C)] $120^\circ$
+    \item[(D)] $135^\circ$
+    \item[(E)] $150^\circ$
+\end{enumerate}
+
+24. Which of the following sets of vectors is a basis for the subspace of Euclidean 4-space consisting of all vectors that are orthogonal to both $(0, 1, 1, 1)$ and $(1, 1, 1, 0)$ ?
+\begin{enumerate}
+    \item[(A)] $\{(0, -1, 1, 0)\}$
+    \item[(B)] $\{(1, 0, 0, 0), (0, 0, 0, 1)\}$
+    \item[(C)] $\{(-2, 1, 1, -2), (0, 1, -1, 0)\}$
+    \item[(D)] $\{(1, -1, 0, 1), (-1, 1, 0, -1), (0, 1, -1, 0)\}$
+    \item[(E)] $\{(0, 0, 0, 0), (-1, 1, 0, -1), (0, 1, -1, 0)\}$
+\end{enumerate}
+
+25. Let $f$ be the function defined by $f(x, y) = 5x - 4y$ on the region in the $xy$-plane satisfying the inequalities $x \le 2$, $y \ge 0$, $x + y \ge 1$, and $y - x \le 0$. The maximum value of $f$ on this region is
+\begin{enumerate}
+    \item[(A)] 1
+    \item[(B)] 2
+    \item[(C)] 5
+    \item[(D)] 10
+    \item[(E)] 15
+\end{enumerate}
+
+26. Let $f$ be the function defined by
+$$f(x) = \begin{cases} -x^2 + 4x - 2 & \text{if } x < 1, \\ -x^2 + 2 & \text{if } x \ge 1. \end{cases}$$
+Which of the following statements about $f$ is true?
+\begin{enumerate}
+    \item[(A)] $f$ has an absolute maximum at $x = 0$.
+    \item[(B)] $f$ has an absolute maximum at $x = 1$.
+    \item[(C)] $f$ has an absolute maximum at $x = 2$.
+    \item[(D)] $f$ has no absolute maximum.
+    \item[(E)] $f$ has local maxima at both $x = 0$ and $x = 2$.
+\end{enumerate}
+
+27. Let $f$ be a function such that $f(x) = f(1 - x)$ for all real numbers $x$. If $f$ is differentiable everywhere, then $f'(0) =$
+\begin{enumerate}
+    \item[(A)] $f(0)$
+    \item[(B)] $f(1)$
+    \item[(C)] $-f(0)$
+    \item[(D)] $f'(1)$
+    \item[(E)] $-f'(1)$
+\end{enumerate}
+
+28. If $V_1$ and $V_2$ are 6-dimensional subspaces of a 10-dimensional vector space $V$, what is the smallest possible dimension that $V_1 \cap V_2$ can have?
+\begin{enumerate}
+    \item[(A)] 0
+    \item[(B)] 1
+    \item[(C)] 2
+    \item[(D)] 4
+    \item[(E)] 6
+\end{enumerate}
+
+29. Assume that $p$ is a polynomial function on the set of real numbers. If $p(0) = p(2) = 3$ and $p'(0) = p'(2) = -1$, then $\int_0^2 x p''(x) \, dx =$
+\begin{enumerate}
+    \item[(A)] $-3$
+    \item[(B)] $-2$
+    \item[(C)] $-1$
+    \item[(D)] $1$
+    \item[(E)] $2$
+\end{enumerate}
+
+30. Suppose $B$ is a basis for a real vector space $V$ of dimension greater than 1. Which of the following statements could be true?
+\begin{enumerate}
+    \item[(A)] The zero vector of $V$ is an element of $B$.
+    \item[(B)] $B$ has a proper subset that spans $V$.
+    \item[(C)] $B$ is a proper subset of a linearly independent subset of $V$.
+    \item[(D)] There is a basis for $V$ that is disjoint from $B$.
+    \item[(E)] One of the vectors in $B$ is a linear combination of the other vectors in $B$.
+\end{enumerate}
+
+31. Which of the following CANNOT be a root of a polynomial in $x$ of the form $9x^5 + ax^3 + b$, where $a$ and $b$ are integers?
+\begin{enumerate}
+    \item[(A)] $-9$
+    \item[(B)] $-5$
+    \item[(C)] $\frac{1}{4}$
+    \item[(D)] $\frac{1}{3}$
+    \item[(E)] $9$
+\end{enumerate}
+
+32. When 20 children in a classroom line up for lunch, Pat insists on being somewhere ahead of Lynn. If Pat's demand is to be satisfied, in how many ways can the children line up?
+\begin{enumerate}
+    \item[(A)] $20!$
+    \item[(B)] $19!$
+    \item[(C)] $18!$
+    \item[(D)] $\frac{20!}{2}$
+    \item[(E)] $20 \cdot 19$
+\end{enumerate}
+
+33. How many integers from 1 to 1,000 are divisible by 30 but not by 16 ?
+\begin{enumerate}
+    \item[(A)] 29
+    \item[(B)] 31
+    \item[(C)] 32
+    \item[(D)] 33
+    \item[(E)] 38
+\end{enumerate}
+
+34. Suppose $f$ is a differentiable function for which $\lim_{x \to \infty} f(x)$ and $\lim_{x \to \infty} f'(x)$ both exist and are finite. Which of the following must be true?
+\begin{enumerate}
+    \item[(A)] $\lim_{x \to \infty} f'(x) = 0$
+    \item[(B)] $\lim_{x \to \infty} f''(x) = 0$
+    \item[(C)] $\lim_{x \to \infty} f(x) = \lim_{x \to \infty} f'(x)$
+    \item[(D)] $f$ is a constant function.
+    \item[(E)] $f'$ is a constant function.
+\end{enumerate}
+
+35. In $xyz$-space, an equation of the plane tangent to the surface $z = e^{-x} \sin y$ at the point where $x = 0$ and $y = \frac{\pi}{2}$ is
+\begin{enumerate}
+    \item[(A)] $x + y = 1$
+    \item[(B)] $x + z = 1$
+    \item[(C)] $x - z = 1$
+    \item[(D)] $y + z = 1$
+    \item[(E)] $y - z = 1$
+\end{enumerate}
+
+36. For each real number $x$, let $\mu(x)$ be the mean of the numbers 4, 9, 7, 5, and $x$; and let $\eta(x)$ be the median of these five numbers. For how many values of $x$ is $\mu(x) = \eta(x)$ ?
+\begin{enumerate}
+    \item[(A)] None
+    \item[(B)] One
+    \item[(C)] Two
+    \item[(D)] Three
+    \item[(E)] Infinitely many
+\end{enumerate}
+
+37. $\sum_{k=1}^\infty \frac{k^2}{k!} =$
+\begin{enumerate}
+    \item[(A)] $e$
+    \item[(B)] $2e$
+    \item[(C)] $(e + 1)(e - 1)$
+    \item[(D)] $e^2$
+    \item[(E)] $\infty$
+\end{enumerate}
+
+38. Which of the following integrals on the interval $\left[0, \frac{\pi}{4}\right]$ has the greatest value?
+\begin{enumerate}
+    \item[(A)] $\int_0^{\frac{\pi}{4}} \sin t \, dt$
+    \item[(B)] $\int_0^{\frac{\pi}{4}} \cos t \, dt$
+    \item[(C)] $\int_0^{\frac{\pi}{4}} \cos^2 t \, dt$
+    \item[(D)] $\int_0^{\frac{\pi}{4}} \cos 2t \, dt$
+    \item[(E)] $\int_0^{\frac{\pi}{4}} \sin t \cos t \, dt$
+\end{enumerate}
+
+39. Consider the function $f$ defined by $f(x) = e^{-x}$ on the interval $[0, 10]$. Let $n > 1$ and let $x_0, x_1, \ldots, x_n$ be numbers such that $0 = x_0 < x_1 < x_2 < \cdots < x_{n-1} < x_n = 10$. Which of the following is greatest?
+\begin{enumerate}
+    \item[(A)] $\sum_{j=1}^n f(x_j)(x_j - x_{j-1})$
+    \item[(B)] $\sum_{j=1}^n f(x_{j-1})(x_j - x_{j-1})$
+    \item[(C)] $\sum_{j=1}^n f\left(\frac{x_j + x_{j-1}}{2}\right)(x_j - x_{j-1})$
+    \item[(D)] $\int_0^{10} f(x) \, dx$
+    \item[(E)] $0$
+\end{enumerate}
+
+40. A fair coin is to be tossed 8 times. What is the probability that more of the tosses will result in heads than will result in tails?
+\begin{enumerate}
+    \item[(A)] $\frac{1}{4}$
+    \item[(B)] $\frac{1}{3}$
+    \item[(C)] $\frac{87}{256}$
+    \item[(D)] $\frac{23}{64}$
+    \item[(E)] $\frac{93}{256}$
+\end{enumerate}
+
+41. The function $f(x, y) = xy - x^3 - y^3$ has a relative maximum at the point
+\begin{enumerate}
+    \item[(A)] $(0, 0)$
+    \item[(B)] $(1, 1)$
+    \item[(C)] $(-1, -1)$
+    \item[(D)] $(1, 3)$
+    \item[(E)] $\left(\frac{1}{3}, \frac{1}{3}\right)$
+\end{enumerate}
+
+42. Consider the points $A = (-1, 2)$, $B = (6, 4)$, and $C = (1, -20)$ in the plane. For how many different points $D$ in the plane are $A$, $B$, $C$, and $D$ the vertices of a parallelogram?
+\begin{enumerate}
+    \item[(A)] None
+    \item[(B)] One
+    \item[(C)] Two
+    \item[(D)] Three
+    \item[(E)] Four
+\end{enumerate}
+
+43. If $A$ is a $3 \times 3$ matrix such that $A\begin{pmatrix} 0 \\ 1 \\ 2 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$ and $A\begin{pmatrix} 3 \\ 4 \\ 5 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}$, then the product $A\begin{pmatrix} 6 \\ 7 \\ 8 \end{pmatrix}$ is
+\begin{enumerate}
+    \item[(A)] $\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$
+    \item[(B)] $\begin{pmatrix} -1 \\ 2 \\ 0 \end{pmatrix}$
+    \item[(C)] $\begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}$
+    \item[(D)] $\begin{pmatrix} 9 \\ 10 \\ 11 \end{pmatrix}$
+    \item[(E)] not uniquely determined by the information given
+\end{enumerate}
+
+44. Let $f$ denote the function defined for all $x > 0$ by $f(x) = (\sqrt{x})^x$. Which of the following statements is FALSE?
+\begin{enumerate}
+    \item[(A)] $\lim_{x \to 0^+} f(x) = 1$
+    \item[(B)] $\lim_{x \to \infty} f(x) = \infty$
+    \item[(C)] $f(x) = x^{x/2}$ for all $x > 0$.
+    \item[(D)] The derivative $f'(x)$ is positive for all $x > 0$.
+    \item[(E)] The derivative $f'(x)$ is increasing for all $x > 0$.
+\end{enumerate}
+
+45. An experimental car is found to have a fuel efficiency $E(v)$, in miles per gallon of fuel, where $v$ is the speed of the car, in miles per hour. For a certain 4-hour trip, if $v = v(t)$ is the speed of the car $t$ hours after the trip started, which of the following integrals represents the number of gallons of fuel that the car used on the trip?
+\begin{enumerate}
+    \item[(A)] $\int_0^4 \frac{v(t)}{E(v(t))} \, dt$
+    \item[(B)] $\int_0^4 \frac{E(v(t))}{v(t)} \, dt$
+    \item[(C)] $\int_0^4 \frac{t v(t)}{E(v(t))} \, dt$
+    \item[(D)] $\int_0^4 \frac{t E(v(t))}{v(t)} \, dt$
+    \item[(E)] $\int_0^4 v(t)E(v(t)) \, dt$
+\end{enumerate}
+
+46. For $0 < t < \pi$, the matrix $\begin{pmatrix} \cos t & -\sin t \\ \sin t & \cos t \end{pmatrix}$ has distinct complex eigenvalues $\lambda_1$ and $\lambda_2$. For what value of $t$, $0 < t < \pi$, is $\lambda_1 + \lambda_2 = 1$ ?
+\begin{enumerate}
+    \item[(A)] $\frac{\pi}{6}$
+    \item[(B)] $\frac{\pi}{4}$
+    \item[(C)] $\frac{\pi}{3}$
+    \item[(D)] $\frac{\pi}{2}$
+    \item[(E)] $\frac{2\pi}{3}$
+\end{enumerate}
+
+47. Let $x$ and $y$ be uniformly distributed, independent random variables on $[0, 1]$. The probability that the distance between $x$ and $y$ is less than $\frac{1}{2}$ is
+\begin{enumerate}
+    \item[(A)] $\frac{1}{4}$
+    \item[(B)] $\frac{1}{3}$
+    \item[(C)] $\frac{1}{2}$
+    \item[(D)] $\frac{2}{3}$
+    \item[(E)] $\frac{3}{4}$
+\end{enumerate}
+
+49. If $f$ is a continuous function on the set of real numbers and if $a$ and $b$ are real numbers, which of the following must be true?
+\begin{enumerate}
+    \item[I.] $\int_a^b f(x) \, dx = \int_{a+3}^{b+3} f(x - 3) \, dx$
+    \item[II.] $\int_a^b f(x) \, dx = \int_a^3 f(x) \, dx - \int_b^3 f(x) \, dx$
+    \item[III.] $\int_{3a}^{3b} f(x) \, dx = 3 \int_a^b f(3x) \, dx$
+\end{enumerate}
+\begin{enumerate}
+    \item[(A)] I only
+    \item[(B)] II only
+    \item[(C)] I and II only
+    \item[(D)] II and III only
+    \item[(E)] I, II, and III
+\end{enumerate}
+
+50. How many continuous real-valued functions $f$ are there with domain $[-1, 1]$ such that $(f(x))^2 = x^2$ for each $x$ in $[-1, 1]$ ?
+\begin{enumerate}
+    \item[(A)] One
+    \item[(B)] Two
+    \item[(C)] Three
+    \item[(D)] Four
+    \item[(E)] Infinitely many
+\end{enumerate}
+
+51. Let $D$ be the region in the $xy$-plane in which the series $\sum_{k=1}^\infty \frac{(x + 2y)^k}{k}$ converges. Then the interior of $D$ is
+\begin{enumerate}
+    \item[(A)] an open disk
+    \item[(B)] the open region bounded by an ellipse
+    \item[(C)] the open region bounded by a quadrilateral
+    \item[(D)] the open region between two parallel lines
+    \item[(E)] an open half plane
+\end{enumerate}
+
+52. Consider the following system of linear equations over the real numbers, where $x$, $y$, and $z$ are variables and $b$ is a real constant.
+\begin{align*}
+    x + y + z &= 0 \\
+    x + 2y + 3z &= 0 \\
+    x + 3y + bz &= 0
+\end{align*}
+Which of the following statements are true?
+\begin{enumerate}
+    \item[I.] There exists a value of $b$ for which the system has no solution.
+    \item[II.] There exists a value of $b$ for which the system has exactly one solution.
+    \item[III.] There exists a value of $b$ for which the system has more than one solution.
+\end{enumerate}
+\begin{enumerate}
+    \item[(A)] II only
+    \item[(B)] I and II only
+    \item[(C)] I and III only
+    \item[(D)] II and III only
+    \item[(E)] I, II, and III
+\end{enumerate}
+
+53. In the complex plane, let $C$ be the circle $|z| = 2$ with positive (counterclockwise) orientation. Then
+$$ \int_C \frac{dz}{(z - 1)(z + 3)^2} = $$
+\begin{enumerate}
+    \item[(A)] 0
+    \item[(B)] $2\pi i$
+    \item[(C)] $\frac{\pi i}{2}$
+    \item[(D)] $\frac{\pi i}{8}$
+    \item[(E)] $\frac{\pi i}{16}$
+\end{enumerate}
+
+54. The inside of a certain water tank is a cube measuring 10 feet on each edge and having vertical sides and no top. Let $h(t)$ denote the water level, in feet, above the floor of the tank at time $t$ seconds. Starting at time $t = 0$, water pours into the tank at a constant rate of 1 cubic foot per second, and simultaneously, water is removed from the tank at a rate of $0.25h(t)$ cubic feet per second. As $t \to \infty$, what is the limit of the volume of the water in the tank?
+\begin{enumerate}
+    \item[(A)] 400 cubic feet
+    \item[(B)] 600 cubic feet
+    \item[(C)] 1,000 cubic feet
+    \item[(D)] The limit does not exist.
+    \item[(E)] The limit exists, but it cannot be determined without knowing $h(0)$.
+\end{enumerate}
+
+55. Suppose that $f$ is a twice-differentiable function on the set of real numbers and that $f(0)$, $f'(0)$, and $f''(0)$ are all negative. Suppose $f''$ has all three of the following properties.
+\begin{enumerate}
+    \item[I.] It is increasing on the interval $[0, \infty)$.
+    \item[II.] It has a unique zero in the interval $[0, \infty)$.
+    \item[III.] It is unbounded on the interval $[0, \infty)$.
+\end{enumerate}
+Which of the same three properties does $f$ necessarily have?
+\begin{enumerate}
+    \item[(A)] I only
+    \item[(B)] II only
+    \item[(C)] III only
+    \item[(D)] II and III only
+    \item[(E)] I, II, and III
+\end{enumerate}
+
+56. For every set $S$ and every metric $d$ on $S$, which of the following is a metric on $S$ ?
+\begin{enumerate}
+    \item[(A)] $4 + d$
+    \item[(B)] $e^d - 1$
+    \item[(C)] $d - |d|$
+    \item[(D)] $d^2$
+    \item[(E)] $\sqrt{d}$
+\end{enumerate}
+
+57. Let $\mathbb{R}$ be the field of real numbers and $\mathbb{R}[x]$ the ring of polynomials in $x$ with coefficients in $\mathbb{R}$. Which of the following subsets of $\mathbb{R}[x]$ is a subring of $\mathbb{R}[x]$ ?
+\begin{enumerate}
+    \item[I.] All polynomials whose coefficient of $x$ is zero
+    \item[II.] All polynomials whose degree is an even integer, together with the zero polynomial
+    \item[III.] All polynomials whose coefficients are rational numbers
+\end{enumerate}
+\begin{enumerate}
+    \item[(A)] I only
+    \item[(B)] II only
+    \item[(C)] I and III only
+    \item[(D)] II and III only
+    \item[(E)] I, II, and III
+\end{enumerate}
+
+58. Let $f$ be a real-valued function defined and continuous on the set of real numbers $\mathbb{R}$. Which of the following must be true of the set $S = \{f(c) \colon 0 < c < 1\}$ ?
+\begin{enumerate}
+    \item[I.] $S$ is a connected subset of $\mathbb{R}$.
+    \item[II.] $S$ is an open subset of $\mathbb{R}$.
+    \item[III.] $S$ is a bounded subset of $\mathbb{R}$.
+\end{enumerate}
+\begin{enumerate}
+    \item[(A)] I only
+    \item[(B)] I and II only
+    \item[(C)] I and III only
+    \item[(D)] II and III only
+    \item[(E)] I, II, and III
+\end{enumerate}
+
+59. A cyclic group of order 15 has an element $x$ such that the set $\{x^3, x^5, x^9\}$ has exactly two elements. The number of elements in the set $\{x^{13n} \colon n \text{ is a positive integer}\}$ is
+\begin{enumerate}
+    \item[(A)] 3
+    \item[(B)] 5
+    \item[(C)] 8
+    \item[(D)] 15
+    \item[(E)] infinite
+\end{enumerate}
+
+60. If $S$ is a ring with the property that $s = s^2$ for each $s \in S$, which of the following must be true?
+\begin{enumerate}
+    \item[I.] $s + s = 0$ for each $s \in S$.
+    \item[II.] $(s + t)^2 = s^2 + t^2$ for each $s, t \in S$.
+    \item[III.] $S$ is commutative.
+\end{enumerate}
+\begin{enumerate}
+    \item[(A)] III only
+    \item[(B)] I and II only
+    \item[(C)] I and III only
+    \item[(D)] II and III only
+    \item[(E)] I, II, and III
+\end{enumerate}
+
+61. What is the greatest integer that divides $p^4 - 1$ for every prime number $p$ greater than 5 ?
+\begin{enumerate}
+    \item[(A)] 12
+    \item[(B)] 30
+    \item[(C)] 48
+    \item[(D)] 120
+    \item[(E)] 240
+\end{enumerate}
+
+62. The coefficient of $x^3$ in the expansion of $(1 + x)^3(2 + x^2)^{10}$ is
+\begin{enumerate}
+    \item[(A)] $2^{14}$
+    \item[(B)] $31$
+    \item[(C)] $\binom{3}{3} + \binom{10}{1}$
+    \item[(D)] $\binom{3}{3} + 2\binom{10}{1}$
+    \item[(E)] $\binom{3}{3}\binom{10}{1}2^9$
+\end{enumerate}
+
+63. At how many points in the $xy$-plane do the graphs of $y = x^{12}$ and $y = 2^x$ intersect?
+\begin{enumerate}
+    \item[(A)] None
+    \item[(B)] One
+    \item[(C)] Two
+    \item[(D)] Three
+    \item[(E)] Four
+\end{enumerate}
+
+64. Suppose that $f$ is a continuous real-valued function defined on the closed interval $[0, 1]$. Which of the following must be true?
+\begin{enumerate}
+    \item[I.] There is a constant $C > 0$ such that $|f(x) - f(y)| \le C$ for all $x$ and $y$ in $[0, 1]$.
+    \item[II.] There is a constant $D > 0$ such that $|f(x) - f(y)| \le 1$ for all $x$ and $y$ in $[0, 1]$ that satisfy $|x - y| \le D$.
+    \item[III.] There is a constant $E > 0$ such that $|f(x) - f(y)| \le E|x - y|$ for all $x$ and $y$ in $[0, 1]$.
+\end{enumerate}
+\begin{enumerate}
+    \item[(A)] I only
+    \item[(B)] III only
+    \item[(C)] I and II only
+    \item[(D)] II and III only
+    \item[(E)] I, II, and III
+\end{enumerate}
+
+65. Let $p(x)$ be the polynomial $x^3 + ax^2 + bx + c$, where $a$, $b$, and $c$ are real constants. If $p(-3) = p(2) = 0$ and $p'(-3) < 0$, which of the following is a possible value of $c$ ?
+\begin{enumerate}
+    \item[(A)] $-27$
+    \item[(B)] $-18$
+    \item[(C)] $-6$
+    \item[(D)] $-3$
+    \item[(E)] $-\frac{1}{2}$
+\end{enumerate}
+
+66. In the $xy$-plane, if $C$ is the circle $x^2 + y^2 = 9$, oriented counterclockwise, then $\oint_C -2y \, dx + x^2 \, dy =$
+\begin{enumerate}
+    \item[(A)] $0$
+    \item[(B)] $6\pi$
+    \item[(C)] $9\pi$
+    \item[(D)] $12\pi$
+    \item[(E)] $18\pi$
+\end{enumerate}
+
+\begin{center}
+\begin{tabular}{ccc|ccc}
+\textbf{Question} & \textbf{Answer} & \textbf{P +} & \textbf{Question} & \textbf{Answer} & \textbf{P +} \\
+\hline
+1 & C & 73 & 36 & D & 38 \\
+2 & D & 86 & 37 & B & 32 \\
+3 & C & 88 & 38 & B & 54 \\
+4 & B & 87 & 39 & B & 53 \\
+5 & E & 83 & 40 & E & 54 \\
+6 & C & 87 & 41 & E & 49 \\
+7 & B & 81 & 42 & D & 60 \\
+8 & E & 76 & 43 & B & 64 \\
+9 & A & 77 & 44 & D & 39 \\
+10 & B & 55 & 45 & A & 47 \\
+11 & A & 80 & 46 & C & 50 \\
+12 & C & 75 & 47 & E & 32 \\
+13 & A & 72 & 48 & A & 36 \\
+14 & C & 63 & 49 & E & 41 \\
+15 & B & 61 & 50 & D & 34 \\
+16 & D & 83 & 51 & D & 35 \\
+17 & E & 80 & 52 & D & 52 \\
+18 & E & 63 & 53 & D & 35 \\
+19 & B & 55 & 54 & A & 31 \\
+20 & D & 52 & 55 & D & 28 \\
+21 & D & 71 & 56 & E & 19 \\
+22 & B & 72 & 57 & C & 20 \\
+23 & C & 72 & 58 & C & 34 \\
+24 & C & 50 & 59 & A & 28 \\
+25 & D & 70 & 60 & E & 23 \\
+26 & B & 67 & 61 & E & 25 \\
+27 & E & 65 & 62 & A & 36 \\
+28 & C & 62 & 63 & D & 17 \\
+29 & B & 63 & 64 & C & 35 \\
+30 & D & 55 & 65 & A & 44 \\
+31 & C & 65 & 66 & E & 58 \\
+32 & D & 59 & & & \\
+33 & A & 72 & & & \\
+34 & A & 52 & & & \\
+35 & B & 50 & & & \\
+\end{tabular}
+\end{center}
+    </script>
+</body>
+</html>
