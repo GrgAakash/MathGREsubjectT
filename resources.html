@@ -25,28 +25,30 @@
         header {
             background-color: var(--primary);
             color: white;
-            padding: 1.5rem 0;
+            padding: 2rem 0;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
         }
 
         .nav {
             background-color: var(--secondary);
             padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
         .nav-container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -78,16 +80,14 @@
         }
 
         .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
         }
 
         .content {
-            padding: 3rem 2rem;
+            padding: 0;
         }
 
         .content h2 {
@@ -120,17 +120,43 @@
         }
 
         .resource-card {
-            background: #f8f9fa;
+            background: white;
             padding: 1.5rem;
-            margin: 1rem 0;
+            margin: 1rem 0 1.5rem;
             border-radius: 8px;
-            border-left: 4px solid var(--accent);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
         }
 
         .resource-card h4 {
             color: var(--primary);
             margin-top: 0;
             margin-bottom: 0.5rem;
+        }
+
+        .resource-link-card {
+            color: inherit;
+            display: block;
+            text-decoration: none;
+        }
+
+        .resource-link-card .resource-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .resource-link-card:hover .resource-card {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+        }
+
+        .card-action {
+            color: var(--accent);
+            margin-bottom: 0;
         }
 
         footer {
@@ -147,14 +173,7 @@
                 gap: 1rem;
             }
             
-            .container {
-                margin: 1rem;
-                padding: 0;
-            }
-            
-            .content {
-                padding: 2rem 1rem;
-            }
+            .container { width: 92%; }
         }
     </style>
     <style>
@@ -165,14 +184,18 @@
         .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
         .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
         .nav-links a:hover, .nav-links a.active { opacity: 1; text-decoration: underline; background: transparent; }
-        .container { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .container { background: transparent; border: 0; box-shadow: none; border-radius: 0; }
+        .content h2, .content h3, .content a, .resource-card h4 { color: #0d0d0d; }
         .resource-card { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
+        .resource-link-card:hover .resource-card { box-shadow: 4px 4px 0px #0d0d0d; }
+        .card-action { color: #0d0d0d; text-decoration: underline; }
         footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
     </style>
 </head>
 <body>
     <header>
         <h1>Resources</h1>
+        <p class="subtitle">Books, links, strategies, and student reflections</p>
     </header>
     
     <nav class="nav">
@@ -252,6 +275,15 @@
                 <h4>Paul's Online Math Notes</h4>
                 <p>Comprehensive calculus and differential equations notes with examples.</p>
             </div>
+
+            <h3>Student Reflections</h3>
+            <a href="math-gre-reflection.html" class="resource-link-card">
+                <div class="resource-card">
+                    <h4>Math GRE Reflection / Advice from a 970 Scorer</h4>
+                    <p>Read advice from Vu Minh Khang Ho, who scored 970 on the Math GRE after taking the exam in the USA on May 2, 2026. He has also placed in the Putnam Top 500 for three consecutive years and will be applying to PhD programs in pure math in Fall 2026.</p>
+                    <p class="card-action">Read the full interview &rarr;</p>
+                </div>
+            </a>
 
             <h3>Test-Taking Tips from the Internet</h3>
             <ul>

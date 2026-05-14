@@ -25,28 +25,30 @@
         header {
             background-color: var(--primary);
             color: white;
-            padding: 1.5rem 0;
+            padding: 2rem 0;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
         }
 
         .nav {
             background-color: var(--secondary);
             padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
         .nav-container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -78,16 +80,14 @@
         }
 
         .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
         }
 
         .content {
-            padding: 3rem 2rem;
+            padding: 0;
         }
 
         .content h2 {
@@ -119,6 +119,42 @@
             margin-bottom: 0.5rem;
         }
 
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+        .category-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .category-header h3 {
+            color: inherit;
+            margin: 0;
+        }
+
+        .category-body {
+            padding: 1.5rem;
+        }
+
         footer {
             background-color: var(--primary);
             color: white;
@@ -133,14 +169,7 @@
                 gap: 1rem;
             }
             
-            .container {
-                margin: 1rem;
-                padding: 0;
-            }
-            
-            .content {
-                padding: 2rem 1rem;
-            }
+            .categories { grid-template-columns: 1fr; }
         }
     </style>
     <style>
@@ -151,14 +180,19 @@
         .nav { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; padding: 0.75rem 0; }
         .nav-container .logo, .nav-links a { color: #0d0d0d; font-weight: bold; }
         .nav-links a:hover, .nav-links a.active { opacity: 1; text-decoration: underline; background: transparent; }
-        .container { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .container { background: transparent; border: 0; box-shadow: none; border-radius: 0; }
+        .content { background: transparent; border: 0; box-shadow: none; border-radius: 0; }
+        .content h2, .content h3, .content a { color: #0d0d0d; }
         .content h2 { text-shadow: 1px 1px 0px #ffffff; }
+        .category-card { background: #ffffff; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; border-radius: 0; }
+        .category-header { background: #ffffff; color: #0d0d0d; border-bottom: 2px solid #0d0d0d; }
         footer { background: #ffffff; color: #0d0d0d; border: 2px solid #0d0d0d; box-shadow: 2px 2px 0px #0d0d0d; }
     </style>
 </head>
 <body>
     <header>
         <h1>About</h1>
+        <p class="subtitle">How this Math GRE practice site is organized</p>
     </header>
     
     <nav class="nav">
@@ -176,26 +210,60 @@
     <div class="container">
         <div class="content">
             <h2>About This Site</h2>
-            <p>This is a collection of practice questions for the GRE Mathematics Subject Test, organized by topic with explanations whenever possible.</p>
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Site Purpose</h3>
+                    </div>
+                    <div class="category-body">
+                        <p>This is a collection of practice questions for the GRE Mathematics Subject Test, organized by topic with explanations whenever possible.</p>
+                    </div>
+                </div>
 
-            <h3>GRE Math Subject Test Coverage</h3>
-            <p>The test covers these main areas:</p>
-            <ul>
-                <li><strong>Calculus</strong> - About 50% of the test</li>
-                <li><strong>Abstract Algebra</strong> - About 25% of the test</li>
-                <li><strong>Real Analysis</strong> - About 25% of the test</li>
-                <li><strong>Other topics</strong> - Linear algebra, topology, complex analysis</li>
-            </ul>
-            <p>For more information, visit the official GRE Math Subject Test fact sheet: <a href="https://www.ets.org/pdfs/gre/fact-sheet-math.pdf" target="_blank">https://www.ets.org/pdfs/gre/fact-sheet-math.pdf</a></p>
-            <p>It is important to be familiar with the fact-sheet to strategically prepare for the test.The Calculus section also covers materials from Multivariable Calculus like Green's theorem, partial derivatives and ODE.</p>
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Test Coverage</h3>
+                    </div>
+                    <div class="category-body">
+                        <p>The test covers these main areas:</p>
+                        <ul>
+                            <li><strong>Calculus</strong> - About 50% of the test</li>
+                            <li><strong>Abstract Algebra</strong> - About 25% of the test</li>
+                            <li><strong>Real Analysis</strong> - About 25% of the test</li>
+                            <li><strong>Other topics</strong> - Linear algebra, topology, complex analysis</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <h3>How to Use</h3>
-            <p>Each section contains practice questions with multiple choice answers. Click on an answer to see if it's correct, and use the "Show/Hide Explanation" link to see the detailed solution.</p>
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Official Fact Sheet</h3>
+                    </div>
+                    <div class="category-body">
+                        <p>For more information, visit the official GRE Math Subject Test fact sheet: <a href="https://www.ets.org/pdfs/gre/fact-sheet-math.pdf" target="_blank">https://www.ets.org/pdfs/gre/fact-sheet-math.pdf</a></p>
+                        <p>It is important to be familiar with the fact sheet to strategically prepare for the test. The Calculus section also covers materials from Multivariable Calculus like Green's theorem, partial derivatives, and ODE.</p>
+                    </div>
+                </div>
 
-            <p>The questions are organized by topic, so you can focus on specific areas where you need more practice.</p>
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>How to Use</h3>
+                    </div>
+                    <div class="category-body">
+                        <p>Each section contains practice questions with multiple choice answers. Click on an answer to see if it is correct, and use the "Show/Hide Explanation" link to see the detailed solution.</p>
+                        <p>The questions are organized by topic, so you can focus on specific areas where you need more practice.</p>
+                    </div>
+                </div>
 
-            <h3>Test Format</h3>
-            <p>The actual GRE Math Subject Test has about 66 multiple-choice questions to complete in 2 hours and 50 minutes.</p>
+                <div class="category-card">
+                    <div class="category-header">
+                        <h3>Test Format</h3>
+                    </div>
+                    <div class="category-body">
+                        <p>The actual GRE Math Subject Test has about 66 multiple-choice questions to complete in 2 hours and 50 minutes.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
