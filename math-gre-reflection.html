@@ -119,9 +119,87 @@
             margin-bottom: 1rem;
         }
 
+        .resource-card h4 {
+            border: 2px solid var(--dark);
+            border-radius: 6px;
+            display: inline-block;
+            font-size: 1rem;
+            margin: 1rem 0 0.5rem;
+            padding: 0.25rem 0.65rem;
+        }
+
+        .resource-card h4:first-of-type {
+            background: #dcecff;
+        }
+
+        .resource-card h4:nth-of-type(2) {
+            background: #dff5e7;
+            margin-top: 1.75rem;
+        }
+
         .resource-card p,
         .resource-card li {
             font-size: 1.05rem;
+        }
+
+        .profile-grid,
+        .answer-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .profile-card,
+        .answer-card {
+            background: #ffffff;
+            border: 2px solid var(--dark);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .profile-card h3,
+        .answer-card h4 {
+            margin-top: 0;
+        }
+
+        .profile-card.khang-profile,
+        .answer-card.khang-answer {
+            background: #eef6ff;
+        }
+
+        .profile-card.joseph-profile,
+        .answer-card.joseph-answer {
+            background: #effaf2;
+        }
+
+        .answer-card.khang-answer h4 {
+            background: #dcecff;
+        }
+
+        .answer-card.joseph-answer h4 {
+            background: #dff5e7;
+        }
+
+        .resource-card[id] {
+            scroll-margin-top: 6rem;
+        }
+
+        .takeaways {
+            background: #fff8e5;
+        }
+
+        .takeaway-list {
+            margin-bottom: 0;
+        }
+
+        .question-nav ol {
+            columns: 2;
+            padding-left: 1.5rem;
+        }
+
+        .question-nav li {
+            break-inside: avoid;
+            margin-bottom: 0.5rem;
         }
 
         .back-link {
@@ -153,6 +231,15 @@
             .content {
                 padding: 2rem 1rem;
             }
+
+            .profile-grid,
+            .answer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .question-nav ol {
+                columns: 1;
+            }
         }
     </style>
     <style>
@@ -172,8 +259,8 @@
 </head>
 <body>
     <header>
-        <h1>Math GRE Reflection / Advice from a 970 Scorer</h1>
-        <p class="subtitle">Advice from Vu Minh Khang Ho, who scored 970 on the Math GRE in the USA on May 2, 2026</p>
+        <h1>Math GRE Reflection / Advice from 970 Scorers</h1>
+        <p class="subtitle">Advice from Vu Minh Khang Ho and Joseph Kasel, who each scored 970 on the Math GRE</p>
     </header>
 
     <nav class="nav">
@@ -192,108 +279,294 @@
         <div class="content">
             <a href="resources.html" class="back-link">&larr; Back to Resources</a>
             <h2>Interview Notes</h2>
-            <p>Vu Minh Khang Ho scored 970 on the Math GRE, has placed in the Putnam Top 500 for three consecutive years, and will be applying to PhD programs in pure math in Fall 2026.</p>
-
-            <div class="resource-card">
-                <h3>1. What was your math background before studying?</h3>
-                <p>Before preparing for the Math GRE, I had a fairly comprehensive undergraduate background. I had taken Calculus I-III, Linear Algebra, Differential Equations, Group Theory, Real Analysis, and some basic ideas of Ring and Field, though I did not take a course on Ring and Field Theory.</p>
+            <div class="profile-grid">
+                <div class="profile-card khang-profile">
+                    <h3>Khang</h3>
+                    <p>Vu Minh Khang Ho scored 970 on the Math GRE in the USA on May 2, 2026, has placed in the Putnam Top 500 for three consecutive years, and will be applying to PhD programs in pure math in Fall 2026.</p>
+                </div>
+                <div class="profile-card joseph-profile">
+                    <h3>Joseph</h3>
+                    <p>Joseph Kasel scored 970 on the Math GRE in the USA in September 2025. He is starting graduate school in pure mathematics at UC Berkeley in Fall 2026.</p>
+                </div>
             </div>
 
-            <div class="resource-card">
-                <h3>2. What score range were you aiming for, and how did you choose that target?</h3>
-                <p>I was aiming for a 900 or above, or at least around the 90th percentile.</p>
-                <p>I chose this target after doing some research online. From what I found, I felt that being around the 90th percentile would be a safe and strong score range for my graduate school goals.</p>
-            </div>
-
-            <div class="resource-card">
-                <h3>3. How long did you prepare in calendar time vs. focused hours per week?</h3>
-                <p>I started preparing around the middle of Fall 2025. However, most of my preparation was limited to the 1-2 hour weekly discussion sessions we had. I did not prepare much outside of those sessions for most of the semester.</p>
-                <p>About one or two weeks before the exam, I read through the Princeton Review book and ramped up my preparation.</p>
-            </div>
-
-            <div class="resource-card">
-                <h3>4. How did you balance review, new topics, and timed practice?</h3>
-                <p>After each session, we had notes from the session leaders with solved questions. I reviewed those occasionally.</p>
-                <p>Solving practice tests also helped a lot because it automatically reviewed many topics and showed me which areas I needed to revisit. In that sense, practice tests became both review and diagnosis.</p>
-            </div>
-
-            <div class="resource-card">
-                <h3>5. Which areas felt hardest on the real exam compared to what you expected?</h3>
-                <p>I can only speak for my own test.</p>
-                <p>Before the exam, I expected there might be one or two questions on ring theory or field theory that would be outside my scope. That turned out to be true. There was one ring theory question that I had to guess.</p>
-                <p>I also expected some calculus questions to be time-consuming, but in the practice tests I was usually able to solve them within one or two minutes. On the real exam, one or two calculus questions took me more than two minutes.</p>
-                <p>I expected one or two linear algebra questions to take about three or four minutes. On the real exam, I had one linear algebra question that took more than four minutes.</p>
-                <p>One thing I did not expect as much was a time-consuming algorithm/numerical analysis question.</p>
-            </div>
-
-            <div class="resource-card">
-                <h3>6. How did you pace yourself?</h3>
-                <p>My pacing strategy was:</p>
-                <ul>
-                    <li>Finish the first 30 questions in about 30-35 minutes.</li>
-                    <li>Finish questions 31-50 in the next hour.</li>
-                    <li>Use the remaining time for the last part of the test and skipped questions.</li>
+            <div class="resource-card takeaways">
+                <h3>Key Takeaways</h3>
+                <ul class="takeaway-list">
+                    <li>Timed practice is important for building pacing and confidence before test day.</li>
+                    <li>Calculus, especially Calculus III, is a high-payoff area to review carefully.</li>
+                    <li>Skipping and flagging hard questions quickly helps protect time for the full exam.</li>
+                    <li>Test-day logistics matter: ID, regulations, water, sleep, and arrival time can affect performance.</li>
                 </ul>
-                <p>For skipping, if a question was clearly outside my scope, I skipped it immediately and came back later.</p>
-                <p>If a question seemed within my scope, I tried it for about one minute. If I made good progress, I continued for another one or two minutes. If I made no real progress after one minute, I skipped it and came back later.</p>
-                <p>I guessed around six questions. Two of them were outside my scope, so I made educated guesses at the end. The other four were within my scope, but I could not solve them quickly enough, so I came back later and guessed due to time constraints.</p>
             </div>
 
-            <div class="resource-card">
+            <div class="resource-card question-nav">
+                <h3>Questions</h3>
+                <ol>
+                    <li><a href="#q1">Math background</a></li>
+                    <li><a href="#q2">Target score</a></li>
+                    <li><a href="#q3">Preparation timeline</a></li>
+                    <li><a href="#q4">Review vs. practice</a></li>
+                    <li><a href="#q5">Hardest areas</a></li>
+                    <li><a href="#q6">Pacing strategy</a></li>
+                    <li><a href="#q7">Time pressure</a></li>
+                    <li><a href="#q8">Energy management</a></li>
+                    <li><a href="#q9">Score interpretation</a></li>
+                    <li><a href="#q10">What they wish they knew</a></li>
+                    <li><a href="#q11">Checking work</a></li>
+                    <li><a href="#q12">Over-studied topics</a></li>
+                    <li><a href="#q13">Calculus section</a></li>
+                    <li><a href="#q14">Other advice</a></li>
+                </ol>
+            </div>
+
+            <div class="resource-card" id="q1">
+                <h3>1. What was your math background before studying?</h3>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>Before preparing for the Math GRE, I had a fairly comprehensive undergraduate background. I had taken Calculus I-III, Linear Algebra, Differential Equations, Group Theory, Real Analysis, and some basic ideas of Ring and Field, though I did not take a course on Ring and Field Theory.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>My background in terms of coursework is very similar to Khang's, although I had also taken a course on ring and field theory and a course on topology.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card" id="q2">
+                <h3>2. What score range were you aiming for, and how did you choose that target?</h3>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>I was aiming for a 900 or above, or at least around the 90th percentile.</p>
+                        <p>I chose this target after doing some research online. From what I found, I felt that being around the 90th percentile would be a safe and strong score range for my graduate school goals.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>I was also aiming for 900 or above and/or the 90th percentile because I knew that would be a strong score to send to graduate schools.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card" id="q3">
+                <h3>3. How long did you prepare in calendar time vs. focused hours per week?</h3>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>I started preparing around the middle of Fall 2025. However, most of my preparation was limited to the 1-2 hour weekly discussion sessions we had. I did not prepare much outside of those sessions for most of the semester.</p>
+                        <p>About one or two weeks before the exam, I read through the Princeton Review book and ramped up my preparation.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>I spent about a month preparing for the exam using the Princeton Review book. Once I started preparing, I tried to evenly space the topics in the Princeton Review book so that I would finish the book about a week before the exam.</p>
+                        <p>In the final week, I took a few practice exams, about two or three, to work on pacing and to get a feel for the exam questions.</p>
+                        <p>In retrospect, I would have spaced out my review more so that I would have done some over the summer and would not have had to do so much during the fall semester. I took the GRE in Fall 2025.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card" id="q4">
+                <h3>4. How did you balance review, new topics, and timed practice?</h3>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>After each session, we had notes from the session leaders with solved questions. I reviewed those occasionally.</p>
+                        <p>Solving practice tests also helped a lot because it automatically reviewed many topics and showed me which areas I needed to revisit. In that sense, practice tests became both review and diagnosis.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>Like I described for the previous question, I essentially focused on all of the review and new topics first and then focused on timed practice later.</p>
+                        <p>I did work through the practice questions in the Princeton Review book as I reviewed each topic. In the final week before the exam, when I worked through timed practice tests, I made sure to review and rework any questions that I missed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card" id="q5">
+                <h3>5. Which areas felt hardest on the real exam compared to what you expected?</h3>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>I can only speak for my own test.</p>
+                        <p>Before the exam, I expected there might be one or two questions on ring theory or field theory that would be outside my scope. That turned out to be true. There was one ring theory question that I had to guess.</p>
+                        <p>I also expected some calculus questions to be time-consuming, but in the practice tests I was usually able to solve them within one or two minutes. On the real exam, one or two calculus questions took me more than two minutes.</p>
+                        <p>I expected one or two linear algebra questions to take about three or four minutes. On the real exam, I had one linear algebra question that took more than four minutes.</p>
+                        <p>One thing I did not expect as much was a time-consuming algorithm/numerical analysis question.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>In terms of the topics themselves, some of the nuances from the easier topics, such as Calculus III and Linear Algebra, were the hardest for me. I expected that to be the case since it had been a while since I had taken those classes.</p>
+                        <p>But for me, time management was more difficult than any of the individual topics themselves. After I had reviewed, I was able to solve essentially all of the problems, but I was not necessarily able to solve all of them quickly.</p>
+                        <p>I did end up cutting it pretty close in terms of finishing all of the questions in time, but I felt like taking timed practice exams during the week prior helped me feel comfortable even as my time was running low.</p>
+                        <p>If I remember correctly, there is a timer on screen during the exam, which also helped me a lot with time management.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card" id="q6">
+                <h3>6. How did you pace yourself?</h3>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>My pacing strategy was:</p>
+                        <ul>
+                            <li>Finish the first 30 questions in about 30-35 minutes.</li>
+                            <li>Finish questions 31-50 in the next hour.</li>
+                            <li>Use the remaining time for the last part of the test and skipped questions.</li>
+                        </ul>
+                        <p>For skipping, if a question was clearly outside my scope, I skipped it immediately and came back later.</p>
+                        <p>If a question seemed within my scope, I tried it for about one minute. If I made good progress, I continued for another one or two minutes. If I made no real progress after one minute, I skipped it and came back later.</p>
+                        <p>I guessed around six questions. Two of them were outside my scope, so I made educated guesses at the end. The other four were within my scope, but I could not solve them quickly enough, so I came back later and guessed due to time constraints.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>I did not have any specific plans to pace myself, aside from answering the questions as quickly as possible.</p>
+                        <p>Similarly to Khang, if I had not made any progress on a question after about 30 seconds or a minute of work, I would flag it, skip it, and come back to it at the end. I only had to do this for a few questions.</p>
+                        <p>There was one question that I had to make an educated guess for, and there were a couple other questions that I was able to answer but were either longer or required an idea that I did not think of at first.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card" id="q7">
                 <h3>7. Did you feel time pressure on the real test compared to practice?</h3>
-                <p>I actually felt more pressure during some of the practice tests. That was mostly because I had less experience with the format at first and was less familiar with some topics.</p>
-                <p>On the real test, because I had already taken practice tests, I had a better sense of what to expect. So I did not feel as much pressure.</p>
-                <p>In essence, practice tests help a lot. They help you build a strategy and prepare your mindset for the actual exam. Like with any timed exam, you should practice enough so that you have a concrete strategy and a good mindset before test day.</p>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>I actually felt more pressure during some of the practice tests. That was mostly because I had less experience with the format at first and was less familiar with some topics.</p>
+                        <p>On the real test, because I had already taken practice tests, I had a better sense of what to expect. So I did not feel as much pressure.</p>
+                        <p>In essence, practice tests help a lot. They help you build a strategy and prepare your mindset for the actual exam. Like with any timed exam, you should practice enough so that you have a concrete strategy and a good mindset before test day.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>Even though I only finished the exam with a few minutes to spare, I did not feel much pressure timewise because I had gotten used to the timing of the exam by working through practice exams.</p>
+                        <p>Similarly to Khang, I felt the most time pressure on my first practice test. My experience is that the questions progressively get harder and more time-consuming, so seeing my pace get worse and worse as I worked through my first practice test was a bit unsettling.</p>
+                        <p>However, when I took the actual exam, I was used to this and it did not bother me very much.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="resource-card">
+            <div class="resource-card" id="q8">
                 <h3>8. How did you manage energy the day before and the morning of the test?</h3>
-                <p>Eat familiar food that you know will not cause any problems. Drink enough water before the test so you are not thirsty, but also go to the restroom before the exam starts.</p>
-                <p>You do not want to drink too much water during the test. At least in my test center, going to the restroom meant leaving the room, and that costs time. When you leave the room and re-enter, you also have to be checked again, which takes additional valuable time. In a timed, high-pressure exam, losing even two or three minutes matters.</p>
-                <p>Before entering the test room, there is a strict checking procedure. That environment can make you feel a bit stressed, so I would advise already going in with the mindset that this is normal.</p>
-                <p>I recommend arriving at least 30 minutes before the exam. That gives you time to get used to the environment and go through the checking procedure without rushing.</p>
-                <p>About a week before the exam, and especially two days before, I locked in and ramped up my preparation. But one day before the exam, I did not put too much pressure on myself. I did not take a full practice test. I just briefly reviewed materials and checked the test-day procedures and regulations, such as which ID to bring, what materials were allowed, and how early I should arrive.</p>
-                <p>I slept properly and did not study overnight.</p>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>Eat familiar food that you know will not cause any problems. Drink enough water before the test so you are not thirsty, but also go to the restroom before the exam starts.</p>
+                        <p>You do not want to drink too much water during the test. At least in my test center, going to the restroom meant leaving the room, and that costs time. When you leave the room and re-enter, you also have to be checked again, which takes additional valuable time. In a timed, high-pressure exam, losing even two or three minutes matters.</p>
+                        <p>Before entering the test room, there is a strict checking procedure. That environment can make you feel a bit stressed, so I would advise already going in with the mindset that this is normal.</p>
+                        <p>I recommend arriving at least 30 minutes before the exam. That gives you time to get used to the environment and go through the checking procedure without rushing.</p>
+                        <p>About a week before the exam, and especially two days before, I locked in and ramped up my preparation. But one day before the exam, I did not put too much pressure on myself. I did not take a full practice test. I just briefly reviewed materials and checked the test-day procedures and regulations, such as which ID to bring, what materials were allowed, and how early I should arrive.</p>
+                        <p>I slept properly and did not study overnight.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>The day before the exam, I did not do any practice questions at all. I just reviewed what I thought were my weakest topics and looked through some of the questions that I had missed on the practice exams.</p>
+                        <p>I made sure to get a good night's sleep the night before the exam, and I ate my usual breakfast from the dining hall before the exam.</p>
+                        <p>As Khang advised, make sure to drink enough water, but not so much that you have to leave the room to go to the bathroom during the exam.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="resource-card">
+            <div class="resource-card" id="q9">
                 <h3>9. How do you interpret the 970 for your goals?</h3>
-                <p>I do not have a finalized list of schools yet, but once I saw the score, I felt more confident about aiming higher and applying to stronger programs.</p>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>I do not have a finalized list of schools yet, but once I saw the score, I felt more confident about aiming higher and applying to stronger programs.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>Getting the 970 changed where I applied for graduate school, as I opted to add a couple more prestigious schools to my list.</p>
+                        <p>I would not have even applied to the school that I ultimately chose to go to without getting as high of a score as I did.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="resource-card">
+            <div class="resource-card" id="q10">
                 <h3>10. What is one thing you wish you had known before preparing?</h3>
-                <p>I wish I had known the topics covered by the Math GRE earlier. If I had known earlier, I could have planned my coursework better.</p>
-                <p>For example, I could have taken Complex Analysis, Numerical Analysis, Ring Theory, and Field Theory before the exam. That would have helped me avoid learning some topics outside of class in a short period of time.</p>
-                <p>Taking those courses properly, doing homework, and seeing the ideas in a broader context would have been better than studying only the exam-specific parts a few days before the test.</p>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>I wish I had known the topics covered by the Math GRE earlier. If I had known earlier, I could have planned my coursework better.</p>
+                        <p>For example, I could have taken Complex Analysis, Numerical Analysis, Ring Theory, and Field Theory before the exam. That would have helped me avoid learning some topics outside of class in a short period of time.</p>
+                        <p>Taking those courses properly, doing homework, and seeing the ideas in a broader context would have been better than studying only the exam-specific parts a few days before the test.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>I should have known this, but I wish that I had realized that the test covered a lot of content.</p>
+                        <p>In retrospect, it would have been wiser to space out my preparation more so that I would not have had to dedicate as much time per day to preparing, especially during the semester.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="resource-card">
+            <div class="resource-card" id="q11">
                 <h3>11. What was your strategy for checking work without burning the clock?</h3>
-                <p>After finishing a question, I briefly checked my steps for about 15-20 seconds.</p>
-                <p>For some questions, if there were two quick methods, I solved using one method and checked with the other. But I kept this very short, usually around 30 seconds maximum.</p>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>After finishing a question, I briefly checked my steps for about 15-20 seconds.</p>
+                        <p>For some questions, if there were two quick methods, I solved using one method and checked with the other. But I kept this very short, usually around 30 seconds maximum.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>For some of the easier questions that I felt confident about, I did not really check my work at all. For some of the harder questions that I felt less confident about, I flagged them and rechecked my work at the end as time permitted.</p>
+                        <p>I also tried to gauge how likely I would be to make a silly mistake on a given question, and that informed how closely I checked my work.</p>
+                        <p>For example, several questions will have the correct answer but with the wrong sign as an option. For those questions, I would make sure that the sign on my answer was correct or seemed reasonable.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="resource-card">
+            <div class="resource-card" id="q12">
                 <h3>12. Were there topics you over-studied relative to payoff?</h3>
-                <p>Most of the topics I studied were within my expectations and felt useful. I do not think I heavily over-studied any major area.</p>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>Most of the topics I studied were within my expectations and felt useful. I do not think I heavily over-studied any major area.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>Not really. I studied Calculus III the most, and knowing all of the tricks and harder concepts really paid off on a couple of questions.</p>
+                        <p>My experience is that the Princeton Review book is pretty good in terms of the ratio between the number of review questions per topic and the number of questions per topic on the actual exam.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="resource-card">
+            <div class="resource-card" id="q13">
                 <h3>13. Did the calculus section feel like half the test? Are regular books like Stewart enough, or do you need more tricks?</h3>
-                <p>Yes, I also felt that calculus made up about half of the test. You should be very well prepared in Calculus I, II, III, and Differential Equations.</p>
-                <p>You should be comfortable with Stewart-level questions, or questions from any standard calculus textbook. At least for my exam, I did not need tricks beyond what appears in a standard calculus book.</p>
-                <p>The Fundamental Theorem of Calculus appears very often, so you should be very strong with all kinds of questions related to it.</p>
-                <p>Also, review Calculus III topics carefully: directional derivatives, surface integrals, vector calculus, and related ideas. Many people forget these topics by the time they take higher-level courses, so it is important to keep them fresh.</p>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>Yes, I also felt that calculus made up about half of the test. You should be very well prepared in Calculus I, II, III, and Differential Equations.</p>
+                        <p>You should be comfortable with Stewart-level questions, or questions from any standard calculus textbook. At least for my exam, I did not need tricks beyond what appears in a standard calculus book.</p>
+                        <p>The Fundamental Theorem of Calculus appears very often, so you should be very strong with all kinds of questions related to it.</p>
+                        <p>Also, review Calculus III topics carefully: directional derivatives, surface integrals, vector calculus, and related ideas. Many people forget these topics by the time they take higher-level courses, so it is important to keep them fresh.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>Yes, I think calculus was about half of the test. I only used the Princeton Review book to study, and the tactics from that book combined with what I remembered from class were enough to do the calculus questions.</p>
+                        <p>Again, to emphasize what I have said in previous questions and what Khang said, knowing all of the Calculus III topics and tricks inside and out will make a significant difference in your final score.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="resource-card">
+            <div class="resource-card" id="q14">
                 <h3>14. Any other things you would like to add?</h3>
-                <p>Read the test regulations carefully. Make sure you bring the correct ID and read all ETS reminders properly.</p>
-                <p>At least for my test, they gave four pages of scratch paper, meaning two sheets. They gave a pencil but no eraser.</p>
-                <p>You could raise your hand and ask for new scratch paper, but there was a catch: once they gave you new scratch paper, they took the old one away. For me, the scratch paper was enough, but it is something to keep in mind.</p>
-                <p>Also, the test submits automatically when time ends, so you can use the full time.</p>
-                <p>There is a review button, and I recommend using it near the end to make sure you did not accidentally miss any questions.</p>
+                <div class="answer-grid">
+                    <div class="answer-card khang-answer">
+                        <h4>Khang:</h4>
+                        <p>Read the test regulations carefully. Make sure you bring the correct ID and read all ETS reminders properly.</p>
+                        <p>At least for my test, they gave four pages of scratch paper, meaning two sheets. They gave a pencil but no eraser.</p>
+                        <p>You could raise your hand and ask for new scratch paper, but there was a catch: once they gave you new scratch paper, they took the old one away. For me, the scratch paper was enough, but it is something to keep in mind.</p>
+                        <p>Also, the test submits automatically when time ends, so you can use the full time.</p>
+                        <p>There is a review button, and I recommend using it near the end to make sure you did not accidentally miss any questions.</p>
+                    </div>
+                    <div class="answer-card joseph-answer">
+                        <h4>Joseph:</h4>
+                        <p>I will emphasize what Khang said: make sure you have proper ID and you adhere to the test regulations.</p>
+                        <p>At my test center, you had to place everything into a locker, including your wallet, any jewelry, watches, and similar items. The only things that you were allowed to bring in were your ID and glasses.</p>
+                        <p>They inspected everybody's glasses thoroughly and used a metal detector to make sure you were not bringing in anything that was not allowed.</p>
+                        <p>As Khang said, make sure to flag any questions that you want to review and use the review feature at the end of the test.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
